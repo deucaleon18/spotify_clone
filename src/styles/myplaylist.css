@@ -13,10 +13,14 @@
     color:white;
     align-items:end;
 }
+.playlistsong:hover{
+    background-color: grey;
+    
+}
 .playlist-area::-webkit-scrollbar {
     display: none;
   }
-  .playlistsong{
+.playlistsong{
     /* height:10vh; */
    
     background-color: rgba(34, 30, 30, 0.726);

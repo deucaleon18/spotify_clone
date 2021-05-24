@@ -3,9 +3,10 @@ import Player from './Player'
 import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
+// import Howl from 'Howler'
 // import{APIKey, url} from '../Auth/stats.js'
 import "../styles/myplaylist.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import {fa-play} from '@fortawesome/free-solid-svg-icons'
 
 // const element = <FontAwesomeIcon icon={fa-play} />
