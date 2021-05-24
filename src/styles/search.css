@@ -1,0 +1,37 @@
+.search-area{
+    background-color: rgb(14, 14, 14);
+    display:grid;
+    grid-template-rows:87vh;
+    width:150vh;
+    overflow-y: scroll;
+}
+
+.search-area::-webkit-scrollbar {
+    display: none;
+  }
+#search-bar{
+    height:2.5rem;
+    width:20rem;
+    border-radius: 20px;
+    margin:20px 0 0 15px;
+    padding:0 0 0 10px;
+}
+
+.search button{
+    height:2.5rem;
+    width:10rem;
+}
+.grid{
+    display:grid;
+    grid-template-rows:10vh 10vh 10vh 10vh 10vh ;
+    grid-template-columns:100vh 100vh;
+    grid-gap:10px;
+    background-color: brown;
+    width:100vh;
+    height:50vh;
+}
+/* .search{
+    display:grid;
+    grid-template-rows:repeat(9,1fr);
+    grid-template-columns:repeat()
+} */
