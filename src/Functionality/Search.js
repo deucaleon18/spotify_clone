@@ -56,20 +56,20 @@ import{APIKey, url} from '../Auth/stats.js';
               </form>
              
          {loading?<h1><Grid classname="grid"/></h1>:(
-            
+       
            searchresult.map((searcher)=>{
-          const{id,album,artist}=searcher
+          const{id,album,artist,preview}=searcher
              return(
-                <div key={id} className="box">
-                  
-                <h1>{artist.name}</h1>
+                <div key={id} className="search-box">
+                <a href={preview}>pl</a>
                 <img src={artist.picture_small} alt="" />
-                </div> 
-
+                <h3>{artist.name}</h3>
+                <h3>{album.title}</h3>
+                </div>
              )
-           })
-         
-          ) 
+           }
+           )  
+       )   
  }
         </div>
       
@@ -81,15 +81,18 @@ import{APIKey, url} from '../Auth/stats.js';
 const Grid=()=>{
 return (
 <div>
-<div>hello</div>
-<div>hello</div>
-<div>hello</div>
-<div>hello</div>
-<div>hello</div>
+<div>
+   <div className="grid-column"></div>
+   <div></div>
+   <div></div>
+   <div></div>
+</div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
 </div>
 )
-
-
 }
 
 export default Search;
