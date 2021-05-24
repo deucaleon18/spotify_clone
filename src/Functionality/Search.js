@@ -62,14 +62,13 @@ import{APIKey, url} from '../Auth/stats.js';
              return(
                 <div key={id} className="search-box">
                 <a href={preview}>pl</a>
-                <img src={artist.picture_small,preview} alt="" />
+                <img src={artist.picture_small} alt="" />
                 <h3>{artist.name}</h3>
                 <h3>{album.title}</h3>
                 </div>
              )
            }
-           )
-           
+           )  
        )   
  }
         </div>
@@ -94,8 +93,6 @@ return (
 <div></div>
 </div>
 )
-
-
 }
 
 export default Search;

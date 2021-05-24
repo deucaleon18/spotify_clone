@@ -92,9 +92,11 @@ return(<div className="mainplayer">
     {deezer.map((song)=>{
         const{title,picture}=song
         return <div  className="box">
-        <img src={picture}alt="" />
+        <a href="/mp">
+        <img src={picture}alt=""/>
         <h4>{title}</h4>
         <button>PLAY</button>
+        </a>
     </div>
     })}
 </div>
