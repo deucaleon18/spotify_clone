@@ -3,6 +3,7 @@ import Player from './Player'
 import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
+import {Howl} from "howler";
 // import Howl from 'Howler'
 // import{APIKey, url} from '../Auth/stats.js'
 import "../styles/myplaylist.css";
@@ -54,10 +55,18 @@ const[loading,setLoading]=useState(true)
   <h3>DATE ADDED</h3>
   <h3>TIME</h3>
 </div>
+
 {!loading?(deezer.map((song)=>{
+   function soundPlay(src){
+    const sound=new Howl({
+       src
+       // html5:true
+    })
+    sound.play()
+ }
          const{id,album,artist,time_add,preview,title}=song
         return (<div key={id}className="playlistsong">
-        <h3><button ><a href={preview}>pl</a></button></h3>
+        <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
         <img src={album.cover} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>

@@ -1,0 +1,44 @@
+.liked-area{
+    background-color: rgb(14, 14, 14);
+    display:grid;
+    grid-template-rows:48vh 16vh repeat(10,6vh);
+    overflow-y: scroll;
+    height:87vh;
+}
+.liked-area::-webkit-scrollbar {
+    display: none;
+  }
+
+.sectionheader{
+    display:grid;
+    grid-template-columns:30px 40px 4fr 2fr 2fr 1fr;
+    width:100%;
+    background-color: rgba(34, 30, 30, 0.726);
+    color:white;
+    align-items:end;
+}
+
+
+.likedsong{
+    /* height:10vh; */
+    display:grid;
+    grid-template-columns:10px 4fr 2fr 2fr 1fr;
+    background-color: rgba(34, 30, 30, 0.726);
+    width:100%;
+    display:grid;
+    grid-template-columns:30px 40px 4fr 2fr 2fr 1fr;
+    align-items:center;
+    color:white;
+}
+.likedsong:hover{
+    background-color: rgba(128, 128, 128, 0.712);
+}
+.liked-banner{
+    background-image:url('liked.jpg');
+    /* background-position-x:25px; */
+    background-position-y:-235px;
+    background-repeat: no-repeat;
+    background-size: cover;
+     margin:0 5px; 
+     opacity:0.8;
+}
