@@ -27,7 +27,6 @@ const deezerCharts_1=async()=>{
      if(deezer!==undefined){console.log(deezer)}
      if(data!==undefined){setLoading(false);}
  }
-
  const deezerCharts_2=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/00000000005", {
         "method": "GET",
@@ -39,9 +38,7 @@ const deezerCharts_1=async()=>{
      const data= await results.json()
      console.log(data);
     //  setDeezer(data);
- 
  }
-
  const deezerCharts_3=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/00001001007", {
         "method": "GET",
@@ -53,9 +50,7 @@ const deezerCharts_1=async()=>{
      const data= await results.json()
      console.log(data);
     //  setDeezer(data);
- 
  }
-
  const deezerCharts_4=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/00000001007", {
         "method": "GET",
@@ -67,9 +62,7 @@ const deezerCharts_1=async()=>{
      const data= await results.json()
      console.log(data);
     //  setDeezer(data);
- 
  }
-
 useEffect(()=>{
 deezerCharts_1();
 deezerCharts_2();
@@ -77,8 +70,6 @@ deezerCharts_3();
 deezerCharts_4();
 },[])
 
-
- 
 return(<div className="mainplayer">
 <div className="banner">
     <img src="" alt="" />
@@ -101,9 +92,7 @@ return(<div className="mainplayer">
     })}
 </div>
 </>):<h1>loading</h1>}
-
 {/* 
-
    <div className="title">TOP ARTISTS</div>
    <div className="arrange1">
    {artists.map((artist)=>{
@@ -140,8 +129,6 @@ return(<div className="mainplayer">
 </div>     
     )  
 }
-
-
  export default Mainplayer;
 
 
