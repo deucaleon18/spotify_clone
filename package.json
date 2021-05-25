@@ -10,11 +10,13 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "brfs": "^2.0.2",
+    "howler": "^2.2.1",
     "last-fm": "^5.3.0",
     "md5": "^2.3.0",
     "react": "^17.0.2",
     "react-audio-player": "^0.17.0",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"

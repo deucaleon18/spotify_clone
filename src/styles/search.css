@@ -3,10 +3,9 @@
     display:grid;
     grid-template-rows:10vh;
     height:87vh;
-    width:150vh;
+    width:100%;
     overflow-y: scroll;
 }
-
 .search-area::-webkit-scrollbar {
     display: none;
   }
@@ -26,7 +25,7 @@
 .search-box{
     height:10vh;width:100%;
     display:grid;
-    grid-template-columns:30px 50px 4fr 2fr 2fr 1fr;
+    grid-template-columns:30px 50px 50px 50px 4fr 2fr 2fr 1fr;
     grid-gap:20px;
     color:white;
     align-items:center;
@@ -34,8 +33,12 @@
 .search-box img{
     width:100%;
 }
+.search-box button{
+    width:100%;
+}
 .search-box:hover{
-    background-color:grey;
+    background-color:black;
+    color:rgba(255, 0, 0, 0.678);
 }
 .grid{
     display:grid;

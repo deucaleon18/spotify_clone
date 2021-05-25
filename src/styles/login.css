@@ -1,0 +1,22 @@
+.login{
+    background-color:black;
+    height:100vh;
+}
+.login a{
+    background-color: #1DB954;
+    color:white;
+   
+    display:block;
+    margin:10px 0 0 600px;
+    padding:10px 0 0 20px;
+    border-radius:50px;
+    height:5rem;width:25rem;
+    position:relative;
+    top:200px
+}
+
+.login a{  background-color: #1DB954;
+    color:white;
+    font-weight: 700;
+    font-size: 2rem;
+text-decoration:none ;}

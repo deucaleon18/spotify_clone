@@ -36,8 +36,10 @@
 }
 .sidebar a:hover{
     transition: 1sec;
-    text-shadow: 0 0 5px white; 
+    /* text-shadow: 0 0 5px white;  */
     display: block;
+    color:rgba(255, 0, 0, 0.678);
     background:#191414;
+    border-left:solid 5px rgba(255, 0, 0, 0.678);
 } 
 
