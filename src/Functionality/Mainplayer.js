@@ -6,12 +6,11 @@ const url=" http://ws.audioscrobbler.com/2.0/";
 const APIKey="f03b8c9f7b186b3d4fa0b8073e9b0285";
 const URL=`${url}?api_key=${APIKey}&limit=5&format=json`
 const Mainplayer = () => {
-    const[charts,setCharts]=useState()
-    const[artists,setArtists]=useState()
-    const[tags,setTags]=useState()
-    const[location,setLocation]=useState()
-    const[recents,setRecents]=useState()
+ 
     const[deezer,setDeezer]=useState()
+    const[deezer_1,setDeezer_1]=useState()
+    const[deezer_2,setDeezer_2]=useState()
+    const[deezer_3,setDeezer_3]=useState()
     const[loading,setLoading]=useState(true)
 const deezerCharts_1=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1479458365", {
@@ -25,7 +24,7 @@ const deezerCharts_1=async()=>{
      console.log(data);
      setDeezer([data]);
      if(deezer!==undefined){console.log(deezer)}
-     if(data!==undefined){setLoading(false);}
+     
  }
  const deezerCharts_2=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/00000000005", {
@@ -37,6 +36,9 @@ const deezerCharts_1=async()=>{
     }) 
      const data= await results.json()
      console.log(data);
+     setDeezer_1([data]);
+     if(deezer_1!==undefined){console.log(deezer_1)}
+     
     //  setDeezer(data);
  }
  const deezerCharts_3=async()=>{ 
@@ -49,7 +51,9 @@ const deezerCharts_1=async()=>{
     }) 
      const data= await results.json()
      console.log(data);
-    //  setDeezer(data);
+     setDeezer_2([data]);
+     if(deezer_2!==undefined){console.log(deezer_2)}
+    
  }
  const deezerCharts_4=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/00000001007", {
@@ -59,9 +63,12 @@ const deezerCharts_1=async()=>{
             "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
         }
     }) 
+
      const data= await results.json()
      console.log(data);
-    //  setDeezer(data);
+     setDeezer_3([data]);
+     if(deezer_3!==undefined){console.log(deezer_3)}
+    
  }
 useEffect(()=>{
 deezerCharts_1();
@@ -70,13 +77,13 @@ deezerCharts_3();
 deezerCharts_4();
 },[])
 
-return(<div className="mainplayer">
+if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined)return(<div className="mainplayer">
 <div className="banner">
     <img src="" alt="" />
 </div>
             
 
-{!loading?(<>
+<>
 <div className="title">HAPPY HITS</div>
 
 <div className="arrange">
@@ -91,43 +98,54 @@ return(<div className="mainplayer">
     </div>
     })}
 </div>
-</>):<h1>loading</h1>}
-{/* 
-   <div className="title">TOP ARTISTS</div>
-   <div className="arrange1">
-   {artists.map((artist)=>{
-        const{name,mbid}=artist
+<div className="title">HAPPY HITS</div>
+
+<div className="arrange">
+    {deezer_1.map((song)=>{
+        const{title,picture}=song
         return <div  className="box">
-        <img src={img} alt="" />
-        <h4>{name}</h4>
+        <a href="/mp">
+        <img src={picture}alt=""/>
+        <h4>{title}</h4>
         <button>PLAY</button>
+        </a>
     </div>
-    })})
-   </div>
-   <div className="title">TOP TAGS</div>
-   <div className="arrange2">
-   {tags.map((tag)=>{
-        const{name,mbid}=tag
+    })}
+</div>
+<div className="title">HAPPY HITS</div>
+
+<div className="arrange">
+    {deezer_2.map((song)=>{
+        const{title,picture}=song
         return <div  className="box">
-        <img src={img} alt="" />
-        <h4>{name}</h4>
+        <a href="/mp">
+        <img src={picture}alt=""/>
+        <h4>{title}</h4>
         <button>PLAY</button>
+        </a>
     </div>
-    })})
-   </div>
-   <div className="title">TOP SONGS IN YOUR REGION</div>
-   <div className="arrange2">
-    {location.map((locate)=>{
-        const{name,mbid}=locate
+    })}
+</div>
+<div className="title">HAPPY HITS</div>
+
+<div className="arrange">
+    {deezer_3.map((song)=>{
+        const{title,picture}=song
         return <div  className="box">
-        <img src={img} alt="" />
-        <h4>{name}</h4>
+        <a href="/mp">
+        <img src={picture}alt=""/>
+        <h4>{title}</h4>
         <button>PLAY</button>
+        </a>
     </div>
-    })}) 
-</div>  */}
+    })}
+</div>
+
+</>)
+
 </div>     
     )  
+    return <h1>Loading.....</h1> 
 }
  export default Mainplayer;
 

@@ -1,54 +1,50 @@
 import React,{useState,useEffect} from 'react'
-import {url,APIKey,md5,secret} from './stats'
+import {tokenURL} from './stats'
 
 const Loading = () => {
-   const [token, setToken] = useState();
-   const [session, setSession] = useState();
-
-const signature=md5(`api_key${APIKey}methodauth.getSessiontoken${token}${secret}`)
-const sessUrl=`${url}?method=auth.getSession&api_key=${APIKey}&api_sig=${signature}&token=${token}&format=json`
-
-   
-
+    const [code, setCode] = useState();
+  const [token, setToken] = useState();
     useEffect(() => {
         
-        getToken();
+        getCode();
        
-        if(token!==undefined) {localStorage.setItem('token',token);
-        getSession();}
-         
-        if(session!==undefined){localStorage.setItem('sk',session)}
-    
-     handleRedirect();
-    // return () => {localStorage.deleteItem('token');
-    // localStorage.deleteItem('sk');
-        //  }
+         if(code!==undefined) {localStorage.setItem('code',code);
+         getToken();
+        };
+               
+//        if(session!==undefined){localStorage.setItem('sk',session)}
+//      handleRedirect();
+//     // return () => {localStorage.deleteItem('token');
+//     // localStorage.deleteItem('sk');
+//  }
     }, [])
-    const handleRedirect=()=>{
-        if(session!==undefined){
-            window.location.href='http://localhost:3000/r'
-        }
-    }
-const getToken=()=>{
+//     const handleRedirect=()=>{
+//         if(session!==undefined){
+//             window.location.href='http://localhost:3000/r'
+//         }
+//     }
+const getCode=()=>{
     let link=window.location.search;
     const urlParams=new URLSearchParams(link)
-    const key= urlParams.get('token')
-    setToken(key)
+    const key= urlParams.get('code')
+    setCode(key)
 }
-    const getSession=()=>{
-   localStorage.getItem('token')
-   
-   fetchSession(); 
+    const getToken=()=>{
+        
+  fetchToken();
        }
-       const fetchSession=async ()=>{ 
-        const result= await fetch(sessUrl)
-        const data=await result.json();
-        // const lock=data.session.key;
-        if(data!==undefined){console.log(data.session.key);
-        setSession(data.session.key);}
-    }          
+        const fetchToken=async ()=>{ 
+        window.localStorage.getItem('code')
+       const result= await fetch(`${tokenURL}&code=${code}`,{
+        mode: 'no-cors'
+       })
+       const data=await result.json();
+       
+       if(data!==undefined){console.log(data);
+     setToken(data);}
+   }          
+ if(code!==undefined){console.log(code);}
 if(token!==undefined){console.log(token);}
-if(session!==undefined){console.log(session);}
 return <div>
     <h1>Loading...</h1>
 </div>
