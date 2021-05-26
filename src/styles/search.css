@@ -25,7 +25,7 @@
 .search-box{
     height:10vh;width:100%;
     display:grid;
-    grid-template-columns:30px 50px 50px 4fr 2fr 2fr 1fr;
+    grid-template-columns:30px 50px 50px 50px 4fr 2fr 2fr 1fr;
     grid-gap:20px;
     color:white;
     align-items:center;

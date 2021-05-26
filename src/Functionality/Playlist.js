@@ -4,6 +4,7 @@ import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
 import {Howl} from "howler";
+import {Link,useParams} from 'react-router-dom'
 // import Howl from 'Howler'
 // import{APIKey, url} from '../Auth/stats.js'
 import "../styles/myplaylist.css";
@@ -12,7 +13,7 @@ import "../styles/myplaylist.css";
 
 // const element = <FontAwesomeIcon icon={fa-play} />
 
- const Myplaylist = () => {
+ const Playlist = () => {
 const playSong=()=>{
   return null
 }
@@ -84,4 +85,4 @@ const[loading,setLoading]=useState(true)
     )
 }
 
-export default Myplaylist;
+export default Playlist;

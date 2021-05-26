@@ -29,6 +29,9 @@ import {Howl} from "howler";
       if(searchresult!==undefined){setLoading(false);}
       }
 
+      const AddSongtoPlaylist=()=>{
+         
+      }
 
     return (
         <div className="search">
@@ -71,6 +74,7 @@ import {Howl} from "howler";
                 <div key={id} className="search-box">
                 <button onClick={()=>{soundPlay(`${preview}`)}}>Play</button>
                 <button onClick={()=>{soundPause()}}>Pause</button>
+                <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
                 <img src={artist.picture_small} alt=""/>
                 <h3>{artist.name}</h3>
                 <h3>{album.title}</h3>

@@ -1,10 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import "../styles/mainplayer.css"; 
-import img from '../styles/vinyl2.jpg'
-import {Link} from "react-router-dom"
-const url=" http://ws.audioscrobbler.com/2.0/";
-const APIKey="f03b8c9f7b186b3d4fa0b8073e9b0285";
-const URL=`${url}?api_key=${APIKey}&limit=5&format=json`
+import {Link} from "react-router-dom";
+import {url} from "../Auth/stats"
 const Mainplayer = () => {
  
     const[deezer,setDeezer]=useState()
@@ -12,6 +9,7 @@ const Mainplayer = () => {
     const[deezer_2,setDeezer_2]=useState()
     const[deezer_3,setDeezer_3]=useState()
     const[loading,setLoading]=useState(true)
+    const [user,setUser] = useState();
 const deezerCharts_1=async()=>{ 
     const results =await fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/1479458365", {
         "method": "GET",
@@ -75,7 +73,20 @@ deezerCharts_1();
 deezerCharts_2();
 deezerCharts_3();
 deezerCharts_4();
+getUser();
 },[])
+
+const addToLibrary=()=>{
+   fetch(`${url}user/albums&request_method=`)
+}
+
+const getUser=async()=>{
+    const results=await fetch(`${url}user/me&access_token=${localStorage.getItem('token')}`)
+    const data=await results.json()
+    console.log(data);
+    setUser(data);
+    if(data!==undefined){localStorage.setItem('user_id',data.id)}
+   }
 
 if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined)return(<div className="mainplayer">
 <div className="banner">
@@ -93,8 +104,10 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <a href="/mp">
         <img src={picture}alt=""/>
         <h4>{title}</h4>
-        <button>PLAY</button>
+        
         </a>
+        <button>PLAY</button>
+        <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 </div>
@@ -107,8 +120,10 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <a href="/mp">
         <img src={picture}alt=""/>
         <h4>{title}</h4>
-        <button>PLAY</button>
+   
         </a>
+        <button>PLAY</button>
+        <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 </div>
@@ -121,8 +136,10 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <a href="/mp">
         <img src={picture}alt=""/>
         <h4>{title}</h4>
-        <button>PLAY</button>
+     
         </a>
+        <button>PLAY</button>
+        <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 </div>
@@ -135,8 +152,9 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <a href="/mp">
         <img src={picture}alt=""/>
         <h4>{title}</h4>
-        <button>PLAY</button>
         </a>
+        <button>PLAY</button>
+        <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 </div>
