@@ -13,8 +13,8 @@ import "../styles/sidebar.css"
             <li><a href="#">Your Library</a></li>
             <li><a href="http://localhost:3000/login" onClick={()=>{localStorage.removeItem('token')}}>Logout</a></li>
             <h4>PLAYLISTS</h4>
-            <li><a href="#">Create Playlist</a></li>
-            <li><a href="#">Liked Songs</a></li>
+            <li><a href="http://localhost:3000/create-playlist">Create Playlist</a></li>
+            <li><a href="http://localhost:3000/liked">Liked Songs</a></li>
             <h6><a href="#">Inside your Head</a></h6>
             <h6><a href="#">My Playlist #1</a></h6>
         </ul>

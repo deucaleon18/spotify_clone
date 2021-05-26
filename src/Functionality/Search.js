@@ -29,9 +29,7 @@ import {Howl} from "howler";
       if(searchresult!==undefined){setLoading(false);}
       }
 
-      const AddSongtoPlaylist=()=>{
-         
-      }
+      const AddSongtoPlaylist=()=>{}
 
     return (
         <div className="search">
