@@ -11,10 +11,17 @@ import {url} from '../Auth/stats';
     }
 
 const GetNewPlaylist= async()=>{
-const results=await fetch(`${url}/playlist/${playlistID}`)
+const results=await fetch(`${url}playlist/${playlistID}`)
 const data =await results.json()
 console.log(data)
 }
+
+const DeletePlaylist= async()=>{
+    const access_token=localStorage.getItem('token')
+    const results=await fetch(`${url}playlist/${playlistID}&request_method=delete&access_token=${access_token}`)
+    const data =await results.json()
+    console.log(data)
+    }
  const CreateNewPlaylist=async()=>{
     const user_id= localStorage.getItem('user_id')
     const access_token=localStorage.getItem('token')
@@ -38,7 +45,9 @@ console.log(data)
               onChange={(e)=>setPlaylist(e.target.value)}
               />
               <button type="submit">Submit</button>
+
               </form>
+              <button onClick={()=>{DeletePlaylist()}}>Delete</button>
               </div>
               
         </div>
