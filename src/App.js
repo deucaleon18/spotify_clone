@@ -5,23 +5,25 @@ import Sidebar from './Functionality/Sidebar.js';
 import Mainplayer from "./Functionality/Mainplayer.js"
 import Player from './Functionality/Player/Player.js';
 import Socials from "./Socials";
-
+import Search from "./Functionality/Search"
 const App=()=>{
  
     
   return (
     
-    <div className="App">
-      
-      <Header />
-      <div className="middle">
-      <Sidebar />
-      <Mainplayer />
-      <Socials/>
-      </div>
-      <Player/> 
+  <div className="App">
+    
+    <Header />
+    <div className="middle">
+    <Sidebar />
+    <Mainplayer />
+    <Socials/>
     </div>
-  );
+    <Player/> 
+  </div>
+);
+
+
 }
 
 export default App;

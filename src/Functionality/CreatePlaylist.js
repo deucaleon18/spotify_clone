@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {url} from '../Auth/stats';
+
  const CreatePlaylist = () => {
     const [playlist,setPlaylist]=useState('')
      const [playlistID,setPlaylistID]=useState()
@@ -32,7 +33,7 @@ const DeletePlaylist= async()=>{
      if(playlistID!==undefined){GetNewPlaylist();}
  }
     return (
-        <div CreatePlaylist>
+        <div className="CreatePlaylist">
   <div className="bar">
               <form onSubmit={handleSubmit}>
               <label htmlFor="playlist"></label>

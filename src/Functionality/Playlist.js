@@ -6,9 +6,12 @@ import Header from '../Header'
 import {Howl} from "howler";
 import {Link,useParams} from 'react-router-dom'
 import {url} from "../Auth/stats"
+import {IconContext} from "react-icons"
+import {BiLike} from "react-icons/bi"
+import {AiTwotoneLike} from "react-icons/ai"
 // import Howl from 'Howler'
 // import{APIKey, url} from '../Auth/stats.js'
-import "../styles/playlist.css";
+import "../styles/Playlists/playlist.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import {fa-play} from '@fortawesome/free-solid-svg-icons'
 
@@ -21,6 +24,7 @@ import "../styles/playlist.css";
 
 const[deezer,setDeezer]=useState()
 const[loading,setLoading]=useState(true)
+const[liked,setLiked]=useState(false)
   const fetchPlaylistsongs=async()=>{ 
     const results =await fetch("https://loadingdevs-deezer.p.rapidapi.com/playlist/1479458365", {
         "method": "GET",
@@ -47,7 +51,7 @@ const[loading,setLoading]=useState(true)
     const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
     const data=await results.json();
     console.log(data)
-
+    setLiked(!liked)
   }
     return (
         <div className="playlists">
@@ -60,6 +64,7 @@ const[loading,setLoading]=useState(true)
 </div>
 <div className="sectionheader">
   <h3>#</h3>
+  <div></div>
   <div></div>
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -78,7 +83,7 @@ const[loading,setLoading]=useState(true)
          const{id,album,artist,time_add,preview,title}=song
         return (<div key={id}className="playlistsong">
         <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
-        <button onClick={()=>{likeSong(id)}}>Like</button>
+        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
         <img src={album.cover} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>

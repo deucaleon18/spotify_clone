@@ -8,7 +8,7 @@ import Playlist from './Functionality/Playlist';
 import User from "./Functionality/User"
 import CreatePlaylist from './Functionality/CreatePlaylist';
 import Liked from './Functionality/Liked';
-
+import MyLibrary from "./Functionality/MyLibrary"
 const Routing=()=>{
     return(<Router>
       <Route exact path="/s"><Appsearch/></Route> 
@@ -16,6 +16,7 @@ const Routing=()=>{
       <Route exact path="/mp"><Playlist/></Route>
       <Route exact path="/liked"><Liked/></Route>
       <Route exact path="/loading"><Loading/></Route>
+      <Route exact path="/library"><MyLibrary/></Route>
       <Route exact path="/login"><Login/></Route>
       <Route exact path="/user"><User/></Route>
       <Route exact path="/home">

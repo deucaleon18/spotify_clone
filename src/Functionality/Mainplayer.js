@@ -93,16 +93,14 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     <img src="" alt="" />
 </div>
             
-
-<>
 <div className="title">HAPPY HITS</div>
 
-<div className="arrange">
+<div className="arrange2">
     {deezer.map((song)=>{
-        const{title,picture}=song
+        const{title,picture_medium}=song
         return <div  className="box">
         <a href="/mp">
-        <img src={picture}alt=""/>
+        <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         
         </a>
@@ -110,15 +108,12 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
-</div>
-<div className="title">HAPPY HITS</div>
 
-<div className="arrange">
     {deezer_1.map((song)=>{
-        const{title,picture}=song
+        const{title,picture_medium}=song
         return <div  className="box">
         <a href="/mp">
-        <img src={picture}alt=""/>
+        <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
    
         </a>
@@ -126,15 +121,12 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
-</div>
-<div className="title">HAPPY HITS</div>
 
-<div className="arrange">
     {deezer_2.map((song)=>{
-        const{title,picture}=song
+        const{title,picture_medium}=song
         return <div  className="box">
         <a href="/mp">
-        <img src={picture}alt=""/>
+        <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
      
         </a>
@@ -142,27 +134,22 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
-</div>
-<div className="title">HAPPY HITS</div>
 
-<div className="arrange">
     {deezer_3.map((song)=>{
-        const{title,picture}=song
+        const{title,picture_medium}=song
         return <div  className="box">
         <a href="/mp">
-        <img src={picture}alt=""/>
+        <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </a>
         <button>PLAY</button>
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
-</div>
-
-</>)
-
-</div>     
-    )  
+</div> 
+ </div>   
+)
+  
     return <h1>Loading.....</h1> 
 }
  export default Mainplayer;

@@ -11,7 +11,7 @@
 
 .sectionheader{
     display:grid;
-    grid-template-columns:30px 40px 4fr 2fr 2fr 1fr;
+    grid-template-columns:30px 40px 50px 4fr 2fr 2fr 1fr;
     width:100%;
     background-color: rgba(34, 30, 30, 0.726);
     color:white;
@@ -22,13 +22,16 @@
 .likedsong{
     /* height:10vh; */
     display:grid;
-    grid-template-columns:10px 4fr 2fr 2fr 1fr;
+    grid-template-columns:30px 30px 40px 4fr 2fr 2fr 1fr;
     background-color: rgba(34, 30, 30, 0.726);
     width:100%;
     display:grid;
     grid-template-columns:30px 40px 4fr 2fr 2fr 1fr;
     align-items:center;
     color:white;
+}
+.likedsong img{
+    width:100%;
 }
 .likedsong:hover{
     background-color: rgba(128, 128, 128, 0.712);

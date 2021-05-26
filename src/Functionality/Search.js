@@ -7,7 +7,7 @@ import {Howl} from "howler";
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
     const [loading,setLoading]=useState(true);
-   
+    const [playing,setPlaying]=useState(false);
    const handleSubmit=async(e)=>{
        e.preventDefault();
       // fetchData();
@@ -60,22 +60,24 @@ import {Howl} from "howler";
                // html5:true
             })
             sound.play()
+            setPlaying(!playing);
+            
+           
          }
-         function soundPause(src){
-            const sound=new Howl({
-               src
-               // html5:true
-            })
+         function soundPause(id){
+            const sound={id}.Howl
             sound.pause()
+            setPlaying(!playing);
          }
+         
              return(
                 <div key={id} className="search-box">
-                <button onClick={()=>{soundPlay(`${preview}`)}}>Play</button>
-                <button onClick={()=>{soundPause()}}>Pause</button>
+              {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
+               <div></div>
                 <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
                 <img src={artist.picture_small} alt=""/>
-                <h3>{artist.name}</h3>
-                <h3>{album.title}</h3>
+                <h2>{artist.name}</h2>
+                <h2>{album.title}</h2>
                 </div>
              )
            }

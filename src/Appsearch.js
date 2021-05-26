@@ -14,7 +14,7 @@ const Appsearch=()=>{
     <div className="App">
       <Header />
       <div className="middle">
-      <Sidebar />
+      <Sidebar/>
       <Search/>
       <Socials/>
       </div>

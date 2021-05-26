@@ -45,7 +45,11 @@
     width:98%;
     height:90%;
     margin-left:2.5%;
-    
+    opacity:1.5; 
+}
+.box a {
+    text-decoration: none;
+    color:black;
 }
 .title{width:5fr;
 color:white;
@@ -59,12 +63,6 @@ font-size:4rem;
 .box h4{
     text-align: center;
     font-size: larger;
-}
-.arrange1{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr ;
-    background-color: black;
-    margin:10px 10px 10px 7px;
 }
 .arrange2{
     display:grid;

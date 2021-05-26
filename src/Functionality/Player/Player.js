@@ -4,7 +4,6 @@ import song from './Suncrown - Legend of the Forgotten Centuries.mp3'
 import Slider from './components/slider/Slider'
 import ControlPanel from './components/controls/ControlPanel'
 
- 
    const Player=()=>{
         const [percentage, setPercentage] = useState(0)
         const [isPlaying, setIsPlaying] = useState(false)
@@ -44,22 +43,22 @@ import ControlPanel from './components/controls/ControlPanel'
     return (
          <div className="player">
    <div className='app-container'> 
-
+   <ControlPanel
+        play={play}
+        isPlaying={isPlaying}
+        duration={duration}
+        currentTime={currentTime}
+      />
       <Slider percentage={percentage} onChange={onChange} />
-      <audio
+       <audio
         ref={audioRef}
         onTimeUpdate={getCurrDuration}
         onLoadedData={(e) => {
           setDuration(e.currentTarget.duration.toFixed(2))
         }}
         src={song}
-      ></audio>
-      <ControlPanel
-        play={play}
-        isPlaying={isPlaying}
-        duration={duration}
-        currentTime={currentTime}
-      />
+      ></audio> 
+   
     </div> 
      </div>
     

@@ -8,9 +8,9 @@ import "../styles/sidebar.css"
          
         <div className="sidebar">
         <ul>
-            <li><a href="http://localhost:3000">Home</a></li>
+            <li><a href="http://localhost:3000/home">Home</a></li>
             <li><a href="http://localhost:3000/s">Search</a></li>
-            <li><a href="#">Your Library</a></li>
+            <li><a href="http://localhost:3000/library">Your Library</a></li>
             <li><a href="http://localhost:3000/login" onClick={()=>{localStorage.removeItem('token')}}>Logout</a></li>
             <h4>PLAYLISTS</h4>
             <li><a href="http://localhost:3000/create-playlist">Create Playlist</a></li>
@@ -27,7 +27,7 @@ import "../styles/sidebar.css"
     <ul>
         <li><a href="http://localhost:3000">Home</a></li>
         <li><a href="http://localhost:3000/s">Search</a></li>
-        <li><a href="#">Your Library</a></li>
+        <li><a href="http://localhost:3000/library">Your Library</a></li>
         <li><a href="http://localhost:3000/login">Login</a></li>
         <h4>PLAYLISTS</h4>
         <li><a href="http://localhost:3000/create-playlist">Create Playlist</a></li>

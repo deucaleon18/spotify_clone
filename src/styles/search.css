@@ -37,7 +37,8 @@
     width:100%;
 }
 .search-box:hover{
-    background-color:grey;
+    background-color:black;
+    color:rgba(255, 0, 0, 0.678);
 }
 .grid{
     display:grid;
