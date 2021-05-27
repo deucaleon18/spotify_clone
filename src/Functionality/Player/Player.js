@@ -1,10 +1,10 @@
 import React,{ useState, useRef }  from 'react';
 import '../../styles/player.css';
-import song from './Suncrown - Legend of the Forgotten Centuries.mp3'
+// import song from './Suncrown - Legend of the Forgotten Centuries.mp3'
 import Slider from './components/slider/Slider'
 import ControlPanel from './components/controls/ControlPanel'
 import {url} from "../../Auth/stats"
-const  Player=()=>{
+const  Player=({song})=>{
 
         const [percentage, setPercentage] = useState(0)
         const [isPlaying, setIsPlaying] = useState(false)
@@ -20,7 +20,7 @@ const  Player=()=>{
       
         const play = () => {
           const audio = audioRef.current
-          audio.volume = 0.1
+          audio.volume = 1.0
       
           if (!isPlaying) {
             setIsPlaying(true)

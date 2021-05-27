@@ -28,17 +28,20 @@ useEffect(() => {
             <Header />
     <div className="middle">
     <Sidebar />
-    <div></div>
-    {/* {!loading?(<div className= "this-song-middle">
+  
+  <div className= "this-song-middle">
      
-      {thisSong.map((song)=>{
-          const
-      })}
-
-    </div>):<h1>loading...</h1> */}
+     {!loading?(  <div className="current-song">
+                  <img src={thisSong.album.cover_xl} alt="" />
+                  {/* <h1>{thisSong.title}</h1> */}
+              </div>
+):<h1>loading..</h1>}
+            
+     
+    </div>
     <Socials/>
     </div>
-    <Player></Player>
+   { !loading?(<Player song={thisSong.preview}/>):<Player/>}
         </div>
     )
 }

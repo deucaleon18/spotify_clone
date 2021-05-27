@@ -21,14 +21,7 @@ const MyPlaylists = () => {
             setMyplaylists(data.data);
             setLoading(false);
         }
-const deleteMyPlaylist=async()=>{
-    // const user_id=localStorage.getItem('user_id')
-    // const access_token=localStorage.getItem('token')
-    // const results=await fetch(`${url}user/${user_id}/playlists&access_token=${access_token}`)
-    // const data=await results.json()
-    // console.log(data;
-    return null;
-}
+
         if(myplaylists!==undefined){
             console.log(myplaylists)
         }
@@ -44,7 +37,16 @@ const deleteMyPlaylist=async()=>{
     <Sidebar />
   
 <div className="my-playlists-middle" >
+
 {myplaylists.map((song)=>{
+    const deleteMyPlaylist=async(ID)=>{
+        const user_id=localStorage.getItem('user_id')
+        const access_token=localStorage.getItem('token')
+        const results=await fetch(`${url}user/${user_id}/playlist/${ID}&access_token=${access_token}&request_method=delete`)
+        const data=await results.json()
+        console.log(data);
+      
+    }
     const{title,id,picture_medium,creator}=song;
     return(
         <div className="my-playlist-box-container" >
@@ -59,7 +61,7 @@ const deleteMyPlaylist=async()=>{
         </Link>
         <>
         <button onClick={()=>{
-        //  deleteMyPlaylist()
+         deleteMyPlaylist(`${id}`)
         }}>Delete</button>
         </>
         </div>
