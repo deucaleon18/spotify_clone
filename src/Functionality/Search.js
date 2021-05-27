@@ -70,14 +70,17 @@ import {Link} from "react-router-dom"
          }
          
              return(
-                <Link to={`/song/${id}`}>
+               <Link to={`/this/song/${id}`}>
                 <div key={id} className="search-box">
+                 <div></div>
               {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
-               <div></div>
+            
                 <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
+           
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
+           
                 </div>
                 </Link>
              )

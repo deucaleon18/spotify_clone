@@ -4,8 +4,29 @@
     background-color: #121212;
     display:grid;
     grid-template-columns:30vh;
+    grid-template-columns:repeat(4,1fr);
+    overflow-y: scroll;
+} 
+.my-playlists-middle button{
+    background-color:black;
+    color:white;
+    height:3rem;
+    display:block;
+    width:12rem;
 }
 
 .my-playlists-middle::-webkit-scrollbar {
     display: none;
   }
+
+.my-playlist-box-container{
+    margin:30px ;
+}
+.my-playlist-box{
+    height:30vh;
+    width:30vh;
+    background-color: black;
+    color:white;
+    margin:30px 30px;
+    color:white;
+}

@@ -12,7 +12,7 @@
 /* Background */
 .slider-container::before {
   content: '';
-  background-color: white;
+  background-color: black;
   width: 99%;
   height: calc(var(--progress-bar-height) - 1px);
   display: block;

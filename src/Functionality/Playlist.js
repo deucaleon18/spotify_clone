@@ -11,7 +11,7 @@ import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
 
- const Playlist= () => {
+const Playlist= () => {
 const{id}=useParams()
 const[deezer,setDeezer]=useState()
 const[loading,setLoading]=useState(true)
@@ -31,7 +31,7 @@ const[liked,setLiked]=useState(false)
      if(data!==undefined){setLoading(false);}
   }
 
-  if (deezer!==undefined){const playlistsongs=deezer;}
+
 
   useEffect(() => {
     fetchPlaylistsongs()
@@ -74,7 +74,7 @@ const[liked,setLiked]=useState(false)
     sound.play()
  }
          const{id,album,artist,time_add,preview,title}=song
-        return (<Link to={`/song/${id}`}><div key={id}className="playlistsong">
+        return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
         <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
         

@@ -146,6 +146,11 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     </div>
     })}
 </div> 
+<div className="title"><h4>HOT PLAYLISTS</h4></div>
+<div className="arrange2">
+
+</div>
+<div className="title"><h4>RECOMMENDATIONS</h4></div>
  </div>   
 )
   

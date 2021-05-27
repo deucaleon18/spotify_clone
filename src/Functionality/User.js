@@ -10,7 +10,6 @@ import {url} from "../Auth/stats"
 
  useEffect(() => {
      getUser()
-     
  }, [])
 
     return (

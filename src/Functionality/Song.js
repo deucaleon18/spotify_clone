@@ -10,6 +10,10 @@ import {url} from "../Auth/stats"
     const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
+useEffect(() => {
+    getThisSong();
+  
+}, [])
     const getThisSong=async()=>{
    const results=await fetch(`${url}track/${id}`)
    const data=await results.json();
@@ -19,8 +23,6 @@ const[loading,setLoading]=useState(true)
        setLoading(false)
    }
 }
- 
-
     return (
         <div>
             <Header />
@@ -36,9 +38,10 @@ const[loading,setLoading]=useState(true)
     </div>):<h1>loading...</h1> */}
     <Socials/>
     </div>
-    <Player/> 
+    <Player></Player>
         </div>
     )
 }
+
 
 export default Song;
