@@ -110,7 +110,7 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     })}
 
     {deezer_1.map((song)=>{
-        const{title,picture_medium}=song
+        const{title,picture_medium}=song;
         return <div  className="box">
         <a href="/playlist">
         <img src={picture_medium}alt=""/>

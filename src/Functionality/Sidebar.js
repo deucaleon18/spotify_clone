@@ -38,5 +38,4 @@ import "../styles/sidebar.css"
     </div>
 )
 }
-
 export default Sidebar;
