@@ -11,9 +11,9 @@ import Liked from './Functionality/Liked';
 import MyLibrary from "./Functionality/MyLibrary"
 const Routing=()=>{
     return(<Router>
-      <Route exact path="/s"><Appsearch/></Route> 
+      <Route exact path="/search"><Appsearch/></Route> 
       <Route exact path="/create-playlist"><CreatePlaylist/></Route> 
-      <Route exact path="/mp"><Playlist/></Route>
+      <Route exact path="/playlist"><Playlist/></Route>
       <Route exact path="/liked"><Liked/></Route>
       <Route exact path="/loading"><Loading/></Route>
       <Route exact path="/library"><MyLibrary/></Route>

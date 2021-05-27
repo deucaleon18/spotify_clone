@@ -27,7 +27,7 @@
 
 /* Custom Progress Bar */
 .progress-bar-cover {
-  background-color: rgb(218, 55, 145);
+  background-color:rgba(255, 0, 0, 0.678);
   width: 0%;
   height: var(--progress-bar-height);
   display: block;

@@ -99,7 +99,7 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     {deezer.map((song)=>{
         const{title,picture_medium}=song
         return <div  className="box">
-        <a href="/mp">
+        <a href="/playlist">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         
@@ -112,7 +112,7 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     {deezer_1.map((song)=>{
         const{title,picture_medium}=song
         return <div  className="box">
-        <a href="/mp">
+        <a href="/playlist">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
    
@@ -125,7 +125,7 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     {deezer_2.map((song)=>{
         const{title,picture_medium}=song
         return <div  className="box">
-        <a href="/mp">
+        <a href="/playlist">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
      
@@ -138,7 +138,7 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
     {deezer_3.map((song)=>{
         const{title,picture_medium}=song
         return <div  className="box">
-        <a href="/mp">
+        <a href="/playlist">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </a>
