@@ -13,7 +13,7 @@ import {AiTwotoneLike} from "react-icons/ai"
 import {Howl} from "howler";
 import {Link} from "react-router-dom"
 
- const Artist = () => {
+ const Album = () => {
     const likeSong=async(track_id)=>{
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
@@ -24,18 +24,18 @@ import {Link} from "react-router-dom"
       }
     const[liked,setLiked]=useState(false)
      const{id}=useParams();
-const[thisArtist,setThisArtist]=useState()
+const[thisAlbum,setThisAlbum]=useState()
 const[loading,setLoading]=useState(true)
 useEffect(() => {
-    getThisArtist();
+    getThisAlbum();
   
 },[])
-    const getThisArtist=async()=>{
-   const results=await fetch(`${url}artist/${id}/top`)
+    const getThisAlbum=async()=>{
+   const results=await fetch(`${url}album/${id}`)
    const data=await results.json();
    console.log(data)
    if(data!==undefined){
-       setThisArtist(data.data);
+       setThisAlbum(data.tracks.data);
        setLoading(false)
    }
 }
@@ -57,7 +57,7 @@ useEffect(() => {
   <h3>DATE ADDED</h3>
   <h3>TIME</h3>
 </div>
-{!loading?(thisArtist.map((song)=>{
+{!loading?(thisAlbum.map((song)=>{
    function soundPlay(src){
     const sound=new Howl({
        src
@@ -65,14 +65,14 @@ useEffect(() => {
     })
     sound.play()
  }
-         const{id,album,artist,duration,preview,title}=song
+         const{id,duration,preview,title}=song
         return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
         <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
         
-        <img src={album.cover_small} alt="la"/>
+        <img src="" alt="la"/>
         <h3>{title}</h3>
-        <h3>{artist.name}</h3>
+        <h3>{title}</h3>
         <h3>{duration}</h3>
         <h3>{}</h3>
          </div></Link>) 
@@ -90,8 +90,10 @@ useEffect(() => {
 
     <Socials/>
     </div>
-   { !loading?(<Player song={thisArtist.preview}/>):<Player/>}
+   { !loading?(<Player song={thisAlbum.preview}/>):<Player/>}
         </div>
     )
 }
- export default Artist;
+
+
+ export default Album;

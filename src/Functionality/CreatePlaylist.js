@@ -11,20 +11,21 @@ import {AiOutlinePlus} from 'react-icons/ai'
      const [playlistID,setPlaylistID]=useState()
      const [newplaylist,setNewplaylist]=useState()
     const [loading,setLoading]=useState(true)
+    const [popup,setPopup]=useState(false)
     const handleSubmit=async(e)=>{
         e.preventDefault();
        // fetchData();
        CreateNewPlaylist();
-    if(playlistID!==undefined) {GetNewPlaylist();}
+    // if(playlistID!==undefined) {GetNewPlaylist();}
     }
 
-const GetNewPlaylist= async()=>{
-const results=await fetch(`${url}playlist/${playlistID}`)
-const data =await results.json();
-if(data!==undefined){setNewplaylist(data);
-setLoading(false)}
-console.log(data);
-}
+// const GetNewPlaylist= async()=>{
+// const results=await fetch(`${url}playlist/${playlistID}`)
+// const data =await results.json();
+// if(data!==undefined){setNewplaylist(data);
+// setLoading(false)}
+// console.log(data);
+// }
 
 const DeletePlaylist= async()=>{
     const access_token=localStorage.getItem('token')
@@ -39,7 +40,7 @@ const DeletePlaylist= async()=>{
      const data=await results.json()
      console.log(data)
      setPlaylistID(data.id);
-     if(data!==undefined){GetNewPlaylist();}
+    //  if(data!==undefined){GetNewPlaylist();}
  }
     return (
         <div className="CreatePlaylist">
@@ -47,12 +48,10 @@ const DeletePlaylist= async()=>{
     <div className="middle">
     <Sidebar />
 
-  <div className="middle-create-playlist">
+  <div className="middle-create-playlist" >
       <h1>Create New Playlist</h1>
-      <div playlist-creation-grid>
-
-      <div className="add-new-playlist"><AiOutlinePlus color="white" size="12rem" className="plus"/></div>
-              <div className="create-playlist-form"><form onSubmit={handleSubmit}>
+      {popup?(<div className="poppup">
+<div className="create-playlist-form"><form onSubmit={handleSubmit}>
               <label htmlFor="playlist"></label>
               <input 
               type="text" 
@@ -63,21 +62,18 @@ const DeletePlaylist= async()=>{
               placeholder="Name of Your Playlist"
               />
               <button type="submit">Submit</button>
-
               </form>
-              <button onClick={()=>{DeletePlaylist()}}>Delete</button>
               </div>
+    </div>):<h1>loading...</h1>
+    
+    
+    } 
+      <div playlist-creation-grid>
+
+      <div className="add-new-playlist" onClick={()=>{setPopup(!popup)}}><AiOutlinePlus color="white" size="12rem" className="plus"/></div>
             
               
-                 
-              {!loading?(<div className="display-new-playlist">
-                  <h1>{newplaylist.title}</h1>
-                  <img src={newplaylist.picture_medium}/>
-              </div>):<div className="display-new-playlist">
-
-              </div>}
-              
-              
+              <button onClick={()=>{DeletePlaylist()}}>Delete</button>
               </div>
               </div>
               <Socials/>

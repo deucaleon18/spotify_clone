@@ -9,20 +9,20 @@ import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
- const Song = () => {
+ const Podcast = () => {
     const{id}=useParams();
-const[thisSong,setThisSong]=useState()
+const[thisPodcast,setThisPodcast]=useState()
 const[loading,setLoading]=useState(true)
 useEffect(() => {
     getThisSong();
   
 },[])
     const getThisSong=async()=>{
-   const results=await fetch(`${url}track/${id}`)
+   const results=await fetch(`${url}podcast/${id}`)
    const data=await results.json();
    console.log(data)
    if(data!==undefined){
-       setThisSong(data);
+       setThisPodcast(data);
        setLoading(false)
    }
 }
@@ -35,7 +35,7 @@ useEffect(() => {
   <div className= "this-song-middle">
      
      {!loading?(  <div className="current-song">
-                  <img src={thisSong.album.cover_xl} alt="" />
+                  <img src={thisPodcast.album.cover_xl} alt="" />
                   {/* <h1>{thisSong.title}</h1> */}
               </div>
 ):<div className= "this-song-middle"><Loader
@@ -49,10 +49,10 @@ className="loader"/></div>}
     </div>
     <Socials/>
     </div>
-   { !loading?(<Player song={thisSong.preview}/>):<Player/>}
+   { !loading?(<Player song={thisPodcast.preview}/>):<Player/>}
         </div>
     )
 }
 
 
-export default Song;
+export default Podcast;

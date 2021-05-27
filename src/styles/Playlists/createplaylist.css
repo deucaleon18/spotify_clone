@@ -16,8 +16,10 @@
     width:40vh;
     height:40vh;
     background-color: rgb(0, 0, 0);
-    margin:30px 30px;
+    /* margin:0 30px; */
     opacity:0.4;
+    /* position:relative;
+ top:300px; */
 }
 .plus{
     margin:30px 90px;
@@ -30,6 +32,7 @@
     width:23rem;
     display:block;
     margin:30px 30px;
+    cursor:pointer;
 }
 .add-new-playlist:hover{
     width:40vh;
@@ -37,6 +40,7 @@
     background-color: rgb(0, 0, 0);
     margin:30px 30px;
     opacity:0.8;
+    cursor:pointer;
 }
 .display-new-playlist{
     width:40vh;
@@ -52,3 +56,11 @@ grid-template-columns: 1fr 1fr;
 height:100vh;
 width:100%;
 } */
+.poppup{
+    height:80vh;
+    width:80%;
+    margin:auto;
+   background-color: coral;
+   opacity:1;
+   /* position:relative; */
+}

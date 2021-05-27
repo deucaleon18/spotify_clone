@@ -4,7 +4,9 @@ import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
 import {Howl} from "howler";
-import {Link,useParams} from 'react-router-dom'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+// import {Link,useParams} from 'react-router-dom'
 import {url} from "../Auth/stats"
 
 import "../styles/liked.css";
@@ -22,10 +24,18 @@ const[liked,setLiked]=useState([])
   }
 
   useEffect(() => {
-    fetchLikedsongs()
+ window.onload=fetchLikedsongs()
     
-  }, [])
+  },[])
 
+ const unlikeSong=async(ID)=>{
+    const user_id=localStorage.getItem('user_id')
+    const access_token=localStorage.getItem('token');
+    const results =await fetch(`${url}user/${user_id}/tracks&track_id=${ID}&access_token=${access_token}&request_method=delete`) 
+    const data= await results.json();
+    console.log(data);
+    window.location.reload();
+  }
     return (
         <div className="likedsongs">
 
@@ -54,17 +64,22 @@ const[liked,setLiked]=useState([])
     })
     sound.play()
  }
-         const{id,album,artist,time_add,preview,title}=song 
-         return (<div key={id}className="likedsong">
-        <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
-         <button >Liked</button>
-        {/* <img src={album.cover} alt="la"/> */}
-       <h3>{title}</h3>
-         <h3>{album.title}</h3>
-        <h3>DATE ADDED</h3>
-     <h3>{time_add}</h3></div>)
-     })): 
-    <h1>loading</h1>}
+    const{id,album,time_add,preview,title}=song 
+    return (<div key={id}className="likedsong">
+    <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
+    <button onClick={()=>{unlikeSong(`${id}`)}}>Liked</button>
+    <h3>{title}</h3>
+    <h3>{album.title}</h3>
+    <h3>DATE ADDED</h3>
+    <h3>{time_add}</h3></div>)
+     })):  
+     <Loader
+     type="Puff"
+     color="#00BFFF"
+     height={100}
+     width={100}
+     timeout={3000} //3 secs
+   />}
 
 </div>
       <Socials/>

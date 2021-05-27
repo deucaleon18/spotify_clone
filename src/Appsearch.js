@@ -1,5 +1,4 @@
 import React from 'react';
-import {useEffect,useState} from 'react'
 import './styles/App.css';
 import Header from './Header';
 import Sidebar from './Functionality/Sidebar.js';
