@@ -97,51 +97,50 @@ if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==un
 
 <div className="arrange2">
     {deezer.map((song)=>{
-        const{title,picture_medium}=song
+        const{title,picture_medium,id}=song
         return <div  className="box">
-        <a href="/playlist">
+     <Link to={`playlist/${id}`}>
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         
-        </a>
+        </Link>
         <button>PLAY</button>
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 
     {deezer_1.map((song)=>{
-        const{title,picture_medium}=song;
+        const{title,picture_medium,id}=song;
         return <div  className="box">
-        <a href="/playlist">
+         <Link to={`playlist/${id}`}>
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-   
-        </a>
+        </Link>
         <button>PLAY</button>
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 
     {deezer_2.map((song)=>{
-        const{title,picture_medium}=song
+        const{title,picture_medium,id}=song
         return <div  className="box">
-        <a href="/playlist">
+        <Link to={`playlist/${id}`}>
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
      
-        </a>
+        </Link>
         <button>PLAY</button>
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>
     })}
 
     {deezer_3.map((song)=>{
-        const{title,picture_medium}=song
+        const{title,picture_medium,id}=song
         return <div  className="box">
-        <a href="/playlist">
+        <Link to={`playlist/${id}`}>
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </a>
+        </Link>
         <button>PLAY</button>
         <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
     </div>

@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
-import {Link,useParams} from 'react-router-dom';
 
-const Artist = () => {
+const Playlist = () => {
     return (
         <div>
             
@@ -9,4 +8,4 @@ const Artist = () => {
     )
 }
 
-export default Artist;
+export default Playlist;

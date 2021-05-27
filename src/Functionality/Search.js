@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import "../styles/search.css";
 import{APIKey, url} from '../Auth/stats.js';
 import {Howl} from "howler";
-
+import {Link} from "react-router-dom"
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
@@ -56,8 +56,7 @@ import {Howl} from "howler";
           const{id,album,artist,preview}=searcher
          function soundPlay(src){
             const sound=new Howl({
-               src
-               // html5:true
+               src// html5:true
             })
             sound.play()
             setPlaying(!playing);
@@ -71,6 +70,7 @@ import {Howl} from "howler";
          }
          
              return(
+                <Link to={`/song/${id}`}>
                 <div key={id} className="search-box">
               {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
                <div></div>
@@ -79,6 +79,7 @@ import {Howl} from "howler";
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
                 </div>
+                </Link>
              )
            }
            )  
