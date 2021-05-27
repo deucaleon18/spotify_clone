@@ -5,7 +5,6 @@ const Loading = () => {
     const [code,setCode] = useState();
     
     const tokenURL=`https://deezerclone.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=${app_id}&secret=${secret}&code=${code}&output=json`
-//   const [token,setToken] = useState();
     useEffect(() => {
         getCode();
          if(code!==undefined) {
