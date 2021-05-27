@@ -54,15 +54,15 @@ const[liked,setLiked]=useState([])
     })
     sound.play()
  }
-         const{id,album,artist,time_add,preview,title}=song 
-         return (<div key={id}className="likedsong">
-        <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
-         <button >Liked</button>
+    const{id,album,artist,time_add,preview,title}=song 
+    return (<div key={id}className="likedsong">
+    <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
+    <button >Liked</button>
         {/* <img src={album.cover} alt="la"/> */}
-       <h3>{title}</h3>
-         <h3>{album.title}</h3>
-        <h3>DATE ADDED</h3>
-     <h3>{time_add}</h3></div>)
+    <h3>{title}</h3>
+    <h3>{album.title}</h3>
+    <h3>DATE ADDED</h3>
+    <h3>{time_add}</h3></div>)
      })): 
     <h1>loading</h1>}
 

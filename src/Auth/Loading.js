@@ -4,7 +4,7 @@ import{app_id,secret,url} from './stats'
 const Loading = () => {
     const [code,setCode] = useState();
     
-    const tokenURL=`https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=${app_id}&secret=${secret}&code=${code}&output=json`
+    const tokenURL=`https://deezerclone.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=${app_id}&secret=${secret}&code=${code}&output=json`
 //   const [token,setToken] = useState();
     useEffect(() => {
         getCode();

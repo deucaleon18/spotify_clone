@@ -3,11 +3,15 @@ import "../styles/search.css";
 import{APIKey, url} from '../Auth/stats.js';
 import {Howl} from "howler";
 import {Link} from "react-router-dom"
+import {AiTwotoneLike} from "react-icons/ai"
+import {BiLike} from "react-icons/bi";
+
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
     const [loading,setLoading]=useState(true);
     const [playing,setPlaying]=useState(false);
+    const [liked,setLiked]=useState(false);
    const handleSubmit=async(e)=>{
        e.preventDefault();
       // fetchData();
@@ -28,9 +32,30 @@ import {Link} from "react-router-dom"
       setSearchresult(data.data);
       if(searchresult!==undefined){setLoading(false);}
       }
-
+      function soundPlay(src){
+         const sound=new Howl({
+            src// html5:true
+         })
+         sound.play()
+         setPlaying(!playing);
+         
+        
+      }
+      function soundPause(id){
+         const sound={id}.Howl
+         sound.pause()
+         setPlaying(!playing);
+      }
+      
       const AddSongtoPlaylist=()=>{}
-
+      const likeSong=async(track_id)=>{
+         const user_id=localStorage.getItem('user_id')
+         const access_token=localStorage.getItem('token')
+         const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+         const data=await results.json();
+         console.log(data)
+         setLiked(!liked)
+       }
     return (
         <div className="search">
       <div className="search-area">
@@ -49,31 +74,16 @@ import {Link} from "react-router-dom"
               </form>
              
          {loading?<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>:(
-       
-           searchresult.map((searcher)=>{
-            
 
+           searchresult.map((searcher)=>{
           const{id,album,artist,preview}=searcher
-         function soundPlay(src){
-            const sound=new Howl({
-               src// html5:true
-            })
-            sound.play()
-            setPlaying(!playing);
-            
-           
-         }
-         function soundPause(id){
-            const sound={id}.Howl
-            sound.pause()
-            setPlaying(!playing);
-         }
-         
-             return(
+          return( <>
+         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
+         {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
                <Link to={`/this/song/${id}`}>
                 <div key={id} className="search-box">
-                 <div></div>
-              {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
+              
+              
             
                 <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
            
@@ -83,6 +93,7 @@ import {Link} from "react-router-dom"
            
                 </div>
                 </Link>
+                </>
              )
            }
            )  

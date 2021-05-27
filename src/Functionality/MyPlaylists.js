@@ -42,7 +42,7 @@ const MyPlaylists = () => {
     const deleteMyPlaylist=async(ID)=>{
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
-        const results=await fetch(`${url}user/${user_id}/playlist/${ID}&access_token=${access_token}&request_method=delete`)
+        const results=await fetch(`${url}playlist/${ID}&request_method=delete`)
         const data=await results.json()
         console.log(data);
       
