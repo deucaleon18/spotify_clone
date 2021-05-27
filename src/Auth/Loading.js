@@ -11,7 +11,6 @@ const Loading = () => {
          if(code!==undefined) {
          fetchToken();
         }
-       
     },[code])
 
     const handleRedirect=()=>{ 
