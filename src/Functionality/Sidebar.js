@@ -15,8 +15,6 @@ import "../styles/sidebar.css"
             <h4>PLAYLISTS</h4>
             <li><a href="/create-playlist">Create Playlist</a></li>
             <li><a href="/liked">Liked Songs</a></li>
-            {/* <h6><a href="#">Inside your Head</a></h6>
-            <h6><a href="#">My Playlist #1</a></h6> */}
         </ul>
         </div>
     )

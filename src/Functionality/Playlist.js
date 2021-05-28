@@ -17,13 +17,7 @@ const[deezer,setDeezer]=useState()
 const[loading,setLoading]=useState(true)
 const[liked,setLiked]=useState(false)
   const fetchPlaylistsongs=async()=>{ 
-    const results =await fetch(`https://loadingdevs-deezer.p.rapidapi.com/playlist/${id}`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "e29141c4e6msh102d2b1926a7361p1b674ejsnca4accbfc562",
-            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-        }
-    }) 
+    const results =await fetch(`${url}playlist/${id}`) 
      const data= await results.json()
      console.log(data.tracks.data);
      setDeezer(data.tracks.data);

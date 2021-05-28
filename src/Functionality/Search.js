@@ -68,7 +68,9 @@ import {BiLike} from "react-icons/bi";
               <button type="submit">Submit</button>
               </form>
              
-         {loading?<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>:(
+         {loading?<h1>loading...</h1>
+         // <iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+         :(
 
            searchresult.map((searcher)=>{
           const{id,album,artist,preview}=searcher
