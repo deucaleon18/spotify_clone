@@ -17,6 +17,19 @@ const Mainplayer = () => {
      const[deezer_10,setDeezer_10]=useState()
      const[deezer_11,setDeezer_11]=useState()
      const[deezer_12,setDeezer_12]=useState()
+     const[deezer_13,setDeezer_13]=useState()
+     const[deezer_14,setDeezer_14]=useState()
+     const[deezer_15,setDeezer_15]=useState()
+     const[deezer_16,setDeezer_16]=useState()
+     const[deezer_17,setDeezer_17]=useState()
+     const[deezer_18,setDeezer_18]=useState()
+     const[deezer_19,setDeezer_19]=useState()
+     const[deezer_20,setDeezer_20]=useState()
+     const[deezer_21,setDeezer_21]=useState()
+     const[deezer_22,setDeezer_22]=useState()
+     const[deezer_23,setDeezer_23]=useState()
+     const[deezer_24,setDeezer_24]=useState()
+     const[deezer_25,setDeezer_25]=useState()
 
     const[loading,setLoading]=useState(true)
     const [user,setUser] = useState();
@@ -115,6 +128,78 @@ const deezerCharts_1=async()=>{
      setDeezer_12([data]);
      if(deezer_12!==undefined){console.log(deezer_12)}
  }
+ const deezerCharts_14=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_13([data]);
+     if(deezer_13!==undefined){console.log(deezer_13)}
+ }
+ const deezerCharts_15=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_14([data]);
+     if(deezer_14!==undefined){console.log(deezer_14)}
+ }
+
+ const deezerCharts_16=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_15([data]);
+     if(deezer_15!==undefined){console.log(deezer_15)}
+ }
+
+ const deezerCharts_17=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_16([data]);
+     if(deezer_16!==undefined){console.log(deezer_16)}
+ }
+ const deezerCharts_18=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_17([data]);
+     if(deezer_17!==undefined){console.log(deezer_17)}
+ }
+ const deezerCharts_19=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_18([data]);
+     if(deezer_18!==undefined){console.log(deezer_18)}
+ }
+ const deezerCharts_20=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_19([data]);
+     if(deezer_19!==undefined){console.log(deezer_19)}
+ }
+ const deezerCharts_21=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_20([data]);
+     if(deezer_20!==undefined){console.log(deezer_20)}
+ }
+ const deezerCharts_22=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_21([data]);
+     if(deezer_21!==undefined){console.log(deezer_21)}
+ }
+ const deezerCharts_23=async()=>{ 
+    const results =await fetch(`${url}/playlist/668126235`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_22([data]);
+     if(deezer_22!==undefined){console.log(deezer_22)}
+ }
 
 
 useEffect(()=>{
@@ -131,6 +216,16 @@ deezerCharts_10();
 deezerCharts_11();
 deezerCharts_12();
 deezerCharts_13();
+deezerCharts_14();
+deezerCharts_15();
+deezerCharts_16();
+deezerCharts_17();
+deezerCharts_18();
+deezerCharts_19();
+deezerCharts_20();
+deezerCharts_21();
+deezerCharts_22();
+deezerCharts_23();
 getUser();
 },[])
 
