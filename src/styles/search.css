@@ -36,6 +36,10 @@
 .search-box button{
     width:100%;
 }
+.search-box a{
+    width:100%;
+    display:inline;
+}
 .search-box:hover{
     background-color:black;
     color:rgba(255, 0, 0, 0.678);
@@ -54,6 +58,7 @@
     height:30vh;
     width:100%;
 }
+
 /* .search{
     display:grid;
     grid-template-rows:repeat(9,1fr);

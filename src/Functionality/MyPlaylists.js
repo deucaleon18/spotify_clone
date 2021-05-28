@@ -27,9 +27,11 @@ const MyPlaylists = () => {
         }
     }
     useEffect(() => {
-        getMyPlaylists()
+        window.onload=getMyPlaylists()
         
     }, [])
+
+
    if(myplaylists!==undefined){ return (
         <div className="my-playlists">      
     <Header />
@@ -42,10 +44,10 @@ const MyPlaylists = () => {
     const deleteMyPlaylist=async(ID)=>{
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
-        const results=await fetch(`${url}playlist/${ID}&request_method=delete`)
+        const results=await fetch(`${url}playlist/${ID}&request_method=delete&access_token=${access_token}`)
         const data=await results.json()
         console.log(data);
-      
+        window. location. reload();
     }
     const{title,id,picture_medium,creator}=song;
     return(

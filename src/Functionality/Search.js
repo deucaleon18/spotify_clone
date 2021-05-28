@@ -19,19 +19,14 @@ import {BiLike} from "react-icons/bi";
    }
 
    const fetchDeezer=async()=>{
-      const results= await fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchvalue}`, {
-         "method": "GET",
-         "headers": {
-            "x-rapidapi-key": "e29141c4e6msh102d2b1926a7361p1b674ejsnca4accbfc562",
-            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-         }
-      })
-      const data=await results.json()
+      const results= await fetch(`${url}search?q=${searchvalue}`)
+      const data=await results.json();
    //    const key=await results.trackmatches
       console.log(data.data) ;
       setSearchresult(data.data);
       if(searchresult!==undefined){setLoading(false);}
       }
+
       function soundPlay(src){
          const sound=new Howl({
             src// html5:true
@@ -77,23 +72,25 @@ import {BiLike} from "react-icons/bi";
 
            searchresult.map((searcher)=>{
           const{id,album,artist,preview}=searcher
-          return( <>
-         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
-         {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
-               <Link to={`/this/song/${id}`}>
+          return( 
+        
+            <Link to={`/this/song/${id}`}>
                 <div key={id} className="search-box">
               
               
-            
+             <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
+         {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
                 <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
-           
+             
+                
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-           
+                
                 </div>
                 </Link>
-                </>
+                
+                
              )
            }
            )  
