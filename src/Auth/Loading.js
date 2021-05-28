@@ -28,8 +28,9 @@ const getCode=()=>{
        if(data!==undefined){
            console.log(data.access_token);         
           localStorage.setItem('token',data.access_token);
-          handleRedirect();
+          
        }
+       handleRedirect();
    }          
  if(code!==undefined){console.log(code);}
 // if(token!==undefined){console.log(token);}
