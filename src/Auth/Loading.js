@@ -13,7 +13,7 @@ const Loading = () => {
     })
 
     const handleRedirect=()=>{ 
-     window.location.href='http://localhost:3000/home'   
+     window.location.href='https://spotify-clone-opal.vercel.app/home'   
     }
 const getCode=()=>{
     let link=window.location.search;
@@ -26,8 +26,7 @@ const getCode=()=>{
        const results= await fetch(tokenURL);
        const data=await results.json();
        if(data!==undefined){
-           console.log(data.access_token);
-        //    setToken(data.access_token);         
+           console.log(data.access_token);         
           localStorage.setItem('token',data.access_token);
           handleRedirect();
        }
