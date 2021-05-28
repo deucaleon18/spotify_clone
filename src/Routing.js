@@ -24,7 +24,7 @@ const Routing=()=>{
       <Route exact path="/artist/:id"><Artist/></Route>
       <Route exact path="liked"><Liked/></Route>
       <Route exact path="/user/playlists"><MyPlaylists/></Route>
-      <Route exact path="https://localhost:5000/loading"><Loading/></Route>
+      <Route exact path="https://spotify-clone-opal.vercel.app/loading"><Loading/></Route>
       <Route exact path="/library"><MyLibrary/></Route>
       <Route exact path="/login"><Login/></Route>
       <Route exact path="/user"><User/></Route>
