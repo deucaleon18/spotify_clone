@@ -26,7 +26,7 @@ const getCode=()=>{
        const results= await fetch(tokenURL);
        const data=await results.json();
        if(data!==undefined){
-           console.log(data.access_token);         
+        //    console.log(data.access_token);         
           localStorage.setItem('token',data.access_token);
           
        }
