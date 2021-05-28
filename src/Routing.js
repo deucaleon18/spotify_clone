@@ -22,7 +22,7 @@ const Routing=()=>{
       {/* <Route exact path="/playlist/song/:id"><Playlistsong/></Route> */}
       <Route exact path="/this/song/:id"><Song/></Route>
       <Route exact path="/artist/:id"><Artist/></Route>
-      <Route exact path="/liked"><Liked/></Route>
+      <Route exact path="http://localhost:3000/liked"><Liked/></Route>
       <Route exact path="/user/playlists"><MyPlaylists/></Route>
       <Route exact path="/loading"><Loading/></Route>
       <Route exact path="/library"><MyLibrary/></Route>
