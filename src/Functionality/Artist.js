@@ -1,5 +1,7 @@
-import React,{useState,useEffect} from 'react'
-import {Link,useParams} from 'react-router-dom';
+import React
+// ,{useState,useEffect}
+ from 'react'
+// import {Link,useParams} from 'react-router-dom';
 
 const Artist = () => {
     return (

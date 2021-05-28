@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import "../styles/search.css";
-import{APIKey, url} from '../Auth/stats.js';
+import{ url} from '../Auth/stats.js';
 import {Howl} from "howler";
 import {Link} from "react-router-dom"
 import {AiTwotoneLike} from "react-icons/ai"
@@ -101,21 +101,21 @@ import {BiLike} from "react-icons/bi";
         </div>
     )
     }
-const Grid=()=>{
-return (
-<div>
-<div>
-   <div className="grid-column"></div>
-   <div></div>
-   <div></div>
-   <div></div>
-</div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-</div>
-)
-}
+// const Grid=()=>{
+// return (
+// <div>
+// <div>
+//    <div className="grid-column"></div>
+//    <div></div>
+//    <div></div>
+//    <div></div>
+// </div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// </div>
+// )
+// }
 
 export default Search;

@@ -27,12 +27,12 @@ const Mainplayer = () => {
      const[deezer_20,setDeezer_20]=useState()
      const[deezer_21,setDeezer_21]=useState()
      const[deezer_22,setDeezer_22]=useState()
-     const[deezer_23,setDeezer_23]=useState()
-     const[deezer_24,setDeezer_24]=useState()
-     const[deezer_25,setDeezer_25]=useState()
+    //  const[deezer_23,setDeezer_23]=useState()
+    //  const[deezer_24,setDeezer_24]=useState()
+    //  const[deezer_25,setDeezer_25]=useState()
 
-    const[loading,setLoading]=useState(true)
-    const [user,setUser] = useState();
+    // const[loading,setLoading]=useState(true)
+    // const [user,setUser] = useState();
 
 const deezerCharts_1=async()=>{ 
     const results =await fetch(`${url}/playlist/1479458365`)    
@@ -227,7 +227,7 @@ deezerCharts_21();
 deezerCharts_22();
 deezerCharts_23();
 getUser();
-},[])
+})
 
 const addToLibrary=()=>{
 //    fetch(`${url}user/albums&request_method=`)
@@ -237,7 +237,7 @@ const getUser=async()=>{
     const results=await fetch(`${url}user/me&access_token=${localStorage.getItem('token')}`)
     const data=await results.json()
     console.log(data);
-    setUser(data);
+    // setUser(data);
     if(data!==undefined){localStorage.setItem('user_id',data.id)}
    }
 

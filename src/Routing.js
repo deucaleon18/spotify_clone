@@ -1,6 +1,6 @@
 
 import App from './App';
-import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
+import {BrowserRouter as Router,Route} from "react-router-dom";
 import Loading from './Auth/Loading';
 import Login from './Auth/Login';
 import Appsearch from "./Appsearch";

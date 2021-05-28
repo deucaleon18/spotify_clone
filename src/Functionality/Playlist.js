@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar"
 import Header from '../Header'
 import {Howl} from "howler";
 import {url} from "../Auth/stats"
-import {IconContext} from "react-icons"
+// import {IconContext} from "react-icons"
 import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';
@@ -36,7 +36,7 @@ const[liked,setLiked]=useState(false)
   useEffect(() => {
     fetchPlaylistsongs()
     
-  }, [])
+  })
 
   const likeSong=async(track_id)=>{
     const user_id=localStorage.getItem('user_id')
@@ -73,7 +73,7 @@ const[liked,setLiked]=useState(false)
     })
     sound.play()
  }
-         const{id,album,artist,time_add,preview,title}=song
+         const{id,album,time_add,preview,title}=song
         return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
         <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>

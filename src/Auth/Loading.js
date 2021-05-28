@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import{app_id,secret,url} from './stats'
+import{app_id,secret} from './stats'
  
 const Loading = () => {
     const [code,setCode] = useState();
@@ -10,7 +10,7 @@ const Loading = () => {
          if(code!==undefined) {
          fetchToken();
         }
-    },[code])
+    })
 
     const handleRedirect=()=>{ 
      window.location.href='http://localhost:3000/home'   

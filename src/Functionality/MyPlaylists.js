@@ -9,7 +9,7 @@ import "../styles/Playlists/myplaylists.css"
 const MyPlaylists = () => {
 
     const[myplaylists,setMyplaylists]=useState([])
-    const[loading,setLoading] = useState(true)
+    // const[loading,setLoading] = useState(true)
 
     const getMyPlaylists=async()=>{
         const user_id=localStorage.getItem('user_id')
@@ -19,7 +19,7 @@ const MyPlaylists = () => {
         console.log(data.data);
         if(data!==undefined){
             setMyplaylists(data.data);
-            setLoading(false);
+            // setLoading(false);
         }
 
         if(myplaylists!==undefined){
@@ -29,7 +29,7 @@ const MyPlaylists = () => {
     useEffect(() => {
         window.onload=getMyPlaylists()
         
-    }, [])
+    })
 
 
    if(myplaylists!==undefined){ return (
@@ -42,21 +42,21 @@ const MyPlaylists = () => {
 
 {myplaylists.map((song)=>{
     const deleteMyPlaylist=async(ID)=>{
-        const user_id=localStorage.getItem('user_id')
+        // const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
         const results=await fetch(`${url}playlist/${ID}&request_method=delete&access_token=${access_token}`)
         const data=await results.json()
         console.log(data);
-        window. location. reload();
+        window.location.reload();
     }
-    const{title,id,picture_medium,creator}=song;
+    const{id}=song;
     return(
         <div className="my-playlist-box-container" >
             <Link to={`/playlist/${id}`}>
         <div key={song.id} classname="my-playlist-box">
        
         {/* <h1>{song.creator}</h1> */}
-        <img src={song.picture_medium} />
+        <img src={song.picture_medium} alt=""/>
         <h1>{song.title}</h1>
         
         </div>

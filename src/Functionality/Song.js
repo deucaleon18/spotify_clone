@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {Link,useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import Player from './Player/Player.js';
@@ -13,7 +13,7 @@ const[loading,setLoading]=useState(true)
 useEffect(() => {
     getThisSong();
   
-}, [])
+})
     const getThisSong=async()=>{
    const results=await fetch(`${url}track/${id}`)
    const data=await results.json();

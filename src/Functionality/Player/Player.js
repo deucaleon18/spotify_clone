@@ -3,7 +3,6 @@ import '../../styles/player.css';
 // import song from './Suncrown - Legend of the Forgotten Centuries.mp3'
 import Slider from './components/slider/Slider'
 import ControlPanel from './components/controls/ControlPanel'
-import {url} from "../../Auth/stats"
 const  Player=({song})=>{
 
         const [percentage, setPercentage] = useState(0)

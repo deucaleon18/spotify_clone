@@ -4,7 +4,7 @@ import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
 import {Howl} from "howler";
-import {Link,useParams} from 'react-router-dom'
+// import {Link,useParams} from 'react-router-dom'
 import {url} from "../Auth/stats"
 
 import "../styles/liked.css";
@@ -24,7 +24,7 @@ const[liked,setLiked]=useState([])
   useEffect(() => {
     fetchLikedsongs()
     
-  }, [])
+  })
 
     return (
         <div className="likedsongs">
@@ -54,7 +54,7 @@ const[liked,setLiked]=useState([])
     })
     sound.play()
  }
-    const{id,album,artist,time_add,preview,title}=song 
+    const{id,album,time_add,preview,title}=song 
     return (<div key={id}className="likedsong">
     <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
     <button >Liked</button>

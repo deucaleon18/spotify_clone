@@ -72,7 +72,7 @@ const DeletePlaylist= async()=>{
                  
               {!loading?(<div className="display-new-playlist">
                   <h1>{newplaylist.title}</h1>
-                  <img src={newplaylist.picture_medium}/>
+                  <img src={newplaylist.picture_medium} alt=""/>
               </div>):<div className="display-new-playlist">
 
               </div>}
