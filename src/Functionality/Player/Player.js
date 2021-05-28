@@ -1,6 +1,6 @@
 import React,{ useState, useRef }  from 'react';
 import '../../styles/player.css';
-// import song from './Suncrown - Legend of the Forgotten Centuries.mp3'
+
 import Slider from './components/slider/Slider'
 import ControlPanel from './components/controls/ControlPanel'
 const  Player=({song})=>{
