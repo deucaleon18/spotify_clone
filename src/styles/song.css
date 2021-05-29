@@ -12,17 +12,16 @@
   .current-song{
       display:grid;
       grid-template-columns: 1fr;
-    
       color:white;
       /* margin:40px 40px; */
       /* text-align:center; */
-      
   }
 .current-song img{
 /* margin:auto; */
-height:87vh;
-width:100%;
+height:60%;
+width:40%;
 opacity:0.5;
+margin:40px 40px;
 }
 .current-song h1{
     background-color: black;

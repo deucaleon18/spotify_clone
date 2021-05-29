@@ -17,45 +17,51 @@ import Search from './Search';
 const AddingToPlaylist= () => {
 const{id}=useParams()
 const[searchpopup,setSearchpopup]=useState(false)
-const[deezer,setDeezer]=useState()
+const[myPlaylistSongs,setMyplaylistSongs]=useState([])
 const [searchvalue,setSearchvalue]=useState('')
 const [searchresult,setSearchresult]=useState()
 const [loading,setLoading]=useState(true);
-const [playing,setPlaying]=useState(false);
+const [songloading,setSongLoading]=useState(true);
+// const [playing,setPlaying]=useState(false);
 
 const handleSubmit=async(e)=>{
   e.preventDefault();
  // fetchData();
- fetchDeezer();
+ fetchSearchedvalue();
 }
-
-
 
 const fetchPlaylistsongs=async()=>{ 
   const results =await fetch(`${url}playlist/${id}`) 
    const data= await results.json()
    console.log(data);
-   setDeezer(data);
-   if(deezer!==undefined){console.log(deezer)}
-//    if(data!==undefined){setLoading(false);}
+   if(data!==undefined){
+    setMyplaylistSongs(data.tracks.data);
+     setSongLoading(false);}
 }
-const fetchDeezer=async()=>{
+const fetchSearchedvalue=async()=>{
   const results= await fetch(`${url}search?q=${searchvalue}`)
   const data=await results.json();
-//    const key=await results.trackmatches
   console.log(data.data) ;
   setSearchresult(data.data);
   if(searchresult!==undefined){setLoading(false);}
   }
   
 useEffect(() => {
-  fetchPlaylistsongs()
+  window.onload=fetchPlaylistsongs()
 
 }, [])
 
+const removeSongfromPlaylist=async(ID)=>{
+    const access_token=localStorage.getItem('token')
+    const results=await fetch(`${url}playlist/${id}/tracks&songs=${ID}&request_method=delete&access_token=${access_token}`)
+    const data=await results.json();
+    console.log(data);
+    window.location.reload();
+}
 
 const showSearchSongsPopper=()=>{
 setSearchpopup(true);
+setSongLoading(true);
 }
   // const likeSong=async(track_id)=>{
   //   const user_id=localStorage.getItem('user_id')
@@ -71,7 +77,7 @@ setSearchpopup(true);
     <div className="middle">
     <Sidebar />
     <div>
- {loading?(
+ {songloading?(
          <Loader
         type="ThreeDots"
          color="black"
@@ -82,14 +88,44 @@ setSearchpopup(true);
      
       ):
      ( <>
-      {deezer.map((song)=>{
-        const{title,preview}=song
-     return ()
+      <div className="playlist-area">
+          <div className="playlist-banner"> 
+</div>
+     <div className="sectionheader">
+  <h3>#</h3>
+  <div></div>
+  <div></div>
+  {/* <div></div> */}
+  <h3>TITLE</h3>
+  <h3>ALBUM</h3>
+  <h3>DATE ADDED</h3>
+  <h3>TIME</h3>
+</div>
+<button onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
+      {myPlaylistSongs.map((song)=>{
+       const{id,album,time_add,preview,title}=song
+       return (<>
+        <button style={{cursor:"pointer"}} onClick={()=>{removeSongfromPlaylist(`${id}`)}}>Remove</button>
+       <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
+       {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
+       <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
+        <div></div>
+       <div></div>
+       <img src={album.cover} alt="la"/>
+       <h3>{title}</h3>
+       <h3>{album.title}</h3>
+       <h3>DATE ADDED</h3>
+       <h3>{time_add}</h3>
+     
+       </div>
+       </Link>
+       </>)
       })
       }
+      </div>
       </>
       )}
- <button onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
+ 
         {searchpopup?(
         <div className="search">
       <div className="search-area">
@@ -153,7 +189,7 @@ setSearchpopup(true);
     </div>
     <Socials/>
     </div>
-    <Player /> 
+<Player/>
         </div>
     )
         
