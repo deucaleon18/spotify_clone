@@ -28,15 +28,11 @@ import Loader from "react-loader-spinner";
       setSearchresult(data.data);
       if(searchresult!==undefined){setLoading(false);}
       }
+      
       const showPlaylistspopup=()=>{
          setPlaylistspopup(!playlistspopup)
       }
-      // const AddSongtoPlaylist=()=>{
-      //    const user_id=localStorage.getItem('user_id')
-      //    const access_token=localStorage.getItem('token')
-      //    const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-      //    const data=await results.json();
-      // }
+    
       const likeSong=async(track_id)=>{
          const user_id=localStorage.getItem('user_id')
          const access_token=localStorage.getItem('token')
@@ -97,10 +93,10 @@ import Loader from "react-loader-spinner";
          :(
            searchresult.map((searcher)=>{
           const{album,artist,id}=searcher
-          const addtoThisPlaylist=async(ID)=>{
+          const addtoThisPlaylist=async(ID,id)=>{
             // const user_id=localStorage.getItem('user_id')
             const access_token=localStorage.getItem('token')
-            const results=await fetch(`${url}playlist/${ID}/track&track_id=${id}&order=${id}&request_method=post&access_token=${access_token}`)
+            const results=await fetch(`${url}playlist/${ID}/tracks&track_id=${id}&order=${id}&request_method=post&access_token=${access_token}`)
             const data=await results.json();
             console.log(data);
             // window.location.reload();
@@ -109,14 +105,15 @@ import Loader from "react-loader-spinner";
           return( 
                 <div key={searcher.id} className="search-box">
 
-                {playlistspopup?(<div className="playlistspopup">
+                {playlistspopup?(<div id={searcher.id} className="playlistspopup">
             {myplaylists.map((playlists)=>{
-              return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`)}}>{playlists.title}</h1>
+              return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`,`${id}`)}}>{playlists.title}</h1>
             })}
             </div>
             
             ):<h1>loading...</h1>
             }
+
                 {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>}
          {/* {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>}  */}
                <button onClick={()=>{showPlaylistspopup()}}>ADD TO A PLAYLIST</button>
