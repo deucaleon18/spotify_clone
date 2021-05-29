@@ -17,6 +17,8 @@ const Mainplayer = () => {
     const[deezer_8,setDeezer_8]=useState()
     const[deezer_9,setDeezer_9]=useState()
     const[deezer_10,setDeezer_10]=useState()
+    const[recent,setRecent]=useState()
+    const[recommend,setRecommend]=useState()
 const deezerCharts_1=async()=>{ 
     const results =await fetch(`${url}playlist/1479458365`)    
      const data= await results.json()
@@ -94,6 +96,25 @@ const deezerCharts_1=async()=>{
     localStorage.setItem('user_id',data.id)
   
    }     
+   const recentPlayed=async()=>{
+    const user_id=localStorage.getItem('user_id')
+    const results=await fetch(`${url}user/${user_id}/history&access_token=${localStorage.getItem('token')}`)
+    const data=await results.json()
+    console.log(data)
+    if(data!==undefined){
+        setRecent(data)
+    }
+   }   
+   const recommendations=async()=>{
+    const user_id=localStorage.getItem('user_id')
+    const results=await fetch(`${url}user/${user_id}/recommendations/tracks&access_token=${localStorage.getItem('token')}`)
+    const data=await results.json()
+    console.log(data)
+    if(data!==undefined){
+        setRecommend(data)
+    }
+   }   
+   
 useEffect(()=>{
 deezerCharts_1();
 deezerCharts_2();
@@ -107,6 +128,10 @@ deezerCharts_9();
 deezerCharts_10();
 deezerCharts_11();
 getUser();
+if(localStorage.getItem('user_id')!==undefined){recentPlayed();
+recommendations();
+}
+
 },[])
 
 // const addToLibrary=()=>{
@@ -115,11 +140,24 @@ getUser();
 
 if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined&&deezer_4!==undefined&&
 deezer_5!==undefined&&deezer_6!==undefined&&deezer_7!==undefined&&deezer_8!==undefined&&deezer_9!==undefined&&
-deezer_10!==undefined)return(<div className="mainplayer">
+deezer_10!==undefined&&recent!==undefined)return(<div className="mainplayer">
 <div className="banner">
     <img src="" alt="" />
 </div>
-            
+<div className="title"><h4>RECENTLY PLAYED</h4></div>
+    <div className="arrange">
+{recent.data.map((song)=>{
+        const{title,album,id}=song
+        return <div  className="box">
+        <Link to={`this/song/${id}`}>
+        <img src={album.cover_medium}alt=""/>
+        <h4>{title}</h4>
+        </Link>
+        <button>PLAY</button>
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
+    </div>
+    })}
+    </div>        
 <div className="title">PLAYLISTS</div>
 
 <div className="arrange2">
@@ -273,7 +311,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
     </div>
     })}
     </div>
-
+   
  </div>   
 )
     return (<div className="mainplayer">

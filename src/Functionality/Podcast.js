@@ -35,7 +35,7 @@ useEffect(() => {
   <div className= "this-song-middle">
      
      {!loading?(  <div className="current-song">
-                  <img src={thisPodcast.album.cover_xl} alt="" />
+                  <img src={thisPodcast.picture_big} alt="" />
                   {/* <h1>{thisSong.title}</h1> */}
               </div>
 ):<div className= "this-song-middle"><Loader
@@ -49,7 +49,7 @@ className="loader"/></div>}
     </div>
     <Socials/>
     </div>
-   { !loading?(<Player song={thisPodcast.preview}/>):<Player/>}
+   <Player/>
         </div>
     )
 }

@@ -6,7 +6,7 @@ import Header from '../Header'
 import {Howl} from "howler";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-// import {Link,useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {url} from "../Auth/stats"
 
 import "../styles/liked.css";
@@ -57,21 +57,32 @@ const[liked,setLiked]=useState([])
 </div>
 
 {!loading?(liked.map((song)=>{
-   function soundPlay(src){
-    const sound=new Howl({
-       src
-       // html5:true
-    })
-    sound.play()
- }
-    const{id,album,time_add,preview,title}=song 
+//    function soundPlay(src){
+//     const sound=new Howl({
+//        src
+//        // html5:true
+//     })
+//     sound.play()
+//  }
+    const{id,album,time_add,title}=song 
     return (<div key={id}className="likedsong">
-    <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
-    <button onClick={()=>{unlikeSong(`${id}`)}}>Liked</button>
+    {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
+   
+    <div></div>
+    <button style={{cursor:"pointer"}} onClick={()=>{
+     unlikeSong(`${id}`) 
+   }}>Remove</button>
+    <div></div>
+    <Link to={`/this/song/${id}`}>
+    <div className="linkage-container">
+   
+      
     <h3>{title}</h3>
     <h3>{album.title}</h3>
     <h3>DATE ADDED</h3>
-    <h3>{time_add}</h3></div>)
+    <h3>{time_add}</h3></div></Link>
+    </div>
+    )
      })):  
      <Loader
      type="Puff"

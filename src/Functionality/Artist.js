@@ -67,7 +67,8 @@ useEffect(() => {
  }
          const{id,album,artist,duration,preview,title}=song
         return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
-        <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
+        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
+        <div></div>
         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
         
         <img src={album.cover_small} alt="la"/>
