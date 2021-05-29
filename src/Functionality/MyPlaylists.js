@@ -52,7 +52,7 @@ const MyPlaylists = () => {
     const{id}=song;
     return(
         <div className="my-playlist-box-container" >
-            <Link to={`/playlist/${id}`}>
+            <Link to={`/user/playlist/${id}`}>
         <div key={song.id} classname="my-playlist-box">
        
         {/* <h1>{song.creator}</h1> */}

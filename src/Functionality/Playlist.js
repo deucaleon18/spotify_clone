@@ -11,6 +11,7 @@ import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
+import Search from "../Functionality/Search";
 
 const Playlist= () => {
 const{id}=useParams()
@@ -31,8 +32,10 @@ const[liked,setLiked]=useState(false)
   useEffect(() => {
     fetchPlaylistsongs()
     
-  })
-
+  },[])
+// const showSearchSongsPopper=()=>{
+// <Search/>
+// }
   const likeSong=async(track_id)=>{
     const user_id=localStorage.getItem('user_id')
     const access_token=localStorage.getItem('token')
@@ -43,7 +46,6 @@ const[liked,setLiked]=useState(false)
   }
     return (
         <div className="playlists">
-
         <Header />
       <div className="middle">
       <Sidebar />
@@ -69,17 +71,26 @@ const[liked,setLiked]=useState(false)
     sound.play()
  }
          const{id,album,time_add,preview,title}=song
-        return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
+        return (<>
+        <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
         <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
-        
         <img src={album.cover} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>
         <h3>DATE ADDED</h3>
         <h3>{time_add}</h3>
-        </div></Link>)
-    })):<h1>loading</h1>}
+        </div>
+        </Link>
+        <>
+         {/* <button onClick={()=>{showSearchSongsPopper()}}>ADD SONGS TO THIS PLAYLIST</button> */}
+         </>
+         </>)
+    })):
+    <>
+    <h1>EMPTY</h1>
+    
+    </>}
 
 </div>
       <Socials/>

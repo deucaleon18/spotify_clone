@@ -27,7 +27,7 @@
 .search-box{
     height:10vh;width:100%;
     display:grid;
-    grid-template-columns:30px 50px 50px 50px 4fr 2fr 2fr 1fr;
+    grid-template-columns:30px 50px 50px 50px 40vh 20vh 2fr 1fr;
     grid-gap:20px;
     color:white;
     align-items:center;
@@ -60,8 +60,10 @@
     height:30vh;
     width:100%;
 }
-.search-box a{
-text-decoration: none;
+.linkage-container{
+    display:grid;
+    grid-template-columns:50px 40vh 20vh 2fr 1fr;
+    align-items: center;
 }
 /* .search{
     display:grid;

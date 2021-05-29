@@ -14,6 +14,7 @@ import Artist from './Functionality/Artist';
 import Song from './Functionality/Song';
 import Podcast from './Functionality/Podcast';
 import MyPlaylists from './Functionality/MyPlaylists';
+import AddingToPlaylist from './Functionality/AddSongstoMyplaylist';
 
 const Routing=()=>{
     return(<Router>
@@ -27,6 +28,7 @@ const Routing=()=>{
       <Route exact path="/podcast/:id"><Podcast/></Route>
       <Route exact path="/liked"><Liked/></Route>
       <Route exact path="/user/playlists"><MyPlaylists/></Route>
+      <Route exact path="/user/playlist/:id"><AddingToPlaylist/></Route>
       <Route exact path="/loading"><Loading/></Route>
       <Route exact path="/library"><MyLibrary/></Route>
       <Route exact path="/login"><Login/></Route>

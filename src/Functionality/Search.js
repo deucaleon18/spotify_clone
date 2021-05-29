@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import "../styles/search.css";
 import{ url} from '../Auth/stats.js';
 import {Howl} from "howler";
@@ -13,12 +13,13 @@ import Loader from "react-loader-spinner";
     const [loading,setLoading]=useState(true);
     const [playing,setPlaying]=useState(false);
     const [liked,setLiked]=useState(false);
+    const [playlistspopup,setPlaylistspopup]=useState(false);
+    const[myplaylists,setMyplaylists]=useState([]);
    const handleSubmit=async(e)=>{
        e.preventDefault();
       // fetchData();
       fetchDeezer();
    }
-
    const fetchDeezer=async()=>{
       const results= await fetch(`${url}search?q=${searchvalue}`)
       const data=await results.json();
@@ -27,25 +28,15 @@ import Loader from "react-loader-spinner";
       setSearchresult(data.data);
       if(searchresult!==undefined){setLoading(false);}
       }
-
-      function soundPlay(src){
-         const sound=new Howl({
-            src// html5:true
-         })
-         sound.play()
-         setPlaying(!playing);
-         
-        
+      const showPlaylistspopup=()=>{
+         setPlaylistspopup(!playlistspopup)
       }
-      function soundPause(id){
-         const sound={id}.Howl
-         sound.pause()
-         setPlaying(!playing);
-      }
-      
-      const AddSongtoPlaylist=()=>{}
-
-
+      // const AddSongtoPlaylist=()=>{
+      //    const user_id=localStorage.getItem('user_id')
+      //    const access_token=localStorage.getItem('token')
+      //    const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+      //    const data=await results.json();
+      // }
       const likeSong=async(track_id)=>{
          const user_id=localStorage.getItem('user_id')
          const access_token=localStorage.getItem('token')
@@ -62,6 +53,21 @@ import Loader from "react-loader-spinner";
          console.log(data);
          setLiked(!liked);
        }
+       const getMyPlaylists=async()=>{
+         const user_id=localStorage.getItem('user_id')
+         const access_token=localStorage.getItem('token')
+         const results=await fetch(`${url}user/${user_id}/playlists&access_token=${access_token}`)
+         const data=await results.json()
+         console.log(data.data);
+         if(data!==undefined){
+             setMyplaylists(data.data);
+             // setLoading(false);
+         }
+      }
+     
+      useEffect(() => {
+         getMyPlaylists()
+      }, [])
     return (
         <div className="search">
       <div className="search-area">
@@ -78,7 +84,6 @@ import Loader from "react-loader-spinner";
               />
               <button type="submit">Submit</button>
               </form>
-             
          {loading?
          (<div className="search-area">
          <Loader
@@ -91,23 +96,38 @@ import Loader from "react-loader-spinner";
       </div>)
          :(
            searchresult.map((searcher)=>{
-          const{id,album,artist,preview}=searcher
+          const{album,artist,id}=searcher
+          const addtoThisPlaylist=async(ID)=>{
+            // const user_id=localStorage.getItem('user_id')
+            const access_token=localStorage.getItem('token')
+            const results=await fetch(`${url}playlist/${ID}/track&track_id=${id}&order=${id}&request_method=post&access_token=${access_token}`)
+            const data=await results.json();
+            console.log(data);
+            // window.location.reload();
+         }
+
           return( 
-        
+                <div key={searcher.id} className="search-box">
+
+                {playlistspopup?(<div className="playlistspopup">
+            {myplaylists.map((playlists)=>{
+              return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`)}}>{playlists.title}</h1>
+            })}
+            </div>
             
-                <div key={id} className="search-box">
-                {liked? <button onClick={()=>{likeSong(id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(id)}}><BiLike/></button>}
-         {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
-                <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
-             
-                <Link to={`/this/song/${id}`}>
+            ):<h1>loading...</h1>
+            }
+                {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>}
+         {/* {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>}  */}
+               <button onClick={()=>{showPlaylistspopup()}}>ADD TO A PLAYLIST</button>
+                <a href={`/this/song/${searcher.id}`}>
+                   <div className="linkage-container">
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-                </Link>
                 </div>
-                
-                
+                </a>
+                </div>
              )
            }
            )  
@@ -116,6 +136,7 @@ import Loader from "react-loader-spinner";
         </div>
       </div>  
         </div>
+        
     )
     }
 // const Grid=()=>{

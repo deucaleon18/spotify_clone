@@ -72,3 +72,16 @@ font-size:4rem;
     margin:auto;
     
 }
+
+.playlistspopup{
+    height:60vh;
+    width:75%;
+    background-color: crimson;
+    position:absolute;
+    top:100px;
+    left:200px;
+    color:black;
+    
+}
+.playlistspopup h1{
+    cursor: pointer;}
