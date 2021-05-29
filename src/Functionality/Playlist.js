@@ -5,7 +5,8 @@ import Sidebar from "./Sidebar"
 import Header from '../Header'
 import {Howl} from "howler";
 import {url} from "../Auth/stats"
-// import {IconContext} from "react-icons"
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';

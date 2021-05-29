@@ -2,6 +2,8 @@ import React, { useEffect,useState } from 'react';
 import "../styles/mainplayer.css"; 
 import {Link} from "react-router-dom";
 import {url} from "../Auth/stats"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 const Mainplayer = () => {
     const[deezer,setDeezer]=useState()
@@ -11,7 +13,10 @@ const Mainplayer = () => {
     const[deezer_4,setDeezer_4]=useState()
     const[deezer_5,setDeezer_5]=useState()
     const[deezer_6,setDeezer_6]=useState()
- 
+    const[deezer_7,setDeezer_7]=useState()
+    const[deezer_8,setDeezer_8]=useState()
+    const[deezer_9,setDeezer_9]=useState()
+    const[deezer_10,setDeezer_10]=useState()
 const deezerCharts_1=async()=>{ 
     const results =await fetch(`${url}playlist/1479458365`)    
      const data= await results.json()
@@ -52,24 +57,43 @@ const deezerCharts_1=async()=>{
      const data= await results.json()
      console.log(data);
      setDeezer_5([data]);
-
  }
- const deezerCharts_7=async()=>{
-    const user_id=localStorage.getItem('user_id')
-    const access_token=localStorage.getItem('token') 
-    const results =await fetch(`${url}user/recommendations/albums&user_id=${user_id}&access_token=${access_token}`)    
+ const deezerCharts_7=async()=>{ 
+    const results =await fetch(`${url}chart`)    
      const data= await results.json()
-     setDeezer_6([data]);
+     console.log(data);
+     setDeezer_6(data.albums.data);
+ }
+ const deezerCharts_8=async()=>{ 
+    const results =await fetch(`${url}chart`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_7(data.tracks.data);
+ }
+ const deezerCharts_9=async()=>{ 
+    const results =await fetch(`${url}chart`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_8(data.playlists.data);
+ }
+ const deezerCharts_10=async()=>{ 
+    const results =await fetch(`${url}chart`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_9(data.podcasts.data);
+ }
+ const deezerCharts_11=async()=>{ 
+    const results =await fetch(`${url}chart`)    
+     const data= await results.json()
+     console.log(data);
+     setDeezer_10(data.artists.data);
  }
  const getUser=async()=>{
     const results=await fetch(`${url}user/me&access_token=${localStorage.getItem('token')}`)
     const data=await results.json()
-    console.log(data);
-    // setUser(data);
-    
-   }
-
-
+    localStorage.setItem('user_id',data.id)
+  
+   }     
 useEffect(()=>{
 deezerCharts_1();
 deezerCharts_2();
@@ -78,16 +102,20 @@ deezerCharts_4();
 deezerCharts_5();
 deezerCharts_6();
 deezerCharts_7();
+deezerCharts_8();
+deezerCharts_9();
+deezerCharts_10();
+deezerCharts_11();
 getUser();
-})
+},[])
 
 // const addToLibrary=()=>{
 // //    fetch(`${url}user/albums&request_method=`)
 // }
 
-
 if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined&&deezer_4!==undefined&&
-deezer_5!==undefined)return(<div className="mainplayer">
+deezer_5!==undefined&&deezer_6!==undefined&&deezer_7!==undefined&&deezer_8!==undefined&&deezer_9!==undefined&&
+deezer_10!==undefined)return(<div className="mainplayer">
 <div className="banner">
     <img src="" alt="" />
 </div>
@@ -101,7 +129,7 @@ deezer_5!==undefined)return(<div className="mainplayer">
      <Link to={`playlist/${id}`}>
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        
+
         </Link>
         <button>PLAY</button>
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
@@ -133,28 +161,9 @@ deezer_5!==undefined)return(<div className="mainplayer">
     </div>
     })}
 
-    
-       {/* {deezer_4.map((song)=>{
-        const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
-        <img src={picture_medium}alt=""/>
-        <h4>{title}</h4>
-        </Link>
-        <button>PLAY</button>
-        <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
-    </div>
-    })}  */}
 </div> 
 <div className="title"><h4>HOT PLAYLISTS</h4></div>
-
-
-
-<div className="title"><h4>RECOMMENDATIONS</h4></div>
-
-
 <div className="title"><h4>THE GOOD OLD DAYS</h4></div>
-<div className="title"><h4>TOP ALBUMS</h4></div>
 <div className="arrange2">
 {deezer_3.map((song)=>{
         const{title,picture_medium,id}=song
@@ -168,31 +177,114 @@ deezer_5!==undefined)return(<div className="mainplayer">
     </div>
     })} 
 
-        <div  className="box">
-        <Link to={`playlist/${deezer_4.id}`}>
-        <img src={deezer_4.picture_medium}alt=""/>
-        <h4>{deezer_4.title}</h4>
+{deezer_4.map((song)=>{
+        const{title,picture_medium,id}=song
+        return <div  className="box">
+        <Link to={`playlist/${id}`}>
+        <img src={picture_medium}alt=""/>
+        <h4>{title}</h4>
         </Link>
         <button>PLAY</button>
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
+    })}
 
- <div  className="box">
-        <Link to={`playlist/${deezer_5.id}`}>
-        <img src={deezer_5.picture_medium}alt=""/>
-        <h4>{deezer_5.title}</h4>
+{deezer_5.map((song)=>{
+        const{title,picture_medium,id}=song
+        return <div  className="box">
+        <Link to={`playlist/${id}`}>
+        <img src={picture_medium}alt=""/>
+        <h4>{title}</h4>
         </Link>
         <button>PLAY</button>
-        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button>
-         */}
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
+    })}
     
-
+   
 </div>
+<div className="title"><h4>TOP ALBUMS</h4></div>
+<div className="arrange">
+{deezer_6.map((song)=>{
+        const{title,cover_medium,id}=song
+        return <div  className="box">
+        <Link to={`album/${id}`}>
+        <img src={cover_medium}alt=""/>
+        <h4>{title}</h4>
+        </Link>
+        <button>PLAY</button>
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
+    </div>
+    })}
+    </div>
+    <div className="title"><h4>TOP TRACKS</h4></div>
+<div className="arrange">
+{deezer_7.map((song)=>{
+        const{title,album,id}=song
+        return <div  className="box">
+        <Link to={`this/song/${id}`}>
+        <img src={album.cover_medium}alt=""/>
+        <h4>{title}</h4>
+        </Link>
+        <button>PLAY</button>
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
+    </div>
+    })}
+    </div>
+    <div className="title"><h4>TOP PLAYLISTS</h4></div>
+    <div className="arrange">
+{deezer_8.map((song)=>{
+        const{title,picture_medium,id}=song
+        return <div  className="box">
+        <Link to={`playlist/${id}`}>
+        <img src={picture_medium}alt=""/>
+        <h4>{title}</h4>
+        </Link>
+        <button>PLAY</button>
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
+    </div>
+    })}
+    </div>
+    <div className="title"><h4>TOP PODCASTS</h4></div>
+    <div className="arrange">
+{deezer_9.map((song)=>{
+        const{title,picture_medium,id}=song
+        return <div  className="box">
+        <Link to={`podcast/${id}`}>
+        <img src={picture_medium}alt=""/>
+        <h4>{title}</h4>
+        </Link>
+        <button>PLAY</button>
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
+    </div>
+    })}
+    </div>
+    <div className="title"><h4>TOP ARTISTS</h4></div>
+    <div className="arrange">
+{deezer_10.map((song)=>{
+        const{title,picture_medium,id}=song
+        return <div  className="box">
+        <Link to={`artist/${id}`}>
+        <img src={picture_medium}alt=""/>
+        <h4>{title}</h4>
+        </Link>
+        <button>PLAY</button>
+        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
+    </div>
+    })}
+    </div>
+
  </div>   
 )
-  
-    return <h1>Loading.....</h1> 
+    return (<div className="mainplayer">
+     <Loader
+    type="ThreeDots"
+     color="white"
+    height={100}
+    width={100}
+    timeout={3000} //3 secs
+  className="loader"/>
+  </div>)
 }
  export default Mainplayer;
 

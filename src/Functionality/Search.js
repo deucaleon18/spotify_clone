@@ -5,7 +5,8 @@ import {Howl} from "howler";
 import {Link} from "react-router-dom"
 import {AiTwotoneLike} from "react-icons/ai"
 import {BiLike} from "react-icons/bi";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
@@ -43,6 +44,8 @@ import {BiLike} from "react-icons/bi";
       }
       
       const AddSongtoPlaylist=()=>{}
+
+
       const likeSong=async(track_id)=>{
          const user_id=localStorage.getItem('user_id')
          const access_token=localStorage.getItem('token')
@@ -50,6 +53,14 @@ import {BiLike} from "react-icons/bi";
          const data=await results.json();
          console.log(data)
          setLiked(!liked)
+       }
+       const unlikeSong=async(ID)=>{
+         const user_id=localStorage.getItem('user_id')
+         const access_token=localStorage.getItem('token');
+         const results =await fetch(`${url}user/${user_id}/tracks&track_id=${ID}&access_token=${access_token}&request_method=delete`) 
+         const data= await results.json();
+         console.log(data);
+         setLiked(!liked);
        }
     return (
         <div className="search">
@@ -68,29 +79,33 @@ import {BiLike} from "react-icons/bi";
               <button type="submit">Submit</button>
               </form>
              
-         {loading?<h1>loading...</h1>
-         // <iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+         {loading?
+         (<div className="search-area">
+         <Loader
+        type="ThreeDots"
+         color="white"
+        height={100}
+        width={100}
+        timeout={10000} //10 secs
+      className="loader"/>
+      </div>)
          :(
-
            searchresult.map((searcher)=>{
           const{id,album,artist,preview}=searcher
           return( 
         
-            <Link to={`/this/song/${id}`}>
+            
                 <div key={id} className="search-box">
-              
-              
-             <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
+                {liked? <button onClick={()=>{likeSong(id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(id)}}><BiLike/></button>}
          {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>} 
                 <button onClick={()=>{AddSongtoPlaylist()}}>Playlist</button>
              
-                
+                <Link to={`/this/song/${id}`}>
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-                
-                </div>
                 </Link>
+                </div>
                 
                 
              )

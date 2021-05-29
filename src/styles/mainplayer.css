@@ -6,7 +6,7 @@
     grid-template-rows:45vh 10vh ;
     grid-gap:10px;
     overflow-y:scroll;
-    overflow-x: scroll;
+    overflow-x: hidden;
     /* scrollbar-width: none; */
 }
 .mainplayer::-webkit-scrollbar {
@@ -23,16 +23,14 @@
 }
 .arrange{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
-    
+    grid-template-columns:repeat(5,30vh);
     background-color: black;
     margin:10px 10px 10px 7px;
-    
+    /* overflow-x: scroll; */
 }
-
 .box{
     /* margin:10px 8px 20px 8px; */
-    width:95%;
+    width:30vh;
     background-color: rgba(255, 255, 255, 0.301);
       height:28vh; 
 }
@@ -69,4 +67,8 @@ font-size:4rem;
     grid-template-columns:1fr 1fr 1fr 1fr 1fr ;
     background-color: black;
     margin:10px 10px 10px 7px;
+}
+.loader{
+    margin:auto;
+    
 }

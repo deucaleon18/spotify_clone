@@ -67,9 +67,7 @@ const DeletePlaylist= async()=>{
               </form>
               <button onClick={()=>{DeletePlaylist()}}>Delete</button>
               </div>
-            
-              
-                 
+
               {!loading?(<div className="display-new-playlist">
                   <h1>{newplaylist.title}</h1>
                   <img src={newplaylist.picture_medium} alt=""/>

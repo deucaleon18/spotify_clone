@@ -18,9 +18,11 @@
     padding:0 0 0 10px;
 }
 
+
 .search button{
     height:2.5rem;
     width:10rem;
+    cursor: pointer;
 }
 .search-box{
     height:10vh;width:100%;
@@ -58,7 +60,9 @@
     height:30vh;
     width:100%;
 }
-
+.search-box a{
+text-decoration: none;
+}
 /* .search{
     display:grid;
     grid-template-rows:repeat(9,1fr);

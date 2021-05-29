@@ -5,7 +5,7 @@ import img from "../styles/girl.jpg"
 const Login = () => {
   if(localStorage.getItem('token')!==null){return (<div className="login">
         
-        <a href="/home"> Login
+        <a href="/home"> HOME 
        </a>
      {/* <a href='http://localhost:3000/home'>Continue without login</a> */}
      {/* <img src={img} alt=""/> */}
