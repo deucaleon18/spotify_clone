@@ -18,10 +18,12 @@
   }
 .current-song img{
 /* margin:auto; */
+margin:5% 25%;
 height:60%;
 width:40%;
-opacity:0.5;
-margin:40px 40px;
+opacity:1;
+
+/* margin:40px 40px; */
 }
 .current-song h1{
     background-color: black;

@@ -30,8 +30,6 @@ const MyPlaylists = () => {
         window.onload=getMyPlaylists()
         
     })
-
-
    if(myplaylists!==undefined){ return (
         <div className="my-playlists">      
     <Header />
@@ -50,11 +48,11 @@ const MyPlaylists = () => {
         window.location.reload();
     }
     const{id}=song;
-    return(
+    if(song.title!=="Loved Tracks")
+    {return(
         <div className="my-playlist-box-container" >
             <Link to={`/user/playlist/${id}`}>
         <div key={song.id} classname="my-playlist-box">
-       
         {/* <h1>{song.creator}</h1> */}
         <img src={song.picture_medium} alt=""/>
         <h1>{song.title}</h1>
@@ -67,7 +65,7 @@ const MyPlaylists = () => {
         }}>Delete</button>
         </>
         </div>
-    )
+    )}
 })}
 </div>
 

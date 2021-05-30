@@ -37,6 +37,7 @@ useEffect(() => {
      {!loading?(  <div className="current-song">
                   <img src={thisSong.album.cover_big} alt="" />
                   {/* <h1>{thisSong.title}</h1> */}
+                  <div className="icons"> </div>
               </div>
 ):<div className= "this-song-middle"><Loader
 type="ThreeDots"
@@ -53,6 +54,5 @@ className="loader"/></div>}
         </div>
     )
 }
-
 
 export default Song;

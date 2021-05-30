@@ -7,6 +7,7 @@ import {AiTwotoneLike} from "react-icons/ai"
 import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import CancelSharpIcon from '@material-ui/icons/CancelSharp';
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
@@ -30,7 +31,7 @@ import Loader from "react-loader-spinner";
       }
       
       const showPlaylistspopup=()=>{
-         setPlaylistspopup(!playlistspopup)
+         setPlaylistspopup(true)
       }
     
       const likeSong=async(track_id)=>{
@@ -41,6 +42,7 @@ import Loader from "react-loader-spinner";
          console.log(data)
          setLiked(!liked)
        }
+
        const unlikeSong=async(ID)=>{
          const user_id=localStorage.getItem('user_id')
          const access_token=localStorage.getItem('token');
@@ -96,7 +98,7 @@ import Loader from "react-loader-spinner";
           const addtoThisPlaylist=async(ID,id)=>{
             // const user_id=localStorage.getItem('user_id')
             const access_token=localStorage.getItem('token')
-            const results=await fetch(`${url}playlist/${ID}/tracks&track_id=${id}&order=${id}&request_method=post&access_token=${access_token}`)
+            const results=await fetch(`${url}playlist/${ID}/tracks&songs=${id}&order=${id}&request_method=post&access_token=${access_token}`)
             const data=await results.json();
             console.log(data);
             // window.location.reload();
@@ -106,12 +108,12 @@ import Loader from "react-loader-spinner";
                 <div key={searcher.id} className="search-box">
 
                 {playlistspopup?(<div id={searcher.id} className="playlistspopup">
+                   {/* <button onClick={setPlaylistspopup(false)}><CancelSharpIcon/></button> */}
             {myplaylists.map((playlists)=>{
               return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`,`${id}`)}}>{playlists.title}</h1>
             })}
             </div>
-            
-            ):<h1>loading...</h1>
+            ):""
             }
 
                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}

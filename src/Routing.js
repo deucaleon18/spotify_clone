@@ -15,7 +15,7 @@ import Song from './Functionality/Song';
 import Podcast from './Functionality/Podcast';
 import MyPlaylists from './Functionality/MyPlaylists';
 import AddingToPlaylist from './Functionality/AddSongstoMyplaylist';
-
+import Error from "./Functionality/Error"
 const Routing=()=>{
     return(<Router>
       <Route exact path="/search"><Appsearch/></Route> 
@@ -33,6 +33,7 @@ const Routing=()=>{
       <Route exact path="/library"><MyLibrary/></Route>
       <Route exact path="/login"><Login/></Route>
       <Route exact path="/user"><User/></Route>
+      <Route exact path="/sorry"><Error/></Route>
       <Route exact path="/home">
       <App/>
        </Route> 

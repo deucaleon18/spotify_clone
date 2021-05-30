@@ -6,6 +6,8 @@ import Player from './Player/Player';
 import Socials from "../Socials";
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
+import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+
  const CreatePlaylist = () => {
     const [playlist,setPlaylist]=useState('')
      const [playlistID,setPlaylistID]=useState()
@@ -27,12 +29,12 @@ import {AiOutlinePlus} from 'react-icons/ai'
 // console.log(data);
 // }
 
-const DeletePlaylist= async()=>{
-    const access_token=localStorage.getItem('token')
-    const results=await fetch(`${url}playlist/${playlistID}&request_method=delete&access_token=${access_token}`)
-    const data =await results.json()
-    console.log(data)
-    }
+// const DeletePlaylist= async()=>{
+//     const access_token=localStorage.getItem('token')
+//     const results=await fetch(`${url}playlist/${playlistID}&request_method=delete&access_token=${access_token}`)
+//     const data =await results.json()
+//     console.log(data)
+//     }
  const CreateNewPlaylist=async()=>{
     const user_id= localStorage.getItem('user_id')
     const access_token=localStorage.getItem('token')
@@ -51,6 +53,7 @@ const DeletePlaylist= async()=>{
   <div className="middle-create-playlist" >
       <h1>Create New Playlist</h1>
       {popup?(<div className="poppup">
+        {/* <div style={{width:"20px"}} onClick={setPopup(false)}><CancelSharpIcon/></div> */}
 <div className="create-playlist-form"><form onSubmit={handleSubmit}>
               <label htmlFor="playlist"></label>
               <input 
@@ -72,8 +75,8 @@ const DeletePlaylist= async()=>{
 
       <div className="add-new-playlist" onClick={()=>{setPopup(!popup)}}><AiOutlinePlus color="white" size="12rem" className="plus"/></div>
             
-              
-              <button onClick={()=>{DeletePlaylist()}}>Delete</button>
+{/*            
+              <button onClick={()=>{DeletePlaylist()}}>Delete</button> */}
               </div>
               </div>
               <Socials/>

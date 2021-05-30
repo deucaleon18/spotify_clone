@@ -26,7 +26,7 @@
     grid-template-columns:repeat(10,30vh);
     grid-gap:20px;
     background-color: black;
-    margin:10px 10px 10px 7px;
+    margin:10px 5vh 10px 5vh;
     overflow-x:scroll;
     height:38vh;
     /* overflow-x: scroll; */
@@ -34,12 +34,11 @@
 .box{
     /* margin:10px 8px 20px 8px; */
     width:30vh;
-    background-color: rgba(255, 255, 255, 0.301);
-      height:28vh; 
+    height:28vh; 
 }
 
 .box:hover{
-    background-color: grey;
+  opacity:1.2;
     
 }
 .box img{
@@ -65,12 +64,12 @@ font-size:4rem;
     text-align: center;
     font-size: larger;
 }
-.arrange2{
+/* .arrange2{
     display:grid;
     grid-template-columns:1fr 1fr 1fr 1fr 1fr ;
     background-color: black;
     margin:10px 10px 10px 7px;
-}
+} */
 .loader{
     margin:auto;
     
@@ -79,12 +78,12 @@ font-size:4rem;
 .playlistspopup{
     height:60vh;
     width:75%;
-    background-color: crimson;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
     position:absolute;
     top:100px;
     left:200px;
-    color:black;
-    
+    color:white;   
 }
 .playlistspopup h1{
     cursor: pointer;}
@@ -92,7 +91,6 @@ font-size:4rem;
     /* @media screen and(min-width:) {
         
     } */
-
 @media screen and (max-width:360px){
     .mainplayer{
      width:100%;
@@ -105,8 +103,8 @@ font-size:4rem;
             /* overflow-x: hidden; */
             /* scrollbar-width: none; */
     }
-.banner{
 
+.banner{
     width: 75vh;
     background-position-y: -40px;
     background-position-x: -63px;
