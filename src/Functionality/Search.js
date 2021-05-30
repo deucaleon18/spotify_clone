@@ -1,19 +1,19 @@
 import React,{useState,useEffect} from 'react';
 import "../styles/search.css";
 import{ url} from '../Auth/stats.js';
-import {Howl} from "howler";
-import {Link} from "react-router-dom"
-import {AiTwotoneLike} from "react-icons/ai"
-import {BiLike} from "react-icons/bi";
+// import {Howl} from "howler";
+// import {Link} from "react-router-dom"
+// import {AiTwotoneLike} from "react-icons/ai"
+// import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+// import CancelSharpIcon from '@material-ui/icons/CancelSharp';
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
     const [loading,setLoading]=useState(true);
-    const [playing,setPlaying]=useState(false);
-    const [liked,setLiked]=useState(false);
+   //  const [playing,setPlaying]=useState(false);
+   //  const [liked,setLiked]=useState(false);
     const [playlistspopup,setPlaylistspopup]=useState(false);
     const[myplaylists,setMyplaylists]=useState([]);
    const handleSubmit=async(e)=>{
@@ -34,23 +34,23 @@ import CancelSharpIcon from '@material-ui/icons/CancelSharp';
          setPlaylistspopup(true)
       }
     
-      const likeSong=async(track_id)=>{
-         const user_id=localStorage.getItem('user_id')
-         const access_token=localStorage.getItem('token')
-         const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-         const data=await results.json();
-         console.log(data)
-         setLiked(!liked)
-       }
+      // const likeSong=async(track_id)=>{
+      //    const user_id=localStorage.getItem('user_id')
+      //    const access_token=localStorage.getItem('token')
+      //    const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+      //    const data=await results.json();
+      //    console.log(data)
+      //    setLiked(!liked)
+      //  }
 
-       const unlikeSong=async(ID)=>{
-         const user_id=localStorage.getItem('user_id')
-         const access_token=localStorage.getItem('token');
-         const results =await fetch(`${url}user/${user_id}/tracks&track_id=${ID}&access_token=${access_token}&request_method=delete`) 
-         const data= await results.json();
-         console.log(data);
-         setLiked(!liked);
-       }
+      //  const unlikeSong=async(ID)=>{
+      //    const user_id=localStorage.getItem('user_id')
+      //    const access_token=localStorage.getItem('token');
+      //    const results =await fetch(`${url}user/${user_id}/tracks&track_id=${ID}&access_token=${access_token}&request_method=delete`) 
+      //    const data= await results.json();
+      //    console.log(data);
+      //    setLiked(!liked);
+      //  }
        const getMyPlaylists=async()=>{
          const user_id=localStorage.getItem('user_id')
          const access_token=localStorage.getItem('token')

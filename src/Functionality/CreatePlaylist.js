@@ -6,13 +6,13 @@ import Player from './Player/Player';
 import Socials from "../Socials";
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
-import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+// import CancelSharpIcon from '@material-ui/icons/CancelSharp';
 
  const CreatePlaylist = () => {
     const [playlist,setPlaylist]=useState('')
-     const [playlistID,setPlaylistID]=useState()
-     const [newplaylist,setNewplaylist]=useState()
-    const [loading,setLoading]=useState(true)
+    //  const [playlistID,setPlaylistID]=useState()
+    //  const [newplaylist,setNewplaylist]=useState()
+    // const [loading,setLoading]=useState(true)
     const [popup,setPopup]=useState(false)
     const handleSubmit=async(e)=>{
         e.preventDefault();
@@ -41,7 +41,7 @@ import CancelSharpIcon from '@material-ui/icons/CancelSharp';
      const results =await fetch(`${url}user/${user_id}/playlists&title=${playlist}&request_method=post&access_token=${access_token}`)
      const data=await results.json()
      console.log(data)
-     setPlaylistID(data.id);
+    //  setPlaylistID(data.id);
     //  if(data!==undefined){GetNewPlaylist();}
  }
     return (

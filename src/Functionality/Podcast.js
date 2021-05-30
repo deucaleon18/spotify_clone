@@ -15,7 +15,7 @@ const[thisPodcast,setThisPodcast]=useState()
 const[loading,setLoading]=useState(true)
 useEffect(() => {
     getThisSong();
-  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
     const getThisSong=async()=>{
    const results=await fetch(`${url}podcast/${id}`)

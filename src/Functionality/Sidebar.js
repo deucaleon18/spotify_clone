@@ -1,24 +1,24 @@
-import React,{useState} from 'react';
+import React from 'react';
 import "../styles/sidebar.css"
-import {url} from "../Auth/stats"
+// import {url} from "../Auth/stats"
  const Sidebar = () => {
-     const[myplaylists,setMyplaylists]=useState()
-     const[loading,setLoading]=useState(true)
-    const getMyPlaylists=async()=>{
-        const user_id=localStorage.getItem('user_id')
-        const access_token=localStorage.getItem('token')
-        const results=await fetch(`${url}user/${user_id}/playlists&limit=4&access_token=${access_token}`)
-        const data=await results.json()
-        console.log(data.data);
-        if(data!==undefined){
-            setMyplaylists(data.data);
-            setLoading(false);
-        }
+    //  const[myplaylists,setMyplaylists]=useState()
+    //  const[loading,setLoading]=useState(true)
+    // const getMyPlaylists=async()=>{
+    //     const user_id=localStorage.getItem('user_id')
+    //     const access_token=localStorage.getItem('token')
+    //     const results=await fetch(`${url}user/${user_id}/playlists&limit=4&access_token=${access_token}`)
+    //     const data=await results.json()
+    //     console.log(data.data);
+    //     if(data!==undefined){
+    //         setMyplaylists(data.data);
+    //         setLoading(false);
+    //     }
 
-        if(myplaylists!==undefined){
-            console.log(myplaylists)
-        }
-    }
+    //     if(myplaylists!==undefined){
+    //         console.log(myplaylists)
+    //     }
+    // }
 
  const removeItems=()=>{
      localStorage.removeItem('token')

@@ -3,15 +3,15 @@ import Player from './Player/Player'
 import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
-import {Howl} from "howler";
+// import {Howl} from "howler";
 import {url} from "../Auth/stats"
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
-import Search from "../Functionality/Search";
+// import Search from "../Functionality/Search";
 
 const Playlist= () => {
 const{id}=useParams()
@@ -29,7 +29,7 @@ const[liked,setLiked]=useState(false)
 
   useEffect(() => {
     fetchPlaylistsongs()
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 // const showSearchSongsPopper=()=>{
 // <Search/>
@@ -61,14 +61,14 @@ const[liked,setLiked]=useState(false)
 </div>
 
 {!loading?(deezer.map((song)=>{
-   function soundPlay(src){
-    const sound=new Howl({
-       src
-       // html5:true
-    })
-    sound.play()
- }
-         const{id,album,time_add,preview,title}=song
+//    function soundPlay(src){
+//     const sound=new Howl({
+//        src
+//        // html5:true
+//     })
+//     sound.play()
+//  }
+         const{id,album,time_add,title}=song
         return (<>
         <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}

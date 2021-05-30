@@ -3,7 +3,7 @@ import Player from './Player/Player'
 import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
-import {Howl} from "howler";
+// import {Howl} from "howler";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import {Link} from 'react-router-dom'
@@ -26,7 +26,7 @@ const[liked,setLiked]=useState([])
 
   useEffect(() => {
  window.onload=fetchLikedsongs()
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
  const unlikeSong=async(ID)=>{

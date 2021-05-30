@@ -10,7 +10,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
-import {Howl} from "howler";
+// import {Howl} from "howler";
 import {Link} from "react-router-dom"
 
  const Album = () => {
@@ -28,7 +28,7 @@ const[thisAlbum,setThisAlbum]=useState()
 const[loading,setLoading]=useState(true)
 useEffect(() => {
     getThisAlbum();
-  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
     const getThisAlbum=async()=>{
    const results=await fetch(`${url}album/${id}`)
@@ -58,14 +58,14 @@ useEffect(() => {
   <h3>TIME</h3>
 </div>
 {!loading?(thisAlbum.map((song)=>{
-   function soundPlay(src){
-    const sound=new Howl({
-       src
+//    function soundPlay(src){
+//     const sound=new Howl({
+//        src
 
-    })
-    sound.play()
- }
-         const{id,duration,preview,title}=song
+//     })
+//     sound.play()
+//  }
+         const{id,duration,title}=song
         return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
         <div></div>

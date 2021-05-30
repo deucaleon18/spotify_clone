@@ -17,8 +17,8 @@ const Mainplayer = () => {
     const[deezer_8,setDeezer_8]=useState()
     const[deezer_9,setDeezer_9]=useState()
     const[deezer_10,setDeezer_10]=useState()
-    const[recent,setRecent]=useState()
-    const[recommend,setRecommend]=useState()
+    // const[recent,setRecent]=useState()
+    // const[recommend,setRecommend]=useState()
 const deezerCharts_1=async()=>{ 
     const results =await fetch(`${url}playlist/1479458365`)    
      const data= await results.json()
@@ -96,24 +96,24 @@ const deezerCharts_1=async()=>{
     localStorage.setItem('user_id',data.id)
   
    }     
-   const recentPlayed=async()=>{
-    const user_id=localStorage.getItem('user_id')
-    const results=await fetch(`${url}user/${user_id}/history&access_token=${localStorage.getItem('token')}`)
-    const data=await results.json()
-    console.log(data)
-    if(data!==undefined){
-        setRecent(data)
-    }
-   }   
-   const recommendations=async()=>{
-    const user_id=localStorage.getItem('user_id')
-    const results=await fetch(`${url}user/${user_id}/recommendations/tracks&access_token=${localStorage.getItem('token')}`)
-    const data=await results.json()
-    console.log(data)
-    if(data!==undefined){
-        setRecommend(data)
-    }
-   }   
+//    const recentPlayed=async()=>{
+//     const user_id=localStorage.getItem('user_id')
+//     const results=await fetch(`${url}user/${user_id}/history&access_token=${localStorage.getItem('token')}`)
+//     const data=await results.json()
+//     console.log(data)
+//     if(data!==undefined){
+//         setRecent(data)
+//     }
+//    }   
+//    const recommendations=async()=>{
+//     const user_id=localStorage.getItem('user_id')
+//     const results=await fetch(`${url}user/${user_id}/recommendations/tracks&access_token=${localStorage.getItem('token')}`)
+//     const data=await results.json()
+//     console.log(data)
+//     if(data!==undefined){
+//         setRecommend(data)
+//     }
+//    }   
    
 useEffect(()=>{
 deezerCharts_1();
@@ -128,9 +128,9 @@ deezerCharts_9();
 deezerCharts_10();
 deezerCharts_11();
 getUser();
-if(localStorage.getItem('user_id')!==undefined){recentPlayed();
-recommendations();
-}
+// if(localStorage.getItem('user_id')!==undefined){recentPlayed();
+// recommendations();
+// }
 
 },[])
 

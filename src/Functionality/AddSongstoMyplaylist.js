@@ -1,18 +1,18 @@
 import React,{ useEffect,useState } from 'react'
-import {Howl} from "howler";
+// import {Howl} from "howler";
 import {url} from "../Auth/stats"
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import {BiLike} from "react-icons/bi"
-import {AiTwotoneLike} from "react-icons/ai"
+// import {BiLike} from "react-icons/bi"
+// import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
-import Appsearch from "../Appsearch";
+// import Appsearch from "../Appsearch";
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import Player from './Player/Player.js';
 import Socials from "../Socials";
-import Search from './Search';
+// import Search from './Search';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import Icon from '@material-ui/core/Icon';
 
@@ -51,7 +51,7 @@ const fetchSearchedvalue=async()=>{
   
 useEffect(() => {
   window.onload=fetchPlaylistsongs()
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
 const removeSongfromPlaylist=async(ID)=>{
@@ -100,22 +100,23 @@ setSongLoading(true);
 </div>
 <button onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
       {myPlaylistSongs.map((song)=>{
-       const{id,album,time_add,preview,title}=song
+       const{id,album,time_add,title}=song
        return (<div style={{display:"flex"}}>
         <Icon style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></Icon>
-       <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
+       <div key={id}className="playlistsong">
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
-        <div></div>
-       <div></div>
-       <img src={album.cover} alt="la"/>
+     <Link to={`/this/song/${id}`}>
+       <div className="linkage-container">
+       {/* <img src={album.cover} alt="la"/> */}
        <h3>{title}</h3>
        <h3>{album.title}</h3>
        <h3>DATE ADDED</h3>
        <h3>{time_add}</h3>
-     
        </div>
        </Link>
+       </div>
+       
        </div>)
       })
       }
@@ -153,6 +154,7 @@ setSongLoading(true);
             const data=await results.json();
             console.log(data);
             // window.location.reload();
+            if(data){alert("success")}
          }
 
           return( 
@@ -160,11 +162,11 @@ setSongLoading(true);
                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
                 <div></div>
          {/* {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>}  */}
-               <button onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD TO THIS PLAYLIST</button>
+               <button style={{width:"30px" }}onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD TO THIS PLAYLIST</button>
                 <a href={`/this/song/${searcher.id}`}>
                    <div className="linkage-container">
             
-                <img src={artist.picture_small} alt=""/>
+                {/* <img src={artist.picture_small} alt=""/> */}
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
                 </div>
