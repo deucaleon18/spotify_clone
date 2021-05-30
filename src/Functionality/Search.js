@@ -114,8 +114,8 @@ import Loader from "react-loader-spinner";
             ):<h1>loading...</h1>
             }
 
-                {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>}
-         {/* {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>}  */}
+                {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
+         {/* {playing? <button onClick={setPlaying(!playing)}><h3>pause</h3></button>:<button onClick={setPlaying(!playing)}><h3>play</h3></button>}  */}
                <button onClick={()=>{showPlaylistspopup()}}>ADD TO A PLAYLIST</button>
                 <a href={`/this/song/${searcher.id}`}>
                    <div className="linkage-container">

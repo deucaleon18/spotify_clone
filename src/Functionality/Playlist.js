@@ -73,8 +73,10 @@ const[liked,setLiked]=useState(false)
          const{id,album,time_add,preview,title}=song
         return (<>
         <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
-        <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
-        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
+        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
+        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> 
+     
+        <div></div>
         <img src={album.cover} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>

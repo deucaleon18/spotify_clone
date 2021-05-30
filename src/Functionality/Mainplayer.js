@@ -167,7 +167,6 @@ deezer_10!==undefined&&recent!==undefined)return(<div className="mainplayer">
      <Link to={`playlist/${id}`}>
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-
         </Link>
         <button>PLAY</button>
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}

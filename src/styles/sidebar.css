@@ -43,3 +43,11 @@
     border-left:solid 5px rgba(255, 0, 0, 0.678);
 } 
 
+@media screen and (max-width:400px){
+
+    .sidebar{
+        display:none;
+        
+
+    }
+}

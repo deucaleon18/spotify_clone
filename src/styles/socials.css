@@ -3,3 +3,14 @@
     height:87vh;
     background-color: #3D3D3D;
 }
+
+
+
+@media screen and(min-width:360px){
+    .socials{
+        display:none;
+        width:0;
+        height:0;
+    }
+    
+}
