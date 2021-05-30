@@ -46,6 +46,10 @@
      opacity:0.8;
 }
 
+.linkage-container{
+    display:grid;
+    grid-template-columns:  80vh 38vh 20vh 20vh;
+}
 @media screen and (max-width:400px){
     .liked-banner{ width: 68vh;
             background-image:url('liked.jpg');

@@ -27,8 +27,6 @@ const[liked,setLiked]=useState(false)
      if(data!==undefined){setLoading(false);}
   }
 
-
-
   useEffect(() => {
     fetchPlaylistsongs()
     
@@ -84,9 +82,9 @@ const[liked,setLiked]=useState(false)
         <h3>{time_add}</h3>
         </div>
         </Link>
-        <>
+        
          {/* <button onClick={()=>{showSearchSongsPopper()}}>ADD SONGS TO THIS PLAYLIST</button> */}
-         </>
+      
          </>)
     })):
     <>

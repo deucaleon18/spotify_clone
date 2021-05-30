@@ -28,7 +28,7 @@
     background-color: black;
     margin:10px 5vh 10px 5vh;
     overflow-x:scroll;
-    height:38vh;
+    height:32vh;
     /* overflow-x: scroll; */
 }
 .box{
@@ -54,7 +54,7 @@
 .title{width:5fr;
 color:white;
 background-color: black;
-height:10vh;
+height:8vh;
 margin: 20px 10px 10px 7px;
 text-align:center;
 font-size:4rem;
@@ -94,7 +94,7 @@ font-size:4rem;
 @media screen and (max-width:360px){
     .mainplayer{
      width:100%;
-    height:87vh;
+    height:82vh;
     background-color: #121212;
     display:grid;
     grid-template-rows:30vh 10vh ;

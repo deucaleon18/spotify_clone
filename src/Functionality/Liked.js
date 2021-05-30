@@ -9,6 +9,7 @@ import Loader from "react-loader-spinner";
 import {Link} from 'react-router-dom'
 import {url} from "../Auth/stats"
 
+
 import "../styles/liked.css";
  const Liked = () => {
 const[loading,setLoading]=useState(true)
@@ -47,8 +48,8 @@ const[liked,setLiked]=useState([])
 </div>
 <div className="sectionheader">
   <h3>#</h3>
-  <div></div>
-  <div></div>
+ <div></div>
+ <div></div>
   {/* <div></div> */}
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -67,16 +68,13 @@ const[liked,setLiked]=useState([])
     const{id,album,time_add,title}=song 
     return (<div key={id}className="likedsong">
     {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
-   
-    <div></div>
+
     <button style={{cursor:"pointer"}} onClick={()=>{
      unlikeSong(`${id}`) 
    }}>Remove</button>
-    <div></div>
+ 
     <Link to={`/this/song/${id}`}>
     <div className="linkage-container">
-   
-      
     <h3>{title}</h3>
     <h3>{album.title}</h3>
     <h3>DATE ADDED</h3>

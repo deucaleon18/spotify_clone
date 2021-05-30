@@ -13,9 +13,11 @@
     margin:10px 0 0 600px;
     padding:10px 0 0 20px;
     border-radius:10px;
-    height:4rem;width:22rem;
+    height:5rem;width:22rem;
     position:relative;
     top:540px;right:40px;
+    text-align:center;
+    align-items: center;
 }
 
 .login a{  background-color: black;

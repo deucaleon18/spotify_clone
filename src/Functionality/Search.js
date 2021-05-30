@@ -121,7 +121,9 @@ import CancelSharpIcon from '@material-ui/icons/CancelSharp';
                <button onClick={()=>{showPlaylistspopup()}}>ADD TO A PLAYLIST</button>
                 <a href={`/this/song/${searcher.id}`}>
                    <div className="linkage-container">
-                <img src={artist.picture_small} alt=""/>
+                      {/* <div></div> */}
+                      {/* <div></div>
+                <img src={artist.picture_small} alt=""/> */}
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
                 </div>

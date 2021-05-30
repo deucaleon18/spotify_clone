@@ -13,6 +13,9 @@ import Sidebar from './Sidebar.js';
 import Player from './Player/Player.js';
 import Socials from "../Socials";
 import Search from './Search';
+import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import Icon from '@material-ui/core/Icon';
+
 
 const AddingToPlaylist= () => {
 const{id}=useParams()
@@ -78,13 +81,7 @@ setSongLoading(true);
     <Sidebar />
     <div>
  {songloading?(
-         <Loader
-        type="ThreeDots"
-         color="black"
-        height={100}
-        width={100}
-        timeout={10000} //10 secs
-      className="loader"/>
+        ""
      
       ):
      ( <>
@@ -104,8 +101,8 @@ setSongLoading(true);
 <button onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
       {myPlaylistSongs.map((song)=>{
        const{id,album,time_add,preview,title}=song
-       return (<>
-        <button style={{cursor:"pointer"}} onClick={()=>{removeSongfromPlaylist(`${id}`)}}>Remove</button>
+       return (<div style={{display:"flex"}}>
+        <Icon style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></Icon>
        <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
@@ -119,7 +116,7 @@ setSongLoading(true);
      
        </div>
        </Link>
-       </>)
+       </div>)
       })
       }
       </div>
@@ -144,13 +141,7 @@ setSongLoading(true);
               </form>
          {loading?
         //  (<div className="search-area">
-         <Loader
-        type="ThreeDots"
-         color="white"
-        height={100}
-        width={100}
-        timeout={10000} //10 secs
-      className="loader"/>
+         ""
       // </div>)
          :(
            searchresult.map((searcher)=>{
@@ -172,6 +163,7 @@ setSongLoading(true);
                <button onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD TO THIS PLAYLIST</button>
                 <a href={`/this/song/${searcher.id}`}>
                    <div className="linkage-container">
+            
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>

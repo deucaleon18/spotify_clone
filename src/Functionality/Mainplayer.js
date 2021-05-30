@@ -168,7 +168,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -180,7 +180,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -193,7 +193,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <h4>{title}</h4>
      
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -209,7 +209,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })} 
@@ -221,7 +221,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -233,7 +233,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -249,7 +249,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={cover_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -263,7 +263,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={album.cover_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -277,7 +277,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -291,7 +291,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
@@ -305,7 +305,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
         </Link>
-        <button>PLAY</button>
+        {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
