@@ -67,7 +67,7 @@ import {AiOutlinePlus} from 'react-icons/ai'
               <button type="submit">Submit</button>
               </form>
               </div>
-    </div>):<h1>loading...</h1>
+    </div>):""
     
     
     } 
