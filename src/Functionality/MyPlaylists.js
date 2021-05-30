@@ -2,14 +2,17 @@ import React,{useState,useEffect} from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
+import Bottombar from "../Functionality/Bottombar"
 const MyPlaylists = () => {
 
     const[myplaylists,setMyplaylists]=useState([])
     // const[loading,setLoading] = useState(true)
+
+    useEffect(() => {
 
     const getMyPlaylists=async()=>{
         const user_id=localStorage.getItem('user_id')
@@ -22,16 +25,14 @@ const MyPlaylists = () => {
             // setLoading(false);
         }
 
-        if(myplaylists!==undefined){
-            console.log(myplaylists)
-        }
+        // if(myplaylists!==undefined){
+        //     console.log(myplaylists)
+        // }
     }
-    useEffect(() => {
         window.onload=getMyPlaylists()
         
-    })
-
-
+    },[])
+    
    if(myplaylists!==undefined){ return (
         <div className="my-playlists">      
     <Header />
@@ -50,11 +51,11 @@ const MyPlaylists = () => {
         window.location.reload();
     }
     const{id}=song;
-    return(
+    if(song.title!=="Loved Tracks")
+    {return(
         <div className="my-playlist-box-container" >
             <Link to={`/user/playlist/${id}`}>
         <div key={song.id} classname="my-playlist-box">
-       
         {/* <h1>{song.creator}</h1> */}
         <img src={song.picture_medium} alt=""/>
         <h1>{song.title}</h1>
@@ -67,13 +68,16 @@ const MyPlaylists = () => {
         }}>Delete</button>
         </>
         </div>
-    )
+    )}
+    return null
 })}
 </div>
 
     <Socials/>
     </div>
-    <Player/> 
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
         </div>
     )
 }

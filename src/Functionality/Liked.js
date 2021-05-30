@@ -1,13 +1,14 @@
 import React,{ useEffect,useState } from 'react'
-import Player from './Player/Player'
+// import Player from './Player/Player'
 import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
-import {Howl} from "howler";
+// import {Howl} from "howler";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {url} from "../Auth/stats"
+import Bottombar from "../Functionality/Bottombar"
 
 import "../styles/liked.css";
  const Liked = () => {
@@ -25,7 +26,7 @@ const[liked,setLiked]=useState([])
 
   useEffect(() => {
  window.onload=fetchLikedsongs()
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
  const unlikeSong=async(ID)=>{
@@ -45,15 +46,13 @@ const[liked,setLiked]=useState([])
       <div className="liked-area">
           <div className="liked-banner"> 
 </div>
-<div className="sectionheader">
+<div className="sectionheader-liked">
   <h3>#</h3>
-  <div></div>
-  <div></div>
   {/* <div></div> */}
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
-  <h3>DATE ADDED</h3>
-  <h3>TIME</h3>
+  <h3>ARTIST </h3>
+  {/* <h3>TIME</h3> */}
 </div>
 
 {!loading?(liked.map((song)=>{
@@ -64,23 +63,21 @@ const[liked,setLiked]=useState([])
 //     })
 //     sound.play()
 //  }
-    const{id,album,time_add,title}=song 
-    return (<div key={id}className="likedsong">
+    const{id,album,artist,title}=song 
+    return (
+    <div className="like-flex"style={{display:"flex"}}>
+     <button style={{cursor:"pointer"}} onClick={()=>{
+        unlikeSong(`${id}`) 
+      }}>rem</button>
+    
+    <div key={id} onClick={()=>{window.location.href=`/this/song/${id}`}}className="likedsong">
     {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
-   
-    <div></div>
-    <button style={{cursor:"pointer"}} onClick={()=>{
-     unlikeSong(`${id}`) 
-   }}>Remove</button>
-    <div></div>
-    <Link to={`/this/song/${id}`}>
-    <div className="linkage-container">
-   
-      
+     <h1>""</h1>
     <h3>{title}</h3>
     <h3>{album.title}</h3>
-    <h3>DATE ADDED</h3>
-    <h3>{time_add}</h3></div></Link>
+    <h3>{artist.name} </h3>
+    {/* <h3>{time_add}</h3> */}
+    </div>
     </div>
     )
      })):  
@@ -95,8 +92,9 @@ const[liked,setLiked]=useState([])
 </div>
       <Socials/>
       </div>
-      <Player/> 
-            
+      <div className="player">
+        <Bottombar/>
+      </div>
             
         </div>
     )

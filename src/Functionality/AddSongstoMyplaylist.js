@@ -1,18 +1,21 @@
 import React,{ useEffect,useState } from 'react'
-import {Howl} from "howler";
+// import {Howl} from "howler";
 import {url} from "../Auth/stats"
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import {BiLike} from "react-icons/bi"
-import {AiTwotoneLike} from "react-icons/ai"
-import {Link,useParams} from 'react-router-dom';
+// import {BiLike} from "react-icons/bi"
+// import {AiTwotoneLike} from "react-icons/ai"
+import {useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
-import Appsearch from "../Appsearch";
+// import Appsearch from "../Appsearch";
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
-import Search from './Search';
+// import Search from './Search';
+import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import Bottombar from "../Functionality/Bottombar"
+import "../styles/Playlists/addsongstoplaylist.css"
 
 const AddingToPlaylist= () => {
 const{id}=useParams()
@@ -27,10 +30,20 @@ const [songloading,setSongLoading]=useState(true);
 const handleSubmit=async(e)=>{
   e.preventDefault();
  // fetchData();
+ const fetchSearchedvalue=async()=>{
+  const results= await fetch(`${url}search?q=${searchvalue}`)
+  const data=await results.json();
+  console.log(data.data) ;
+  setSearchresult(data.data);
+  if(searchresult!==undefined){setLoading(false);}
+ }
  fetchSearchedvalue();
 }
 
-const fetchPlaylistsongs=async()=>{ 
+
+
+useEffect(() => {
+  const fetchPlaylistsongs=async()=>{ 
   const results =await fetch(`${url}playlist/${id}`) 
    const data= await results.json()
    console.log(data);
@@ -38,17 +51,9 @@ const fetchPlaylistsongs=async()=>{
     setMyplaylistSongs(data.tracks.data);
      setSongLoading(false);}
 }
-const fetchSearchedvalue=async()=>{
-  const results= await fetch(`${url}search?q=${searchvalue}`)
-  const data=await results.json();
-  console.log(data.data) ;
-  setSearchresult(data.data);
-  if(searchresult!==undefined){setLoading(false);}
-  }
-  
-useEffect(() => {
-  window.onload=fetchPlaylistsongs()
 
+  window.onload=fetchPlaylistsongs()
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
 const removeSongfromPlaylist=async(ID)=>{
@@ -78,13 +83,7 @@ setSongLoading(true);
     <Sidebar />
     <div>
  {songloading?(
-         <Loader
-        type="ThreeDots"
-         color="black"
-        height={100}
-        width={100}
-        timeout={10000} //10 secs
-      className="loader"/>
+        ""
      
       ):
      ( <>
@@ -93,33 +92,34 @@ setSongLoading(true);
 </div>
      <div className="sectionheader">
   <h3>#</h3>
-  <div></div>
-  <div></div>
+ 
   {/* <div></div> */}
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
-  <h3>DATE ADDED</h3>
+  <h3>ARTIST</h3>
   <h3>TIME</h3>
 </div>
-<button onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
+<button style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
       {myPlaylistSongs.map((song)=>{
-       const{id,album,time_add,preview,title}=song
-       return (<>
-        <button style={{cursor:"pointer"}} onClick={()=>{removeSongfromPlaylist(`${id}`)}}>Remove</button>
-       <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
+       const{id,album,time_add,title,artist}=song
+       return (<div style={{display:"flex"}}>
+        <button style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></button>
+       <div key={id}className="playlistsong" onClick={()=>{window.location.href=`/this/song/${id}`}} style={{cursor:"pointer"}} >
+
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
-        <div></div>
+    
        <div></div>
        <img src={album.cover} alt="la"/>
        <h3>{title}</h3>
        <h3>{album.title}</h3>
-       <h3>DATE ADDED</h3>
+       <h3>{artist.name}</h3>
        <h3>{time_add}</h3>
-     
        </div>
-       </Link>
-       </>)
+       
+      
+       
+       </div>)
       })
       }
       </div>
@@ -144,16 +144,18 @@ setSongLoading(true);
               </form>
          {loading?
         //  (<div className="search-area">
-         <Loader
-        type="ThreeDots"
-         color="white"
-        height={100}
-        width={100}
-        timeout={10000} //10 secs
-      className="loader"/>
+         ""
       // </div>)
-         :(
-           searchresult.map((searcher)=>{
+      
+         :(<><div className="sectionheader-addto">
+         <h3>""</h3>
+         {/* <div></div> */}
+         <h3>TITLE</h3>
+         <h3>ARTIST</h3>
+         {/* <h3>ARTIST </h3> */}
+         {/* <h3>TIME</h3> */}
+       </div>
+           {searchresult.map((searcher)=>{
           const{album,artist}=searcher
           const addtoThisPlaylist=async(ID)=>{
             // const user_id=localStorage.getItem('user_id')
@@ -162,26 +164,32 @@ setSongLoading(true);
             const data=await results.json();
             console.log(data);
             // window.location.reload();
+            if(data){alert("success")}
          }
 
           return( 
-                <div key={searcher.id} className="search-box">
-                {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
-                <div></div>
-         {/* {playing? <button onClick={()=>{soundPause(`${id}`)}}><h3>pause</h3></button>:<button onClick={()=>{soundPlay(`${preview}`)}}><h3>play</h3></button>}  */}
-               <button onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD TO THIS PLAYLIST</button>
-                <a href={`/this/song/${searcher.id}`}>
-                   <div className="linkage-container">
+          
+         <div style={{display:"flex"}}>
+            
+         <span style={{width:"30px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD </span>               
+         <div key={searcher.id} className="addto-search-box" onClick={()=>{window.location.href=`/this/song/${id}`}}>
+           <div></div>
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
+                <h2>""</h2>
+                
                 </div>
-                </a>
                 </div>
+          
+               
+                
              )
            }
-           )  
+           )}  
+           </> 
        )   
+          
  }
         </div>
       </div>  
@@ -189,7 +197,8 @@ setSongLoading(true);
     </div>
     <Socials/>
     </div>
-<Player/>
+    <div className="empty-player"></div>
+    <Bottombar></Bottombar>
         </div>
     )
         

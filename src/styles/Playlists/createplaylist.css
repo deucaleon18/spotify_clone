@@ -2,7 +2,7 @@
     background-color:#212121;
     height:87vh;
     width:100%;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 .middle-create-playlist h1{
     margin:30px 30px;
@@ -16,30 +16,31 @@
     width:40vh;
     height:40vh;
     background-color: rgb(0, 0, 0);
-    /* margin:0 30px; */
-    opacity:0.4;
-    /* position:relative;
- top:300px; */
+    margin:0 30px;
+    opacity:0.7;
+   position:absolute;
+ top:150px;
 }
 .plus{
     margin:30px 90px;
 }
-.create-playlist-form button,#playlist-bar{
+.create-playlist-form button{
     background-color: black;
     font-size:1.2rem;
-    color:white;
     height:3rem;
-    width:23rem;
+    width:15rem;
     display:block;
-    margin:30px 30px;
+    position:absolute;
     cursor:pointer;
+    margin:200px 150px;
+    border-radius:10px;
 }
 .add-new-playlist:hover{
     width:40vh;
     height:40vh;
     background-color: rgb(0, 0, 0);
-    margin:30px 30px;
-    opacity:0.8;
+    /* margin:30px 30px; */
+    opacity:1.0;
     cursor:pointer;
 }
 .display-new-playlist{
@@ -56,11 +57,103 @@ grid-template-columns: 1fr 1fr;
 height:100vh;
 width:100%;
 } */
+#playlist-bar{
+    margin:30px 40px;
+    position:absolute;
+    width:23rem;
+    background-color: black;
+    font-size:1.2rem;
+    height:3rem;
+    margin:100px 100px;
+    border-radius:10px;
+
+}
 .poppup{
     height:80vh;
-    width:80%;
-    margin:auto;
-   background-color: coral;
-   opacity:1;
-   /* position:relative; */
+    width:180vh;
+    /* margin:auto; */
+    background-color: #000000;
+        background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+   opacity:1.2;
+   z-index:3;
+   position:relative;
+   border-radius:10px;
+}
+
+.addingSongsto button{
+background-color: black;
+/* width:3rem;
+height:2rem; */
+}
+.poppup button{background-color:black;}
+@media screen and (max-width:500px) {
+    .add-new-playlist{
+        width:40vh;
+        height:40vh;
+        background-color: rgb(0, 0, 0);
+        margin:0 50px;
+        opacity:0.7;
+       position:absolute;
+     top:150px;
+    }
+    
+    .plus{
+        margin:30px 30px;
+    }
+    
+
+    .middle-create-playlist h1{
+        margin:30px 30px;
+        font-size:2rem;
+        text-align:center;
+        color:white;
+    }
+    
+    .Createplaylist{
+        overflow-x: hidden;
+        overflow-y: hidden;
+        height:640px;
+        width:100%;
+    }
+    .middle-create-playlist{
+        background-color:#212121;
+        height:87vh;
+        width:360px;
+        overflow-y: hidden;
+    }
+    
+    .poppup{
+        height:480px;
+        width:360px;
+        margin:auto;
+        background-color: #000000;
+        background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+       opacity:1.2;
+       z-index:3;
+       position:relative;
+       border-radius:10px;
+    }
+   .poppup button{background-color:black;}
+    #playlist-bar{
+        margin:60px 40px;
+        position:absolute;
+        width:18rem;
+        display:block;
+        background-color: black;
+        font-size:1.2rem;
+        height:3rem;
+        color:white;
+    }
+    .create-playlist-form button{
+        background-color: black;
+        font-size:1.2rem;
+        height:3rem;
+        width:15rem;
+        display:block;
+        position:absolute;
+        cursor:pointer;
+        margin:150px 70px;
+        border-radius:10px;
+        color:white;
+    }
 }

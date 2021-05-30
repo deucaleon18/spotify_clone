@@ -2,12 +2,13 @@ import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Bottombar from "../Functionality/Bottombar"
 
  const Podcast = () => {
     const{id}=useParams();
@@ -15,7 +16,7 @@ const[thisPodcast,setThisPodcast]=useState()
 const[loading,setLoading]=useState(true)
 useEffect(() => {
     getThisSong();
-  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
     const getThisSong=async()=>{
    const results=await fetch(`${url}podcast/${id}`)
@@ -49,7 +50,9 @@ className="loader"/></div>}
     </div>
     <Socials/>
     </div>
-   <Player/>
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
         </div>
     )
 }

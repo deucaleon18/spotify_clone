@@ -18,7 +18,7 @@
   display: block;
   position: absolute;
   border-radius: 10px;
-  top: 50%;
+  top: 18%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -33,7 +33,7 @@
   display: block;
   position: absolute;
   border-radius: 10px;
-  top: 50%;
+  top: 18%;
   transform: translateY(-50%);
   z-index: 1;
   user-select: none;

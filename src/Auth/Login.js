@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/login.css"; 
 import {loginURL} from "./stats.js"
-import img from "../styles/girl.jpg"
+
 const Login = () => {
   if(localStorage.getItem('token')!==null){return (<div className="login">
         

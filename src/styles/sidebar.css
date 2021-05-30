@@ -41,5 +41,14 @@
     color:rgba(255, 0, 0, 0.678);
     background:#191414;
     border-left:solid 5px rgba(255, 0, 0, 0.678);
+    opacity:1.2;
 } 
 
+@media screen and (max-width:500px){
+
+    .sidebar{
+        display:none;
+        
+
+    }
+}
