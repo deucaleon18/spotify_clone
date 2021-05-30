@@ -319,7 +319,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
      color="white"
     height={100}
     width={100}
-    timeout={3000} //3 secs
+    timeout={10000} //3 secs
   className="loader"/>
   </div>)
 }

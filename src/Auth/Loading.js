@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import{app_id,secret} from './stats'
- 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
 const Loading = () => {
     const [code,setCode] = useState();
     const tokenURL=`https://deezerclone.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=${app_id}&secret=${secret}&code=${code}&output=json`
@@ -31,8 +33,14 @@ const getCode=()=>{
        handleRedirect();
    }   
 
-return <div>
-    <h1>Loading...</h1>
+return <div className="loading">
+    <Loader
+    type="ThreeDots"
+     color="white"
+    height={100}
+    width={100}
+    timeout={10000} //3 secs
+  className="loader"/>
 </div>
 }
 export default Loading;
