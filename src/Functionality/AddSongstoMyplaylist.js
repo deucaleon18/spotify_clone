@@ -102,7 +102,7 @@ setSongLoading(true);
       {myPlaylistSongs.map((song)=>{
        const{id,album,time_add,title}=song
        return (<div style={{display:"flex"}}>
-        <Icon style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></Icon>
+        <button style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></button>
        <div key={id}className="playlistsong">
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
