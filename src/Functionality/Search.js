@@ -101,7 +101,7 @@ import Loader from "react-loader-spinner";
             const results=await fetch(`${url}playlist/${ID}/tracks&songs=${id}&order=${id}&request_method=post&access_token=${access_token}`)
             const data=await results.json();
             console.log(data);
-            // window.location.reload();
+            window.location.reload();
          }
 
           return( 
