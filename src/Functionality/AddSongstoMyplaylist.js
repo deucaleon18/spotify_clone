@@ -14,7 +14,7 @@ import Sidebar from './Sidebar.js';
 import Socials from "../Socials";
 // import Search from './Search';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
-import Icon from '@material-ui/core/Icon';
+
 
 
 const AddingToPlaylist= () => {
