@@ -3,7 +3,7 @@ import './styles/App.css';
 import Header from './Header';
 import Sidebar from './Functionality/Sidebar.js';
 import Search from "./Functionality/Search.js"
-import Player from './Functionality/Player/Player.js';
+// import Player from './Functionality/Player/Player.js';
 import Socials from "./Socials";
 
 const Appsearch=()=>{
@@ -17,7 +17,7 @@ const Appsearch=()=>{
       <Search/>
       <Socials/>
       </div>
-      <Player/> 
+      <div className="player"></div>
     </div>
   );
 }

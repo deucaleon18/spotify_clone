@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
@@ -72,7 +72,7 @@ const MyPlaylists = () => {
 
     <Socials/>
     </div>
-    <Player/> 
+    <div className="player"></div>
         </div>
     )
 }

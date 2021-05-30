@@ -4,23 +4,17 @@
     background-color: #000000;
 background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
     grid-gap:10px;
-    overflow-y:scroll;
+    overflow-y:hidden;
   
 }
 .this-song-middle::-webkit-scrollbar {
     display: none;
   }
-  .current-song{
-      display:grid;
-      grid-template-columns: 1fr;
-      color:white;
-      /* margin:40px 40px; */
-      /* text-align:center; */
-  }
+  
 .current-song img{
 /* margin:auto; */
 margin:5% 25%;
-height:60%;
+height:60vh;
 width:40%;
 opacity:1;
 /* margin:40px 40px; */

@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 import "../styles/mylibrary.css";
 import {Link} from "react-router-dom"
@@ -27,7 +27,7 @@ import {Link} from "react-router-dom"
 </div>
     <Socials/>
     </div>
-    <Player/> 
+    <div className="player"></div>
 
         </div>
     )

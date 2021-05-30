@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 import "../styles/song.css";
 import {url} from "../Auth/stats"
@@ -49,7 +49,7 @@ className="loader"/></div>}
     </div>
     <Socials/>
     </div>
-   <Player/>
+    <div className="player"></div>
         </div>
     )
 }

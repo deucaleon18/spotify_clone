@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {url} from '../Auth/stats';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player';
+// import Player from './Player/Player';
 import Socials from "../Socials";
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
@@ -81,7 +81,7 @@ import {AiOutlinePlus} from 'react-icons/ai'
               </div>
               <Socials/>
     </div>
-    <Player/> 
+    <div className="player"></div>
               
         </div>
     )

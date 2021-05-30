@@ -91,7 +91,7 @@ useEffect(() => {
 
     <Socials/>
     </div>
-   { !loading?(<Player song={thisArtist.preview}/>):<Player/>}
+   { !loading?(<Player song={thisArtist.preview}/>):<div className="player"></div>}
         </div>
     )
 }

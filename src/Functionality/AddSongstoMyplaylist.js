@@ -10,7 +10,7 @@ import "../styles/Playlists/playlistsongs.css";
 // import Appsearch from "../Appsearch";
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 // import Search from './Search';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
@@ -98,7 +98,7 @@ setSongLoading(true);
   <h3>DATE ADDED</h3>
   <h3>TIME</h3>
 </div>
-<button onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
+<button style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
       {myPlaylistSongs.map((song)=>{
        const{id,album,time_add,title}=song
        return (<div style={{display:"flex"}}>
@@ -183,7 +183,7 @@ setSongLoading(true);
     </div>
     <Socials/>
     </div>
-<Player/>
+    <div className="player"></div>
         </div>
     )
         

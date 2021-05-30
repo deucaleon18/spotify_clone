@@ -1,5 +1,5 @@
 import React,{ useEffect,useState } from 'react'
-import Player from './Player/Player'
+// import Player from './Player/Player'
 import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
@@ -93,8 +93,7 @@ const[liked,setLiked]=useState([])
 </div>
       <Socials/>
       </div>
-      <Player/> 
-            
+      <div className="player"></div>
             
         </div>
     )
