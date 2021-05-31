@@ -6,7 +6,7 @@
     position:fixed;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:500px) {
     .player{
         width:100%;
         height:15vh;

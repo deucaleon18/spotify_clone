@@ -29,7 +29,7 @@ opacity:1;
     padding:20px 105px;
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width:500px){
 
     .current-song button{
         background-color: black;

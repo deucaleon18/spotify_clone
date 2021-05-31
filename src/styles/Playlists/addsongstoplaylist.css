@@ -23,7 +23,7 @@
 .addto-search-box:hover{
     background-color: black;
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width:500px) {
     .sectionheader-addto{
         display:grid;
         grid-template-columns:120px 180px 100px ;

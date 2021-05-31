@@ -86,7 +86,7 @@ background-color: black;
 height:2rem; */
 }
 .poppup button{background-color:black;}
-@media screen and (max-width:400px) {
+@media screen and (max-width:500px) {
     .add-new-playlist{
         width:40vh;
         height:40vh;
