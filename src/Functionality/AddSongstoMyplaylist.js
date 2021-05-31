@@ -104,7 +104,8 @@ setSongLoading(true);
        const{id,album,time_add,title,artist}=song
        return (<div style={{display:"flex"}}>
         <button style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></button>
-       <div key={id}className="playlistsong">
+       <div key={id}className="playlistsong" onClick={()=>{window.location.href=`/this/song/${id}`}} style={{cursor:"pointer"}} >
+
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
     
