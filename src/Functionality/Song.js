@@ -8,8 +8,8 @@ import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Bottombar from "../Functionality/Bottombar"
 
 
@@ -78,7 +78,7 @@ className="loader"/></div>}
     <Socials/>
     </div>
     <Bottombar/>
-   { !loading?(<Player song={thisSong.preview}/>):<Player/>}
+   { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
    
         </div>
     )

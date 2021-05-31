@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-import Player from './Player/Player.js';
+// import Player from './Player/Player.js';
 import Socials from "../Socials";
 import "../styles/song.css";
 import {url} from "../Auth/stats"
@@ -11,7 +11,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 // import {Howl} from "howler";
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import Bottombar from "../Functionality/Bottombar"
 
  const Album = () => {

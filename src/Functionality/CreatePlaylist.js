@@ -46,8 +46,9 @@ import Bottombar from "../Functionality/Bottombar"
     //  if(data!==undefined){GetNewPlaylist();}
  }
  const creationCleanup=()=>{
-   setPlaylist('');
+   
    alert("You have successfully added a new playlist")
+  //  setPlaylist('');
  }
     return (
         <div className="CreatePlaylist">

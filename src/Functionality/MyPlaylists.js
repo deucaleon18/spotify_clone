@@ -12,6 +12,8 @@ const MyPlaylists = () => {
     const[myplaylists,setMyplaylists]=useState([])
     // const[loading,setLoading] = useState(true)
 
+    useEffect(() => {
+
     const getMyPlaylists=async()=>{
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
@@ -23,11 +25,10 @@ const MyPlaylists = () => {
             // setLoading(false);
         }
 
-        if(myplaylists!==undefined){
-            console.log(myplaylists)
-        }
+        // if(myplaylists!==undefined){
+        //     console.log(myplaylists)
+        // }
     }
-    useEffect(() => {
         window.onload=getMyPlaylists()
         
     },[])

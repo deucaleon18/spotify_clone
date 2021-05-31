@@ -7,19 +7,19 @@ import Header from '../Header'
 import {url} from "../Auth/stats"
 // import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import {BiLike} from "react-icons/bi"
-import {AiTwotoneLike} from "react-icons/ai"
-import {Link,useParams} from 'react-router-dom';
+// import {BiLike} from "react-icons/bi"
+// import {AiTwotoneLike} from "react-icons/ai"
+import {useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
 import Bottombar from "../Functionality/Bottombar"
-import { AirlineSeatIndividualSuiteTwoTone } from '@material-ui/icons'
+// import { AirlineSeatIndividualSuiteTwoTone } from '@material-ui/icons'
 // import Search from "../Functionality/Search";
 
 const Playlist= () => {
 const{id}=useParams()
 const[deezer,setDeezer]=useState()
 const[loading,setLoading]=useState(true)
-const[liked,setLiked]=useState(false)
+// const[liked,setLiked]=useState(false)
   const fetchPlaylistsongs=async()=>{ 
     const results =await fetch(`${url}playlist/${id}`) 
      const data= await results.json()
@@ -36,14 +36,14 @@ const[liked,setLiked]=useState(false)
 // const showSearchSongsPopper=()=>{
 // <Search/>
 // }
-  const likeSong=async(track_id)=>{
-    const user_id=localStorage.getItem('user_id')
-    const access_token=localStorage.getItem('token')
-    const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-    const data=await results.json();
-    console.log(data)
-    setLiked(!liked)
-  }
+  // const likeSong=async(track_id)=>{
+  //   const user_id=localStorage.getItem('user_id')
+  //   const access_token=localStorage.getItem('token')
+  //   const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+  //   const data=await results.json();
+  //   console.log(data)
+  //   setLiked(!liked)
+  // }
     return (
         <div className="playlists">
         <Header />
@@ -54,7 +54,7 @@ const[liked,setLiked]=useState(false)
           {/* {!loading?<img src={deezer.album.cover_big} alt="" />:""} */}
 </div>
 <div className="sectionheader">
-  <h3></h3>
+  <h3>""</h3>
   
   <h3>TITLE</h3>
   <h3>ALBUM</h3>

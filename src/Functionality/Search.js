@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import "../styles/search.css";
 import{ url} from '../Auth/stats.js';
 // import {Howl} from "howler";
@@ -17,8 +17,8 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
     const [loading,setLoading]=useState(true);
    //  const [playing,setPlaying]=useState(false);
    //  const [liked,setLiked]=useState(false);
-    const [playlistspopup,setPlaylistspopup]=useState(false);
-    const[myplaylists,setMyplaylists]=useState([]);
+   //  const [playlistspopup,setPlaylistspopup]=useState(false);
+   //  const[myplaylists,setMyplaylists]=useState([]);
    const handleSubmit=async(e)=>{
        e.preventDefault();
       // fetchData();
@@ -35,9 +35,9 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
    }
   
       
-      const showPlaylistspopup=()=>{
-         setPlaylistspopup(true)
-      }
+      // const showPlaylistspopup=()=>{
+      //    setPlaylistspopup(true)
+      // }
     
       // const likeSong=async(track_id)=>{
       //    const user_id=localStorage.getItem('user_id')
@@ -56,24 +56,24 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
       //    console.log(data);
       //    setLiked(!liked);
       //  }
-       const getMyPlaylists=async()=>{
-         try{const user_id=localStorage.getItem('user_id')
-         const access_token=localStorage.getItem('token')
-         const results=await fetch(`${url}user/${user_id}/playlists&access_token=${access_token}`)
-         const data=await results.json()
-         console.log(data.data);
-         if(data!==undefined){
-             setMyplaylists(data.data);
-             // setLoading(false);
-         }}
-         catch(err){
-            console.error(err)
-         }
-      }
+      //  const getMyPlaylists=async()=>{
+      //    try{const user_id=localStorage.getItem('user_id')
+      //    const access_token=localStorage.getItem('token')
+      //    const results=await fetch(`${url}user/${user_id}/playlists&access_token=${access_token}`)
+      //    const data=await results.json()
+      //    console.log(data.data);
+      //    if(data!==undefined){
+      //        setMyplaylists(data.data);
+      //        // setLoading(false);
+      //    }}
+      //    catch(err){
+      //       console.error(err)
+      //    }
+      // }
      
-      useEffect(() => {
-         getMyPlaylists()
-      }, [])
+      // useEffect(() => {
+      //    getMyPlaylists()
+      // }, [])
     return (
         <div className="search">
       <div className="search-area">
@@ -92,7 +92,7 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
               </form>
                    
             <div className="sectionheader-search" style={{margin:"20px 0" }}>
-            <h3></h3>
+            <h3>""</h3>
        
             {/* <div></div> */}
             <h3>TITLE</h3>
@@ -114,27 +114,27 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
          :(
            searchresult.map((searcher)=>{
           const{album,artist,id,title}=searcher
-          const addtoThisPlaylist=async(ID,id)=>{
-            // const user_id=localStorage.getItem('user_id')
-            const access_token=localStorage.getItem('token')
-            const results=await fetch(`${url}playlist/${ID}/tracks&songs=${id}&order=${id}&request_method=post&access_token=${access_token}`)
-            const data=await results.json();
-            console.log(data);
-            window.location.reload();
-         }
+         //  const addtoThisPlaylist=async(ID,id)=>{
+         //    // const user_id=localStorage.getItem('user_id')
+         //    const access_token=localStorage.getItem('token')
+         //    const results=await fetch(`${url}playlist/${ID}/tracks&songs=${id}&order=${id}&request_method=post&access_token=${access_token}`)
+         //    const data=await results.json();
+         //    console.log(data);
+         //    window.location.reload();
+         // }
 
           return( 
         
                 <div key={searcher.id} onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box">
 
-                {playlistspopup?(<div id={searcher.id} className="playlistspopup">
+                {/* {playlistspopup?(<div id={searcher.id} className="playlistspopup">
                    {/* <button onClick={setPlaylistspopup(false)}><CancelSharpIcon/></button> */}
-            {myplaylists.map((playlists)=>{
+            {/* {myplaylists.map((playlists)=>{
               return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`,`${id}`)}}>{playlists.title}</h1>
             })}
             </div>
             ):""
-            }
+            } */} */}
 
                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
          {/* {playing? <button onClick={setPlaying(!playing)}><h3>pause</h3></button>:<button onClick={setPlaying(!playing)}><h3>play</h3></button>}  */}

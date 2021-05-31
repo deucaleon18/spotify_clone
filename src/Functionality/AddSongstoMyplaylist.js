@@ -5,7 +5,7 @@ import {url} from "../Auth/stats"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import {BiLike} from "react-icons/bi"
 // import {AiTwotoneLike} from "react-icons/ai"
-import {Link,useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
 // import Appsearch from "../Appsearch";
 import Header from '../Header';
@@ -147,7 +147,7 @@ setSongLoading(true);
       // </div>)
       
          :(<><div className="sectionheader-addto">
-         <h3></h3>
+         <h3>""</h3>
          {/* <div></div> */}
          <h3>TITLE</h3>
          <h3>ARTIST</h3>
@@ -176,7 +176,7 @@ setSongLoading(true);
                 <img src={artist.picture_small} alt=""/>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-                <h2></h2>
+                <h2>""</h2>
                 
                 </div>
                 </div>

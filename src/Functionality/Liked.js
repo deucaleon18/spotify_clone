@@ -6,7 +6,7 @@ import Header from '../Header'
 // import {Howl} from "howler";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {url} from "../Auth/stats"
 import Bottombar from "../Functionality/Bottombar"
 
@@ -63,7 +63,7 @@ const[liked,setLiked]=useState([])
 //     })
 //     sound.play()
 //  }
-    const{id,album,artist,time_add,title}=song 
+    const{id,album,artist,title}=song 
     return (
     <div className="like-flex"style={{display:"flex"}}>
      <button style={{cursor:"pointer"}} onClick={()=>{
@@ -72,7 +72,7 @@ const[liked,setLiked]=useState([])
     
     <div key={id} onClick={()=>{window.location.href=`/this/song/${id}`}}className="likedsong">
     {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
-     <h1></h1>
+     <h1>""</h1>
     <h3>{title}</h3>
     <h3>{album.title}</h3>
     <h3>{artist.name} </h3>
