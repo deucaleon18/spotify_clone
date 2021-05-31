@@ -17,6 +17,9 @@
   align-items:center;
   font-size: 1rem;
 }
+.span{
+    cursor: "pointer";
+}
 .addto-search-box:hover{
     background-color: black;
 }
