@@ -3,14 +3,14 @@ import Header from '../Header';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player.js';
 import Socials from "../Socials";
-import "../styles/mylibrary.css";
+// import "../styles/mylibrary.css";
 import {Link} from "react-router-dom"
 import Bottombar from "../Functionality/Bottombar"
  const MyLibrary = () => {
     return (
         <div className="library">
            <Header />
-    <div className="middle">
+    <div className="middle" style={{width:"100%"}}>
 
     <Sidebar />
     
