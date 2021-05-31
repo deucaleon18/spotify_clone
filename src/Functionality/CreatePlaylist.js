@@ -6,6 +6,7 @@ import Sidebar from './Sidebar.js';
 import Socials from "../Socials";
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
+import Bottombar from "../Functionality/Bottombar"
 // import CancelSharpIcon from '@material-ui/icons/CancelSharp';
 
  const CreatePlaylist = () => {
@@ -81,7 +82,7 @@ import {AiOutlinePlus} from 'react-icons/ai'
               </div>
               <Socials/>
     </div>
-    <div className="player"></div>
+   <Bottombar/>
               
         </div>
     )

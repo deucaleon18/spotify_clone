@@ -7,6 +7,8 @@ import{ url} from '../Auth/stats.js';
 // import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
 // import CancelSharpIcon from '@material-ui/icons/CancelSharp';
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
@@ -19,7 +21,8 @@ import Loader from "react-loader-spinner";
    const handleSubmit=async(e)=>{
        e.preventDefault();
       // fetchData();
-      fetchDeezer();
+      setTimeout(()=>{fetchDeezer()},5000);
+      // setSearchvalue('')
    }
    const fetchDeezer=async()=>{
       const results= await fetch(`${url}search?q=${searchvalue}`)
@@ -52,7 +55,7 @@ import Loader from "react-loader-spinner";
       //    setLiked(!liked);
       //  }
        const getMyPlaylists=async()=>{
-         const user_id=localStorage.getItem('user_id')
+         try{const user_id=localStorage.getItem('user_id')
          const access_token=localStorage.getItem('token')
          const results=await fetch(`${url}user/${user_id}/playlists&access_token=${access_token}`)
          const data=await results.json()
@@ -60,6 +63,9 @@ import Loader from "react-loader-spinner";
          if(data!==undefined){
              setMyplaylists(data.data);
              // setLoading(false);
+         }}
+         catch(err){
+            console.error(err)
          }
       }
      
@@ -80,7 +86,7 @@ import Loader from "react-loader-spinner";
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit">Submit</button>
+              <button type="submit"><SearchOutlinedIcon className="search-icon"/></button>
               </form>
          {loading?
          (<div className="search-area">
@@ -118,7 +124,7 @@ import Loader from "react-loader-spinner";
 
                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
          {/* {playing? <button onClick={setPlaying(!playing)}><h3>pause</h3></button>:<button onClick={setPlaying(!playing)}><h3>play</h3></button>}  */}
-               <button onClick={()=>{showPlaylistspopup()}}>ADD TO A PLAYLIST</button>
+               <button onClick={()=>{showPlaylistspopup()}}><AddBoxSharpIcon className="add-icon"/></button>
                 <a href={`/this/song/${searcher.id}`}>
                    <div className="linkage-container">
                       {/* <div></div> */}

@@ -5,6 +5,7 @@ import Sidebar from './Functionality/Sidebar.js';
 import Mainplayer from "./Functionality/Mainplayer.js"
 // import Player from './Functionality/Player/Player.js';
 import Socials from "./Socials";
+import Bottombar from "./Functionality/Bottombar"
 const App=()=>{
  
     
@@ -19,8 +20,9 @@ const App=()=>{
     <Socials/>
     </div>
     {/* <Player />  */}
-    <div className="player"></div>
-  </div> 
+   <Bottombar/>
+   <div className="player"></div>
+  </div>
 );
 
 }

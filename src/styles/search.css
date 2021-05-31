@@ -20,8 +20,11 @@
 
 .search button{
     height:2.5rem;
-    width:10rem;
+    width:2rem;
     cursor: pointer;
+    position:relative;
+    margin-right:-30px;
+    margin-top:-80px;
 }
 .search-box{
     height:10vh;width:100%;
@@ -74,3 +77,21 @@
     grid-template-rows:repeat(9,1fr);
     grid-template-columns:repeat()
 } */
+.search-icon{
+    background-color:black;
+    color:white;
+    margin:0;
+    padding:0;
+    /* margin-left:-70px;
+    margin-top:5px; */
+}
+@media screen and (max-width:400px){
+    #search-bar{
+    
+        height:2.5rem;
+        width:20rem;
+        border-radius: 20px;
+        margin:20px 0 0 0;
+        padding:0 0 0 10px;
+    }
+}
