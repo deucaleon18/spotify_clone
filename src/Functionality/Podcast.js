@@ -8,6 +8,7 @@ import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Bottombar from "../Functionality/Bottombar"
 
  const Podcast = () => {
     const{id}=useParams();
@@ -49,7 +50,9 @@ className="loader"/></div>}
     </div>
     <Socials/>
     </div>
-    <div className="player"></div>
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
         </div>
     )
 }

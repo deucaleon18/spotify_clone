@@ -12,6 +12,7 @@ import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 // import {Howl} from "howler";
 import {Link} from "react-router-dom"
+import Bottombar from "../Functionality/Bottombar"
 
  const Album = () => {
     const likeSong=async(track_id)=>{
@@ -50,11 +51,9 @@ useEffect(() => {
 </div>
 <div className="sectionheader">
   <h3>#</h3>
-  <div></div>
-  <div></div>
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
-  <h3>DATE ADDED</h3>
+  <h3>ARTIST</h3>
   <h3>TIME</h3>
 </div>
 {!loading?(thisAlbum.map((song)=>{
@@ -65,17 +64,17 @@ useEffect(() => {
 //     })
 //     sound.play()
 //  }
-         const{id,duration,title}=song
-        return (<Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
+         const{id,duration,title,artist}=song
+        return (<div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
         <div></div>
         <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
-        <img src="" alt="la"/>
+        <img src={artist.picture_small} alt="la"/>
         <h3>{title}</h3>
-        <h3>{title}</h3>
+        <h3>{artist.name}</h3>
         <h3>{duration}</h3>
-        <h3>{}</h3>
-         </div></Link>) 
+    
+         </div>) 
     })): 
     <Loader 
     type="ThreeDots"
@@ -90,7 +89,10 @@ useEffect(() => {
 
     <Socials/>
     </div>
-   { !loading?(<Player song={thisAlbum.preview}/>):<div className="player"></div>}
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
+
         </div>
     )
 }

@@ -6,6 +6,7 @@ import {url} from "../Auth/stats"
 import Socials from "../Socials";
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
+import Bottombar from "../Functionality/Bottombar"
 const MyPlaylists = () => {
 
     const[myplaylists,setMyplaylists]=useState([])
@@ -29,7 +30,8 @@ const MyPlaylists = () => {
     useEffect(() => {
         window.onload=getMyPlaylists()
         
-    })
+    },[])
+    
    if(myplaylists!==undefined){ return (
         <div className="my-playlists">      
     <Header />
@@ -72,7 +74,9 @@ const MyPlaylists = () => {
 
     <Socials/>
     </div>
-    <div className="player"></div>
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
         </div>
     )
 }

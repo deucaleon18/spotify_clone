@@ -160,7 +160,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
     </div>         */} 
 <div className="title">PLAYLISTS</div>
 
-<div className="arrange">
+<div className="arrange1">
     {deezer.map((song)=>{
         const{title,picture_medium,id}=song
         return <div  className="box">
@@ -199,7 +199,6 @@ deezer_10!==undefined)return(<div className="mainplayer">
     })}
 
 </div> 
-<div className="title"><h4>HOT PLAYLISTS</h4></div>
 <div className="title"><h4>THE GOOD OLD DAYS</h4></div>
 <div className="arrange">
 {deezer_3.map((song)=>{

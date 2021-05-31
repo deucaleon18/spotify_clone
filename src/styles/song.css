@@ -19,6 +19,10 @@ width:40%;
 opacity:1;
 /* margin:40px 40px; */
 }
+.current-song button{
+    background-color: black;
+    margin:0 100px;
+}
 .current-song h1{
     background-color: black;
     margin:auto;
@@ -26,13 +30,18 @@ opacity:1;
 }
 
 @media screen and (max-width:400px){
+
+    .current-song button{
+        background-color: black;
+        margin:0 120px;
+    }
     .this-song-middle{
         width:100%;
         background-color: #000000;
         background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
-        height:82vh;
+        height:73vh;
         grid-gap:10px;
-        overflow-y:scroll;  
+        overflow-y:hidden;  
     }
 
     .current-song img{

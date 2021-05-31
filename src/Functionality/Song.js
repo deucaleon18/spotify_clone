@@ -10,7 +10,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-  
+import Bottombar from "../Functionality/Bottombar"
 
 
  const Song = () => {
@@ -64,7 +64,7 @@ const likeSong=async(track_id)=>{
      {!loading?(  <div className="current-song">
                   <img src={thisSong.album.cover_big} alt="" />
                   {/* <h1>{thisSong.title}</h1> */}
-                  <div className="icons"> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderIcon/></button>} </div>
+                  <div className="icons"> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}>liked</button>:<button onClick={()=>{likeSong(`${id}`)}}>not liked</button>} </div>
               </div>
 ):<div className= "this-song-middle"><Loader
 type="ThreeDots"
@@ -77,7 +77,9 @@ className="loader"/></div>}
     </div>
     <Socials/>
     </div>
+    <Bottombar/>
    { !loading?(<Player song={thisSong.preview}/>):<Player/>}
+   
         </div>
     )
 }

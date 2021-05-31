@@ -5,12 +5,13 @@
     height:87vh;
     width:100%;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .search-area::-webkit-scrollbar {
     display: none;
   }
 #search-bar{
-    
+    color:black;
     height:2.5rem;
     width:20rem;
     border-radius: 20px;
@@ -29,10 +30,11 @@
 .search-box{
     height:10vh;width:100%;
     display:grid;
-    grid-template-columns:30px 50px 50px 50px 40vh 20vh 2fr 1fr;
+    grid-template-columns: 0.5fr 4fr 3fr 3fr ;
     grid-gap:20px;
     color:white;
     align-items:center;
+    margin:0 10px;
 }
 .search-box img{
     width:100%;
@@ -42,13 +44,14 @@
 }
 .search-box a{
     width:100%;
-    display:inline;
+    display:block;
 }
 .search-box:hover{
     background-color:black;
     color:rgba(255, 0, 0, 0.678);
+    cursor:pointer
 }
-.grid{
+/* .grid{
     display:grid;
     grid-template-rows:repeat(4,30vh) ;
     grid-template-columns: repeat(4,1fr);
@@ -57,21 +60,13 @@
     width:200vh;
     height:100vh;
     background-color: beige;
-}
+} */
 .grid-column{
     height:30vh;
     width:100%;
 }
-.linkage-container{
-    display:grid;
-    grid-template-columns: 50px 50px 40vh 20vh 2fr 1fr;
-    align-items: center;
 
-}
-.linkage-container:hover{
-    background-color:black;
-    color:rgba(255, 0, 0, 0.678);
-}
+
 /* .search{
     display:grid;
     grid-template-rows:repeat(9,1fr);
@@ -85,6 +80,19 @@
     /* margin-left:-70px;
     margin-top:5px; */
 }
+.sectionheader-search{
+    display:grid;
+    grid-template-columns: 2fr 4fr 3.2fr 3.2fr ;
+    width:100%;
+    background-color: rgba(34, 30, 30, 0.726);
+    color:white;
+    align-items:end;
+}
+/* ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    /* color: black;
+    opacity: 2; 
+    font-weight: 900;/* Firefox */
+  /* } */ 
 @media screen and (max-width:400px){
     #search-bar{
     
@@ -93,5 +101,28 @@
         border-radius: 20px;
         margin:20px 0 0 0;
         padding:0 0 0 10px;
+    }
+    .search-box:hover{
+        background-color:black;
+        color:rgba(255, 0, 0, 0.678);
+        cursor:pointer
+    }
+    .search-box{
+        height:60px ;width:100%;
+        display:grid;
+        grid-template-columns: 0.8fr 3.4fr 2.3fr 3.2fr ;
+        grid-gap:20px;
+
+        align-items:center;
+        font-size: 0.5rem;
+    }
+ 
+    .sectionheader-search{
+        display:grid;
+        grid-template-columns: 2fr 4fr 3.2fr 3.2fr ;
+        width:100%;
+        background-color: rgba(34, 30, 30, 0.726);
+        color:white;
+        align-items:end;
     }
 }

@@ -43,10 +43,11 @@ opacity:1.2;
 @media screen and (max-width:400px){
     .login{
         overflow-y:hidden;
+        overflow-x: hidden;
          padding:0;
          background-image:url('../styles/musicbg.jpg');
-         width:360px;
-         height:640px;
+         width:400px;
+         height:800px;
          background-size:cover;
          background-repeat: no-repeat;
       /* background-position-y:100px; */

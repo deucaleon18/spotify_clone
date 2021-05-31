@@ -11,6 +11,8 @@ import {BiLike} from "react-icons/bi"
 import {AiTwotoneLike} from "react-icons/ai"
 import {Link,useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
+import Bottombar from "../Functionality/Bottombar"
+import { AirlineSeatIndividualSuiteTwoTone } from '@material-ui/icons'
 // import Search from "../Functionality/Search";
 
 const Playlist= () => {
@@ -49,14 +51,14 @@ const[liked,setLiked]=useState(false)
       <Sidebar />
       <div className="playlist-area">
           <div className="playlist-banner"> 
+          {/* {!loading?<img src={deezer.album.cover_big} alt="" />:""} */}
 </div>
 <div className="sectionheader">
-  <h3>#</h3>
-  <div></div>
-  <div></div>
+  <h3></h3>
+  
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
-  <h3>DATE ADDED</h3>
+  <h3>ARTIST</h3>
   <h3>TIME</h3>
 </div>
 
@@ -68,20 +70,19 @@ const[liked,setLiked]=useState(false)
 //     })
 //     sound.play()
 //  }
-         const{id,album,time_add,title}=song
+         const{id,album,time_add,title,artist}=song
         return (<>
-        <Link to={`/this/song/${id}`}><div key={id}className="playlistsong">
+     <div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
-        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> 
+       <div></div>
      
-        <div></div>
         <img src={album.cover} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>
-        <h3>DATE ADDED</h3>
+        <h3>{artist.name}</h3>
         <h3>{time_add}</h3>
         </div>
-        </Link>
+        
         
          {/* <button onClick={()=>{showSearchSongsPopper()}}>ADD SONGS TO THIS PLAYLIST</button> */}
       
@@ -95,7 +96,9 @@ const[liked,setLiked]=useState(false)
 </div>
       <Socials/>
       </div>
-      <div className="player"></div>       
+      <div className="empty-player">
+    </div>
+    <Bottombar/>  
         </div>
     )
 }

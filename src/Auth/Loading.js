@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import{app_id,secret} from './stats'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-
+import "../styles/loading.css"
 const Loading = () => {
     const [code,setCode] = useState();
     const tokenURL=`https://deezerclone.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=${app_id}&secret=${secret}&code=${code}&output=json`

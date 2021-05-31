@@ -8,7 +8,8 @@ import{ url} from '../Auth/stats.js';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
-import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
+// import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
+// import Bottombar from "../Functionality/Bottombar"
 // import CancelSharpIcon from '@material-ui/icons/CancelSharp';
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
@@ -21,17 +22,18 @@ import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
    const handleSubmit=async(e)=>{
        e.preventDefault();
       // fetchData();
-      setTimeout(()=>{fetchDeezer()},5000);
+      const fetchDeezer=async()=>{
+         const results= await fetch(`${url}search?q=${searchvalue}`)
+         const data=await results.json();
+      //    const key=await results.trackmatches
+         console.log(data.data) ;
+         setSearchresult(data.data);
+         if(searchresult!==undefined){setLoading(false);}
+         }
+    fetchDeezer();
       // setSearchvalue('')
    }
-   const fetchDeezer=async()=>{
-      const results= await fetch(`${url}search?q=${searchvalue}`)
-      const data=await results.json();
-   //    const key=await results.trackmatches
-      console.log(data.data) ;
-      setSearchresult(data.data);
-      if(searchresult!==undefined){setLoading(false);}
-      }
+  
       
       const showPlaylistspopup=()=>{
          setPlaylistspopup(true)
@@ -88,6 +90,17 @@ import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
               />
               <button type="submit"><SearchOutlinedIcon className="search-icon"/></button>
               </form>
+                   
+            <div className="sectionheader-search" style={{margin:"20px 0" }}>
+            <h3></h3>
+       
+            {/* <div></div> */}
+            <h3>TITLE</h3>
+            <h3>ARTIST</h3>
+            <h3>ALBUM</h3>
+            
+          </div>
+
          {loading?
          (<div className="search-area">
          <Loader
@@ -100,7 +113,7 @@ import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
       </div>)
          :(
            searchresult.map((searcher)=>{
-          const{album,artist,id}=searcher
+          const{album,artist,id,title}=searcher
           const addtoThisPlaylist=async(ID,id)=>{
             // const user_id=localStorage.getItem('user_id')
             const access_token=localStorage.getItem('token')
@@ -111,7 +124,8 @@ import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
          }
 
           return( 
-                <div key={searcher.id} className="search-box">
+        
+                <div key={searcher.id} onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box">
 
                 {playlistspopup?(<div id={searcher.id} className="playlistspopup">
                    {/* <button onClick={setPlaylistspopup(false)}><CancelSharpIcon/></button> */}
@@ -124,17 +138,19 @@ import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
 
                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
          {/* {playing? <button onClick={setPlaying(!playing)}><h3>pause</h3></button>:<button onClick={setPlaying(!playing)}><h3>play</h3></button>}  */}
-               <button onClick={()=>{showPlaylistspopup()}}><AddBoxSharpIcon className="add-icon"/></button>
-                <a href={`/this/song/${searcher.id}`}>
-                   <div className="linkage-container">
+               {/* <button onClick={()=>{showPlaylistspopup()}}><AddBoxSharpIcon className="add-icon"/></button> */}
+                {/* <a href={`/this/song/${searcher.id}`}> */}
+                  
                       {/* <div></div> */}
-                      {/* <div></div>
-                <img src={artist.picture_small} alt=""/> */}
+                    
+               <img src={artist.picture_small} alt=""/>
+               <h2>{title}</h2> 
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
+               
+                {/* </a> */}
                 </div>
-                </a>
-                </div>
+                
              )
            }
            )  

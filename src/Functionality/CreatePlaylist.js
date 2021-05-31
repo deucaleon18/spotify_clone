@@ -45,6 +45,10 @@ import Bottombar from "../Functionality/Bottombar"
     //  setPlaylistID(data.id);
     //  if(data!==undefined){GetNewPlaylist();}
  }
+ const creationCleanup=()=>{
+   setPlaylist('');
+   alert("You have successfully added a new playlist")
+ }
     return (
         <div className="CreatePlaylist">
       <Header />
@@ -54,7 +58,7 @@ import Bottombar from "../Functionality/Bottombar"
   <div className="middle-create-playlist" >
       <h1>Create New Playlist</h1>
       {popup?(<div className="poppup">
-        {/* <div style={{width:"20px"}} onClick={setPopup(false)}><CancelSharpIcon/></div> */}
+      <button onClick={()=>{setPopup(false)}}>close</button>
 <div className="create-playlist-form"><form onSubmit={handleSubmit}>
               <label htmlFor="playlist"></label>
               <input 
@@ -65,7 +69,7 @@ import Bottombar from "../Functionality/Bottombar"
               onChange={(e)=>setPlaylist(e.target.value)}
               placeholder="Name of Your Playlist"
               />
-              <button type="submit">Submit</button>
+              <button type="submit" onClick={()=>creationCleanup()}>Submit</button>
               </form>
               </div>
     </div>):""
@@ -82,8 +86,9 @@ import Bottombar from "../Functionality/Bottombar"
               </div>
               <Socials/>
     </div>
+    <div className="empty-player"> </div> 
    <Bottombar/>
-              
+      
         </div>
     )
 }

@@ -5,6 +5,7 @@ import Sidebar from './Sidebar.js';
 import Socials from "../Socials";
 import "../styles/mylibrary.css";
 import {Link} from "react-router-dom"
+import Bottombar from "../Functionality/Bottombar"
  const MyLibrary = () => {
     return (
         <div className="library">
@@ -12,7 +13,9 @@ import {Link} from "react-router-dom"
     <div className="middle">
 
     <Sidebar />
+    
 <div className="library-middle">
+<h1 >My Library</h1>
     <Link to="/liked">
  <div  className="link-to-liked-songs">
     <h1>LIKED SONGS</h1> 
@@ -23,12 +26,13 @@ import {Link} from "react-router-dom"
  <h1>MY PLAYLISTS</h1> 
  </div>
  </Link>
- <div className="recomendations"></div>
+ {/* <div className="recomendations"></div> */}
 </div>
     <Socials/>
     </div>
-    <div className="player"></div>
-
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
         </div>
     )
 }

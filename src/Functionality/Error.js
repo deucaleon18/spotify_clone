@@ -4,6 +4,7 @@ import Sidebar from './Sidebar.js';
 
 // import Player from './Player/Player.js';
 import Socials from "../Socials";
+import Bottombar from "../Functionality/Bottombar"
 
  const Error = () => {
     return (
@@ -16,7 +17,9 @@ import Socials from "../Socials";
     </div>
     <Socials/>
     </div>
-    <div className="player"></div>
+    <div className="empty-player">
+    </div>
+    <Bottombar/>
         </div>
     )
 }

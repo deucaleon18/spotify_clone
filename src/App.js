@@ -20,8 +20,8 @@ const App=()=>{
     <Socials/>
     </div>
     {/* <Player />  */}
-   <Bottombar/>
-   <div className="player"></div>
+  <div className="empty-player"></div>
+    <Bottombar/>
   </div>
 );
 
