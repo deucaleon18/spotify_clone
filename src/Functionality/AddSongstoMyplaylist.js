@@ -16,6 +16,8 @@ import Socials from "../Socials";
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import Bottombar from "../Functionality/Bottombar"
 import "../styles/Playlists/addsongstoplaylist.css"
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+import AddSharpIcon from '@material-ui/icons/AddSharp';
 
 const AddingToPlaylist= () => {
 const{id}=useParams()
@@ -83,15 +85,16 @@ setSongLoading(true);
     <Sidebar />
     <div>
  {songloading?(
-        ""
+        null
      
       ):
      ( <>
       <div className="playlist-area">
           <div className="playlist-banner"> 
 </div>
-     <div className="sectionheader">
-  <h3>#</h3>
+<button className="add-songs-playlist-button"style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
+     <div className="sectionheader-my-playlist-songs">
+  <div></div>
  
   {/* <div></div> */}
   <h3>TITLE</h3>
@@ -99,11 +102,11 @@ setSongLoading(true);
   <h3>ARTIST</h3>
   <h3>TIME</h3>
 </div>
-<button style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
+
       {myPlaylistSongs.map((song)=>{
        const{id,album,time_add,title,artist}=song
-       return (<div style={{display:"flex"}}>
-        <button style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon/></button>
+       return (<div cLassName="display-exisiting-playlists"style={{display:"flex"}}>
+        <span style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon className="delete-icon"/></span>
        <div key={id}className="playlistsong" onClick={()=>{window.location.href=`/this/song/${id}`}} style={{cursor:"pointer"}} >
 
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
@@ -140,15 +143,15 @@ setSongLoading(true);
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit">Submit</button>
+              <button type="submit"><SearchSharpIcon className="search-icon"/></button>
               </form>
          {loading?
         //  (<div className="search-area">
-         ""
+         null
       // </div>)
       
          :(<><div className="sectionheader-addto">
-         <h3>""</h3>
+         <div></div>
          {/* <div></div> */}
          <h3>TITLE</h3>
          <h3>ARTIST</h3>
@@ -156,7 +159,7 @@ setSongLoading(true);
          {/* <h3>TIME</h3> */}
        </div>
            {searchresult.map((searcher)=>{
-          const{album,artist}=searcher
+          const{album,artist,title}=searcher
           const addtoThisPlaylist=async(ID)=>{
             // const user_id=localStorage.getItem('user_id')
             const access_token=localStorage.getItem('token')
@@ -171,19 +174,15 @@ setSongLoading(true);
           
          <div style={{display:"flex"}}>
             
-         <span style={{width:"30px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD </span>               
+         <span style={{width:"30px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
          <div key={searcher.id} className="addto-search-box" onClick={()=>{window.location.href=`/this/song/${id}`}}>
-           <div></div>
+         
                 <img src={artist.picture_small} alt=""/>
+                <h2>{title}</h2>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-                <h2>""</h2>
-                
                 </div>
-                </div>
-          
-               
-                
+                </div>    
              )
            }
            )}  
@@ -193,7 +192,7 @@ setSongLoading(true);
  }
         </div>
       </div>  
-        </div>):""}
+        </div>):null}
     </div>
     <Socials/>
     </div>

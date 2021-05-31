@@ -9,7 +9,7 @@ import Loader from "react-loader-spinner";
 // import {Link} from 'react-router-dom'
 import {url} from "../Auth/stats"
 import Bottombar from "../Functionality/Bottombar"
-
+import RemoveSharpIcon from '@material-ui/icons/RemoveSharp';
 import "../styles/liked.css";
  const Liked = () => {
 const[loading,setLoading]=useState(true)
@@ -47,7 +47,7 @@ const[liked,setLiked]=useState([])
           <div className="liked-banner"> 
 </div>
 <div className="sectionheader-liked">
-  <h3>#</h3>
+ <div></div>
   {/* <div></div> */}
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -68,11 +68,11 @@ const[liked,setLiked]=useState([])
     <div className="like-flex"style={{display:"flex"}}>
      <button style={{cursor:"pointer"}} onClick={()=>{
         unlikeSong(`${id}`) 
-      }}>rem</button>
+      }}><RemoveSharpIcon className="minus"/></button>
     
     <div key={id} onClick={()=>{window.location.href=`/this/song/${id}`}}className="likedsong">
     {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
-     <h1>""</h1>
+    <img src={album.cover_small} alt="" />
     <h3>{title}</h3>
     <h3>{album.title}</h3>
     <h3>{artist.name} </h3>

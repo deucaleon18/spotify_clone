@@ -7,7 +7,7 @@ import{ url} from '../Auth/stats.js';
 // import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 // import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
 // import Bottombar from "../Functionality/Bottombar"
 // import CancelSharpIcon from '@material-ui/icons/CancelSharp';
@@ -27,7 +27,7 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
          const data=await results.json();
       //    const key=await results.trackmatches
          console.log(data.data) ;
-         setSearchresult(data.data);
+         setSearchresult(data);
          if(searchresult!==undefined){setLoading(false);}
          }
     fetchDeezer();
@@ -88,18 +88,9 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit"><SearchOutlinedIcon className="search-icon"/></button>
+              <button type="submit"><SearchSharpIcon className="search-icon"/></button>
               </form>
-                   
-            <div className="sectionheader-search" style={{margin:"20px 0" }}>
-            <h3>""</h3>
-       
-            {/* <div></div> */}
-            <h3>TITLE</h3>
-            <h3>ARTIST</h3>
-            <h3>ALBUM</h3>
-            
-          </div>
+             
 
          {loading?
          (<div className="search-area">
@@ -111,8 +102,20 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
         timeout={10000} //10 secs
       className="loader"/>
       </div>)
-         :(
-           searchresult.map((searcher)=>{
+         :(<>
+
+      
+<div className="sectionheader-search" style={{margin:"20px 0" }}>
+            <div></div>
+       
+            {/* <div></div> */}
+            <h3>TITLE</h3>
+            <h3>ARTIST</h3>
+            <h3>ALBUM</h3>
+            
+          </div>
+
+           {searchresult.data.map((searcher)=>{
           const{album,artist,id,title}=searcher
          //  const addtoThisPlaylist=async(ID,id)=>{
          //    // const user_id=localStorage.getItem('user_id')
@@ -154,6 +157,8 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
              )
            }
            )  
+          }
+</>
        )   
  }
         </div>

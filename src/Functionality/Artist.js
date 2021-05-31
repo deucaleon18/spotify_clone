@@ -8,23 +8,23 @@ import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import {BiLike} from "react-icons/bi"
-import {AiTwotoneLike} from "react-icons/ai"
-// import {Howl} from "howler";
+// import {BiLike} from "react-icons/bi"
+// import {AiTwotoneLike} from "react-icons/ai"
+// // import {Howl} from "howler";
 // import {Link} from "react-router-dom"
 import Bottombar from "../Functionality/Bottombar"
 // import { Album } from '@material-ui/icons';
 
  const Artist = () => {
-    const likeSong=async(track_id)=>{
-        const user_id=localStorage.getItem('user_id')
-        const access_token=localStorage.getItem('token')
-        const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-        const data=await results.json();
-        console.log(data)
-        setLiked(!liked)
-      }
-    const[liked,setLiked]=useState(false)
+    // const likeSong=async(track_id)=>{
+    //     const user_id=localStorage.getItem('user_id')
+    //     const access_token=localStorage.getItem('token')
+    //     const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+    //     const data=await results.json();
+    //     console.log(data)
+    //     setLiked(!liked)
+    //   }
+    // const[liked,setLiked]=useState(false)
      const{id}=useParams();
 const[thisArtist,setThisArtist]=useState()
 const[loading,setLoading]=useState(true)
@@ -50,8 +50,8 @@ useEffect(() => {
     <div className="playlist-area">
           <div className="playlist-banner"> 
 </div>
-<div className="sectionheader-artist">
-  <h3>#</h3>
+<div className="sectionheader">
+  <div></div>
 
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -70,8 +70,8 @@ useEffect(() => {
         return (<div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
     
-        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
-        
+        {/* <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
+        <div></div>
         <img src={album.cover_small} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>

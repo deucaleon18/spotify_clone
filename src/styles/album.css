@@ -1,0 +1,27 @@
+
+.albumsong{
+    /* height:10vh; */
+   
+    background-color: rgba(34, 30, 30, 0.726);
+    width:100%;
+    display:grid;
+    grid-template-columns:50px 4fr 2fr 2fr ;
+    align-items:center;
+    color:white;
+    height:10vh;
+}
+.albumsong:hover{
+    color:red;
+    cursor: pointer;
+    background-color: black;
+}
+.sectionheader-album{
+    display:grid;
+    grid-template-columns: 80px 3.8fr 2fr 2fr ;
+    width:100%;
+    background-color: black;
+    color:white;
+    align-items:end;
+   height:5vh;
+   align-items: center;
+}

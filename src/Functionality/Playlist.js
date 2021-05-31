@@ -12,6 +12,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
 import Bottombar from "../Functionality/Bottombar"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 // import { AirlineSeatIndividualSuiteTwoTone } from '@material-ui/icons'
 // import Search from "../Functionality/Search";
 
@@ -54,7 +56,7 @@ const[loading,setLoading]=useState(true)
           {/* {!loading?<img src={deezer.album.cover_big} alt="" />:""} */}
 </div>
 <div className="sectionheader">
-  <h3>""</h3>
+  <div></div>
   
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -89,7 +91,13 @@ const[loading,setLoading]=useState(true)
          </>)
     })):
     <>
-    <h1>EMPTY</h1>
+     <Loader
+        type="ThreeDots"
+         color="white"
+        height={100}
+        width={100}
+        timeout={10000} //10 secs
+      className="loader-playlist"/>
     
     </>}
 

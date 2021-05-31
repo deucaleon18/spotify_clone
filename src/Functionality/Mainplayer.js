@@ -17,6 +17,8 @@ const Mainplayer = () => {
     const[deezer_8,setDeezer_8]=useState()
     const[deezer_9,setDeezer_9]=useState()
     const[deezer_10,setDeezer_10]=useState()
+    const[usercheck,setUsercheck]=useState(false)
+    const[user,setUser]= useState()
     // const[recent,setRecent]=useState()
     // const[recommend,setRecommend]=useState()
 const deezerCharts_1=async()=>{ 
@@ -94,6 +96,8 @@ const deezerCharts_1=async()=>{
     const results=await fetch(`${url}user/me&access_token=${localStorage.getItem('token')}`)
     const data=await results.json()
     localStorage.setItem('user_id',data.id)
+    setUser(data);
+    // console.log(user)
   
    }     
 //    const recentPlayed=async()=>{
@@ -127,7 +131,14 @@ deezerCharts_8();
 deezerCharts_9();
 deezerCharts_10();
 deezerCharts_11();
+
+
+// eslint-disable-next-line
 getUser();
+if(localStorage.getItem('user_token')!==undefined){
+    setUsercheck(true)
+}
+
 // if(localStorage.getItem('user_id')!==undefined){recentPlayed();
 // recommendations();
 // }
@@ -138,12 +149,21 @@ getUser();
 // //    fetch(`${url}user/albums&request_method=`)
 // }
 
+
+
+
+
 if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined&&deezer_4!==undefined&&
 deezer_5!==undefined&&deezer_6!==undefined&&deezer_7!==undefined&&deezer_8!==undefined&&deezer_9!==undefined&&
 deezer_10!==undefined)return(<div className="mainplayer">
+   
 <div className="banner">
-    <img src="" alt="" />
+{usercheck?<h1 >Welcome <span>{user.name}</span>!</h1>:<h1>welcome</h1>}
+<div className="banner-overlay"></div>
 </div>
+
+
+
 {/* <div className="title"><h4>RECENTLY PLAYED</h4></div>
     <div className="arrange">
 {recent.data.map((song)=>{
@@ -160,7 +180,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
     </div>         */} 
 <div className="title">PLAYLISTS</div>
 
-<div className="arrange1">
+<div className="arrange">
     {deezer.map((song)=>{
         const{title,picture_medium,id}=song
         return <div  className="box">
@@ -298,11 +318,11 @@ deezer_10!==undefined)return(<div className="mainplayer">
     <div className="title"><h4>TOP ARTISTS</h4></div>
     <div className="arrange">
 {deezer_10.map((song)=>{
-        const{title,picture_medium,id}=song
+        const{name,picture_medium,id}=song
         return <div  className="box">
         <Link to={`artist/${id}`}>
         <img src={picture_medium}alt=""/>
-        <h4>{title}</h4>
+        <h4>{name}</h4>
         </Link>
         {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}

@@ -16,40 +16,48 @@
 
 .link-to-liked-songs{
     height:40vh;
-    background-color: #990000;
-background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%);
+    background-color: #7c0000;
+    background-image: linear-gradient(326deg, #7c0000 0%, #3e0000 74%);
     width:100%;
     border-radius:25px;
-    /* margin:30px 30px; */
+    margin:0 40%;
     opacity:0.8;
+    position:relative;
+    top:10%;
 }
-.link-to-liked-songs h1{
-    font-size:3.5rem;
+.link-to-liked-songs h1,.link-to-playlists h1{
+    font-size:4.5rem;
+    font-weight: 900;
+    position:relative;
+    top:20%;
     color:white;
     text-align:center;
     display: block;
-    margin-top:120px;
+   margin:20%
 }
 .link-to-liked-songs:hover,.link-to-playlists:hover{
     opacity:1;
 }
 .link-to-playlists{
     height:40vh;
-    background-color: #923cb5;
-    background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%);
- 
-    width:90%;
+    position:relative;
+    top:10%;
+    background-color: #130f40;
+    background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+    width:100%;
     border-radius:25px;
-    margin:30px 30px;
+    margin:0 40%;
     opacity:0.8;
 }
-.link-to-playlists h1{
-    font-size:3.5rem;
-    color:white;
-    text-align:center;
-    display: block;
-    margin-top:120px;
-}
+
 .middle-library a{
    text-decoration: none;
+}
+.library-title{
+    position:absolute;
+    top:5vh;
+   right:35%;
+    font-size:3rem;
+    color:white;
+
 }
