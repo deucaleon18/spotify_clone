@@ -24,7 +24,7 @@ import Bottombar from "../Functionality/Bottombar"
     //     console.log(data)
     //     setLiked(!liked)
     //   }
-    const[liked,setLiked]=useState(false)
+    // const[liked,setLiked]=useState(false)
      const{id}=useParams();
 const[thisAlbum,setThisAlbum]=useState()
 const[loading,setLoading]=useState(true)
@@ -66,7 +66,7 @@ useEffect(() => {
 //     })
 //     sound.play()
 //  }
-         const{id,duration,title,artist,cover_small}=song
+         const{id,duration,title,artist}=song
         return (<div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="albumsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
        <div></div>
