@@ -7,7 +7,7 @@ import{ url} from '../Auth/stats.js';
 // import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 // import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
 // import Bottombar from "../Functionality/Bottombar"
 // import CancelSharpIcon from '@material-ui/icons/CancelSharp';
@@ -88,11 +88,11 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit"><SearchOutlinedIcon className="search-icon"/></button>
+              <button type="submit"><SearchSharpIcon className="search-icon"/></button>
               </form>
                    
             <div className="sectionheader-search" style={{margin:"20px 0" }}>
-            <h3>""</h3>
+            <div></div>
        
             {/* <div></div> */}
             <h3>TITLE</h3>

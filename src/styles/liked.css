@@ -40,7 +40,7 @@
     width:100%;
 }
 .likesong button{
-    color:black;
+    color:rgba(34, 30, 30, 0.726);
 }
 .liked-banner{
     background-image:url('liked.jpg');
@@ -62,9 +62,11 @@
     font-size: 0.8rem;
 }
 .like-flex button{
-    background-color: black;
+    background-color: rgba(34, 30, 30, 0.726);
+    border:0;
     height:20px;
 }
+
 .like-flex{align-items: center;
     background-color: rgba(34, 30, 30, 0.726);
     justify-content:space-between;

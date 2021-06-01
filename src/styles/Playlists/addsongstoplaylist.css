@@ -23,6 +23,40 @@
 .addto-search-box:hover{
     background-color: black;
 }
+
+
+.addingSongsto span{
+    background-color: rgba(34, 30, 30, 0.726);
+    height:10vh; 
+    /* width:3rem;
+    height:2rem; */
+    }
+    .addingSongsto span:hover{
+        background-color: rgba(34, 30, 30, 0.726);
+         /* width:3rem; */
+        
+        }
+        .display-existing-playlists{
+            background-color: rgba(34, 30, 30, 0.726);
+        }
+        .display-existing-playlists:hover{
+            background-color: black;
+           color:red;
+        }
+    .delete-icon{
+    margin-top:4vh;
+    }
+
+    .add-songs-playlist-button{
+        background-color: black;
+        margin:0;
+        padding:0;
+        border:0
+    }
+    .add-songs-playlist-button:hover{
+        background-color: black;
+        color:red;
+    }
 @media screen and (max-width:500px) {
     .sectionheader-addto{
         display:grid;

@@ -30,6 +30,15 @@
     margin:30px 30px;
     color:white;
 }
+
+.my-playlist-box button{
+    height:30vh;
+    width:30vh;
+    background-color: #121212;
+    color:white;
+    margin:30px 30px;
+    color:white;
+}
 .my-playlist-box a{
     text-decoration:none;
     color:white;

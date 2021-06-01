@@ -26,6 +26,8 @@
     position:relative;
     margin-right:-30px;
     margin-top:-80px;
+    background-color:rgb(14, 14, 14);
+    border:0;
 }
 .search-box{
     height:10vh;width:100%;
@@ -73,10 +75,10 @@
     grid-template-columns:repeat()
 } */
 .search-icon{
-    background-color:black;
     color:white;
-    margin:0;
+   
     padding:0;
+    
     /* margin-left:-70px;
     margin-top:5px; */
 }

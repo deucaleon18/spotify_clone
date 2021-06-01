@@ -50,8 +50,8 @@ useEffect(() => {
     <div className="playlist-area">
           <div className="playlist-banner"> 
 </div>
-<div className="sectionheader-artist">
-  <h3>#</h3>
+<div className="sectionheader">
+  <div></div>
 
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -70,8 +70,8 @@ useEffect(() => {
         return (<div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
     
-        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button>
-        
+        {/* <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
+        <div></div>
         <img src={album.cover_small} alt="la"/>
         <h3>{title}</h3>
         <h3>{album.title}</h3>

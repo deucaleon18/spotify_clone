@@ -141,9 +141,13 @@ getUser();
 if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined&&deezer_4!==undefined&&
 deezer_5!==undefined&&deezer_6!==undefined&&deezer_7!==undefined&&deezer_8!==undefined&&deezer_9!==undefined&&
 deezer_10!==undefined)return(<div className="mainplayer">
+    <div className="overlay">
 <div className="banner">
-    <img src="" alt="" />
+   
 </div>
+<div className="banner-overlay"></div>
+</div>
+
 {/* <div className="title"><h4>RECENTLY PLAYED</h4></div>
     <div className="arrange">
 {recent.data.map((song)=>{
@@ -160,7 +164,7 @@ deezer_10!==undefined)return(<div className="mainplayer">
     </div>         */} 
 <div className="title">PLAYLISTS</div>
 
-<div className="arrange1">
+<div className="arrange">
     {deezer.map((song)=>{
         const{title,picture_medium,id}=song
         return <div  className="box">
@@ -298,11 +302,11 @@ deezer_10!==undefined)return(<div className="mainplayer">
     <div className="title"><h4>TOP ARTISTS</h4></div>
     <div className="arrange">
 {deezer_10.map((song)=>{
-        const{title,picture_medium,id}=song
+        const{name,picture_medium,id}=song
         return <div  className="box">
         <Link to={`artist/${id}`}>
         <img src={picture_medium}alt=""/>
-        <h4>{title}</h4>
+        <h4>{name}</h4>
         </Link>
         {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}

@@ -28,6 +28,11 @@ opacity:1;
     margin:auto;
     padding:20px 105px;
 }
+.loader{
+    position:absolute;
+    top:40%;
+    right:50%;
+}
 
 @media screen and (max-width:500px){
 

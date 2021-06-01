@@ -7,7 +7,7 @@ import Socials from "../Socials";
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
 import Bottombar from "../Functionality/Bottombar"
-// import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+import CancelSharpIcon from '@material-ui/icons/CancelSharp';
 
  const CreatePlaylist = () => {
     const [playlist,setPlaylist]=useState('')
@@ -59,7 +59,7 @@ import Bottombar from "../Functionality/Bottombar"
   <div className="middle-create-playlist" >
       <h1>Create New Playlist</h1>
       {popup?(<div className="poppup">
-      <button onClick={()=>{setPopup(false)}}>close</button>
+      <button onClick={()=>{setPopup(false)}}><CancelSharpIcon className="close-icon"/></button>
 <div className="create-playlist-form"><form onSubmit={handleSubmit}>
               <label htmlFor="playlist"></label>
               <input 

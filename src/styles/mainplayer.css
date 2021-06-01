@@ -2,24 +2,25 @@
     width:100%;
     height:87vh;
     background-color: #121212;
-    display:grid;
-    grid-template-rows:45vh 10vh ;
+  
     grid-gap:10px;
     overflow-y:scroll;
     overflow-x: hidden;
+    direction: ltr;
     /* scrollbar-width: none; */
 }
 .mainplayer::-webkit-scrollbar,.arrange::-webkit-scrollbar,.arrange1::-webkit-scrollbar {
     display: none;
   }
 .banner{
-    background-image:url('5418691.jpg');
+    background-image:url('concert-.jpg');
     /* background-position-x:25px; */
-    background-position-y:-165px;
+    background-position-y:-265px;
     background-repeat: no-repeat;
     background-size: cover;
     margin:0 5px;
     opacity:0.8;
+    height:45vh;
 }
 .arrange{
     display:grid;
@@ -29,6 +30,7 @@
     margin:10px 5vh 10px 5vh;
     overflow-x:scroll;
     height:32vh;
+   
     /* overflow-x: scroll; */
 }
 .box{
@@ -71,7 +73,9 @@ font-size:4rem;
     margin:10px 10px 10px 7px;
 } */
 .loader{
-    margin:auto;
+    position:absolute;
+    top:40%;
+    right:40vw;
     
 }
 
@@ -100,6 +104,7 @@ font-size:4rem;
       
         /* overflow-x: scroll; */
     }
+
     /* @media screen and(min-width:) {
         
     } */
@@ -111,19 +116,21 @@ font-size:4rem;
     display:grid;
     grid-template-rows:30vh 10vh ;
     grid-gap:10px;
-    overflow-y:scroll;        /* overflow-x: hidden; */
+    overflow-y:scroll;    
+    /* overflow-x: hidden; */
             /* scrollbar-width: none; */
     }
 
 .banner{
-    width: 75vh;
+    width: 100vw;
     background-position-y: -40px;
-    background-position-x: -63px;
-    background-image:url('5418691.jpg');
+    /* background-position-x: -63px; */
+
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0 5px;
+    margin: auto;
     opacity: 0.8;
+    height:30vh;
     }
     .title{width:100%;
         color:white;
@@ -148,21 +155,10 @@ font-size:4rem;
         overflow-x:scroll;
         height:32vh;
         width:100%;
+    
         /* overflow-x: scroll; */
     }
-    .arrange1{
-        display:grid;
-        grid-template-columns:repeat(10,30vh);
-        grid-gap:20px;
-        background-color: black;
-        margin:0 2vh 10px 2vh;
-        overflow-x:scroll;
-        height:32vh;
-        width:100%;
-        margin-top: -10px;
-      
-        /* overflow-x: scroll; */
-    }
+    
     .title:hover{
         color:rgba(255, 0, 0, 0.678);
     }

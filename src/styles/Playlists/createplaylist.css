@@ -69,23 +69,25 @@ width:100%;
 
 }
 .poppup{
-    height:80vh;
-    width:180vh;
+    height:72vh;
+    width:80vw;
     /* margin:auto; */
     background-color: #000000;
         background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
    opacity:1.2;
    z-index:3;
-   position:relative;
+   position:absolute;
+   top:15vh;
    border-radius:10px;
+   overflow-y: hidden;
 }
 
-.addingSongsto button{
-background-color: black;
-/* width:3rem;
-height:2rem; */
+.close-icon{
+    fill:black;
+color:black;
+border:0;
 }
-.poppup button{background-color:black;}
+
 @media screen and (max-width:500px) {
     .add-new-playlist{
         width:40vh;
@@ -118,13 +120,13 @@ height:2rem; */
     .middle-create-playlist{
         background-color:#212121;
         height:87vh;
-        width:360px;
+        width:100%;
         overflow-y: hidden;
     }
     
     .poppup{
         height:480px;
-        width:360px;
+        width:100%;
         margin:auto;
         background-color: #000000;
         background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
@@ -132,8 +134,10 @@ height:2rem; */
        z-index:3;
        position:relative;
        border-radius:10px;
+       position:absolute;
+   top:15vh;
     }
-   .poppup button{background-color:black;}
+   
     #playlist-bar{
         margin:60px 40px;
         position:absolute;
