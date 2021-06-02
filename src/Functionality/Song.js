@@ -47,8 +47,8 @@ useEffect(() => {
         }
       }
     fetchLikedsongs();
- 
-},[id,likedsong])
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+},[])
 
 const likeSong=(track_id)=>{
     const user_id=localStorage.getItem('user_id')
