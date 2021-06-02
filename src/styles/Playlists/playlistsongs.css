@@ -30,7 +30,7 @@ color:red;
 cursor: pointer;
 }
 .playlist-banner{
-    background-image:url('/home/deucaleon18/Desktop/deezer/src/styles/playlistnew.jpg');
+    background-image:url('playlistnew.jpg');
     /* background-position-x:-15px; */
     background-position-y:-365px;
     background-repeat: no-repeat;
