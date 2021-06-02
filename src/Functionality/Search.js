@@ -1,52 +1,90 @@
 import React,{useState} from 'react';
 import "../styles/search.css";
 import{ url} from '../Auth/stats.js';
-// import {Howl} from "howler";
-// import {Link} from "react-router-dom"
-// import {AiTwotoneLike} from "react-icons/ai"
-// import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import SearchSharpIcon from '@material-ui/icons/SearchSharp';
-// import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
-// import Bottombar from "../Functionality/Bottombar"
-// import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';import {Grid,Typography,Box} from '@material-ui/core'
+import FormControl from '@material-ui/core/FormControl';
+import img from "../styles/dog.png"
  const Search = () => {
+
+     //useState has been used for taking the input from the form and also taking the input after the API has been called
     const [searchvalue,setSearchvalue]=useState('')
-    const [searchresult,setSearchresult]=useState()
-    const [loading,setLoading]=useState(true);
-   //  const [playing,setPlaying]=useState(false);
-   //  const [liked,setLiked]=useState(false);
+    const [searchresult,setSearchresult]=useState("x")
+
+
+    //default Loader comprising of 3 dots
+    const [loading,setLoading]=useState(false);
+    // eslint-disable-next-line
+
+
+    //not yet used this can be used to show the like button beside the songs..
+    const [liked,setLiked]=useState();
+
+
+    const[show,setShow]=useState(false);
+
+
+    const[showerror,setShowerror]=useState(false);
+
+
+  
+    //these have also not been yet utilized but can easily be integrated in the web application so that playlists can be added from beside the songs
    //  const [playlistspopup,setPlaylistspopup]=useState(false);
    //  const[myplaylists,setMyplaylists]=useState([]);
-   const handleSubmit=async(e)=>{
-       e.preventDefault();
-      // fetchData();
-      const fetchDeezer=async()=>{
+
+
+   //fetching the results of the form control input
+     const fetchDeezer=async()=>{
          const results= await fetch(`${url}search?q=${searchvalue}`)
          const data=await results.json();
-      //    const key=await results.trackmatches
-         console.log(data.data) ;
+        //  console.log(data.data) ;
          setSearchresult(data);
-         if(searchresult!==undefined){setLoading(false);}
+         /* eslint eqeqeq: 0 */
+        if(data.data.length==0){
+            setShow(false)
+            setShowerror(true);
+            }
          }
-    fetchDeezer();
-      // setSearchvalue('')
-   }
-  
       
+         
+    //function to handle the submission of the form      
+   const handleSubmit=(e)=>{
+       e.preventDefault();
+           setLoading(true)
+    
+    fetchDeezer(); 
+    if(searchresult!==undefined&&searchresult!=="x"){setLoading(false);
+         setShow(true);
+         }
+
+   }
+
+
+
       // const showPlaylistspopup=()=>{
       //    setPlaylistspopup(true)
       // }
-    
-      // const likeSong=async(track_id)=>{
-      //    const user_id=localStorage.getItem('user_id')
-      //    const access_token=localStorage.getItem('token')
-      //    const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-      //    const data=await results.json();
-      //    console.log(data)
-      //    setLiked(!liked)
-      //  }
+
+
+      // eslint-disable-next-line
+      const likeSong=(track_id)=>{
+        const user_id=localStorage.getItem('user_id')
+        const access_token=localStorage.getItem('token')
+       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+       .then((res)=> res.json())
+        .then((res)=>console.log(res)) 
+        setLiked(true)
+      }
+        // eslint-disable-next-line
+ const unlikeSong=(track_id)=>{
+        const user_id=localStorage.getItem('user_id')
+        const access_token=localStorage.getItem('token')
+       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=delete&track_id=${track_id}`)
+       .then((res)=> res.json())
+        .then((res)=>console.log(res)) 
+        setLiked(false)
+      }
 
       //  const unlikeSong=async(ID)=>{
       //    const user_id=localStorage.getItem('user_id')
@@ -74,21 +112,25 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
       // useEffect(() => {
       //    getMyPlaylists()
       // }, [])
+
+
+
+
     return (
         <div className="search">
       <div className="search-area">
           <div className="bar">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} autoComplete="off">
               <label htmlFor="search"></label>
               <input 
               type="text" 
               name="search"  
-              placeholder="Search"
+              placeholder="Artists,Albums and Songs"
               id="search-bar"
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit"><SearchSharpIcon className="search-icon"/></button>
+              <button type="submit" ><SearchOutlinedIcon/></button>
               </form>
              
 
@@ -102,20 +144,22 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
         timeout={10000} //10 secs
       className="loader"/>
       </div>)
-         :(<>
+         :(<div>
+       {show?(<Grid container style={{height:'6vh',alignItems:'center'}} >
+      <Grid container item xs={1} style={{borderBottom:'0.5px white'}}></Grid>
+ 
+  {/* <div></div> */}
+  <Grid container item xs={5}><Typography style={{fontSize:'0.8rem'}} color='secondary'>TITLE</Typography></Grid>
+  <Grid container item xs={3}><Typography style={{fontSize:'0.8rem'}} color='secondary'>ALBUM</Typography></Grid>
+  <Grid container item xs={2}><Typography style={{fontSize:'0.8rem'}} color='secondary'></Typography></Grid>
+  
+      </Grid>
+      ):null} 
 
-      
-<div className="sectionheader-search" style={{margin:"20px 0" }}>
-            <div></div>
-       
-            {/* <div></div> */}
-            <h3>TITLE</h3>
-            <h3>ARTIST</h3>
-            <h3>ALBUM</h3>
-            
-          </div>
+           {show?(searchresult.data.map((searcher)=>{
 
-           {searchresult.data.map((searcher)=>{
+
+           
           const{album,artist,id,title}=searcher
          //  const addtoThisPlaylist=async(ID,id)=>{
          //    // const user_id=localStorage.getItem('user_id')
@@ -125,41 +169,61 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
          //    console.log(data);
          //    window.location.reload();
          // }
-
-          return( 
-        
-                <div key={searcher.id} onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box">
-
-                {/* {playlistspopup?(<div id={searcher.id} className="playlistspopup">
+           // eslint-disable-next-line
+ {/* {playlistspopup?(<div id={searcher.id} className="playlistspopup">
                    {/* <button onClick={setPlaylistspopup(false)}><CancelSharpIcon/></button> */}
+                     // eslint-disable-next-line
             {/* {myplaylists.map((playlists)=>{
               return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`,`${id}`)}}>{playlists.title}</h1>
             })}
             </div>
             ):""
-            } */} 
-
-                {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
+            } */}   
+  // eslint-disable-next-line
+             // eslint-disable-next-line 
+                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
+                   // eslint-disable-next-line
          {/* {playing? <button onClick={setPlaying(!playing)}><h3>pause</h3></button>:<button onClick={setPlaying(!playing)}><h3>play</h3></button>}  */}
+           // eslint-disable-next-line
                {/* <button onClick={()=>{showPlaylistspopup()}}><AddBoxSharpIcon className="add-icon"/></button> */}
+                 // eslint-disable-next-line
                 {/* <a href={`/this/song/${searcher.id}`}> */}
-                  
+                    // eslint-disable-next-line
                       {/* <div></div> */}
-                    
-               <img src={artist.picture_small} alt=""/>
-               <h2>{title}</h2> 
-                <h2>{artist.name}</h2>
-                <h2>{album.title}</h2>
-               
+
+
+
+
+         return( 
+           <Box>
+               <Grid container item lg={12} xs={12} key={searcher.id} style={{alignItems:'center'}}onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box"> 
+               <Grid contianer item style={{width:'40px'}}><img src={artist.picture_small} alt=""/> </Grid>
+               <Grid container item lg={5} xs={6} >
+               <Grid container item lg={12} xs={12} ><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>
+               <Grid container item lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem'}}> {artist.name}</Typography></Grid>
+               </Grid>
+               <Grid contianer item lg={6} xs={8}><Typography  style={{fontSize:'0.9rem'}} color='secondary'>{album.title}</Typography></Grid>
                 {/* </a> */}
-                </div>
+                </Grid>
+                </Box>
                 
-             )
-           }
+             )}
+
+           
            )  
-          }
-</>
-       )   
+           ):(showerror?<Box display='flex' justifyContent='space-between'>
+           <Grid container>
+            <Grid container item lg={6}><Typography variant='h2' style={{color:"white",position:'absolute',top:'20%'}}>No results found....</Typography></Grid>
+            <Grid container item lg={6}><img src={img} alt='' style={{position:'absolute',left:'50%',width:'20%',height:'40%'}}/></Grid>
+             </Grid>
+           </Box> 
+           
+           :null )
+           
+           }
+        
+</div>
+       )  
  }
         </div>
       </div>  
@@ -167,21 +231,5 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
         
     )
     }
-// const Grid=()=>{
-// return (
-// <div>
-// <div>
-//    <div className="grid-column"></div>
-//    <div></div>
-//    <div></div>
-//    <div></div>
-// </div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// </div>
-// )
-// }
 
 export default Search;

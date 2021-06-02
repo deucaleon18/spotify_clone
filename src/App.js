@@ -1,31 +1,58 @@
-import React from 'react';
-import './styles/App.css';
-import Header from './Header';
-import Sidebar from './Functionality/Sidebar.js';
-import Mainplayer from "./Functionality/Mainplayer.js"
-// import Player from './Functionality/Player/Player.js';
-import Socials from "./Socials";
-import Bottombar from "./Functionality/Bottombar"
-const App=()=>{
- 
-    
-  return (
-    
-  <div className="App">
-    
-    <Header />
-    <div className="middle">
-    <Sidebar />
-    <Mainplayer />
-    <Socials/>
-    </div>
-    {/* <Player />  */}
-  <div className="empty-player"></div>
-    <Bottombar/>
-  </div>
-);
+import React from 'react'
+import Routing from './Routing';
+import { createMuiTheme,responsiveFontSizes,ThemeProvider } from '@material-ui/core';
 
+
+const theme = createMuiTheme({
+
+ palette:{
+     primary:{
+         main:'#ffffff',
+    
+     },
+
+     secondary:{
+         main:'rgb(170,170,170)',  
+     },
+ },
+
+typography:{
+h1:{fontFamily:'Nunito Sans',
+fontWeight:'900',
+},
+
+
+h2:{fontFamily:'Nunito Sans',
+fontWeight:'800',
+height:'5rem'},
+
+h3:{fontFamily:'Nunito Sans',
+fontWeight:'600',
+height:'3rem'}
+},
+
+
+'&:hover': {
+    background: "#121212",
+    color:'white'
+ },
+  
+
+
+
+
+ })
+
+
+ const App = () => {
+    return (
+        <ThemeProvider theme={theme}>
+        <div>
+            <Routing/>
+        </div>
+        </ThemeProvider>
+    )
 }
 
-export default App;
 
+export default App;

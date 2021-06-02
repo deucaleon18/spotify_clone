@@ -2,26 +2,47 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  width: 30px;
-  height: 30px;
-  /* flex-grow: 1; */
- position:absolute;
- margin:0 50%;
-}
+  width: 46px;
+  height: 44px;
+  flex-grow: 1;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  margin: 0 48%;
+  z-index: 3;
 
+}
 .btn-play {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 15px 0 15px 30px;
-  border-color: transparent transparent transparent #ffffff;
+  border-width: 12px 0 15px 23px;
+  border-color: transparent transparent transparent black;
   cursor: pointer;
+  margin-left:30%;
+  margin-top: 8px;
 }
 
 .btn-stop {
-  height: 30px;
-  width: 20px;
-  border-left: 8px solid rgb(255, 255, 255);
-  border-right: 8px solid rgb(255, 255, 255);
+  height: 25px;
+  width: 5px;
+  border-left: 6px solid rgb(0, 0, 0);
+  border-right: 6px solid rgb(0, 0, 0);
   cursor: pointer;
+  margin-top: 10px;
+  margin-left: 15px;
+
+}
+
+@media screen and (max-width:500px){
+  .btn-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* width: 20px;
+    height: 20px; */
+    /* flex-grow: 1; */
+   position:absolute;
+   margin:0 45%;
+  }
 }

@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.99893ead.chunk.css",
-    "main.js": "/static/js/main.88e2388c.chunk.js",
-    "main.js.map": "/static/js/main.88e2388c.chunk.js.map",
+    "main.css": "/static/css/main.d98605f0.chunk.css",
+    "main.js": "/static/js/main.5a77bc79.chunk.js",
+    "main.js.map": "/static/js/main.5a77bc79.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9ddecaa4.js",
     "runtime-main.js.map": "/static/js/runtime-main.9ddecaa4.js.map",
     "static/css/2.ab75b8d7.chunk.css": "/static/css/2.ab75b8d7.chunk.css",
-    "static/js/2.98b3bb68.chunk.js": "/static/js/2.98b3bb68.chunk.js",
-    "static/js/2.98b3bb68.chunk.js.map": "/static/js/2.98b3bb68.chunk.js.map",
+    "static/js/2.003578e0.chunk.js": "/static/js/2.003578e0.chunk.js",
+    "static/js/2.003578e0.chunk.js.map": "/static/js/2.003578e0.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.ab75b8d7.chunk.css.map": "/static/css/2.ab75b8d7.chunk.css.map",
-    "static/css/main.99893ead.chunk.css.map": "/static/css/main.99893ead.chunk.css.map",
-    "static/js/2.98b3bb68.chunk.js.LICENSE.txt": "/static/js/2.98b3bb68.chunk.js.LICENSE.txt",
+    "static/css/main.d98605f0.chunk.css.map": "/static/css/main.d98605f0.chunk.css.map",
+    "static/js/2.003578e0.chunk.js.LICENSE.txt": "/static/js/2.003578e0.chunk.js.LICENSE.txt",
+    "static/media/Deezer-Emblem.288f395a.jpg": "/static/media/Deezer-Emblem.288f395a.jpg",
     "static/media/mainplayer.css": "/static/media/concert-.b89b9cbf.jpg",
+    "static/media/artist.css": "/static/media/dj.3462952a.jpg",
+    "static/media/album.css": "/static/media/liked3.c22d4247.jpg",
     "static/media/liked.css": "/static/media/likedpart2.aae5ef14.jpg",
     "static/media/login.css": "/static/media/musicbg.084a5404.jpg",
     "static/media/playlistsongs.css": "/static/media/playlistnew.279d52b7.jpg"
@@ -20,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.9ddecaa4.js",
     "static/css/2.ab75b8d7.chunk.css",
-    "static/js/2.98b3bb68.chunk.js",
-    "static/css/main.99893ead.chunk.css",
-    "static/js/main.88e2388c.chunk.js"
+    "static/js/2.003578e0.chunk.js",
+    "static/css/main.d98605f0.chunk.css",
+    "static/js/main.5a77bc79.chunk.js"
   ]
 }

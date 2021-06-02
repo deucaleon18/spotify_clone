@@ -4,87 +4,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Suez+One&family=Varela+Round&display=swap');
 .mainplayer{
     width:100%;
-    height:87vh;
-    background-color: #121212;
-  
+    height:91vh;
+    background: hsla(0, 0%, 0%, 1);
+    background: linear-gradient(90deg, hsla(0, 0%, 0%, 0.938) 50%, hsla(236, 100%, 16%, 0.9) 100%);
+    background: -moz-linear-gradient(90deg, hsla(0, 0%, 0%, 0.938) 50%, hsla(236, 98%, 16%, 0.9) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(0, 0%, 0%, 0.938) 50%, hsla(237, 95%, 15%, 0.9) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#0611A3", GradientType=1 );
     grid-gap:10px;
     overflow-y:scroll;
     overflow-x: hidden;
     direction: ltr;
     /* scrollbar-width: none; */
 }
+
+
+
+
 .mainplayer::-webkit-scrollbar,.arrange::-webkit-scrollbar,.arrange1::-webkit-scrollbar {
     display: none;
   }
+
+
 .banner{
-    background-image:url('concert-.jpg');
-    /* background-position-x:25px; */
-    background-position-y:-305px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin:0 5px;
-    opacity:2;
-    height:45vh;
+  
+    height:45%;
   position:relative;
 }
 
-.banner h1{
+
+/* .banner h1{
     margin:3% 0 0 7%;
     font-size: 3.5rem;
-
     font-family: 'Varela Round', sans-serif;
     color:white;
     font-size: 3rem;
     position:absolute;
     z-index:4;
-}
-.banner span{
+} */
+/* .banner span{
     color:rgba(255, 0, 0, 0.678);
-    font-family: 'Varela Round', sans-serif;
-}
-.banner-overlay{
-    height:45vh;
+    font-family: 'Varela Round', sans-serif;} */
+
+/* .banner-overlay{
+    height:100%;
     width:100%;
     position:absolute;
-    
-   top:0;
+    top:0;
     z-index:3;
-    background-color: black;
-    opacity:0.7;
-}
+    /* background-color: black; */
+    /* opacity:0.7;
+} */ 
 .arrange{
     display:grid;
-    grid-template-columns:repeat(10,35vh);
-    grid-gap:20px;
+    grid-template-columns:repeat(10,32vh);
+    grid-gap:5px;
     /* background-color: black; */
     margin:10px 5vh 10px 5vh;
     overflow-x:scroll;
-    height:32vh;
+    height:40vh;
    
     /* overflow-x: scroll; */
 }
+
+
 .box{
     /* margin:10px 8px 20px 8px; */
-    width:33vh;
-    height:32vh; 
-    -moz-box-shadow: 0 0 5px white;
-    -webkit-box-shadow: 0 0 5px white;
-    box-shadow: 0 5px 5px white;
+    width:30vh;
+    height:38vh; 
+    border-radius:20px;
+    /* -moz-box-shadow: 0 0 5px white;
+    -webkit-box-shadow: 0 0 5px white; */
+  
 }
 
 .box:hover{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.397);
+    opacity:1.2;
+    cursor:pointer;
 }
-.box:hover{
-  opacity:1.2;
-    
-}
+
 .box img{
-    width:30vh;
+    width:28vh;
     height:26vh;
-    margin-top:10px;
-    margin-left:2.5%;
+    margin-top:4%;
+    margin-left:5%;
     opacity:1.5; 
+    border-radius:20px;
+    margin-left:3%;
 }
 .box a {
     text-decoration: none;
@@ -93,16 +99,18 @@
 }
 .title{width:5fr;
 color:white;
-background-color: black;
-height:8vh;
+/* background-color: black; */
+height:10vh;
 margin: 20px 10px 10px 7px;
 text-align:center;
-font-size:4rem;
+font-size:8vh;
+padding:10px;
 }
 
 .box h4{
     text-align: center;
     font-size: larger;
+    color:white;
 }
 /* .arrange2{
     display:grid;
@@ -111,9 +119,8 @@ font-size:4rem;
     margin:10px 10px 10px 7px;
 } */
 .loader{
-    position:absolute;
-    top:40%;
-    right:40vw;
+  position:relative;
+  margin:20px -100px;
     
 }
 
@@ -139,14 +146,27 @@ font-size:4rem;
         height:32vh;
         width:100%;
        
-      
-        /* overflow-x: scroll; */
     }
 
-    /* @media screen and(min-width:) {
-        
-    } */
+   
 @media screen and (max-width:500px){
+    .banner h1{
+        margin:3% 0 0 7%;
+       
+        font-family: 'Varela Round', sans-serif;
+        color:white;
+        font-size: 2rem;
+        position:absolute;
+        z-index:4;
+    }
+    .box{
+   
+        width:33vh;
+        height:36vh; 
+
+        box-shadow: 0 0 10px -2px #444444;
+    }
+
     .banner-overlay{
         height:30vh;
         width:100%;
@@ -164,15 +184,12 @@ font-size:4rem;
     grid-template-rows:30vh 10vh ;
     grid-gap:10px;
     overflow-y:scroll;    
-    /* overflow-x: hidden; */
-            /* scrollbar-width: none; */
+
     }
 
 .banner{
     width: 100vw;
     background-position-y: -40px;
-    /* background-position-x: -63px; */
-
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
@@ -196,22 +213,31 @@ font-size:4rem;
     .arrange{
         display:grid;
         grid-template-columns:repeat(10,30vh);
-        grid-gap:20px;
+        grid-gap:25px;
         background-color: black;
         margin:0 2vh 10px 2vh;
         overflow-x:scroll;
-        height:32vh;
+        height:38vh;
         width:100%;
     
-        /* overflow-x: scroll; */
     }
     
     .title:hover{
         color:rgba(255, 0, 0, 0.678);
-    }
+
     }
 
     .empty-player{
-        height:8vh;
-        background-color: black;
+        height:13vh;
+        background-color: rgba(0, 0, 0, 0.897);
     }
+
+    
+    }
+
+    .empty-player{
+        height:9vh;
+        background-color: rgba(0, 0, 0, 0.897);
+    }
+
+    

@@ -1,24 +1,24 @@
 import React from 'react'
-import Header from '../Header';
-import Sidebar from './Sidebar.js';
 
-// import Player from './Player/Player.js';
-import Socials from "../Socials";
+
 import Bottombar from "../Functionality/Bottombar"
+
+import {Typography} from "@material-ui/core"
+
 
  const Error = () => {
     return (
         <div className="error">
-             <Header />
-    <div className="middle">
-    <Sidebar />
+       
+  
+
     <div className="mainplayer">
-    <div >Sorry you need to <a href="/login">Login</a> to access this feature</div>
+    <div style={{color:"white"}}><Typography variant='h3'>Sorry you need to <span> <a style={{color:"red"}}href="/">Login</a></span>to access this feature</Typography></div>
     </div>
-    <Socials/>
-    </div>
-    <div className="empty-player">
-    </div>
+   
+   
+     {/*<div className="empty-player">
+    </div>*/}
     <Bottombar/>
         </div>
     )

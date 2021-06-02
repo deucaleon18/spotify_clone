@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import{app_id,secret} from './stats'
+// import{app_id,secret} from './stats'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import "../styles/loading.css"
 const Loading = () => {
     const [code,setCode] = useState();
-    const tokenURL=`https://deezerclone.herokuapp.com/https://connect.deezer.com/oauth/access_token.php?app_id=${app_id}&secret=${secret}&code=${code}&output=json`
+    const tokenURL=`${process.env.REACT_APP_TOKEN_URL}${code}`
     useEffect(() => {
         getCode();
          if(code!==undefined) {
@@ -13,14 +13,21 @@ const Loading = () => {
         }
     })
 
+//Handling the code and getting access token after redirecting
+
     const handleRedirect=()=>{ 
-     window.location.href='/home'   
+     window.location.href="/app" ;
+     localStorage.setItem('active',"homesection")  
     }
 const getCode=()=>{
     let link=window.location.search;
     const urlParams=new URLSearchParams(link)
     const key= urlParams.get('code')
-    setCode(key)
+    setCode(key);
+    // if(code!==undefined){
+    //     var clean_uri =link.substring(0, link.indexOf("?"));
+    //     window.history.replaceState({}, document.title, clean_uri);
+    // }
 }
         const fetchToken=async()=>{ 
    
@@ -32,6 +39,8 @@ const getCode=()=>{
        }
        handleRedirect();
    }   
+
+//Default loader until the page loads
 
 return <div className="loading">
     <Loader

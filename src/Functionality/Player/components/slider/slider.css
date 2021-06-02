@@ -7,6 +7,7 @@
   position: relative;
   width: 60%;
   margin:auto;
+  /* height:100px; */
 }
 
 /* Background */
@@ -18,7 +19,7 @@
   display: block;
   position: absolute;
   border-radius: 10px;
-  top: 18%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -33,7 +34,7 @@
   display: block;
   position: absolute;
   border-radius: 10px;
-  top: 18%;
+  top: 10%;
   transform: translateY(-50%);
   z-index: 1;
   user-select: none;
@@ -45,7 +46,7 @@
 .range {
   -webkit-appearance: none;
   background-color: rgba(240, 9, 9, 0.397);
-  height: 30px;
+  height:60px;
   width: 100%;
   cursor: pointer;
   opacity: 0;

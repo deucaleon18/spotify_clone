@@ -1,18 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
-import Header from '../Header';
+
 import Sidebar from './Sidebar.js';
-// import Player from './Player/Player.js';
-import Socials from "../Socials";
+
+
 import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../styles/album.css"
-// import {BiLike} from "react-icons/bi"
-// import {AiTwotoneLike} from "react-icons/ai"
+import {Grid,Typography,Container,Button,Box} from '@material-ui/core'
 // import {Howl} from "howler";
-// import {Link} from "react-router-dom"
+
 import Bottombar from "../Functionality/Bottombar"
 
  const Album = () => {
@@ -35,49 +34,49 @@ useEffect(() => {
     const getThisAlbum=async()=>{
    const results=await fetch(`${url}album/${id}`)
    const data=await results.json();
-   console.log(data)
-   if(data!==undefined){
-       setThisAlbum(data.tracks.data);
+   console.log(data.tracks.data)
+   if(data!=undefined){
+       setThisAlbum(data.tracks);
        setLoading(false)
        
    }
 }
     return (
         <div>
-            <Header />
+    
     <div className="middle">
     <Sidebar />
   
     <div className="playlist-area">
-          <div className="playlist-banner"> 
+          <div className="album-banner"> 
 </div>
-<div className="sectionheader-album">
-  <div></div>
-  <h3>TITLE</h3>
- 
-  <h3>ARTIST</h3>
-  <h3>TIME</h3>
-</div>
-{!loading?(thisAlbum.map((song)=>{
-//    function soundPlay(src){
-//     const sound=new Howl({
-//        src
 
-//     })
-//     sound.play()
-//  }
-         const{id,duration,title,artist}=song
-        return (<div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="albumsong">
-        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
-       <div></div>
-        {/* <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
-        {/* <img src={cover_small} alt="la"/> */}
-     
-        <h3>{title}</h3>
-        <h3>{artist.name}</h3>
-        <h3>{duration}</h3>
-    
-         </div>) 
+
+<Grid container style={{height:'6vh',alignItems:'center'}} >
+      <Grid container item xs={1} style={{borderBottom:'0.5px white'}}></Grid>
+ 
+  {/* <div></div> */}
+  <Grid container item xs={5}><Typography style={{fontSize:'0.8rem'}} color='secondary'>TITLE</Typography></Grid>
+  <Grid container item xs={3}><Typography style={{fontSize:'0.8rem'}} color='secondary'>ALBUM</Typography></Grid>
+  <Grid container item xs={2}><Typography style={{fontSize:'0.8rem'}} color='secondary'></Typography></Grid>
+  
+      </Grid>
+
+      
+{!loading?(thisAlbum.data.map((song)=>{
+
+        
+        return ( <Box key={song.id}>
+          <Grid container item lg={12} xs={12} style={{alignItems:'center'}} onClick={()=>{window.location.href=`/this/song/${id}`}} className="albumsong"> 
+          <Grid contianer item style={{width:'40px'}}> </Grid>
+          <Grid container item lg={5} xs={6} >
+          <Grid container item lg={12} xs={12} ><Typography color="primary"  style={{fontSize:'1rem'}}>{song.title}</Typography></Grid>
+          <Grid container item lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem'}}> {song.artist}</Typography></Grid>
+          </Grid>
+          <Grid contianer item lg={6} xs={8}><Typography  style={{fontSize:'0.9rem'}} color='secondary'>{song.duration}</Typography></Grid>
+           {/* </a> */}
+           </Grid>
+           </Box>) 
     })): 
     <Loader 
     type="ThreeDots"
@@ -89,7 +88,7 @@ useEffect(() => {
 
  </div>
 
-    <Socials/>
+   
     </div>
     <div className="empty-player">
     </div>

@@ -1,54 +1,53 @@
 import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
-import Header from '../Header';
+
 import Sidebar from './Sidebar.js';
 import Player from './Player/Player.js';
-import Socials from "../Socials";
 import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Bottombar from "../Functionality/Bottombar"
 
-
  const Song = () => {
-
-
-    const{id}=useParams();
+const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
-const [likedsong,setLikedsong]=useState();
+
 const[liked,setLiked]=useState();
+
+
 useEffect(() => {
-    // eslint-disable-next-line
-    getThisSong();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
-useEffect(() => {
-    
+       // eslint-disable-next-line
+       getThisSong();
+
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchLikedsongs=async()=>{ 
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token');
         const results =await fetch(`${url}user/${user_id}/tracks&access_token=${access_token}`) 
          const data= await results.json();
-        //  console.log(data.data)
-         setLikedsong(data.data);
-         if(likedsong!==undefined){const checkforliked= likedsong.find(song=>song.id===`${id}`)
-         if(checkforliked!==null||undefined){
-            setLiked(true)
+         if(data!==undefined){
+            console.log(data.data)
+            // eslint-disable-next-line
+            const checkforliked=data.data.find((song)=>{ if(song.id==`${id}`){return true}
+          return false
+          })
+            console.log(checkforliked)
+            // eslint-disable-next-line
+          if(checkforliked!=null||checkforliked!=undefined){setLiked(true)}
         }
-       if(checkforliked===null||undefined){
-            setLiked(false)
-        } 
-        }
+  
       }
-    fetchLikedsongs();
- 
-},[id,likedsong])
+    
+      if(localStorage.getItem('user_id')!==undefined&&localStorage.getItem('token')!==undefined){fetchLikedsongs();}
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+   
+},[])
+
+
 
 const likeSong=(track_id)=>{
     const user_id=localStorage.getItem('user_id')
@@ -57,12 +56,6 @@ const likeSong=(track_id)=>{
    .then((res)=> res.json())
     .then((res)=>console.log(res)) 
     setLiked(true)
-
-    // if(localStorage.getItem('like')!==undefined){
-    //   localStorage.removeItem('like');
-    //   localStorage.setItem('like',1)
-    // }
-    // localStorage.setItem('like',1)
   }
 
   const unlikeSong=(ID)=>{
@@ -72,19 +65,8 @@ const likeSong=(track_id)=>{
   .then((res)=> res.json())
    .then(res=>console.log(res))
    setLiked(false)
-    // if(localStorage.getItem('like')!==undefined){
-    //   localStorage.removeItem('like');
-    //   localStorage.setItem('like',0);
-    // }
-    // localStorage.setItem('like',0)
+    
   }
-
-// if(localStorage.getItem('like')===1){
-//   setLiked(true)
-// }
-// else{
-//   setLiked(false)
-// }
 
     const getThisSong=async()=>{
    const results=await fetch(`${url}track/${id}`)
@@ -92,38 +74,80 @@ const likeSong=(track_id)=>{
    console.log(data)
    if(data!==undefined){
        setThisSong(data);
-      setTimeout(setLoading(false),4000) 
+   setLoading(false);
+   if(localStorage.getItem('song')!=undefined||localStorage.getItem('song')!=null){localStorage.removeItem('song');
+  }
+
+   localStorage.setItem("song",data.preview)
+   
    }
-}
-    return (
-        <div>
-            <Header />
-    <div className="middle">
-    <Sidebar />
   
-  <div className= "this-song-middle">
+}
+
+
+   if(localStorage.getItem('user_id')!==undefined) {return (
+        <div>
+<div className="middle">
+ <Sidebar className="song-sidebar"/>
+  
      
      {!loading?(  <div className="current-song">
+                 
                   <img src={thisSong.album.cover_big} alt="" />
-                  {/* <h1>{thisSong.title}</h1> */}
-                  <div className="icons"> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteSharpIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderSharpIcon/></button>} </div>
+                <div className="song-name">{thisSong.title}</div>
+                 
+               <div> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteSharpIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderSharpIcon/></button>} </div>
               </div>
+
+
+
+              
 ):<div className= "this-song-middle"><Loader
-type="ThreeDots"
- color="white"
+type="Puff"
+ color="#00BFFF"
 height={100}
 width={100}
-timeout={10000} //3 secs
+timeout={10000} //10 secs
 className="loader"/></div>}
             
-    </div>
-    <Socials/>
-    </div>
-    <Bottombar/>
-   { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
-   
+  
+  
+   </div>
+    
+   { !loading?(<Player />):<div className="empty-player"> </div> }
+   <Bottombar/>
         </div>
+
     )
+  }
+
+else{return(<div>
+ 
+
+<Sidebar className="song-sidebar"/>
+
+
+{!loading?(<div className= "this-song-middle">  <div className="current-song">
+  
+        <img src={thisSong.album.cover_big} alt="" />
+      <div className="song-name">{thisSong.title}</div>
+    </div></div>
+):<div className= "this-song-middle"><Loader
+type="Puff"
+color="#00BFFF"
+height={100}
+width={100}
+timeout={10000} //10 secs
+className="loader"/></div>}
+  
+
+
+
+{ !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
+<Bottombar/>
+</div>
+)
+}
 }
 
 export default Song;
