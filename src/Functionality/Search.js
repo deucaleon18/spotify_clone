@@ -90,16 +90,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
               />
               <button type="submit"><SearchSharpIcon className="search-icon"/></button>
               </form>
-                   
-            <div className="sectionheader-search" style={{margin:"20px 0" }}>
-            <div></div>
-       
-            {/* <div></div> */}
-            <h3>TITLE</h3>
-            <h3>ARTIST</h3>
-            <h3>ALBUM</h3>
-            
-          </div>
+             
 
          {loading?
          (<div className="search-area">
@@ -111,8 +102,20 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
         timeout={10000} //10 secs
       className="loader"/>
       </div>)
-         :(
-           searchresult.map((searcher)=>{
+         :(<>
+
+      
+<div className="sectionheader-search" style={{margin:"20px 0" }}>
+            <div></div>
+       
+            {/* <div></div> */}
+            <h3>TITLE</h3>
+            <h3>ARTIST</h3>
+            <h3>ALBUM</h3>
+            
+          </div>
+
+           {searchresult.map((searcher)=>{
           const{album,artist,id,title}=searcher
          //  const addtoThisPlaylist=async(ID,id)=>{
          //    // const user_id=localStorage.getItem('user_id')
@@ -154,6 +157,8 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
              )
            }
            )  
+          }
+</>
        )   
  }
         </div>

@@ -32,7 +32,7 @@
 .search-box{
     height:10vh;width:100%;
     display:grid;
-    grid-template-columns: 0.5fr 4fr 3fr 3fr ;
+    grid-template-columns: 0.3fr 4fr 3fr 3fr ;
     grid-gap:20px;
     color:white;
     align-items:center;
@@ -51,7 +51,7 @@
 .search-box:hover{
     background-color:black;
     color:rgba(255, 0, 0, 0.678);
-    cursor:pointer
+    cursor:pointer;
 }
 /* .grid{
     display:grid;
@@ -86,9 +86,12 @@
     display:grid;
     grid-template-columns: 2fr 4fr 3.2fr 3.2fr ;
     width:100%;
-    background-color: rgba(34, 30, 30, 0.726);
+    background-color: black;
     color:white;
     align-items:end;
+    height:5vh;
+    align-items: center;
+
 }
 /* ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     /* color: black;
@@ -123,7 +126,7 @@
         display:grid;
         grid-template-columns: 2fr 4fr 3.2fr 3.2fr ;
         width:100%;
-        background-color: rgba(34, 30, 30, 0.726);
+        background-color: black;
         color:white;
         align-items:end;
     }

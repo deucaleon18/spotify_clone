@@ -19,7 +19,7 @@ import Bottombar from "../Functionality/Bottombar"
     const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
-const [liked,setLiked]=useState(false);
+const [liked,setLiked]=useState();
 
 useEffect(() => {
     getThisSong();
@@ -32,7 +32,11 @@ const likeSong=async(track_id)=>{
     const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
     const data=await results.json();
     console.log(data)
-    setLiked(!liked)
+    if(localStorage.getItem('like')!==undefined){
+      localStorage.removeItem('like');
+      localStorage.setItem('like',1)
+    }
+    localStorage.setItem('like',1)
   }
 
   const unlikeSong=async(ID)=>{
@@ -41,8 +45,20 @@ const likeSong=async(track_id)=>{
     const results =await fetch(`${url}user/${user_id}/tracks&track_id=${ID}&access_token=${access_token}&request_method=delete`) 
     const data= await results.json();
     console.log(data);
-    setLiked(!liked);
+    if(localStorage.getItem('like')!==undefined){
+      localStorage.removeItem('like');
+      localStorage.setItem('like',0);
+    }
+    localStorage.setItem('like',0)
   }
+
+if(localStorage.getItem('like')===1){
+  setLiked(true)
+}
+if(localStorage.getItem('like')===0){
+  setLiked(false)
+}
+
 
     const getThisSong=async()=>{
    const results=await fetch(`${url}track/${id}`)

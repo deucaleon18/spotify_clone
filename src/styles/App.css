@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 *{font-family: 'Montserrat', sans-serif;
 font-weight: 800;
+
 }
-h3:hover{
-   
-    color:red;
-}
+
 .middle{
     display:grid;
     grid-template-columns:0.6fr 3.6fr 0fr;

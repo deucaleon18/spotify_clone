@@ -15,7 +15,9 @@ import Bottombar from "../Functionality/Bottombar"
     <Sidebar />
     
 <div className="library-middle">
+    <div className="library-title">
 <h1 >My Library</h1>
+</div>
     <Link to="/liked">
  <div  className="link-to-liked-songs">
     <h1>LIKED SONGS</h1> 
