@@ -47,7 +47,7 @@ const[liked,setLiked]=useState([])
           <div className="liked-banner"> 
 </div>
 <div className="sectionheader-liked">
-  <h3>#</h3>
+ <div></div>
   {/* <div></div> */}
   <h3>TITLE</h3>
   <h3>ALBUM</h3>
@@ -68,11 +68,11 @@ const[liked,setLiked]=useState([])
     <div className="like-flex"style={{display:"flex"}}>
      <button style={{cursor:"pointer"}} onClick={()=>{
         unlikeSong(`${id}`) 
-      }}><RemoveSharpIcon/></button>
+      }}><RemoveSharpIcon className="minus"/></button>
     
     <div key={id} onClick={()=>{window.location.href=`/this/song/${id}`}}className="likedsong">
     {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
-    <div></div>
+    <img src={album.cover_small} alt="" />
     <h3>{title}</h3>
     <h3>{album.title}</h3>
     <h3>{artist.name} </h3>

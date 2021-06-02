@@ -82,12 +82,14 @@
 .box img{
     width:30vh;
     height:26vh;
+    margin-top:10px;
     margin-left:2.5%;
     opacity:1.5; 
 }
 .box a {
     text-decoration: none;
-    color:black;
+    color:white;
+
 }
 .title{width:5fr;
 color:white;

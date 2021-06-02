@@ -27,7 +27,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
          const data=await results.json();
       //    const key=await results.trackmatches
          console.log(data.data) ;
-         setSearchresult(data.data);
+         setSearchresult(data);
          if(searchresult!==undefined){setLoading(false);}
          }
     fetchDeezer();
@@ -115,7 +115,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
             
           </div>
 
-           {searchresult.map((searcher)=>{
+           {searchresult.data.map((searcher)=>{
           const{album,artist,id,title}=searcher
          //  const addtoThisPlaylist=async(ID,id)=>{
          //    // const user_id=localStorage.getItem('user_id')

@@ -13,6 +13,7 @@
 .albumsong:hover{
     color:red;
     cursor: pointer;
+    background-color: black;
 }
 .sectionheader-album{
     display:grid;

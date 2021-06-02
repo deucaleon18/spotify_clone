@@ -10,20 +10,24 @@
     display: none;
   }
 
-.sectionheader-liked{
+/* .sectionheader-liked{
     display:grid;
-    grid-template-columns: 20px 100px 50px 50px ;
+    grid-template-columns: 4fr 2fr 2fr ;
     width:100%;
-    background-color: rgba(34, 30, 30, 0.726);
+    background-color: black;
     color:white;
-    align-items:end;
-}
+   justify-content:center;
+ height:5vh;
+ text-align:end ;
+ 
+} */
 
 .likedsong{
     background-color: rgba(34, 30, 30, 0.726);
     width:100%;
     display:grid;
-    grid-template-columns:10px 4fr 2fr 2fr;
+    grid-gap:20px;
+    grid-template-columns:0.2fr 4fr 2fr 2fr;
     align-items:center;
     color:white;
     height:10vh;
@@ -32,18 +36,16 @@
 .likedsong:hover{
     background-color: black;
     cursor:pointer;
-}
-.likesong h3:hover{
     color:red;
 }
+
 .likedsong img{
     width:100%;
 }
-.likesong button{
-    color:rgba(34, 30, 30, 0.726);
-}
+
+
 .liked-banner{
-    background-image:url('liked.jpg');
+    background-image:url('likedpart2.jpg');
     /* background-position-x:25px; */
     background-position-y:-235px;
     background-repeat: no-repeat;
@@ -54,19 +56,29 @@
 
 .sectionheader-liked{
     display:grid;
-    grid-template-columns: 1fr 3fr 2.5fr 2.5fr ;
+    grid-template-columns: 1fr 4.7fr 2.5fr 2.5fr ;
     width:100%;
     background-color: black;
     color:white;
-    align-items:end;
-    font-size: 0.8rem;
+  
+    font-size: 1.4rem;
+    align-items: center;
+    text-align: start;
 }
 .like-flex button{
-    background-color: white;
     border:0;
     height:20px;
+    margin-right:20px;
 }
 
+.minus{
+    color:black;
+    background-color:rgba(34, 30, 30, 0.726);
+
+}
+.minus:hover{
+    color:red;
+}
 .like-flex{align-items: center;
     background-color: rgba(34, 30, 30, 0.726);
     justify-content:space-between;
@@ -114,8 +126,5 @@
         background-color: black;
         cursor:pointer;
     }
-    .likesong h3:hover{
-        color:red;
-    }
-    
+   
 }

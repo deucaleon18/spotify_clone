@@ -20,8 +20,17 @@ opacity:1;
 /* margin:40px 40px; */
 }
 .current-song button{
-    background-color: black;
+   color:red;
+   height:50px;
+   width:50px;
+   background-color: #000000;
+   background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+   border:0;
     margin:0 100px;
+    position:absolute;
+    right:40%;
+    top:75%;
+    cursor:pointer;
 }
 .current-song h1{
     background-color: black;
@@ -37,7 +46,7 @@ opacity:1;
 @media screen and (max-width:500px){
 
     .current-song button{
-        background-color: black;
+
         margin:0 120px;
     }
     .this-song-middle{

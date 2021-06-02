@@ -17,7 +17,7 @@ import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import Bottombar from "../Functionality/Bottombar"
 import "../styles/Playlists/addsongstoplaylist.css"
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
-
+import AddSharpIcon from '@material-ui/icons/AddSharp';
 
 const AddingToPlaylist= () => {
 const{id}=useParams()
@@ -85,7 +85,7 @@ setSongLoading(true);
     <Sidebar />
     <div>
  {songloading?(
-        ""
+        null
      
       ):
      ( <>
@@ -93,7 +93,7 @@ setSongLoading(true);
           <div className="playlist-banner"> 
 </div>
 <button className="add-songs-playlist-button"style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
-     <div className="sectionheader">
+     <div className="sectionheader-my-playlist-songs">
   <div></div>
  
   {/* <div></div> */}
@@ -147,7 +147,7 @@ setSongLoading(true);
               </form>
          {loading?
         //  (<div className="search-area">
-         ""
+         null
       // </div>)
       
          :(<><div className="sectionheader-addto">
@@ -159,7 +159,7 @@ setSongLoading(true);
          {/* <h3>TIME</h3> */}
        </div>
            {searchresult.map((searcher)=>{
-          const{album,artist}=searcher
+          const{album,artist,title}=searcher
           const addtoThisPlaylist=async(ID)=>{
             // const user_id=localStorage.getItem('user_id')
             const access_token=localStorage.getItem('token')
@@ -174,19 +174,15 @@ setSongLoading(true);
           
          <div style={{display:"flex"}}>
             
-         <span style={{width:"30px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}>ADD </span>               
+         <span style={{width:"30px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
          <div key={searcher.id} className="addto-search-box" onClick={()=>{window.location.href=`/this/song/${id}`}}>
-           <div></div>
+         
                 <img src={artist.picture_small} alt=""/>
+                <h2>{title}</h2>
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-                <div></div>
-                
                 </div>
-                </div>
-          
-               
-                
+                </div>    
              )
            }
            )}  
@@ -196,7 +192,7 @@ setSongLoading(true);
  }
         </div>
       </div>  
-        </div>):""}
+        </div>):null}
     </div>
     <Socials/>
     </div>
