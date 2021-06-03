@@ -3,7 +3,7 @@ import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
 // import Player from './Player/Player.js';
-import Socials from "../Socials";
+
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
 import Bottombar from "../Functionality/Bottombar"
@@ -73,7 +73,7 @@ const MyPlaylists = () => {
 })}
 </div>
 
-    <Socials/>
+ 
     </div>
     <div className="empty-player">
     </div>

@@ -1,52 +1,42 @@
 import React,{useState} from 'react';
 import "../styles/search.css";
 import{ url} from '../Auth/stats.js';
-// import {Howl} from "howler";
-// import {Link} from "react-router-dom"
-// import {AiTwotoneLike} from "react-icons/ai"
-// import {BiLike} from "react-icons/bi";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
-// import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
-// import Bottombar from "../Functionality/Bottombar"
-// import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
-    const [loading,setLoading]=useState(true);
-   //  const [playing,setPlaying]=useState(false);
-   //  const [liked,setLiked]=useState(false);
+    const [loading,setLoading]=useState(false);
+    const [liked,setLiked]=useState();
+    const[show,setShow]=useState(false)
    //  const [playlistspopup,setPlaylistspopup]=useState(false);
    //  const[myplaylists,setMyplaylists]=useState([]);
    const handleSubmit=async(e)=>{
        e.preventDefault();
-      // fetchData();
       const fetchDeezer=async()=>{
          const results= await fetch(`${url}search?q=${searchvalue}`)
          const data=await results.json();
-      //    const key=await results.trackmatches
          console.log(data.data) ;
          setSearchresult(data);
+         setLoading(true)
          if(searchresult!==undefined){setLoading(false);}
+         if(data.data.length!=0){setShow(true)}
          }
     fetchDeezer();
-      // setSearchvalue('')
    }
-  
-      
       // const showPlaylistspopup=()=>{
       //    setPlaylistspopup(true)
       // }
-    
-      // const likeSong=async(track_id)=>{
-      //    const user_id=localStorage.getItem('user_id')
-      //    const access_token=localStorage.getItem('token')
-      //    const results=await fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-      //    const data=await results.json();
-      //    console.log(data)
-      //    setLiked(!liked)
-      //  }
+      const likeSong=(track_id)=>{
+        const user_id=localStorage.getItem('user_id')
+        const access_token=localStorage.getItem('token')
+       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+       .then((res)=> res.json())
+        .then((res)=>console.log(res)) 
+        setLiked(true)
+      }
 
       //  const unlikeSong=async(ID)=>{
       //    const user_id=localStorage.getItem('user_id')
@@ -104,18 +94,18 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
       </div>)
          :(<>
 
-      
 <div className="sectionheader-search" style={{margin:"20px 0" }}>
             <div></div>
-       
-            {/* <div></div> */}
             <h3>TITLE</h3>
             <h3>ARTIST</h3>
             <h3>ALBUM</h3>
             
           </div>
 
-           {searchresult.data.map((searcher)=>{
+           {show?(searchresult.data.map((searcher)=>{
+
+
+           
           const{album,artist,id,title}=searcher
          //  const addtoThisPlaylist=async(ID,id)=>{
          //    // const user_id=localStorage.getItem('user_id')
@@ -154,9 +144,15 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
                 {/* </a> */}
                 </div>
                 
-             )
-           }
+             )}
+
+     
+            
+
+            
+           
            )  
+           ):<h2 style={{color:"white"}}>No results found....</h2>
           }
 </>
        )   

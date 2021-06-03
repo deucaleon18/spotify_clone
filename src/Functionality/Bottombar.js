@@ -1,5 +1,10 @@
 import React from 'react';
 import "../styles/bottombar.css";
+import HomeSharpIcon from '@material-ui/icons/HomeSharp';
+import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
+import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+
  const Bottombar = () => {
     const removeItems=()=>{
         localStorage.removeItem('token')

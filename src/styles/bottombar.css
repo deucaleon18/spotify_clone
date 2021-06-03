@@ -3,7 +3,9 @@
     .bottombar{
         height:8vh;
         width:100%;
-        background-color:#121212
+        background-color:#121212;
+        position:absolute;
+        bottom:0;
     }
     .bottombar ul {
         display: flex;

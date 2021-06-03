@@ -6,7 +6,7 @@ font-weight: 800;
 
 .middle{
     display:grid;
-    grid-template-columns:0.6fr 3.6fr 0fr;
+    grid-template-columns:0.65fr 3.6fr 0fr;
 }
 
 a{

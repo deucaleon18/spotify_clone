@@ -3,26 +3,28 @@ import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import Player from './Player/Player.js';
-import Socials from "../Socials";
 import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
+import InfoSharpIcon from '@material-ui/icons/InfoSharp';
+import AddIcon from '@material-ui/icons/Add';
+
+
 // import FavoriteIcon from '@material-ui/icons/Favorite';
 // import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Bottombar from "../Functionality/Bottombar"
 
 
  const Song = () => {
-
-
-    const{id}=useParams();
+const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
 const [likedsong,setLikedsong]=useState();
 const[liked,setLiked]=useState();
+const[sidepop,setSidepop]=useState(false);
 useEffect(() => {
     // eslint-disable-next-line
     getThisSong();
@@ -57,12 +59,6 @@ const likeSong=(track_id)=>{
    .then((res)=> res.json())
     .then((res)=>console.log(res)) 
     setLiked(true)
-
-    // if(localStorage.getItem('like')!==undefined){
-    //   localStorage.removeItem('like');
-    //   localStorage.setItem('like',1)
-    // }
-    // localStorage.setItem('like',1)
   }
 
   const unlikeSong=(ID)=>{
@@ -99,13 +95,14 @@ const likeSong=(track_id)=>{
         <div>
             <Header />
     <div className="middle">
-    <Sidebar />
+ <Sidebar className="song-sidebar"/>
   
   <div className= "this-song-middle">
      
      {!loading?(  <div className="current-song">
                   <img src={thisSong.album.cover_big} alt="" />
-                  {/* <h1>{thisSong.title}</h1> */}
+                <div className="song-name">{thisSong.title}</div>
+                 
                   <div className="icons"> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteSharpIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderSharpIcon/></button>} </div>
               </div>
 ):<div className= "this-song-middle"><Loader
@@ -117,11 +114,11 @@ timeout={10000} //3 secs
 className="loader"/></div>}
             
     </div>
-    <Socials/>
+  
     </div>
-    <Bottombar/>
+    
    { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
-   
+   <Bottombar/>
         </div>
     )
 }

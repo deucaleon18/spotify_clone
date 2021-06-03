@@ -1,7 +1,5 @@
-
 .albumsong{
     /* height:10vh; */
-   
     background-color: rgba(34, 30, 30, 0.726);
     width:100%;
     display:grid;
@@ -25,3 +23,4 @@
    height:5vh;
    align-items: center;
 }
+

@@ -17,7 +17,8 @@
     background-color: rgba(34, 30, 30, 0.726);
     width:100%;
     display:grid;
-    grid-template-columns:50px 50px  4fr 2fr 2fr 1fr;
+    grid-template-columns:10px 0.3fr  4fr 2fr 2fr 1fr;
+    grid-gap:20px;
     align-items:center;
     color:white;
     height:10vh;
@@ -75,14 +76,5 @@ cursor: pointer;
         align-items:end;
         font-size:0.7rem;
     }
-    .sectionheader-artist{
-        display:grid;
-       
-        grid-template-columns:60px 80px 80px 60px 70px;
-        width:100%;
-        background-color: rgba(34, 30, 30, 0.726);
-        color:white;
-        align-items:end;
-        font-size:0.7rem;
-    }
+  
 }

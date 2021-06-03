@@ -1,6 +1,5 @@
 import React,{ useEffect,useState } from 'react'
 // import Player from './Player/Player'
-import Socials from "../Socials"
 import Sidebar from "./Sidebar"
 import Header from '../Header'
 // import {Howl} from "howler";
@@ -102,7 +101,7 @@ const[loading,setLoading]=useState(true)
     </>}
 
 </div>
-      <Socials/>
+    
       </div>
       <div className="empty-player">
     </div>

@@ -11,7 +11,7 @@ import "../styles/Playlists/playlistsongs.css";
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player.js';
-import Socials from "../Socials";
+
 // import Search from './Search';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import Bottombar from "../Functionality/Bottombar"
@@ -27,6 +27,7 @@ const [searchvalue,setSearchvalue]=useState('')
 const [searchresult,setSearchresult]=useState()
 const [loading,setLoading]=useState(true);
 const [songloading,setSongLoading]=useState(true);
+const[show,setShow]=useState(false)
 // const [playing,setPlaying]=useState(false);
 
 const handleSubmit=async(e)=>{
@@ -37,7 +38,8 @@ const handleSubmit=async(e)=>{
   const data=await results.json();
   console.log(data.data) ;
   setSearchresult(data.data);
-  if(searchresult!==undefined){setLoading(false);}
+  if(searchresult!==undefined){setLoading(false);
+  if(data.data.length!==0){setShow(true)}}
  }
  fetchSearchedvalue();
 }
@@ -49,7 +51,7 @@ useEffect(() => {
   const results =await fetch(`${url}playlist/${id}`) 
    const data= await results.json()
    console.log(data);
-   if(data!==undefined){
+   if(data!=undefined){
     setMyplaylistSongs(data.tracks.data);
      setSongLoading(false);}
 }
@@ -93,7 +95,7 @@ setSongLoading(true);
           <div className="playlist-banner"> 
 </div>
 <button className="add-songs-playlist-button"style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
-     <div className="sectionheader-my-playlist-songs">
+     <div className="sectionheader">
   <div></div>
  
   {/* <div></div> */}
@@ -129,7 +131,7 @@ setSongLoading(true);
       </>
       )}
  
-        {searchpopup?(
+        { searchpopup?(
         <div className="search">
       <div className="search-area">
           <div className="bar">
@@ -158,7 +160,7 @@ setSongLoading(true);
          {/* <h3>ARTIST </h3> */}
          {/* <h3>TIME</h3> */}
        </div>
-           {searchresult.map((searcher)=>{
+           {show?(searchresult.map((searcher)=>{
           const{album,artist,title}=searcher
           const addtoThisPlaylist=async(ID)=>{
             // const user_id=localStorage.getItem('user_id')
@@ -185,7 +187,8 @@ setSongLoading(true);
                 </div>    
              )
            }
-           )}  
+           )):<h2 style={{color:"white"}}>No results found...</h2>
+          }  
            </> 
        )   
           
@@ -194,7 +197,7 @@ setSongLoading(true);
       </div>  
         </div>):null}
     </div>
-    <Socials/>
+  
     </div>
     <div className="empty-player"></div>
     <Bottombar></Bottombar>

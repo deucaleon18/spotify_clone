@@ -3,7 +3,7 @@ import Header from '../Header';
 import Sidebar from './Sidebar.js';
 
 // import Player from './Player/Player.js';
-import Socials from "../Socials";
+
 import Bottombar from "../Functionality/Bottombar"
 
  const Error = () => {
@@ -15,7 +15,7 @@ import Bottombar from "../Functionality/Bottombar"
     <div className="mainplayer">
     <div >Sorry you need to <a href="/login">Login</a> to access this feature</div>
     </div>
-    <Socials/>
+   
     </div>
     <div className="empty-player">
     </div>

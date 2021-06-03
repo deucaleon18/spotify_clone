@@ -3,11 +3,10 @@ import {url} from '../Auth/stats';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player';
-import Socials from "../Socials";
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
 import Bottombar from "../Functionality/Bottombar"
-import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+import CloseIcon from '@material-ui/icons/Close';
 
  const CreatePlaylist = () => {
     const [playlist,setPlaylist]=useState('')
@@ -17,9 +16,7 @@ import CancelSharpIcon from '@material-ui/icons/CancelSharp';
     const [popup,setPopup]=useState(false)
     const handleSubmit=async(e)=>{
         e.preventDefault();
-       // fetchData();
        CreateNewPlaylist();
-    // if(playlistID!==undefined) {GetNewPlaylist();}
     }
 
 // const GetNewPlaylist= async()=>{
@@ -59,7 +56,7 @@ import CancelSharpIcon from '@material-ui/icons/CancelSharp';
   <div className="middle-create-playlist" >
       <h1>Create New Playlist</h1>
       {popup?(<div className="poppup">
-      <button onClick={()=>{setPopup(false)}}><CancelSharpIcon className="close-icon"/></button>
+      <span onClick={()=>{setPopup(false)}}><CloseIcon className="close-icon"/></span>
 <div className="create-playlist-form"><form onSubmit={handleSubmit}>
               <label htmlFor="playlist"></label>
               <input 
@@ -85,7 +82,7 @@ import CancelSharpIcon from '@material-ui/icons/CancelSharp';
               <button onClick={()=>{DeletePlaylist()}}>Delete</button> */}
               </div>
               </div>
-              <Socials/>
+             
     </div>
     <div className="empty-player"> </div> 
    <Bottombar/>

@@ -22,10 +22,10 @@
  top:150px;
 }
 .plus{
-    margin:30px 90px;
+    margin:10% 20%;
 }
 .create-playlist-form button{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.89);
     font-size:1.2rem;
     height:3rem;
     width:15rem;
@@ -67,27 +67,29 @@ width:100%;
     height:3rem;
     margin:100px 100px;
     border-radius:10px;
-
+ color:white;
 }
 .poppup{
     height:72vh;
     width:80vw;
     /* margin:auto; */
-    background-color: #000000;
-        background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+    background-color: #130f40;
+    background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
    opacity:1.2;
    z-index:3;
    position:absolute;
-   top:15vh;
+   top:18vh;
    border-radius:10px;
    overflow-y: hidden;
 }
 
 .close-icon{
     fill:black;
-color:black;
+
 border:0;
-color:red;
+color:white;
+background-color:black;
+cursor:pointer;
 }
 .close-icon:hover{
     cursor:pointer;
@@ -129,17 +131,17 @@ color:red;
     }
     
     .poppup{
-        height:480px;
+        height:470px;
         width:100%;
         margin:auto;
-        background-color: #000000;
-        background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+        background-color: #130f40;
+        background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
        opacity:1.2;
        z-index:3;
        position:relative;
        border-radius:10px;
        position:absolute;
-   top:15vh;
+   top:18vh;
     }
    
     #playlist-bar{

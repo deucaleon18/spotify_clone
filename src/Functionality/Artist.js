@@ -2,18 +2,11 @@ import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-// import Player from './Player/Player.js';
-import Socials from "../Socials";
-import "../styles/song.css";
+import "../styles/artist.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// import {BiLike} from "react-icons/bi"
-// import {AiTwotoneLike} from "react-icons/ai"
-// // import {Howl} from "howler";
-// import {Link} from "react-router-dom"
 import Bottombar from "../Functionality/Bottombar"
-// import { Album } from '@material-ui/icons';
 
  const Artist = () => {
     // const likeSong=async(track_id)=>{
@@ -86,12 +79,14 @@ useEffect(() => {
     height={100}
     width={100}
     timeout={10000} //3 secs
-  className="loader"/>}
+  // className="loader"
+  id="loader-artist"
+  />}
 
 
  </div>
 
-    <Socials/>
+ 
     </div>
     <div className="empty-player">
     </div>

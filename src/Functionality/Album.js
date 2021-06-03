@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player.js';
-import Socials from "../Socials";
+
 import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
@@ -89,7 +89,7 @@ useEffect(() => {
 
  </div>
 
-    <Socials/>
+   
     </div>
     <div className="empty-player">
     </div>

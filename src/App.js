@@ -4,7 +4,7 @@ import Header from './Header';
 import Sidebar from './Functionality/Sidebar.js';
 import Mainplayer from "./Functionality/Mainplayer.js"
 // import Player from './Functionality/Player/Player.js';
-import Socials from "./Socials";
+
 import Bottombar from "./Functionality/Bottombar"
 const App=()=>{
  
@@ -17,9 +17,8 @@ const App=()=>{
     <div className="middle">
     <Sidebar />
     <Mainplayer />
-    <Socials/>
+   
     </div>
-    {/* <Player />  */}
   <div className="empty-player"></div>
     <Bottombar/>
   </div>

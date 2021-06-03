@@ -1,0 +1,19 @@
+
+  .sectionheader-artist{
+    display:grid;
+   
+    grid-template-columns:60px 80px 80px 60px 70px;
+    width:100%;
+    background-color: rgba(34, 30, 30, 0.726);
+    color:white;
+    align-items:end;
+    font-size:0.7rem;
+}
+
+#loader-artist{
+ 
+    position:absolute;
+    top:30%;
+    right:50%;
+
+}

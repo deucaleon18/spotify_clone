@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom';
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player.js';
-import Socials from "../Socials";
 import "../styles/song.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
@@ -48,7 +47,7 @@ timeout={10000} //3 secs
 className="loader"/></div>}
             
     </div>
-    <Socials/>
+   
     </div>
     <div className="empty-player">
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player.js';
-import Socials from "../Socials";
+
 import "../styles/mylibrary.css";
 import {Link} from "react-router-dom"
 import Bottombar from "../Functionality/Bottombar"
@@ -30,7 +30,7 @@ import Bottombar from "../Functionality/Bottombar"
  </Link>
  {/* <div className="recomendations"></div> */}
 </div>
-    <Socials/>
+    
     </div>
     <div className="empty-player">
     </div>
