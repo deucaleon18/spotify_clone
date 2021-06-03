@@ -9,8 +9,8 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
-import InfoSharpIcon from '@material-ui/icons/InfoSharp';
-import AddIcon from '@material-ui/icons/Add';
+// import InfoSharpIcon from '@material-ui/icons/InfoSharp';
+// import AddIcon from '@material-ui/icons/Add';
 
 
 // import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -24,7 +24,7 @@ const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
 const [likedsong,setLikedsong]=useState();
 const[liked,setLiked]=useState();
-const[sidepop,setSidepop]=useState(false);
+// const[sidepop,setSidepop]=useState(false);
 useEffect(() => {
     // eslint-disable-next-line
     getThisSong();

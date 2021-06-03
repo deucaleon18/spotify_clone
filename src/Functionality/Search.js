@@ -9,7 +9,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState()
     const [loading,setLoading]=useState(false);
-    const [liked,setLiked]=useState();
+    // const [liked,setLiked]=useState();
     const[show,setShow]=useState(false)
    //  const [playlistspopup,setPlaylistspopup]=useState(false);
    //  const[myplaylists,setMyplaylists]=useState([]);
@@ -22,6 +22,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
          setSearchresult(data);
          setLoading(true)
          if(searchresult!==undefined){setLoading(false);}
+         /* eslint eqeqeq: 0 */
          if(data.data.length!=0){setShow(true)}
          }
     fetchDeezer();
@@ -29,14 +30,14 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
       // const showPlaylistspopup=()=>{
       //    setPlaylistspopup(true)
       // }
-      const likeSong=(track_id)=>{
-        const user_id=localStorage.getItem('user_id')
-        const access_token=localStorage.getItem('token')
-       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-       .then((res)=> res.json())
-        .then((res)=>console.log(res)) 
-        setLiked(true)
-      }
+      // const likeSong=(track_id)=>{
+      //   const user_id=localStorage.getItem('user_id')
+      //   const access_token=localStorage.getItem('token')
+      //  fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+      //  .then((res)=> res.json())
+      //   .then((res)=>console.log(res)) 
+      //   setLiked(true)
+      // }
 
       //  const unlikeSong=async(ID)=>{
       //    const user_id=localStorage.getItem('user_id')

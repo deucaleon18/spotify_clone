@@ -16,7 +16,7 @@ const Mainplayer = () => {
     const[deezer_11,setDeezer_11]=useState()
     const[deezer_12,setDeezer_12]=useState()
     const[deezer_13,setDeezer_13]=useState()
-    const[deezer_14,setDeezer_14]=useState()
+    // const[deezer_14,setDeezer_14]=useState()
     const[deezer_15,setDeezer_15]=useState()
     const[deezer_16,setDeezer_16]=useState()
     const[deezer_17,setDeezer_17]=useState()
@@ -32,7 +32,7 @@ const Mainplayer = () => {
 
     const[deezer_7,setDeezer_7]=useState()
     const[deezer_8,setDeezer_8]=useState()
-    const[deezer_9,setDeezer_9]=useState()
+    // const[deezer_9,setDeezer_9]=useState()
     const[deezer_10,setDeezer_10]=useState()
     const[usercheck,setUsercheck]=useState(false)
     const[user,setUser]= useState()
@@ -111,12 +111,12 @@ const deezerCharts_1=async()=>{
      setDeezer_13([data]);
  }
 
- const deezerCharts_15=async()=>{ 
-    const results =await fetch(`${url}playlist/233093672`)    
-     const data= await results.json()
-     console.log(data);
-     setDeezer_14([data]);
- }
+//  const deezerCharts_15=async()=>{ 
+//     const results =await fetch(`${url}playlist/233093672`)    
+//      const data= await results.json()
+//      console.log(data);
+//      setDeezer_14([data]);
+//  }
  const deezerCharts_16=async()=>{ 
     const results =await fetch(`${url}playlist/4549247104`)    
      const data= await results.json()
@@ -209,12 +209,12 @@ const deezerCharts_1=async()=>{
      console.log(data);
      setDeezer_8(data.playlists.data);
  }
- const deezerCharts_10=async()=>{ 
-    const results =await fetch(`${url}chart`)    
-     const data= await results.json()
-     console.log(data);
-     setDeezer_9(data.podcasts.data);
- }
+//  const deezerCharts_10=async()=>{ 
+//     const results =await fetch(`${url}chart`)    
+//      const data= await results.json()
+//      console.log(data);
+//      setDeezer_9(data.podcasts.data);
+//  }
  const deezerCharts_11=async()=>{ 
     const results =await fetch(`${url}chart`)    
      const data= await results.json()
@@ -253,12 +253,12 @@ deezerCharts_12();
 deezerCharts_7();
 deezerCharts_8();
 deezerCharts_9();
-deezerCharts_10();
+// deezerCharts_10();
 deezerCharts_11();
 deezerCharts_12();
 deezerCharts_13();
 deezerCharts_14();
-deezerCharts_15();
+// deezerCharts_15();
 deezerCharts_16();
 deezerCharts_17();
 deezerCharts_18();

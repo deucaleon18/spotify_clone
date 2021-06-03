@@ -39,7 +39,9 @@ const handleSubmit=async(e)=>{
   console.log(data.data) ;
   setSearchresult(data.data);
   if(searchresult!==undefined){setLoading(false);
-  if(data.data.length!==0){setShow(true)}}
+/* eslint eqeqeq: 0 */
+
+  if(data.data.length!=0){setShow(true)}}
  }
  fetchSearchedvalue();
 }
@@ -51,6 +53,7 @@ useEffect(() => {
   const results =await fetch(`${url}playlist/${id}`) 
    const data= await results.json()
    console.log(data);
+   /* eslint eqeqeq: 0 */
    if(data!=undefined){
     setMyplaylistSongs(data.tracks.data);
      setSongLoading(false);}
