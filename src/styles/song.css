@@ -86,7 +86,7 @@ opacity:1;
         width:100%;
         background-color: #000000;
         background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
-        height:77vh;
+        height:75vh;
         grid-gap:10px;
         overflow-y:hidden;  
     }
