@@ -41,7 +41,10 @@ useEffect(() => {
             <li><a href="/liked">Liked Songs</a></li>
             {!loading?myplaylists.data.map((playlist)=>{
                   
-              return  <l1 style={{color:"white"}}>{playlist.title}</l1>
+
+              return ( <div className="sidebar-playlists">
+                <l1 style={{color:"white"}}>{playlist.title}</l1>
+                </div>)
             }):null}
         </ul>
         </div>

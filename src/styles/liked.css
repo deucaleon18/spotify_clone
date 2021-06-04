@@ -83,7 +83,7 @@
     background-color: rgba(34, 30, 30, 0.726);
     justify-content:space-between;
 }
-@media screen and (max-width:400px){
+@media screen and (max-width:500px){
 
     .likedsong{
         height:10vh;
