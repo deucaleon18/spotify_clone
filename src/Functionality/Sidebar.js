@@ -8,7 +8,7 @@ import {url} from "../Auth/stats"
     const getMyPlaylists=async()=>{
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
-        const results=await fetch(`${url}user/${user_id}/playlists&limit=2&access_token=${access_token}`)
+        const results=await fetch(`${url}user/${user_id}/playlists&limit=5&access_token=${access_token}`)
         const data=await results.json()
         console.log(data.data);
         if(data!==undefined){
@@ -42,9 +42,11 @@ useEffect(() => {
             {!loading?myplaylists.data.map((playlist)=>{
                   
 
-              return ( <div className="sidebar-playlists">
-                <l1 style={{color:"white"}}>{playlist.title}</l1>
-                </div>)
+                  if(playlist.title!=="Loved Tracks"){return ( <div className="sidebar-playlists">
+                  <l1 style={{color:"white"}}>{playlist.title}</l1>
+                  </div>)}
+                  
+                  return null;
             }):null}
         </ul>
         </div>
