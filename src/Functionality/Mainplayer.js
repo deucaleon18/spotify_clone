@@ -619,7 +619,8 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
     height={100}
     width={100}
     timeout={20000} //20sec
-  className="loader"/>
+  className="loader"
+/>
   </div>)
 }
  export default Mainplayer;

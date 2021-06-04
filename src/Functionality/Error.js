@@ -13,7 +13,7 @@ import Bottombar from "../Functionality/Bottombar"
     <div className="middle">
     <Sidebar />
     <div className="mainplayer">
-    <div >Sorry you need to <a href="/login">Login</a> to access this feature</div>
+    <div style={{color:"white"}}>Sorry you need to <span> <a style={{color:"red"}}href="/login">Login</a></span>to access this feature</div>
     </div>
    
     </div>

@@ -50,28 +50,34 @@ cursor: pointer;
     height:5vh;
     
 }
+.loader-playlist{
+    position:absolute;
+    margin-left: 35vw;
+    margin-top:48vh;
+  }
 .delete-icon:hover{
     fill:red;
 }
 @media screen and (max-width:500px){
-   
+  
     .playlistsong{
         width:100%;
         display:grid;
-        grid-template-columns: 0 20px 50px 80px 50px 30px ;
+        grid-template-columns: 0 0.5fr  3.5fr 2fr 2fr 1fr ;
         grid-gap:20px;
         align-items:center;
         font-size: 0.4rem;
         height:10vh;
-        margin-right:5px;
+        margin-right:10px;
+
     }
  
     .sectionheader{
         display:grid;
-       
-        grid-template-columns:80px 80px 80px 70px 40px;
+       background-color:black;
+        grid-template-columns:1fr 3.8fr 3fr 2fr 1fr ;
         width:100%;
-        background-color: rgba(34, 30, 30, 0.726);
+     
         color:white;
         align-items:end;
         font-size:0.7rem;

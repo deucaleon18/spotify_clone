@@ -44,7 +44,7 @@ import CloseIcon from '@material-ui/icons/Close';
  }
  const creationCleanup=()=>{
    
-   alert("You have successfully added a new playlist")
+   alert("You have successfully created a new playlist.Please check your Library to access the playlist")
   //  setPlaylist('');
  }
     return (

@@ -24,6 +24,10 @@ const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
 const [likedsong,setLikedsong]=useState();
 const[liked,setLiked]=useState();
+const[showlikebutton,setShowlikebutton]=useState(false)
+if(localStorage.getItem('token')!==null){
+setShowlikebutton(true);
+}
 // const[sidepop,setSidepop]=useState(false);
 useEffect(() => {
     // eslint-disable-next-line
@@ -88,9 +92,10 @@ const likeSong=(track_id)=>{
    console.log(data)
    if(data!==undefined){
        setThisSong(data);
-      setTimeout(setLoading(false),4000) 
+   setLoading(false)
    }
 }
+
     return (
         <div>
             <Header />
@@ -103,7 +108,7 @@ const likeSong=(track_id)=>{
                   <img src={thisSong.album.cover_big} alt="" />
                 <div className="song-name">{thisSong.title}</div>
                  
-                  <div className="icons"> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteSharpIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderSharpIcon/></button>} </div>
+                {showlikebutton?(<div className="icons"> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteSharpIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderSharpIcon/></button>} </div>):null}
               </div>
 ):<div className= "this-song-middle"><Loader
 type="ThreeDots"

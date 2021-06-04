@@ -90,10 +90,10 @@
         display:grid;
         background-color: rgba(34, 30, 30, 0.726);
         width:100%;
-        font-size:0.7rem;
+        font-size:0.5rem;
         align-items:center;
         color:white;
-        grid-template-columns:10px 120px 100px 100px;
+        grid-template-columns:0.3fr 4fr 2fr 2fr;
     }
 
     .liked-area{
@@ -115,7 +115,7 @@
 
     .sectionheader-liked{
         display:grid;
-        grid-template-columns: 60px 120px 90px 80px 80px ;
+        grid-template-columns: 20px 1fr 5fr 2.5fr 2.5fr ;
         background-color: black;
         margin-bottom:20px;
         color:white;

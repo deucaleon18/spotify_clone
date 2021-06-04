@@ -32,11 +32,13 @@
 .search-box{
     height:10vh;width:100%;
     display:grid;
+   
     grid-template-columns: 0.3fr 4fr 3fr 3fr ;
     grid-gap:20px;
     color:white;
     align-items:center;
     margin:0 10px;
+    font-size: 0.8rem;
 }
 .search-box img{
     width:100%;
@@ -119,7 +121,7 @@
         grid-gap:20px;
 
         align-items:center;
-        font-size: 0.5rem;
+        font-size: 0.4rem;
     }
  
     .sectionheader-search{

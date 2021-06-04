@@ -107,9 +107,8 @@ padding:10px;
     margin:10px 10px 10px 7px;
 } */
 .loader{
-    position:absolute;
-    top:40%;
-    right:60vh;
+  position:relative;
+  margin:20px -100px;
     
 }
 

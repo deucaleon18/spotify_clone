@@ -160,7 +160,7 @@ setSongLoading(true);
          {/* <div></div> */}
          <h3>TITLE</h3>
          <h3>ARTIST</h3>
-         {/* <h3>ARTIST </h3> */}
+         <h3>ALBUM </h3>
          {/* <h3>TIME</h3> */}
        </div>
            {show?(searchresult.map((searcher)=>{
@@ -172,14 +172,14 @@ setSongLoading(true);
             const data=await results.json();
             console.log(data);
             // window.location.reload();
-            if(data){alert("success")}
+            if(data){alert("This song has been added.Please check your playlist in your library to play the song.")}
          }
 
           return( 
           
          <div style={{display:"flex"}}>
             
-         <span style={{width:"30px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
+         <span style={{width:"50px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
          <div key={searcher.id} className="addto-search-box" onClick={()=>{window.location.href=`/this/song/${id}`}}>
          
                 <img src={artist.picture_small} alt=""/>

@@ -63,7 +63,7 @@ const MyPlaylists = () => {
         </div>
         </Link>
         <>
-        <button onClick={()=>{
+        <button className="delete-my-playlist" onClick={()=>{
          deleteMyPlaylist(`${id}`)
         }}>Delete</button>
         </>

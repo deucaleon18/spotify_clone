@@ -44,6 +44,9 @@
     color:white;
 }
 
+.delete-my-playlist:hover{
+cursor: pointer;
+}
 @media screen  and (max-width:500px){
     .my-playlist-box{
         height:10vh;
