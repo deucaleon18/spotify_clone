@@ -86,16 +86,17 @@ const[liked,setLiked]=useState([])
      color="#00BFFF"
      height={100}
      width={100}
-     timeout={3000} //3 secs
+     timeout={3000} 
+     className="loader-playlist"//3 secs
    />}
 
 </div>
      
       </div>
-      <div className="player">
-        <Bottombar/>
+      <div className="empty-player">
+        
       </div>
-            
+      <Bottombar/>
         </div>
     )
 }

@@ -15,7 +15,8 @@
     margin-top: 50px;
 }
 .sidebar ul li {font-size: 1.5rem;
-    padding:8px 30px}
+    padding:8px 30px;
+list-style:none;}
 
 .sidebar h4{
        font-size:1rem;
@@ -44,14 +45,17 @@
     opacity:1.2;
 } 
 
-.sidebar-playlists{
-    display:flex;
-    flex-direction: row;
-    font-size:1rem;
-    margin:10px 50px;
+
+.my-playlist-songs-sidebar{
+
+    height:4vh;
 }
-.sidebar-playlists l1{
-    padding-left:50px;
+.my-playlist-songs-sidebar h4{
+    font-size:1.4rem;
+}
+.my-playlist-songs-sidebar h4:hover{
+    color:rgba(255, 0, 0, 0.678);
+    cursor:pointer;
 }
 @media screen and (max-width:500px){
 

@@ -24,3 +24,29 @@
    align-items: center;
 }
 
+@media screen and (max-width:500px) {
+    .sectionheader-album{
+        display:grid;
+        grid-template-columns: 20px 3.8fr 2.2fr 2.2fr ;
+        width:100%;
+        background-color: black;
+        color:white;
+        align-items:end;
+       height:5vh;
+       align-items: center;
+       font-size:0.8rem
+    }
+
+    .albumsong{
+        /* height:10vh; */
+        background-color: rgba(34, 30, 30, 0.726);
+        width:100%;
+        display:grid;
+        grid-template-columns:20px 4fr 2.3fr 2.3fr ;
+        grid-gap:10px;
+        align-items:center;
+        color:white;
+        height:10vh;
+        font-size:0.7rem;
+    }
+}

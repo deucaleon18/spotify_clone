@@ -12,6 +12,7 @@ const MyPlaylists = () => {
     const[myplaylists,setMyplaylists]=useState([])
     // const[loading,setLoading] = useState(true)
 
+
     useEffect(() => {
 
     const getMyPlaylists=async()=>{
@@ -50,6 +51,8 @@ const MyPlaylists = () => {
         console.log(data);
         window.location.reload();
     }
+
+    
     const{id}=song;
     if(song.title!=="Loved Tracks")
     {return(

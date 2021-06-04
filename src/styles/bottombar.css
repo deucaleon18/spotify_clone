@@ -3,7 +3,7 @@
     .bottombar{
         height:8vh;
         width:100%;
-        background-color:#121212;
+        background-color:black;
         position:absolute;
         bottom:0;
     }
@@ -24,6 +24,11 @@
     }
     .bottombar ul li :hover {
         color:rgba(255, 0, 0, 0.678);
+    }
+
+    .bottombar img{
+        height:6vh;
+        width:70px;
     }
 }
 @media screen and (min-width:500px) {

@@ -86,13 +86,14 @@
 }
 .sectionheader-search{
     display:grid;
-    grid-template-columns: 2fr 4fr 3.2fr 3.2fr ;
+    grid-template-columns: 2fr 4fr 3.4fr 2.8fr ;
     width:100%;
     background-color: black;
     color:white;
     align-items:end;
     height:5vh;
     align-items: center;
+    font-size:1.2rem;
 
 }
 /* ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -125,12 +126,13 @@
     }
  
     .sectionheader-search{
-        display:grid;
-        grid-template-columns: 2fr 4fr 3.2fr 3.2fr ;
+        display:grid; 
+        grid-template-columns: 2fr 3.5fr 3.5fr 2fr 1.5fr;
         width:100%;
         background-color: black;
         color:white;
         align-items:end;
+        font-size: 0.8rem;
     }
 }
 

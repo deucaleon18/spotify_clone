@@ -86,14 +86,15 @@
 @media screen and (max-width:500px){
 
     .likedsong{
-        height:10vh;
-        display:grid;
         background-color: rgba(34, 30, 30, 0.726);
         width:100%;
-        font-size:0.5rem;
+        display:grid;
+        grid-gap:20px;
+        grid-template-columns:0.6fr 3fr 2fr 2fr 2fr;
         align-items:center;
         color:white;
-        grid-template-columns:0.3fr 4fr 2fr 2fr;
+        font-size:0.5rem;
+        height:10vh;
     }
 
     .liked-area{
@@ -104,7 +105,7 @@
         height:87vh;
     }
     .liked-banner{ width: 68vh;
-            background-image:url('liked.jpg');
+            background-image:url('likedpart2.jpg');
             background-position-y: -70px;
             background-position-x: -85px;
             background-repeat: no-repeat;
@@ -115,12 +116,14 @@
 
     .sectionheader-liked{
         display:grid;
-        grid-template-columns: 20px 1fr 5fr 2.5fr 2.5fr ;
+        grid-template-columns:1.4fr 1.5fr 1.6fr 2fr ;
+        width:100%;
         background-color: black;
-        margin-bottom:20px;
         color:white;
-        align-items:end;
-        font-size: 0.6rem;
+      
+        font-size: 0.8rem;
+        align-items: center;
+        text-align: start;
     }
     .likedsong:hover{
         background-color: black;

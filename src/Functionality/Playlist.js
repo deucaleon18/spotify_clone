@@ -91,8 +91,8 @@ const[loading,setLoading]=useState(true)
     })):
     <>
      <Loader
-        type="ThreeDots"
-         color="white"
+        type="Puff"
+         color="#00BFFF"
         height={100}
         width={100}
         timeout={10000} //10 secs

@@ -9,6 +9,7 @@ import Bottombar from "../Functionality/Bottombar"
 import CloseIcon from '@material-ui/icons/Close';
 
  const CreatePlaylist = () => {
+  // const[myplaylists,setMyplaylists]=useState([])
     const [playlist,setPlaylist]=useState('')
     //  const [playlistID,setPlaylistID]=useState()
     //  const [newplaylist,setNewplaylist]=useState()
@@ -19,20 +20,27 @@ import CloseIcon from '@material-ui/icons/Close';
        CreateNewPlaylist();
     }
 
-// const GetNewPlaylist= async()=>{
-// const results=await fetch(`${url}playlist/${playlistID}`)
-// const data =await results.json();
-// if(data!==undefined){setNewplaylist(data);
-// setLoading(false)}
-// console.log(data);
-// }
+    // const getMyPlaylists=async()=>{
+    //   const user_id=localStorage.getItem('user_id')
+    //   const access_token=localStorage.getItem('token')
+    //   const results=await fetch(`${url}user/${user_id}/playlists&access_token=${access_token}`)
+    //   const data=await results.json()
+    //   console.log(data.data);
+    //   if(data!==undefined){
+    //       setMyplaylists(data.data);
+    //        setLoading(false);
+    //   }
+    // }
 
-// const DeletePlaylist= async()=>{
+
+// const DeletePlaylist= async(playlistID)=>{
 //     const access_token=localStorage.getItem('token')
 //     const results=await fetch(`${url}playlist/${playlistID}&request_method=delete&access_token=${access_token}`)
 //     const data =await results.json()
 //     console.log(data)
 //     }
+
+
  const CreateNewPlaylist=async()=>{
     const user_id= localStorage.getItem('user_id')
     const access_token=localStorage.getItem('token')
@@ -42,9 +50,13 @@ import CloseIcon from '@material-ui/icons/Close';
     //  setPlaylistID(data.id);
     //  if(data!==undefined){GetNewPlaylist();}
  }
+
+ 
  const creationCleanup=()=>{
    
    alert("You have successfully created a new playlist.Please check your Library to access the playlist")
+  //  window.location.reload();
+  //  window.onload=getMyPlaylists();
   //  setPlaylist('');
  }
     return (
@@ -77,7 +89,18 @@ import CloseIcon from '@material-ui/icons/Close';
       <div playlist-creation-grid>
 
       <div className="add-new-playlist" onClick={()=>{setPopup(!popup)}}><AiOutlinePlus color="white" size="12rem" className="plus"/></div>
-            
+     {/* {!loading?(myplaylists.map((playlist)=>{
+      return <div key={playlist.id} classname="my-playlist-box">
+      {/* <h1>{song.creator}</h1> */}
+      {/* <img src={playlist.picture_medium} alt=""/>
+      <h1>{playlist.title}</h1>
+      
+      </div>
+     })):null
+      
+     } */} */}
+
+
 {/*            
               <button onClick={()=>{DeletePlaylist()}}>Delete</button> */}
               </div>

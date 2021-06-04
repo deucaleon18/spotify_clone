@@ -117,7 +117,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
       className="loader"/>
       </div>)
          :(<>
-       {show?(<div className="sectionheader">
+       {show?(<div className="sectionheader-search">
       <div></div>
  
   {/* <div></div> */}

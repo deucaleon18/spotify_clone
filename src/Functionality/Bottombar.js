@@ -1,9 +1,14 @@
 import React from 'react';
 import "../styles/bottombar.css";
+import img_1 from "../styles/Deezer-Emblem.jpg"
 // import HomeSharpIcon from '@material-ui/icons/HomeSharp';
-// import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
-// import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
-// import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
+import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+import LibraryMusicSharpIcon from '@material-ui/icons/LibraryMusicSharp';
+import AddSharpIcon from '@material-ui/icons/AddSharp';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+
 
  const Bottombar = () => {
     const removeItems=()=>{
@@ -14,22 +19,24 @@ import "../styles/bottombar.css";
     {return (
         <div className="bottombar">
             <ul>
-            <li><a href="/login" onClick={()=>{removeItems()}}>Logout</a></li>
-            <li><a href="/search">Search</a></li>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/library">Library</a></li>
-           <li><a href="/create-playlist">CreatePlaylist</a></li>
+            <li><a href="/login" onClick={()=>{removeItems()}}><MeetingRoomSharpIcon/></a></li>
+            <li><a href="/search"><SearchSharpIcon/></a></li>
+            <li><a href="/home"><img src={img_1} alt="" /></a></li>
+            <li><a href="/library"> <LibraryMusicSharpIcon/></a></li>
+           <li><a href="/create-playlist"> <AddSharpIcon/></a></li>
+           <li><a href="/liked"> <FavoriteSharpIcon/></a></li>
+           
             </ul>
         </div>
     )}
     return(
         <div className="bottombar">
             <ul>
-            <li><a href="/login" >Login</a></li>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/search">Search</a></li>
-            <li><a href="/library">Library</a></li>
-           <li><a href="/create-playlist">CreatePlaylist</a></li>
+            <li><a href="/login" ><LockOpenIcon/></a></li>
+            <li><a href="/home"><img src={img_1} alt="" /></a></li>
+            <li><a href="/search"><SearchSharpIcon/></a></li>
+            <li><a href="/library"><LibraryMusicSharpIcon/></a></li>
+           <li><a href="/create-playlist"><AddSharpIcon/></a></li>
             </ul>
         </div>
     )
