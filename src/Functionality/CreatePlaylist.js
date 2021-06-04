@@ -89,17 +89,7 @@ import CloseIcon from '@material-ui/icons/Close';
       <div playlist-creation-grid>
 
       <div className="add-new-playlist" onClick={()=>{setPopup(!popup)}}><AiOutlinePlus color="white" size="12rem" className="plus"/></div>
-     {/* {!loading?(myplaylists.map((playlist)=>{
-      return <div key={playlist.id} classname="my-playlist-box">
-      {/* <h1>{song.creator}</h1> */}
-      {/* <img src={playlist.picture_medium} alt=""/>
-      <h1>{playlist.title}</h1>
-      
-      </div>
-     })):null
-      
-     } */} 
-
+   
 
 {/*            
               <button onClick={()=>{DeletePlaylist()}}>Delete</button> */}
@@ -115,3 +105,14 @@ import CloseIcon from '@material-ui/icons/Close';
 }
 
 export default CreatePlaylist;
+
+  // {/* {!loading?(myplaylists.map((playlist)=>{
+  //     return <div key={playlist.id} classname="my-playlist-box">
+  //     {/* <h1>{song.creator}</h1> */}
+  //     {/* <img src={playlist.picture_medium} alt=""/>
+  //     <h1>{playlist.title}</h1>
+      
+  //     </div>
+  //    })):null
+      
+  //    } */} 
