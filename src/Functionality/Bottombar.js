@@ -33,8 +33,9 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
         <div className="bottombar">
             <ul>
             <li><a href="/login" ><LockOpenIcon/></a></li>
-            <li><a href="/home"><img src={img_1} alt="" /></a></li>
+  
             <li><a href="/search"><SearchSharpIcon/></a></li>
+            <li><a href="/home"><img src={img_1} alt="" /></a></li>
             <li><a href="/library"><LibraryMusicSharpIcon/></a></li>
            <li><a href="/create-playlist"><AddSharpIcon/></a></li>
             </ul>
