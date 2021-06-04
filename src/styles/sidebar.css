@@ -50,6 +50,9 @@
     font-size:1rem;
     margin:10px 50px;
 }
+.sidebar-playlists l1{
+    padding-left:50px;
+}
 @media screen and (max-width:500px){
 
     .sidebar{
