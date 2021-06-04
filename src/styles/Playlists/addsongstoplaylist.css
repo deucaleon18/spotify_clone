@@ -30,6 +30,7 @@
     height:10vh; 
     align-items: center;
     color:white;
+
     /* width:3rem;
     height:2rem; */
     }
@@ -82,6 +83,7 @@
         background-color:rgba(34, 30, 30, 0.726);
         fill:white;
         align-items: center;
+        margin:10% 0;
     }
     .addicon:hover{
         color:red;

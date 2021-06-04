@@ -7,37 +7,60 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 
  const Search = () => {
     const [searchvalue,setSearchvalue]=useState('')
-    const [searchresult,setSearchresult]=useState()
+    const [searchresult,setSearchresult]=useState("x")
     const [loading,setLoading]=useState(false);
-    // const [liked,setLiked]=useState();
+    // eslint-disable-next-line
+    const [liked,setLiked]=useState();
     const[show,setShow]=useState(false)
+    const[showerror,setShowerror]=useState(false)
    //  const [playlistspopup,setPlaylistspopup]=useState(false);
    //  const[myplaylists,setMyplaylists]=useState([]);
-   const handleSubmit=async(e)=>{
-       e.preventDefault();
-      const fetchDeezer=async()=>{
+     const fetchDeezer=async()=>{
          const results= await fetch(`${url}search?q=${searchvalue}`)
          const data=await results.json();
-         console.log(data.data) ;
+        //  console.log(data.data) ;
          setSearchresult(data);
-         setLoading(true)
-         if(searchresult!==undefined){setLoading(false);}
          /* eslint eqeqeq: 0 */
-         if(data.data.length!=0){setShow(true)}
+        if(data.data.length==0){
+            setShow(false)
+            setShowerror(true);
+            }
          }
-    fetchDeezer();
+       
+   const handleSubmit=(e)=>{
+       e.preventDefault();
+           setLoading(true)
+    
+    fetchDeezer(); 
+    if(searchresult!==undefined&&searchresult!=="x"){setLoading(false);
+         setShow(true);
+           
+         }
+
    }
       // const showPlaylistspopup=()=>{
       //    setPlaylistspopup(true)
       // }
-      // const likeSong=(track_id)=>{
-      //   const user_id=localStorage.getItem('user_id')
-      //   const access_token=localStorage.getItem('token')
-      //  fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-      //  .then((res)=> res.json())
-      //   .then((res)=>console.log(res)) 
-      //   setLiked(true)
-      // }
+
+
+      // eslint-disable-next-line
+      const likeSong=(track_id)=>{
+        const user_id=localStorage.getItem('user_id')
+        const access_token=localStorage.getItem('token')
+       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+       .then((res)=> res.json())
+        .then((res)=>console.log(res)) 
+        setLiked(true)
+      }
+        // eslint-disable-next-line
+ const unlikeSong=(track_id)=>{
+        const user_id=localStorage.getItem('user_id')
+        const access_token=localStorage.getItem('token')
+       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=delete&track_id=${track_id}`)
+       .then((res)=> res.json())
+        .then((res)=>console.log(res)) 
+        setLiked(false)
+      }
 
       //  const unlikeSong=async(ID)=>{
       //    const user_id=localStorage.getItem('user_id')
@@ -79,7 +102,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit"><SearchSharpIcon className="search-icon"/></button>
+              <button type="submit" ><SearchSharpIcon className="search-icon"/></button>
               </form>
              
 
@@ -95,13 +118,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
       </div>)
          :(<>
 
-<div className="sectionheader-search" style={{margin:"20px 0" }}>
-            <div></div>
-            <h3>TITLE</h3>
-            <h3>ARTIST</h3>
-            <h3>ALBUM</h3>
-            
-          </div>
+
 
            {show?(searchresult.data.map((searcher)=>{
 
@@ -116,47 +133,50 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
          //    console.log(data);
          //    window.location.reload();
          // }
-
-          return( 
-        
-                <div key={searcher.id} onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box">
-
-                {/* {playlistspopup?(<div id={searcher.id} className="playlistspopup">
+           // eslint-disable-next-line
+ {/* {playlistspopup?(<div id={searcher.id} className="playlistspopup">
                    {/* <button onClick={setPlaylistspopup(false)}><CancelSharpIcon/></button> */}
+                     // eslint-disable-next-line
             {/* {myplaylists.map((playlists)=>{
               return <h1 onClick={()=>{addtoThisPlaylist(`${playlists.id}`,`${id}`)}}>{playlists.title}</h1>
             })}
             </div>
             ):""
-            } */} 
-
-                {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
+            } */}   
+  // eslint-disable-next-line
+             // eslint-disable-next-line 
+                 {/* {liked? <button onClick={()=>{likeSong(searcher.id)}}><AiTwotoneLike/></button>:<button onClick={()=>{unlikeSong(searcher.id)}}><BiLike/></button>} */}
+                   // eslint-disable-next-line
          {/* {playing? <button onClick={setPlaying(!playing)}><h3>pause</h3></button>:<button onClick={setPlaying(!playing)}><h3>play</h3></button>}  */}
+           // eslint-disable-next-line
                {/* <button onClick={()=>{showPlaylistspopup()}}><AddBoxSharpIcon className="add-icon"/></button> */}
+                 // eslint-disable-next-line
                 {/* <a href={`/this/song/${searcher.id}`}> */}
-                  
+                    // eslint-disable-next-line
                       {/* <div></div> */}
-                    
+
+
+
+
+         return( 
+               <div key={searcher.id} onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box"> 
                <img src={artist.picture_small} alt=""/>
                <h2>{title}</h2> 
                 <h2>{artist.name}</h2>
                 <h2>{album.title}</h2>
-               
                 {/* </a> */}
                 </div>
                 
              )}
 
-     
-            
-
-            
            
            )  
-           ):<h2 style={{color:"white"}}>No results found....</h2>
-          }
+           ):(showerror?<h1 style={{color:"white"}}>No results found....</h1>:null )
+           
+           }
+        
 </>
-       )   
+       )  
  }
         </div>
       </div>  
