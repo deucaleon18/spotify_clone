@@ -155,9 +155,9 @@ padding:10px;
         /* margin:10px 8px 20px 8px; */
         width:33vh;
         height:36vh; 
-        -moz-box-shadow: 0 0 5px white;
-        -webkit-box-shadow: 0 0 5px white;
-        box-shadow: 0 5px 5px white;
+        -moz-box-shadow: 0 0 2px white;
+        -webkit-box-shadow: 0 0 2px white;
+        box-shadow: 0 2px 2px white;
     }
 
     .banner-overlay{
