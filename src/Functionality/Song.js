@@ -22,7 +22,7 @@ import Bottombar from "../Functionality/Bottombar"
 const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
-const [likedsong,setLikedsong]=useState();
+// const [likedsong,setLikedsong]=useState();
 const[liked,setLiked]=useState();
 // const[icons,setIcons]=useState("no-icon")
 // const[sidepop,setSidepop]=useState(false);
@@ -40,19 +40,21 @@ useEffect(() => {
         const access_token=localStorage.getItem('token');
         const results =await fetch(`${url}user/${user_id}/tracks&access_token=${access_token}`) 
          const data= await results.json();
-        //  console.log(data.data)
-         setLikedsong(data.data);
-       
+
+
+         if(data!==undefined){
+            console.log(data.data)
+            // eslint-disable-next-line
+            const checkforliked=data.data.find((song)=>{ if(song.id==`${id}`){return true}
+          return false
+          })
+            console.log(checkforliked)
+            // eslint-disable-next-line
+          if(checkforliked!=null||checkforliked!=undefined){setLiked(true)}
+        }
+  
       }
     fetchLikedsongs();
-    if(likedsong!==undefined){const checkforliked= likedsong.find(song=>song.id===`${id}`)
-    if(checkforliked!==null||checkforliked!==undefined){
-       setLiked(true)
-   }
-  if(checkforliked===null||checkforliked===undefined){
-       setLiked(false)
-   } 
-   }
      // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 

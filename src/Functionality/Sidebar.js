@@ -14,14 +14,15 @@ import {url} from "../Auth/stats"
         console.log(data.data);
         if(data!==undefined){
             setMyplaylists(data);
+            console.log(myplaylists)
         }
         if(myplaylists!==undefined){setLoading(false);}
 
     }
 
 useEffect(() => {
-    
- setTimeout( ()=>{if(localStorage.getItem('token')!==undefined&&localStorage.getItem('user_id')!==undefined){getMyPlaylists()}} ,10000)
+    // eslint-disable-next-line
+ if(localStorage.getItem('user_id')!=undefined&&localStorage.getItem('user_id')!=null){getMyPlaylists()}
 
    // eslint-disable-next-line
 }, [])

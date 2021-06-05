@@ -64,9 +64,9 @@
     /* margin:10px 8px 20px 8px; */
     width:33vh;
     height:34vh; 
-    -moz-box-shadow: 0 0 5px white;
-    -webkit-box-shadow: 0 0 5px white;
-    box-shadow: 0 5px 5px white;
+    /* -moz-box-shadow: 0 0 5px white;
+    -webkit-box-shadow: 0 0 5px white; */
+    box-shadow: 0 0 15px -2px #444444;
 }
 
 .box:hover{
@@ -155,9 +155,9 @@ padding:10px;
         /* margin:10px 8px 20px 8px; */
         width:33vh;
         height:36vh; 
-        -moz-box-shadow: 0 0 2px white;
-        -webkit-box-shadow: 0 0 2px white;
-        box-shadow: 0 2px 2px white;
+        /* -moz-box-shadow: 0 0 2px white;
+        -webkit-box-shadow: 0 0 2px white; */
+        box-shadow: 0 0 10px -2px #444444;
     }
 
     .banner-overlay{
@@ -209,7 +209,7 @@ padding:10px;
     .arrange{
         display:grid;
         grid-template-columns:repeat(10,30vh);
-        grid-gap:20px;
+        grid-gap:25px;
         background-color: black;
         margin:0 2vh 10px 2vh;
         overflow-x:scroll;
@@ -228,3 +228,5 @@ padding:10px;
         height:9vh;
         background-color: rgba(0, 0, 0, 0.897);
     }
+
+    

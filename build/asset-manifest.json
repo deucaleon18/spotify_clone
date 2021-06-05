@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.1ddc0248.chunk.css",
-    "main.js": "/static/js/main.6ade6cb4.chunk.js",
-    "main.js.map": "/static/js/main.6ade6cb4.chunk.js.map",
+    "main.css": "/static/css/main.62c5e473.chunk.css",
+    "main.js": "/static/js/main.59aa5623.chunk.js",
+    "main.js.map": "/static/js/main.59aa5623.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9ddecaa4.js",
     "runtime-main.js.map": "/static/js/runtime-main.9ddecaa4.js.map",
     "static/css/2.ab75b8d7.chunk.css": "/static/css/2.ab75b8d7.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.8d3ad5c0.chunk.js.map": "/static/js/2.8d3ad5c0.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.ab75b8d7.chunk.css.map": "/static/css/2.ab75b8d7.chunk.css.map",
-    "static/css/main.1ddc0248.chunk.css.map": "/static/css/main.1ddc0248.chunk.css.map",
+    "static/css/main.62c5e473.chunk.css.map": "/static/css/main.62c5e473.chunk.css.map",
     "static/js/2.8d3ad5c0.chunk.js.LICENSE.txt": "/static/js/2.8d3ad5c0.chunk.js.LICENSE.txt",
     "static/media/Deezer-Emblem.288f395a.jpg": "/static/media/Deezer-Emblem.288f395a.jpg",
     "static/media/mainplayer.css": "/static/media/concert-.b89b9cbf.jpg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.9ddecaa4.js",
     "static/css/2.ab75b8d7.chunk.css",
     "static/js/2.8d3ad5c0.chunk.js",
-    "static/css/main.1ddc0248.chunk.css",
-    "static/js/main.6ade6cb4.chunk.js"
+    "static/css/main.62c5e473.chunk.css",
+    "static/js/main.59aa5623.chunk.js"
   ]
 }
