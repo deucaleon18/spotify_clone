@@ -34,7 +34,6 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
     fetchDeezer(); 
     if(searchresult!==undefined&&searchresult!=="x"){setLoading(false);
          setShow(true);
-           
          }
 
    }

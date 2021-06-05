@@ -16,8 +16,6 @@ import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
 // import FavoriteIcon from '@material-ui/icons/Favorite';
 // import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Bottombar from "../Functionality/Bottombar"
-
-
  const Song = () => {
 const{id}=useParams();
 const[thisSong,setThisSong]=useState()
@@ -40,8 +38,6 @@ useEffect(() => {
         const access_token=localStorage.getItem('token');
         const results =await fetch(`${url}user/${user_id}/tracks&access_token=${access_token}`) 
          const data= await results.json();
-
-
          if(data!==undefined){
             console.log(data.data)
             // eslint-disable-next-line
@@ -80,7 +76,6 @@ const likeSong=(track_id)=>{
     // }
     // localStorage.setItem('like',0)
   }
-
 // if(localStorage.getItem('like')===1){
 //   setLiked(true)
 // }
@@ -98,7 +93,7 @@ const likeSong=(track_id)=>{
    }
 }
 
-    return (
+   if(localStorage.getItem('user_id')!==undefined) {return (
         <div>
             <Header />
     <div className="middle">
@@ -127,7 +122,36 @@ className="loader"/></div>}
    { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
    <Bottombar/>
         </div>
-    )
+    )}
+
+return(<div>
+  <Header />
+<div className="middle">
+<Sidebar className="song-sidebar"/>
+
+<div className= "this-song-middle">
+
+{!loading?(  <div className="current-song">
+        <img src={thisSong.album.cover_big} alt="" />
+      <div className="song-name">{thisSong.title}</div>
+    </div>
+):<div className= "this-song-middle"><Loader
+type="Puff"
+color="#00BFFF"
+height={100}
+width={100}
+timeout={10000} //3 secs
+className="loader"/></div>}
+  
+</div>
+
+</div>
+
+{ !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
+<Bottombar/>
+</div>
+)
+
 }
 
 export default Song;

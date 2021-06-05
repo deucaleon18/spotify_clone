@@ -72,14 +72,14 @@ const[loading,setLoading]=useState(true)
 //     sound.play()
 //  }
          const{id,album,time_add,title,artist}=song
-        const dateObj = new Date({time_add} * 1000);
-          const  hours = dateObj.getUTCHours();
-          const  minutes = dateObj.getUTCMinutes();
-          const  seconds = dateObj.getSeconds();
+        // const dateObj = new Date({time_add} * 1000);
+        //   const  hours = dateObj.getUTCHours();
+        //   const  minutes = dateObj.getUTCMinutes();
+        //   const  seconds = dateObj.getSeconds();
 
-           const timeString = {hours}.toString().padStart(2, '0') + ':' + 
-            {minutes}.toString().padStart(2, '0') + ':' + 
-            {seconds}.toString().padStart(2, '0');
+        //    const timeString = {hours}.toString().padStart(2, '0') + ':' + 
+        //     {minutes}.toString().padStart(2, '0') + ':' + 
+        //     {seconds}.toString().padStart(2, '0');
 
         return (<>
      <div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">
@@ -90,7 +90,7 @@ const[loading,setLoading]=useState(true)
         <h3>{title}</h3>
         <h3>{album.title}</h3>
         <h3>{artist.name}</h3>
-        <h3>{timeString}</h3>
+        <h3>{time_add}</h3>
         </div>
         
         
