@@ -122,9 +122,11 @@ className="loader"/></div>}
    { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
    <Bottombar/>
         </div>
-    )}
 
-return(<div>
+    )
+  }
+
+else{return(<div>
   <Header />
 <div className="middle">
 <Sidebar className="song-sidebar"/>
@@ -151,7 +153,7 @@ className="loader"/></div>}
 <Bottombar/>
 </div>
 )
-
+}
 }
 
 export default Song;
