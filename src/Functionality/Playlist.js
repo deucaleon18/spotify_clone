@@ -52,7 +52,7 @@ const[loading,setLoading]=useState(true)
       <Sidebar />
       <div className="playlist-area">
           <div className="playlist-banner"> 
-          {/* {!loading?<img src={deezer.album.cover_big} alt="" />:""} */}
+         
 </div>
 <div className="sectionheader">
   <div></div>
