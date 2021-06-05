@@ -1,12 +1,12 @@
 import React,{ useEffect,useState } from 'react'
-// import Player from './Player/Player'
+
 
 import Sidebar from "./Sidebar"
 import Header from '../Header'
 // import {Howl} from "howler";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-// import {Link} from 'react-router-dom'
+
 import {url} from "../Auth/stats"
 import Bottombar from "../Functionality/Bottombar"
 import RemoveSharpIcon from '@material-ui/icons/RemoveSharp';

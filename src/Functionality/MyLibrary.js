@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-// import Player from './Player/Player.js';
 
 import "../styles/mylibrary.css";
 import {Link} from "react-router-dom"

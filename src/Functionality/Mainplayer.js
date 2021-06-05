@@ -16,7 +16,7 @@ const Mainplayer = () => {
     const[deezer_11,setDeezer_11]=useState()
     const[deezer_12,setDeezer_12]=useState()
     const[deezer_13,setDeezer_13]=useState()
-    // const[deezer_14,setDeezer_14]=useState()
+
     const[deezer_15,setDeezer_15]=useState()
     const[deezer_16,setDeezer_16]=useState()
     const[deezer_17,setDeezer_17]=useState()
@@ -32,7 +32,7 @@ const Mainplayer = () => {
 
     const[deezer_7,setDeezer_7]=useState()
     const[deezer_8,setDeezer_8]=useState()
-    // const[deezer_9,setDeezer_9]=useState()
+
     const[deezer_10,setDeezer_10]=useState()
     const[usercheck,setUsercheck]=useState(false)
     const[user,setUser]= useState()

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
-// import Player from './Player/Player.js';
+
 
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
@@ -10,8 +10,6 @@ import Bottombar from "../Functionality/Bottombar"
 const MyPlaylists = () => {
 
     const[myplaylists,setMyplaylists]=useState([])
-    // const[loading,setLoading] = useState(true)
-
 
     useEffect(() => {
 
@@ -23,12 +21,9 @@ const MyPlaylists = () => {
         console.log(data.data);
         if(data!==undefined){
             setMyplaylists(data.data);
-            // setLoading(false);
+       
         }
 
-        // if(myplaylists!==undefined){
-        //     console.log(myplaylists)
-        // }
     }
         window.onload=getMyPlaylists()
         

@@ -191,21 +191,5 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
         
     )
     }
-// const Grid=()=>{
-// return (
-// <div>
-// <div>
-//    <div className="grid-column"></div>
-//    <div></div>
-//    <div></div>
-//    <div></div>
-// </div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// </div>
-// )
-// }
 
 export default Search;

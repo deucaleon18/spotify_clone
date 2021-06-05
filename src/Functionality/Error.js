@@ -1,9 +1,6 @@
 import React from 'react'
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-
-// import Player from './Player/Player.js';
-
 import Bottombar from "../Functionality/Bottombar"
 
  const Error = () => {

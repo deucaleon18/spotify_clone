@@ -9,25 +9,14 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
-// import InfoSharpIcon from '@material-ui/icons/InfoSharp';
-// import AddIcon from '@material-ui/icons/Add';
-
-
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Bottombar from "../Functionality/Bottombar"
  const Song = () => {
 const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
-// const [likedsong,setLikedsong]=useState();
-const[liked,setLiked]=useState();
-// const[icons,setIcons]=useState("no-icon")
-// const[sidepop,setSidepop]=useState(false);
 
-// if(localStorage.getItem('token')!==null&&localStorage.getItem('token')!==undefined&&localStorage.getItem('user_id')!==null&&localStorage.getItem('user_id')!==undefined){
-//   setIcons("icons")
-// }
+const[liked,setLiked]=useState();
+
 useEffect(() => {
        // eslint-disable-next-line
        getThisSong();
@@ -50,7 +39,7 @@ useEffect(() => {
         }
   
       }
-    fetchLikedsongs();
+    if(localStorage.getItem('user_id')!==undefined){fetchLikedsongs();}
      // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
@@ -70,18 +59,8 @@ const likeSong=(track_id)=>{
   .then((res)=> res.json())
    .then(res=>console.log(res))
    setLiked(false)
-    // if(localStorage.getItem('like')!==undefined){
-    //   localStorage.removeItem('like');
-    //   localStorage.setItem('like',0);
-    // }
-    // localStorage.setItem('like',0)
+    
   }
-// if(localStorage.getItem('like')===1){
-//   setLiked(true)
-// }
-// else{
-//   setLiked(false)
-// }
 
     const getThisSong=async()=>{
    const results=await fetch(`${url}track/${id}`)
@@ -112,7 +91,7 @@ type="Puff"
  color="#00BFFF"
 height={100}
 width={100}
-timeout={10000} //3 secs
+timeout={10000} //10 secs
 className="loader"/></div>}
             
     </div>
@@ -142,7 +121,7 @@ type="Puff"
 color="#00BFFF"
 height={100}
 width={100}
-timeout={10000} //3 secs
+timeout={10000} //10 secs
 className="loader"/></div>}
   
 </div>

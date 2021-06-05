@@ -1,20 +1,14 @@
 import React,{ useEffect,useState } from 'react'
-// import Player from './Player/Player'
 import Sidebar from "./Sidebar"
 import Header from '../Header'
 // import {Howl} from "howler";
 import {url} from "../Auth/stats"
-// import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// import {BiLike} from "react-icons/bi"
-// import {AiTwotoneLike} from "react-icons/ai"
 import {useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
 import Bottombar from "../Functionality/Bottombar"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-// import { AirlineSeatIndividualSuiteTwoTone } from '@material-ui/icons'
-// import Search from "../Functionality/Search";
 
 const Playlist= () => {
 const{id}=useParams()
@@ -72,14 +66,6 @@ const[loading,setLoading]=useState(true)
 //     sound.play()
 //  }
          const{id,album,time_add,title,artist}=song
-        // const dateObj = new Date({time_add} * 1000);
-        //   const  hours = dateObj.getUTCHours();
-        //   const  minutes = dateObj.getUTCMinutes();
-        //   const  seconds = dateObj.getSeconds();
-
-        //    const timeString = {hours}.toString().padStart(2, '0') + ':' + 
-        //     {minutes}.toString().padStart(2, '0') + ':' + 
-        //     {seconds}.toString().padStart(2, '0');
 
         return (<>
      <div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">

@@ -11,7 +11,6 @@ import CloseIcon from '@material-ui/icons/Close';
  const CreatePlaylist = () => {
   // const[myplaylists,setMyplaylists]=useState([])
     const [playlist,setPlaylist]=useState('')
-    //  const [playlistID,setPlaylistID]=useState()
     //  const [newplaylist,setNewplaylist]=useState()
     // const [loading,setLoading]=useState(true)
     const [popup,setPopup]=useState(false)
@@ -106,13 +105,4 @@ import CloseIcon from '@material-ui/icons/Close';
 
 export default CreatePlaylist;
 
-  // {/* {!loading?(myplaylists.map((playlist)=>{
-  //     return <div key={playlist.id} classname="my-playlist-box">
-  //     {/* <h1>{song.creator}</h1> */}
-  //     {/* <img src={playlist.picture_medium} alt=""/>
-  //     <h1>{playlist.title}</h1>
-      
-  //     </div>
-  //    })):null
-      
-  //    } */} 
+ 

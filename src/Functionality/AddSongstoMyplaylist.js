@@ -1,18 +1,13 @@
 import React,{ useEffect,useState } from 'react'
 // import {Howl} from "howler";
 import {url} from "../Auth/stats"
-// import Loader from "react-loader-spinner";
+
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// import {BiLike} from "react-icons/bi"
-// import {AiTwotoneLike} from "react-icons/ai"
+
 import {useParams} from 'react-router-dom';
 import "../styles/Playlists/playlistsongs.css";
-// import Appsearch from "../Appsearch";
 import Header from '../Header';
 import Sidebar from './Sidebar.js';
-// import Player from './Player/Player.js';
-
-// import Search from './Search';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import Bottombar from "../Functionality/Bottombar"
 import "../styles/Playlists/addsongstoplaylist.css"

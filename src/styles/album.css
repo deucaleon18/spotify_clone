@@ -1,5 +1,5 @@
 .albumsong{
-    /* height:10vh; */
+
     background-color: rgba(34, 30, 30, 0.726);
     width:100%;
     display:grid;
@@ -38,7 +38,7 @@
     }
 
     .albumsong{
-        /* height:10vh; */
+
         background-color: rgba(34, 30, 30, 0.726);
         width:100%;
         display:grid;

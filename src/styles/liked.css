@@ -10,17 +10,6 @@
     display: none;
   }
 
-/* .sectionheader-liked{
-    display:grid;
-    grid-template-columns: 4fr 2fr 2fr ;
-    width:100%;
-    background-color: black;
-    color:white;
-   justify-content:center;
- height:5vh;
- text-align:end ;
- 
-} */
 
 .likedsong{
     background-color: rgba(34, 30, 30, 0.726);
@@ -46,7 +35,7 @@
 
 .liked-banner{
     background-image:url('likedpart2.jpg');
-    /* background-position-x:25px; */
+
     background-position-y:-235px;
     background-repeat: no-repeat;
     background-size: cover;
