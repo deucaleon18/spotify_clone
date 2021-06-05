@@ -31,12 +31,10 @@ const[liked,setLiked]=useState();
 //   setIcons("icons")
 // }
 useEffect(() => {
-    // eslint-disable-next-line
-    getThisSong();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
-useEffect(() => {
-    
+       // eslint-disable-next-line
+       getThisSong();
+
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchLikedsongs=async()=>{ 
         const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token');
@@ -44,16 +42,17 @@ useEffect(() => {
          const data= await results.json();
         //  console.log(data.data)
          setLikedsong(data.data);
-         if(likedsong!==undefined){const checkforliked= likedsong.find(song=>song.id===`${id}`)
-         if(checkforliked!==null||undefined){
-            setLiked(true)
-        }
-       if(checkforliked===null||undefined){
-            setLiked(false)
-        } 
-        }
+       
       }
     fetchLikedsongs();
+    if(likedsong!==undefined){const checkforliked= likedsong.find(song=>song.id===`${id}`)
+    if(checkforliked!==null||checkforliked!==undefined){
+       setLiked(true)
+   }
+  if(checkforliked===null||checkforliked===undefined){
+       setLiked(false)
+   } 
+   }
      // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
