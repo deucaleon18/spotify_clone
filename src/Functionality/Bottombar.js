@@ -36,8 +36,9 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
   
             <li><a href="/search"><SearchSharpIcon/></a></li>
             <li><a href="/home"><img src={img_1} alt="" /></a></li>
-            <li><a href="/library"><LibraryMusicSharpIcon/></a></li>
-           <li><a href="/create-playlist"><AddSharpIcon/></a></li>
+            <li><a href="/sorry"><LibraryMusicSharpIcon/></a></li>
+           <li><a href="/sorry"><AddSharpIcon/></a></li>
+           <li><a href="/sorry"> <FavoriteSharpIcon/></a></li>
             </ul>
         </div>
     )
