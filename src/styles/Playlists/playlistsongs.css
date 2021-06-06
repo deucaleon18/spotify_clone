@@ -61,15 +61,14 @@ cursor: pointer;
 }
 @media screen and (max-width:500px){
     .playlist-banner{
-        background-image:url('playlistnew.jpg') ;
-        /* background-position-x:-15px; */
-        /* background-position-y:-365px; */
-        background-repeat: no-repeat;
-        height:45vh;
-        width:100vw;
-        background-size: cover;
-         margin:0 5px; 
-         opacity:0.8;
+        width: 68vh;
+            background-image:url('playlistnew.jpg');
+            background-position-y: -70px;
+            background-position-x: -85px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0 5px;
+            opacity: 0.8;
     }
 
     .loader{
