@@ -61,9 +61,9 @@ cursor: pointer;
 }
 @media screen and (max-width:500px){
     .playlist-banner{
-        width: 68vh;
+        width: 54vh;
             background-image:url('playlistnew.jpg');
-            background-position-y: -70px;
+            background-position-y: 0px;
             background-position-x: -85px;
             background-repeat: no-repeat;
             background-size: cover;

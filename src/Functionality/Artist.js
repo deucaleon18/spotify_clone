@@ -41,7 +41,7 @@ useEffect(() => {
     <Sidebar />
   
     <div className="playlist-area">
-          <div className="playlist-banner"> 
+          <div className="artist-banner"> 
 </div>
 <div className="sectionheader">
   <div></div>
