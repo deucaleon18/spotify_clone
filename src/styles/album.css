@@ -26,9 +26,9 @@
 .album-banner{
     background-image:url('liked3.jpg');
     /* background-position-x:-15px; */
-    background-position-y:-365px;
+    background-position-y:-265px;
     background-repeat: no-repeat;
-    height:45vh;
+    height:55vh;
     background-size: cover;
      margin:0 5px; 
      opacity:0.8;
