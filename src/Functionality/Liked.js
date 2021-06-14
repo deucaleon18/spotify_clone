@@ -14,6 +14,8 @@ import "../styles/liked.css";
  const Liked = () => {
 const[loading,setLoading]=useState(true)
 const[liked,setLiked]=useState([])
+
+
   const fetchLikedsongs=async()=>{ 
     const user_id=localStorage.getItem('user_id')
     const access_token=localStorage.getItem('token');
@@ -37,6 +39,8 @@ const[liked,setLiked]=useState([])
     console.log(data);
     window.location.reload();
   }
+
+  
     return (
         <div className="likedsongs">
 

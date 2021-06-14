@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "brfs": "^2.0.2",
+    "dotenv": "^10.0.0",
     "howler": "^2.2.1",
     "last-fm": "^5.3.0",
     "md5": "^2.3.0",

@@ -1,8 +1,5 @@
-export const app_id='481202';
-export const perms=[
-    "basic_access","email","offline_access","manage_library","manage_community","delete_library","listening_history"
-];
-export const url="https://deezerclone.herokuapp.com/https://api.deezer.com/"
-export const callbackURL="http://localhost:3000/loading";
-export const loginURL=`https://connect.deezer.com/oauth/auth.php?app_id=${app_id}&redirect_uri=${callbackURL}&perms=${perms}`;
-export const secret='c07d137e2a0dfc3d1fa0a3a11a3f9148';
+export const app_id=process.env.REACT_APP_APPLICATION_ID;
+export const url=process.env.REACT_APP_MAIN_URL;
+export const callbackURL=process.env.REACT_APP_CALLBACK_URL;
+export const loginURL=process.env.REACT_APP_LOGIN_URL;
+export const secret=process.env.REACT_APP_SECRET;
