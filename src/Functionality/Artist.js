@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
-import Header from '../Header';
+
 import Sidebar from './Sidebar.js';
 import "../styles/artist.css";
 import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Bottombar from "../Functionality/Bottombar"
+import {Grid,Typography,Container,Button,Box} from '@material-ui/core'
 
  const Artist = () => {
     // const likeSong=async(track_id)=>{
@@ -18,13 +19,17 @@ import Bottombar from "../Functionality/Bottombar"
     //     setLiked(!liked)
     //   }
     // const[liked,setLiked]=useState(false)
-     const{id}=useParams();
+const{id}=useParams();
 const[thisArtist,setThisArtist]=useState()
 const[loading,setLoading]=useState(true)
 useEffect(() => {
     getThisArtist();
   // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
+
+
+
+
     const getThisArtist=async()=>{
    const results=await fetch(`${url}artist/${id}/top`)
    const data=await results.json();
@@ -34,23 +39,30 @@ useEffect(() => {
        setLoading(false)
    }
 }
+
+
+
+
+
     return (
         <div>
-            <Header />
-    <div className="middle">
-    <Sidebar />
+        <div className="middle">
+      <Sidebar/>
+ 
+   
   
-    <div className="playlist-area">
+    <div className="playlist-area" >
           <div className="artist-banner"> 
 </div>
-<div className="sectionheader">
-  <div></div>
-
-  <h3>TITLE</h3>
-  <h3>ALBUM</h3>
-  <h3>ARTIST</h3>
-  <h3>DURATION</h3>
-</div>
+<Grid container style={{height:'6vh',alignItems:'center'}} >
+      <Grid container item xs={1} style={{borderBottom:'0.5px white'}}></Grid>
+ 
+  {/* <div></div> */}
+  <Grid container item xs={5}><Typography style={{fontSize:'0.8rem'}} color='secondary'>TITLE</Typography></Grid>
+  <Grid container item xs={3}><Typography style={{fontSize:'0.8rem'}} color='secondary'>ALBUM</Typography></Grid>
+  <Grid container item xs={2}><Typography style={{fontSize:'0.8rem'}} color='secondary'></Typography></Grid>
+  
+      </Grid>
 {!loading?(thisArtist.map((song)=>{
 //    function soundPlay(src){
 //     const sound=new Howl({
@@ -60,18 +72,19 @@ useEffect(() => {
 //     sound.play()
 //  }
          const{id,album,artist,duration,title}=song
-        return (<div onClick={()=>{window.location.href=`/this/song/${id}`}} key={id}className="playlistsong">
-        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3> */}
-    
-        {/* <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
-        <div></div>
-        <img src={album.cover_small} alt="la"/>
-        <h3>{title}</h3>
-        <h3>{album.title}</h3>
-        <h3>{artist.name}</h3>
-        <h3>{duration}</h3>
-        
-         </div>) 
+        return ( <Grid container onClick={()=>{window.location.href=`/this/song/${id}`}} key={id} className="playlistsong">
+        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
+       <Grid container items style={{width:'20px'}}></Grid>
+     
+       <Grid container items style={{width:'40px'}}> <img src={album.cover_small} alt="la"/></Grid>
+       <Grid container item lg={5} xs={6} >
+       <Grid container items lg={12} xs={12}><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>
+       <Grid container items lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem'}}>{artist.name}</Typography></Grid>
+       </Grid>
+       <Grid container items lg={6} xs={8}><Typography color="secondary"  style={{fontSize:'0.9rem'}}>{album.title}</Typography></Grid>
+      
+       <Grid container items></Grid>
+        </Grid>) 
     })): 
     <Loader 
     type="ThreeDots"
@@ -87,7 +100,7 @@ useEffect(() => {
  </div>
 
  
-    </div>
+ </div>
     <div className="empty-player">
     </div>
     <Bottombar/>

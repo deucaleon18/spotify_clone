@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom';
-import Header from '../Header';
+
 import Sidebar from './Sidebar.js';
 import Player from './Player/Player.js';
 import "../styles/song.css";
@@ -10,12 +10,14 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
 import Bottombar from "../Functionality/Bottombar"
+
  const Song = () => {
 const{id}=useParams();
 const[thisSong,setThisSong]=useState()
 const[loading,setLoading]=useState(true)
 
 const[liked,setLiked]=useState();
+
 
 useEffect(() => {
        // eslint-disable-next-line
@@ -39,9 +41,13 @@ useEffect(() => {
         }
   
       }
-    if(localStorage.getItem('user_id')!==undefined){fetchLikedsongs();}
+    
+      if(localStorage.getItem('user_id')!==undefined&&localStorage.getItem('token')!==undefined){fetchLikedsongs();}
      // eslint-disable-next-line react-hooks/exhaustive-deps
+   
 },[])
+
+
 
 const likeSong=(track_id)=>{
     const user_id=localStorage.getItem('user_id')
@@ -68,24 +74,34 @@ const likeSong=(track_id)=>{
    console.log(data)
    if(data!==undefined){
        setThisSong(data);
-   setLoading(false)
+   setLoading(false);
+   if(localStorage.getItem('song')!=undefined||localStorage.getItem('song')!=null){localStorage.removeItem('song');
+  }
+
+   localStorage.setItem("song",data.preview)
+   
    }
+  
 }
+
 
    if(localStorage.getItem('user_id')!==undefined) {return (
         <div>
-            <Header />
-    <div className="middle">
+<div className="middle">
  <Sidebar className="song-sidebar"/>
   
-  <div className= "this-song-middle">
      
      {!loading?(  <div className="current-song">
+                 
                   <img src={thisSong.album.cover_big} alt="" />
                 <div className="song-name">{thisSong.title}</div>
                  
                <div> {liked? <button onClick={()=>{unlikeSong(`${id}`)}}><FavoriteSharpIcon/></button>:<button onClick={()=>{likeSong(`${id}`)}}><FavoriteBorderSharpIcon/></button>} </div>
               </div>
+
+
+
+              
 ):<div className= "this-song-middle"><Loader
 type="Puff"
  color="#00BFFF"
@@ -94,11 +110,11 @@ width={100}
 timeout={10000} //10 secs
 className="loader"/></div>}
             
-    </div>
   
-    </div>
+  
+   </div>
     
-   { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
+   { !loading?(<Player />):<div className="empty-player"> </div> }
    <Bottombar/>
         </div>
 
@@ -106,16 +122,16 @@ className="loader"/></div>}
   }
 
 else{return(<div>
-  <Header />
-<div className="middle">
+ 
+
 <Sidebar className="song-sidebar"/>
 
-<div className= "this-song-middle">
 
-{!loading?(  <div className="current-song">
+{!loading?(<div className= "this-song-middle">  <div className="current-song">
+  
         <img src={thisSong.album.cover_big} alt="" />
       <div className="song-name">{thisSong.title}</div>
-    </div>
+    </div></div>
 ):<div className= "this-song-middle"><Loader
 type="Puff"
 color="#00BFFF"
@@ -124,9 +140,8 @@ width={100}
 timeout={10000} //10 secs
 className="loader"/></div>}
   
-</div>
 
-</div>
+
 
 { !loading?(<Player song={thisSong.preview}/>):<div className="empty-player"> </div> }
 <Bottombar/>

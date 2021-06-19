@@ -1,7 +1,7 @@
 .playlist-area{
     background-color: rgb(14, 14, 14);
 
-    height:87vh;
+    height:91vh;
     overflow-y: scroll;
     overflow-x:hidden;
 }
@@ -12,21 +12,20 @@
   }
 .playlistsong{
     /* height:10vh; */
-    font-size:1rem;
-    background-color: rgba(34, 30, 30, 0.726);
+
     width:100%;
-    display:grid;
-    grid-template-columns:10px 0.3fr  4fr 2fr 2fr 1fr;
-    grid-gap:20px;
+
+    grid-gap:10px;
     align-items:center;
     color:white;
-    height:10vh;
+    height:9vh;
+    margin:0 10px;
 }
 
 .playlistsong img{width:100%;}
 .playlistsong:hover{
-    background-color: black;
-color:red;
+    background-color: rgba(128, 128, 128, 0.301);
+
 cursor: pointer;
 }
 .playlist-banner{

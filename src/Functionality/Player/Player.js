@@ -1,15 +1,24 @@
-import React,{ useState, useRef }  from 'react';
+import React,{ useState, useRef}  from 'react';
 import '../../styles/player.css';
 
 import Slider from './components/slider/Slider'
 import ControlPanel from './components/controls/ControlPanel'
-const  Player=({song})=>{
+const  Player=()=>{
 
+
+  
         const [percentage, setPercentage] = useState(0)
-        const [isPlaying, setIsPlaying] = useState(false)
+        const [isPlaying, setIsPlaying] = useState(true)
         const [duration, setDuration] = useState(0)
         const [currentTime, setCurrentTime] = useState(0)
+        const song=localStorage.getItem('song')
        const audioRef = useRef()
+      //  if(song==undefined||song==null){setIsPlaying(false)}
+    
+        // useEffect(()=>{
+        //   if(song!=undefined||song!=null){setIsPlaying(true)}
+        // },[])
+
 
         const onChange = (e) => {
           const audio = audioRef.current
@@ -20,15 +29,19 @@ const  Player=({song})=>{
         const play = () => {
           const audio = audioRef.current
           audio.volume = 1.0
-      
-          if (!isPlaying) {
-            setIsPlaying(true)
+       
+
+          if (isPlaying==false) {
+           setIsPlaying(true)
             audio.play()
+            // localStorage.removeItem('song')
+          
           }
       
-          if (isPlaying) {
+          if (isPlaying==true) {
             setIsPlaying(false)
             audio.pause()
+            
           }
         }
       
@@ -44,13 +57,18 @@ const  Player=({song})=>{
          <div className="player">
    <div className='app-container'> 
    <ControlPanel
+
         play={play}
-        isPlaying={isPlaying}
+        isPlaying={!isPlaying}
         duration={duration}
         currentTime={currentTime}
       />
       <Slider percentage={percentage} onChange={onChange} />
        <audio
+       controls
+       loop
+       preload="auto"
+       autoplay="autoplay"
         ref={audioRef}
         onTimeUpdate={getCurrDuration}
         onLoadedData={(e) => {

@@ -6,7 +6,14 @@ background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
     grid-gap:10px;
     overflow-y:hidden;
     overflow-x:hidden;
+    display:grid;
+    grid-template-columns:1fr 3.6fr;
   
+}
+
+.current-song{
+    background-color: #000000;
+    background-image: linear-gradient(360deg, #000000 0%, #434343 74%);
 }
 .this-song-middle::-webkit-scrollbar {
     display: none;

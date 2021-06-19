@@ -3,18 +3,38 @@ import "../styles/search.css";
 import{ url} from '../Auth/stats.js';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';import {Grid,Typography,Box} from '@material-ui/core'
+import FormControl from '@material-ui/core/FormControl';
 
  const Search = () => {
+
+     //useState has been used for taking the input from the form and also taking the input after the API has been called
     const [searchvalue,setSearchvalue]=useState('')
     const [searchresult,setSearchresult]=useState("x")
+
+
+    //default Loader comprising of 3 dots
     const [loading,setLoading]=useState(false);
     // eslint-disable-next-line
+
+
+    //not yet used this can be used to show the like button beside the songs..
     const [liked,setLiked]=useState();
-    const[show,setShow]=useState(false)
-    const[showerror,setShowerror]=useState(false)
+
+
+    const[show,setShow]=useState(false);
+
+
+    const[showerror,setShowerror]=useState(false);
+
+
+  
+    //these have also not been yet utilized but can easily be integrated in the web application so that playlists can be added from beside the songs
    //  const [playlistspopup,setPlaylistspopup]=useState(false);
    //  const[myplaylists,setMyplaylists]=useState([]);
+
+
+   //fetching the results of the form control input
      const fetchDeezer=async()=>{
          const results= await fetch(`${url}search?q=${searchvalue}`)
          const data=await results.json();
@@ -26,7 +46,9 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
             setShowerror(true);
             }
          }
-       
+      
+         
+    //function to handle the submission of the form      
    const handleSubmit=(e)=>{
        e.preventDefault();
            setLoading(true)
@@ -37,6 +59,9 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
          }
 
    }
+
+
+
       // const showPlaylistspopup=()=>{
       //    setPlaylistspopup(true)
       // }
@@ -87,21 +112,25 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
       // useEffect(() => {
       //    getMyPlaylists()
       // }, [])
+
+
+
+
     return (
         <div className="search">
       <div className="search-area">
           <div className="bar">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} autoComplete="off">
               <label htmlFor="search"></label>
               <input 
               type="text" 
               name="search"  
-              placeholder="Search"
+              placeholder="Artists,Albums and Songs"
               id="search-bar"
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit" ><SearchSharpIcon className="search-icon"/></button>
+              <button type="submit" ><SearchOutlinedIcon className="search-icon"/></button>
               </form>
              
 
@@ -115,16 +144,16 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
         timeout={10000} //10 secs
       className="loader"/>
       </div>)
-         :(<>
-       {show?(<div className="sectionheader-search">
-      <div></div>
+         :(<div>
+       {show?(<Grid container style={{height:'6vh',alignItems:'center'}} >
+      <Grid container item xs={1} style={{borderBottom:'0.5px white'}}></Grid>
  
   {/* <div></div> */}
-     <h3>TITLE</h3>
-     <h3>ALBUM</h3>
-     <h3>ARTIST</h3>
+  <Grid container item xs={5}><Typography style={{fontSize:'0.8rem'}} color='secondary'>TITLE</Typography></Grid>
+  <Grid container item xs={3}><Typography style={{fontSize:'0.8rem'}} color='secondary'>ALBUM</Typography></Grid>
+  <Grid container item xs={2}><Typography style={{fontSize:'0.8rem'}} color='secondary'></Typography></Grid>
   
-      </div>
+      </Grid>
       ):null} 
 
            {show?(searchresult.data.map((searcher)=>{
@@ -166,13 +195,17 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 
 
          return( 
-               <div key={searcher.id} onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box"> 
-               <img src={artist.picture_small} alt=""/>
-               <h2>{title}</h2> 
-                <h2>{artist.name}</h2>
-                <h2>{album.title}</h2>
+           <Box>
+               <Grid container item lg={12} xs={12} key={searcher.id} style={{alignItems:'center'}}onClick={()=>{window.location.href=`/this/song/${id}`}} className="search-box"> 
+               <Grid contianer item style={{width:'40px'}}><img src={artist.picture_small} alt=""/> </Grid>
+               <Grid container item lg={5} xs={6} >
+               <Grid container item lg={12} xs={12} ><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>
+               <Grid container item lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem'}}> {artist.name}</Typography></Grid>
+               </Grid>
+               <Grid contianer item lg={6} xs={8}><Typography  style={{fontSize:'0.9rem'}} color='secondary'>{album.title}</Typography></Grid>
                 {/* </a> */}
-                </div>
+                </Grid>
+                </Box>
                 
              )}
 
@@ -182,7 +215,7 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
            
            }
         
-</>
+</div>
        )  
  }
         </div>

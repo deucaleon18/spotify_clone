@@ -1,11 +1,7 @@
 .albumsong{
 
-    background-color: rgba(34, 30, 30, 0.726);
     width:100%;
-    display:grid;
-    grid-template-columns:50px 4fr 2fr 2fr ;
     align-items:center;
-    color:white;
     height:10vh;
 }
 .albumsong:hover{

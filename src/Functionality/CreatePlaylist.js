@@ -1,12 +1,27 @@
 import React,{useState} from 'react'
 import {url} from '../Auth/stats';
-import Header from '../Header';
+
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player';
 import '../styles/Playlists/createplaylist.css';
 import {AiOutlinePlus} from 'react-icons/ai'
 import Bottombar from "../Functionality/Bottombar"
 import CloseIcon from '@material-ui/icons/Close';
+import {Grid,Typography,Container,Button,Box} from '@material-ui/core'
+import QueueIcon from '@material-ui/icons/Queue';
+import CreateIcon from '@material-ui/icons/Create';
+
+
+
+const bannerbuttonStyle={
+  width:'9rem',
+  height:'10rem',
+  margin:'25% 20%',
+  color:'white',
+  shadows:'10px 0 10px 0 black'
+  }
+  
+
 
  const CreatePlaylist = () => {
   // const[myplaylists,setMyplaylists]=useState([])
@@ -51,6 +66,7 @@ import CloseIcon from '@material-ui/icons/Close';
  }
 
  
+
  const creationCleanup=()=>{
    
    alert("You have successfully created a new playlist.Please check your Library to access the playlist")
@@ -60,15 +76,26 @@ import CloseIcon from '@material-ui/icons/Close';
  }
     return (
         <div className="CreatePlaylist">
-      <Header />
-    <div className="middle">
-    <Sidebar />
+  
+<div className="middle-create-playlist" >
 
-  <div className="middle-create-playlist" >
-      <h1>Create New Playlist</h1>
+  <Box display="flex" component='div' style={{height:'51vh'}}>      
+  <Box component="div" className="banner-box-create-playlist" >
+ <span><QueueIcon style={bannerbuttonStyle} className="liked-banner-box-icon"/></span>
+  </Box>
+  <Box mt={22} ml={1}>
+  <Typography  variant='subtitle2' color='primary'style={{marginLeft:'5px'}}>PLAYLIST</Typography>
+  <Typography variant='h1' color="primary" >New Playlist</Typography>
+  </Box>
+  <Box mt={33} ><CreateIcon  onClick={()=>{setPopup(!popup)}} style={{color:'white',cursor:'pointer'}}/></Box>
+  </Box>
+
+
+
+
       {popup?(<div className="poppup">
       <span onClick={()=>{setPopup(false)}}><CloseIcon className="close-icon"/></span>
-<div className="create-playlist-form"><form onSubmit={handleSubmit}>
+<div className="create-playlist-form"><form onSubmit={handleSubmit} autoComplete="off">
               <label htmlFor="playlist"></label>
               <input 
               type="text" 
@@ -87,7 +114,7 @@ import CloseIcon from '@material-ui/icons/Close';
     } 
       <div playlist-creation-grid>
 
-      <div className="add-new-playlist" onClick={()=>{setPopup(!popup)}}><AiOutlinePlus color="white" size="12rem" className="plus"/></div>
+      {/* <div className="add-new-playlist"></div>*/}
    
 
 {/*            
@@ -95,8 +122,8 @@ import CloseIcon from '@material-ui/icons/Close';
               </div>
               </div>
              
-    </div>
-    <div className="empty-player"> </div> 
+
+  
    <Bottombar/>
       
         </div>

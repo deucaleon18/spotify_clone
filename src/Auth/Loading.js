@@ -16,7 +16,8 @@ const Loading = () => {
 //Handling the code and getting access token after redirecting
 
     const handleRedirect=()=>{ 
-     window.location.href='/home'   
+     window.location.href="/app" ;
+     localStorage.setItem('active',"homesection")  
     }
 const getCode=()=>{
     let link=window.location.search;

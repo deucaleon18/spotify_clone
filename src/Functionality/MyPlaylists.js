@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Header from '../Header';
+
 import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
 
@@ -7,6 +7,28 @@ import {url} from "../Auth/stats"
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
 import Bottombar from "../Functionality/Bottombar"
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
+ const playlistBoxStyles={
+
+   height:'28vh',
+ 
+ }
+
+ const buttonStyle={
+    width:'7rem',
+    height:'12rem',
+    margin:'25% 30%',
+    shadows:'10px 0 10px 0 black'
+    }
+    
+
+
+
+
 const MyPlaylists = () => {
 
     const[myplaylists,setMyplaylists]=useState([])
@@ -31,13 +53,34 @@ const MyPlaylists = () => {
     
    if(myplaylists!==undefined){ return (
         <div className="my-playlists">      
-    <Header />
-    <div className="middle">
-    <Sidebar />
+  
+
   
 <div className="my-playlists-middle" >
 
+<Box display='flex' >
+<Box component="div"  className="my-playlists-header-box">
+     
+         <span><LibraryMusicIcon style={buttonStyle} className="banner-box-icon"/></span>
+       
+          </Box>
+        
+
+        
+          <Box mt={22} ml={1}>
+          <Typography  variant='subtitle2' color='primary'>COLLECTION</Typography>
+          <Typography variant='h1' letterSpacing={1} color="primary" >My Playlists</Typography>
+          </Box>
+      
+
+
+</Box>
+
+
+<div className="my-playlists-middle-boxes" >
 {myplaylists.map((song)=>{
+
+
     const deleteMyPlaylist=async(ID)=>{
         // const user_id=localStorage.getItem('user_id')
         const access_token=localStorage.getItem('token')
@@ -48,31 +91,45 @@ const MyPlaylists = () => {
     }
 
     
+
+
     const{id}=song;
     if(song.title!=="Loved Tracks")
     {return(
-        <div className="my-playlist-box-container" >
-            <Link to={`/user/playlist/${id}`}>
-        <div key={song.id} classname="my-playlist-box">
+
+<Container  className="my-playlist-box-container" onClick={()=>{window.location.href=`/user/playlist/${id}`}}>
+           
+        <Box component='div' style={playlistBoxStyles} key={song.id} >
         {/* <h1>{song.creator}</h1> */}
-        <img src={song.picture_medium} alt=""/>
-        <h1>{song.title}</h1>
+         
         
-        </div>
-        </Link>
-        <>
-        <button className="delete-my-playlist" onClick={()=>{
+        
+        <img style={{width:'100%',height:'100%',borderRadius:'10px',textAlign:'center'}}
+        src={song.picture_medium} alt=""/>
+        <Typography variant='h6' color='primary' style={{fontWeight:'200',textAlign:'center'}}>
+        {song.title}</Typography>
+        
+        </Box>
+       
+        <Box mt={4} >
+        <Button  onClick={()=>{
          deleteMyPlaylist(`${id}`)
-        }}>Delete</button>
-        </>
-        </div>
+        }}><Typography variant='subtitle1' 
+        color="primary"  
+        style={{textAlign:'center'}}>
+        Delete
+        </Typography></Button>
+
+
+        </Box>
+        </Container>
     )}
     return null
 })}
 </div>
-
+</div>
  
-    </div>
+    
     <div className="empty-player">
     </div>
     <Bottombar/>

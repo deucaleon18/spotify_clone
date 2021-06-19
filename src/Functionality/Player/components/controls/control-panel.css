@@ -1,5 +1,5 @@
 .control-panel {
-  padding: 15px 0;
+  padding: 0px 0;
   display: flex;
   
   justify-content: space-between;
@@ -11,6 +11,7 @@
   font-size: 20px;
   font-weight: 200;
   color: rgb(196, 196, 196);
+  
 }
 
 @media screen and (max-width:500px) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import "../styles/bottombar.css";
 import img_1 from "../styles/Deezer-Emblem.jpg"
 import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
@@ -14,16 +14,22 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
         localStorage.removeItem('token')
         localStorage.removeItem('user_id')
     }
+    const[active,setActive]=useState(localStorage.getItem('active'))
+    useEffect(() => {
+        localStorage.setItem("active",active);},[active])
+
+
+
     if(localStorage.getItem('token')!==null)
     {return (
         <div className="bottombar">
             <ul>
-            <li><a href="/login" onClick={()=>{removeItems()}}><MeetingRoomSharpIcon/></a></li>
-            <li><a href="/search"><SearchSharpIcon/></a></li>
-            <li><a href="/home"><img src={img_1} alt="" /></a></li>
-            <li><a href="/library"> <LibraryMusicSharpIcon/></a></li>
-           <li><a href="/create-playlist"> <AddSharpIcon/></a></li>
-           <li><a href="/liked"> <FavoriteSharpIcon/></a></li>
+            <li><a href="/" onClick={()=>{removeItems()}}><MeetingRoomSharpIcon/></a></li>
+            <li><a href="/app"  onClick={()=>{setActive("searchsection")}}><SearchSharpIcon/></a></li>
+            <li><a href="/app" onClick={()=>{setActive("homesection")}}><img src={img_1} alt="" /></a></li>
+            <li><a href="/app" onClick={()=>{setActive("librarysection")}}> <LibraryMusicSharpIcon/></a></li>
+           <li><a href="/app" onClick={()=>{setActive("createplaylistsection")}}> <AddSharpIcon/></a></li>
+           <li><a href="/app" onClick={()=>{setActive("likedsection")}}> <FavoriteSharpIcon/></a></li>
            
             </ul>
         </div>

@@ -1,21 +1,46 @@
-/* .playlist-creation-grid{
-    display:grid;
-    grid-gap:40px;
-    grid-template-columns:repeat(minmax(4fr,35vh))
-} */
 
 
 .middle-create-playlist{
-    background-color:#212121;
-    height:87vh;
+    background: hsla(0, 2%, 11%, 1);
+
+    background: linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1c1b1b", endColorstr="#625e6d", GradientType=1 );
+    height:91vh;
     width:100%;
     overflow-y: scroll;
+    display:grid;
+    grid-template-rows:45vh;
 }
 .middle-create-playlist h1{
     margin:30px 30px;
     font-size:3.5rem;
     color:white;
 }
+
+.banner-box-create-playlist{
+
+
+    background: hsla(0, 1%, 45%, 1);
+
+background: linear-gradient(90deg, hsla(0, 1%, 45%, 1) 0%, hsla(0, 0%, 12%, 1) 90%);
+
+background: -moz-linear-gradient(90deg, hsla(0, 1%, 45%, 1) 0%, hsla(0, 0%, 12%, 1) 90%);
+
+background: -webkit-linear-gradient(90deg, hsla(0, 1%, 45%, 1) 0%, hsla(0, 0%, 12%, 1) 90%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#747272", endColorstr="#1F1F1F", GradientType=1 );
+height:65%;
+width:20%;
+margin-top:5%;
+margin-left:5%;
+
+}
+
 .middle-create-playlist::-webkit-scrollbar {
     display: none;
   }
@@ -83,8 +108,15 @@ width:100%;
     height:72vh;
     width:80vw;
     /* margin:auto; */
-    background-color: #2a2a72;
-    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    background: hsla(0, 2%, 11%, 1);
+
+    background: linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1c1b1b", endColorstr="#625e6d", GradientType=1 );
    opacity:1.2;
    z-index:3;
    position:absolute;

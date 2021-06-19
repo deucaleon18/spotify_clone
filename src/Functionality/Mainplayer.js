@@ -1,9 +1,22 @@
 import React, { useEffect,useState } from 'react';
 import "../styles/mainplayer.css"; 
-import {Link} from "react-router-dom";
+
 import {url} from "../Auth/stats"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import Typography from "@material-ui/core/Typography"
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {Box,Grid,container,Button} from "@material-ui/core"
+
+const styleForTitle={
+
+
+    marginLeft:'4%',marginTop:'2%'
+    
+}
+
+
 
 const Mainplayer = () => {
     const[deezer,setDeezer]=useState()
@@ -178,18 +191,6 @@ const deezerCharts_1=async()=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //Mapper charts -top charts
  const deezerCharts_7=async()=>{ 
     const results =await fetch(`${url}chart`)    
@@ -296,10 +297,36 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 &&deezer_15!==undefined&&deezer_16!==undefined&&deezer_17!==undefined&&deezer_18!==undefined&&deezer_19!==undefined
 &&deezer_20!==undefined&&deezer_21!==undefined&&deezer_22!==undefined&&deezer_23!==undefined)return(<div className="mainplayer">
    
-<div className="banner">
-{usercheck?<h1 >Welcome <span>{user.name}</span>!</h1>:<h1>welcome</h1>}
-<div className="banner-overlay"></div>
+
+{/* <div className="banner-overlay"></div>
+<{usercheck?<Typography variant='h3' >Welcome <span><Typography variant='h3'>{user.name}</Typography></span>!</Typography>:<Typography variant='h3'>welcome</Typography>}
+<div className="banner-overlay"></div>*/}
+<Carousel 
+style={{height:'50vh'}} 
+showStatus={false}
+stopOnHover
+thumbWidth={100}
+showThumbs={false}
+showArrows={true}
+infiniteLoop
+autoPlay
+>
+<div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}} >
+    <img src={deezer_12[0].picture_xl}  style={{borderRadius:'20px'}}/>
+   
 </div>
+<div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}}>
+    <img src={deezer_5[0].picture_xl} style={{borderRadius:'20px'}}/>
+      
+</div> 
+<div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}}>
+    <img src= {deezer_11[0].picture_xl} style={{borderRadius:'20px'}} />
+  
+</div>
+</Carousel>
+
+
+
 
 {/* <div className="title"><h4>RECENTLY PLAYED</h4></div>
     <div className="arrange">
@@ -316,28 +343,34 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
     })}
     </div>         */} 
 
-<div className="title">PLAYLISTS</div>
+<Typography 
 
-<div className="arrange">
+style={styleForTitle}
+variant='h3'
+color='primary'
+>
+PLAYLISTS</Typography>
+
+
+<Box component="div" className="arrange">
     {deezer.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <Box  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+   
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
-
+      
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
-    </div>
+    </Box>
     })}
 
     {deezer_1.map((song)=>{
         const{title,picture_medium,id}=song;
-        return <div  className="box">
-         <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+         
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+       
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -345,12 +378,12 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 
     {deezer_2.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+        
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
      
-        </Link>
+        
   
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -358,22 +391,23 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
   
     {deezer_11.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+  
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+       
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
+
     {deezer_12.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+    
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -381,11 +415,11 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 
     {deezer_13.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+    
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+      
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -393,11 +427,11 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
   
     {deezer_15.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box"onClick={()=>{window.location.href=`playlist/${id}`}}>
+     
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -408,12 +442,11 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 
     {deezer_16.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+  
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
-
+       
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
 
@@ -422,11 +455,11 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 
     {deezer_17.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+  
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -435,11 +468,11 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
     })} 
     {deezer_18.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-     <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+       
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -447,16 +480,24 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
     
     })} 
   
-</div> 
-<div className="title"><h4>THE GOOD OLD DAYS</h4></div>
+  </Box>
+
+
+
+<Typography 
+
+style={styleForTitle}
+variant='h3'
+color='primary'
+>THE GOOD OLD DAYS</Typography>
 <div className="arrange">
 {deezer_3.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+  
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -464,11 +505,11 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 
 {deezer_4.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}> 
+       
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+       
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
@@ -476,134 +517,156 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 
 {deezer_5.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+      
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+      
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     {deezer_19.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+        
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     {deezer_20.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+    
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     {deezer_21.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+     
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     {deezer_22.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+      
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+      
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     {deezer_23.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+      
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+       
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
        {deezer_21.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+       
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
 </div>
-<div className="title"><h4>TOP ALBUMS</h4></div>
+
+<Typography 
+
+
+style={styleForTitle}
+variant='h3'
+color='primary'>TOP ALBUMS</Typography>
 <div className="arrange">
 {deezer_6.map((song)=>{
         const{title,cover_medium,id}=song
-        return <div  className="box">
-        <Link to={`album/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`album/${id}`}}>
+      
         <img src={cover_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+      
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     </div>
-    <div className="title"><h4>TOP TRACKS</h4></div>
+
+    <Typography 
+
+  
+style={styleForTitle}
+variant='h3'
+color='primary'>TOP TRACKS</Typography>
 <div className="arrange">
 {deezer_7.map((song)=>{
         const{title,album,id}=song
-        return <div  className="box">
-        <Link to={`this/song/${id}`}>
+        return <div  className="box"  onClick={()=>{window.location.href=`this/song/${id}`}}>
+      
         <img src={album.cover_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+       
         {/* <button>PLAY</button> */}
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     </div>
-    <div className="title"><h4>TOP PLAYLISTS</h4></div>
+  
+<Typography 
+style={styleForTitle}
+variant='h3'
+color='primary'
+>TOP PLAYLISTS</Typography>
     <div className="arrange">
 {deezer_8.map((song)=>{
         const{title,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`playlist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
+  
         <img src={picture_medium}alt=""/>
         <h4>{title}</h4>
-        </Link>
+        
        
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>
     })}
     </div>
   
-    <div className="title"><h4>TOP ARTISTS</h4></div>
+    
+<Typography 
+
+style={styleForTitle}
+variant='h3'
+color='primary'>TOP ARTISTS</Typography>
     <div className="arrange">
 {deezer_10.map((song)=>{
         const{name,picture_medium,id}=song
-        return <div  className="box">
-        <Link to={`artist/${id}`}>
+        return <div  className="box" onClick={()=>{window.location.href=`artist/${id}`}}>
+       
         <img src={picture_medium}alt=""/>
         <h4>{name}</h4>
-        </Link>
+      
 
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </div>

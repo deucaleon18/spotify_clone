@@ -46,7 +46,7 @@
 .range {
   -webkit-appearance: none;
   background-color: rgba(240, 9, 9, 0.397);
-  height: 30px;
+  height:60px;
   width: 100%;
   cursor: pointer;
   opacity: 0;
