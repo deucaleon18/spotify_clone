@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
 
-
+import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
 import Bottombar from "../Functionality/Bottombar"
@@ -58,8 +58,8 @@ const MyPlaylists = () => {
   
 <div className="my-playlists-middle" >
 
-<Box display='flex' >
-<Box component="div"  className="my-playlists-header-box">
+<Box display='flex'>
+<Box component="div" className="my-playlists-header-box">
      
          <span><LibraryMusicIcon style={buttonStyle} className="banner-box-icon"/></span>
        
@@ -97,13 +97,13 @@ const MyPlaylists = () => {
     if(song.title!=="Loved Tracks")
     {return(
 
-<Container  className="my-playlist-box-container" onClick={()=>{window.location.href=`/user/playlist/${id}`}}>
+<Container    style={{cursor:'pointer'}} className="my-playlist-box-container" >
            
-        <Box component='div' style={playlistBoxStyles} key={song.id} >
+        <Box component='div' style={playlistBoxStyles} key={song.id} onClick={()=>{window.location.href=`/user/playlist/${id}`}} >
         {/* <h1>{song.creator}</h1> */}
          
         
-        
+         
         <img style={{width:'100%',height:'100%',borderRadius:'10px',textAlign:'center'}}
         src={song.picture_medium} alt=""/>
         <Typography variant='h6' color='primary' style={{fontWeight:'200',textAlign:'center'}}>
@@ -112,16 +112,15 @@ const MyPlaylists = () => {
         </Box>
        
         <Box mt={4} >
-        <Button  onClick={()=>{
-         deleteMyPlaylist(`${id}`)
-        }}><Typography variant='subtitle1' 
-        color="primary"  
-        style={{textAlign:'center'}}>
-        Delete
-        </Typography></Button>
+
+      
+
+       
 
 
         </Box>
+
+        <span style={{cursor:"pointer",color:'white',position:'relative',top:'-7vh'}} onClick={()=>{deleteMyPlaylist(`${id}`)}}><DeleteSharpIcon className="delete-icon"/></span>
         </Container>
     )}
     return null

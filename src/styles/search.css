@@ -21,13 +21,14 @@
 }
 
 .search button{
-    height:2.5rem;
-    width:2rem;
+    height:1.7rem;
+    width:1.7rem;
     cursor: pointer;
     position:relative;
-    margin-right:-30px;
-    
-    background-color:rgb(14, 14, 14);
+    margin-left:-40px;
+    margin-top:10px;
+   border:0;
+   
     border:0;
 }
 .search-box{
@@ -45,9 +46,10 @@
     width:100%;
     margin:30%;
 }
-.search-box button{
+/* .search-box button{
     width:100%;
-}
+    margin-top:50px;
+} */
 .search-box a{
     width:100%;
     display:block;

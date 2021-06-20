@@ -292,7 +292,13 @@ if(localStorage.getItem('user_token')!==undefined){
 
 
 if(deezer!==undefined&&deezer_1!==undefined&&deezer_2!==undefined&&deezer_3!==undefined&&deezer_4!==undefined&&
-deezer_5!==undefined&&deezer_6!==undefined&&deezer_7!==undefined&&deezer_8!==undefined&&
+deezer_5!==undefined
+
+// &&deezer_6!==undefined
+
+&&deezer_7!==undefined&&deezer_8!==undefined&&
+
+
 deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!==undefined
 &&deezer_15!==undefined&&deezer_16!==undefined&&deezer_17!==undefined&&deezer_18!==undefined&&deezer_19!==undefined
 &&deezer_20!==undefined&&deezer_21!==undefined&&deezer_22!==undefined&&deezer_23!==undefined)return(<div className="mainplayer">
@@ -302,7 +308,7 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 <{usercheck?<Typography variant='h3' >Welcome <span><Typography variant='h3'>{user.name}</Typography></span>!</Typography>:<Typography variant='h3'>welcome</Typography>}
 <div className="banner-overlay"></div>*/}
 <Carousel 
-style={{height:'50vh'}} 
+style={{height:'45vh'}} 
 showStatus={false}
 stopOnHover
 thumbWidth={100}
@@ -310,17 +316,25 @@ showThumbs={false}
 showArrows={true}
 infiniteLoop
 autoPlay
+style={{marginTop:'2%'}}
 >
-<div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}} >
-    <img src={deezer_12[0].picture_xl}  style={{borderRadius:'20px'}}/>
-   
-</div>
-<div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}}>
-    <img src={deezer_5[0].picture_xl} style={{borderRadius:'20px'}}/>
+<div style={{height:'54vh',margin:'auto',width:'95%',marginTop:'2%'}}>
+    <img src={deezer_8[5].picture_xl} style={{borderRadius:'20px',position:'absolute',top:'-150px',left:'30px',width:'95%',marginTop:'2%'}} />
+    {/* <Button style={{height:'3rem',width:'10rem',backgroundColor:'#1DB954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
       
 </div> 
+<div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}} >
+    <img src={deezer_19[0].picture_xl}  style={{borderRadius:'20px',position:'absolute',top:'-200px',left:'30px',width:'95%',marginTop:'2%'}}/>
+    {/* <Button style={{height:'3rem',width:'10rem',backgroundColor:'#1D954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
+</div>
+
 <div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}}>
-    <img src= {deezer_11[0].picture_xl} style={{borderRadius:'20px'}} />
+    <img src= {deezer_21[0].picture_xl} style={{borderRadius:'20px',position:'absolute',top:'-150px',left:'30px',width:'95%',marginTop:'2%'}} />
+   {/*  <Button
+    
+    // onClick={()=>{window.location.href=`playlist/${deezer_11.id}`}} 
+    
+    style={{height:'3rem',width:'10rem',backgroundColor:'#1DB954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
   
 </div>
 </Carousel>
@@ -348,6 +362,7 @@ autoPlay
 style={styleForTitle}
 variant='h3'
 color='primary'
+style={{marginTop:'4%',marginLeft:'4%'}}
 >
 PLAYLISTS</Typography>
 
@@ -358,7 +373,7 @@ PLAYLISTS</Typography>
         return <Box  className="box" onClick={()=>{window.location.href=`playlist/${id}`}}>
    
         <img src={picture_medium}alt=""/>
-        <h4>{title}</h4>
+        <h4 >{title}</h4>
       
         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
     </Box>
@@ -594,25 +609,25 @@ color='primary'
     })}
 </div>
 
-<Typography 
+{/*</div><Typography 
 
 
-style={styleForTitle}
-variant='h3'
-color='primary'>TOP ALBUMS</Typography>
-<div className="arrange">
-{deezer_6.map((song)=>{
-        const{title,cover_medium,id}=song
-        return <div  className="box" onClick={()=>{window.location.href=`album/${id}`}}>
+// style={styleForTitle}
+// variant='h3'
+// color='primary'>TOP ALBUMS</Typography>
+// <div className="arrange">
+// {deezer_6.map((song)=>{
+//         const{title,cover_medium,id}=song
+//         return <div  className="box" onClick={()=>{window.location.href=`album/${id}`}}>
       
-        <img src={cover_medium}alt=""/>
-        <h4>{title}</h4>
+//         <img src={cover_medium}alt=""/>
+//         <h4>{title}</h4>
       
 
-        {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> */}
-    </div>
-    })}
-    </div>
+//         {/* <button onClick={()=>{addToLibrary()}}>ADD TO LIBRARY</button> 
+   </div>
+//     })}
+//     </div>*/}
 
     <Typography 
 

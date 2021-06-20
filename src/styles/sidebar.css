@@ -23,7 +23,7 @@ list-style:none;} */
 
 .sidebar h4{
        font-size:1rem;
-       padding:10px 50px;
+       padding:10px 0;
        display: block;
       color: white;
 }
@@ -38,13 +38,13 @@ list-style:none;} */
     text-decoration: none;
     color:white;
 }
-.sidebar a:hover{
+/* .sidebar a:hover{
     transition: 1.5sec;
     color:rgba(255, 0, 0, 0.678);
     background:#191414;
    
     opacity:1.2;
-} 
+}  */
 
 
 .my-playlist-songs-sidebar{
@@ -58,10 +58,10 @@ list-style:none;} */
 
 
 
-.my-playlist-songs-sidebar h4:hover{
+/* .my-playlist-songs-sidebar h4:hover{
     color:rgba(255, 0, 0, 0.678);
     cursor:pointer;
-}
+} */
 @media screen and (max-width:500px){
 
     .sidebar{

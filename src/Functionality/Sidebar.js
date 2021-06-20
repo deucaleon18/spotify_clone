@@ -5,8 +5,14 @@ import Login from "../Auth/Login"
 // import Bottombar from "../Functionality/Bottombar"
 import {url} from "../Auth/stats"
 import Typography from "@material-ui/core/Typography"
-
-
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+import LibraryMusicSharpIcon from '@material-ui/icons/LibraryMusicSharp';
+import AddSharpIcon from '@material-ui/icons/AddSharp';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import HomeIcon from '@material-ui/icons/Home';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import {Box} from '@material-ui/core'
+import MeetingRoomSharpIcon from '@material-ui/icons/MeetingRoomSharp';
 
  const Sidebar = () => {
      const[myplaylists,setMyplaylists]=useState()
@@ -40,6 +46,7 @@ useEffect(() => {
  const removeItems=()=>{
      localStorage.removeItem('token')
      localStorage.removeItem('user_id')
+     localStorage.removeItem('song')
  }
 
 // const forHomeSection=()=>{
@@ -55,13 +62,13 @@ useEffect(() => {
          
         <div className="sidebar">
         <Router> <Route exact path="/"><Login/></Route></Router>
-        <ul>
-            <Typography variant='h4'><a href="/app" onClick={()=>{setActive("homesection")}}>Home</a></Typography>
-            <Typography variant='h4'><a href="/app" onClick={()=>{setActive("searchsection")}}>Search</a></Typography>
-            <Typography variant='h4'><a href="/app" onClick={()=>{setActive("librarysection")}}>Your Library</a></Typography>
-            <Typography variant='h4'><a href="/" onClick={()=>{removeItems()}}>Logout</a></Typography>
-            <h4>PLAYLISTS</h4>
-            <Typography variant='h4'> <a href="/app" onClick={()=>{setActive("createplaylistsection")}}>Create Playlist</a></Typography>
+        <ul> 
+        <a href="/app" onClick={()=>{setActive("homesection")}}> <Box  maxHeight style={{cursor:'pointer',marginBottom:'10px'}} display="flex"> <HomeIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Home</Typography></Box></a>
+        <a href="/app" onClick={()=>{setActive("searchsection")}}> <Box  style={{cursor:'pointer',marginBottom:'10px'}} display="flex"> <SearchSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Search</Typography></Box></a>
+        <a href="/app" onClick={()=>{setActive("librarysection")}}>  <Box  maxHeight style={{cursor:'pointer',marginBottom:'10px'}} display="flex"> <LibraryMusicSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Your Library</Typography></Box></a>
+            <a href="/" onClick={()=>{removeItems()}}><Box  style={{cursor:'maxHeightpointer',marginBottom:'10px'}} display="flex"> <MeetingRoomSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Logout</Typography></Box></a>
+            <h4 style={{margin:'10px'}}>PLAYLISTS</h4>
+           <a href="/app" onClick={()=>{setActive("createplaylistsection")}}>  <Box  style={{cursor:'pointer',marginBottom:'10px'}} display="flex"><AddSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} color='primary'> Create Playlist</Typography></Box></a>
             
             {!loading?(<div><h4 >MY-PLAYLISTS</h4>
            
@@ -75,7 +82,7 @@ useEffect(() => {
             })}</div>):null}
 
 
-            <Typography variant='h4' style={{margin:"30px 0"}}><a href="/app"  onClick={()=>{setActive("likedsection")}}>Liked Songs</a></Typography>
+            <a href="/app"  onClick={()=>{setActive("likedsection")}}><Box  style={{cursor:'pointer'}} display="flex"><FavoriteIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Liked Songs</Typography></Box></a>
         </ul>
         </div>
     )
@@ -84,13 +91,13 @@ useEffect(() => {
          
     <div className="sidebar">
     <ul>
-    <Typography variant='h4'><a href="/app" onClick={()=>{setActive("homesection")}}>Home</a></Typography>
-    <Typography variant='h4'><a href="/app" onClick={()=>{setActive("searchsection")}}>Search</a></Typography>
-    <Typography variant='h4'><a href="/app" onClick={()=>{setActive("errorsection")}}>Your Library</a></Typography>
-    <Typography variant='h4'><a href="/" >Login</a></Typography>
-        <h4>PLAYLISTS</h4>
-        <Typography variant='h4'><a href="/app"onClick={()=>{setActive("errorsection")}}>Create Playlist</a></Typography>
-        <Typography variant='h4'><a href="/app" onClick={()=>{setActive("errorsection")}}>Liked Songs</a></Typography>
+    <a href="/app" onClick={()=>{setActive("homesection")}}><Box  style={{cursor:'pointer'}} display="flex"> <HomeIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Home</Typography></Box></a>
+    <a href="/app" onClick={()=>{setActive("searchsection")}}><Box  style={{cursor:'pointer'}} display="flex"> <SearchSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Search</Typography></Box></a>
+    <a href="/app" onClick={()=>{setActive("errorsection")}}><Box  style={{cursor:'pointer'}} display="flex"> <LibraryMusicSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' color='primary' style={{marginTop:'2%'}} >Your Library</Typography></Box></a>
+    <a href="/" ><Box  style={{cursor:'pointer'}} display="flex"> <LockOpenIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Login</Typography></Box></a>
+        <h4 style={{margin:'10px'}}>PLAYLISTS</h4>
+        <a href="/app"onClick={()=>{setActive("errorsection")}}> <Box  style={{cursor:'pointer'}} display="flex"> <AddSharpIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Create Playlist</Typography></Box></a>
+        <a href="/app" onClick={()=>{setActive("errorsection")}}><Box  style={{cursor:'pointer'}} display="flex"><FavoriteIcon style={{color:'white',marginTop:'2%',marginLeft:'10%'}}/><Typography variant='subtitle' style={{marginTop:'2%'}} >Liked Songs</Typography></Box></a>
         
     </ul>
     </div>

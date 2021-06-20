@@ -16,6 +16,31 @@
     display:grid;
     grid-template-rows:45vh;
 }
+
+.middle-create-playlist-blur{
+    background: hsla(0, 2%, 11%, 1);
+
+    background: linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1c1b1b", endColorstr="#625e6d", GradientType=1 );
+    height:91vh;
+    width:100%;
+    overflow-y: scroll;
+    display:grid;
+    grid-template-rows:45vh;
+/* 
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px); */
+}
+
+
 .middle-create-playlist h1{
     margin:30px 30px;
     font-size:3.5rem;
@@ -67,7 +92,8 @@ margin-left:5%;
     display:block;
     position:absolute;
     cursor:pointer;
-    margin:200px 150px;
+    /* margin:200px 150px; */
+    margin:200px 50px;
     border-radius:10px;
     color:white;
 }
@@ -96,34 +122,37 @@ width:100%;
 #playlist-bar{
     margin:30px 40px;
     position:absolute;
-    width:23rem;
+    width:20rem;
     background-color: black;
     font-size:1.2rem;
     height:3rem;
-    margin:100px 100px;
+    margin:100px 50px;
     border-radius:10px;
  color:white;
 }
 .poppup{
-    height:72vh;
-    width:80vw;
+    height:52vh;
+    width:50vw;
     /* margin:auto; */
     background: hsla(0, 2%, 11%, 1);
 
-    background: linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    background: linear-gradient(270deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
     
-    background: -moz-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    background: -moz-linear-gradient(270deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
     
-    background: -webkit-linear-gradient(90deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
+    background: -webkit-linear-gradient(270deg, hsla(0, 2%, 11%, 1) 40%, hsla(256, 7%, 40%, 1) 100%);
     
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1c1b1b", endColorstr="#625e6d", GradientType=1 );
    opacity:1.2;
-   z-index:3;
+   z-index:999;
    position:absolute;
    top:18vh;
+   margin-left:15%;
    border-radius:10px;
    overflow-y: hidden;
 }
+
+
 
 .close-icon{
     fill:white;

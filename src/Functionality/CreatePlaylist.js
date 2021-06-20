@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {url} from '../Auth/stats';
-
+import AlbumOutlinedIcon from '@material-ui/icons/AlbumOutlined';
 import Sidebar from './Sidebar.js';
 // import Player from './Player/Player';
 import '../styles/Playlists/createplaylist.css';
@@ -26,6 +26,7 @@ const bannerbuttonStyle={
  const CreatePlaylist = () => {
   // const[myplaylists,setMyplaylists]=useState([])
     const [playlist,setPlaylist]=useState('')
+    const [backDrop,setbackDrop]=useState('middle-create-playlist')
     //  const [newplaylist,setNewplaylist]=useState()
     // const [loading,setLoading]=useState(true)
     const [popup,setPopup]=useState(false)
@@ -74,27 +75,41 @@ const bannerbuttonStyle={
   //  window.onload=getMyPlaylists();
   //  setPlaylist('');
  }
+
+const showThePoppup=()=>{
+  setPopup(!popup);
+  setbackDrop('middle-create-playlist-blur')
+}
+
+const closeThePoppup=()=>{
+  setPopup(false);
+  setbackDrop('middle-create-playlist')
+}
+
     return (
         <div className="CreatePlaylist">
   
-<div className="middle-create-playlist" >
+<div className={backDrop} >
 
   <Box display="flex" component='div' style={{height:'51vh'}}>      
   <Box component="div" className="banner-box-create-playlist" >
  <span><QueueIcon style={bannerbuttonStyle} className="liked-banner-box-icon"/></span>
   </Box>
   <Box mt={22} ml={1}>
-  <Typography  variant='subtitle2' color='primary'style={{marginLeft:'5px'}}>PLAYLIST</Typography>
-  <Typography variant='h1' color="primary" >New Playlist</Typography>
+  <Typography  variant='subtitle2' color='primary'style={{marginLeft:'5px'}}>CREATE PLAYLIST</Typography>
+  <Typography  color="primary" ><h1 style={{fontSize:'6rem',fontFamily:'Nunito Sans',fontWeight:'900',marginLeft:'-5px',marginTop:'-20px'}}>New Playlist</h1></Typography>
   </Box>
-  <Box mt={33} ><CreateIcon  onClick={()=>{setPopup(!popup)}} style={{color:'white',cursor:'pointer'}}/></Box>
+  <Box mt={33} ><CreateIcon  onClick={()=>{showThePoppup()}} style={{color:'white',cursor:'pointer'}}/></Box>
   </Box>
 
 
 
 
       {popup?(<div className="poppup">
-      <span onClick={()=>{setPopup(false)}}><CloseIcon className="close-icon"/></span>
+      <span onClick={()=>{closeThePoppup()}}><CloseIcon className="close-icon"/></span>
+      <Typography  color="primary" ><h1 style={{fontSize:'5rem',fontFamily:'Nunito Sans',fontWeight:'900',marginBottom:'-40px',marginLeft:'20px'}}>Create Playlist</h1></Typography>
+      <Box display="flex">
+     
 <div className="create-playlist-form"><form onSubmit={handleSubmit} autoComplete="off">
               <label htmlFor="playlist"></label>
               <input 
@@ -107,7 +122,17 @@ const bannerbuttonStyle={
               />
               <button type="submit" onClick={()=>creationCleanup()}>Submit</button>
               </form>
+           
+
               </div>
+              <Box component="div" className="banner-box-create-playlist" style={{width:'15vw',height:'25vh',marginLeft:'60%',marginTop:'8%'}} >
+              <span><AlbumOutlinedIcon style={{  width:'9rem',
+              height:'8rem',
+              margin:'15% 20%',
+              color:'white',
+              shadows:'10px 0 10px 0 black'}} className="liked-banner-box-icon"/></span>
+               </Box>
+              </Box>
     </div>):""
     
     

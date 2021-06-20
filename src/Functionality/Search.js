@@ -5,7 +5,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';import {Grid,Typography,Box} from '@material-ui/core'
 import FormControl from '@material-ui/core/FormControl';
-
+import img from "../styles/dog.png"
  const Search = () => {
 
      //useState has been used for taking the input from the form and also taking the input after the API has been called
@@ -130,7 +130,7 @@ import FormControl from '@material-ui/core/FormControl';
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit" ><SearchOutlinedIcon className="search-icon"/></button>
+              <button type="submit" ><SearchOutlinedIcon/></button>
               </form>
              
 
@@ -211,7 +211,14 @@ import FormControl from '@material-ui/core/FormControl';
 
            
            )  
-           ):(showerror?<h1 style={{color:"white"}}>No results found....</h1>:null )
+           ):(showerror?<Box display='flex' justifyContent='space-between'>
+           <Grid container>
+            <Grid container item lg={6}><Typography variant='h2' style={{color:"white",position:'absolute',top:'20%'}}>No results found....</Typography></Grid>
+            <Grid container item lg={6}><img src={img} alt='' style={{position:'absolute',left:'50%',width:'20%',height:'40%'}}/></Grid>
+             </Grid>
+           </Box> 
+           
+           :null )
            
            }
         

@@ -115,7 +115,7 @@ container  className="liked-section-header">
    <Grid container item xs={2} lg={2} md={2} sm={2}>
    <Typography 
    color='secondary'
-   style={{fontSize:'0.8rem'}}>TIME ADDED
+   style={{fontSize:'0.8rem'}}>
     </Typography>
     
     </Grid>

@@ -66,7 +66,7 @@ useEffect(() => {
 {!loading?(thisAlbum.data.map((song)=>{
 
         
-        return ( <Box  >
+        return ( <Box key={song.id}>
           <Grid container item lg={12} xs={12} style={{alignItems:'center'}} onClick={()=>{window.location.href=`/this/song/${id}`}} className="albumsong"> 
           <Grid contianer item style={{width:'40px'}}> </Grid>
           <Grid container item lg={5} xs={6} >

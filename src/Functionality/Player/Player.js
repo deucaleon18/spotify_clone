@@ -8,7 +8,7 @@ const  Player=()=>{
 
   
         const [percentage, setPercentage] = useState(0)
-        const [isPlaying, setIsPlaying] = useState(true)
+        const [isPlaying, setIsPlaying] = useState(false)
         const [duration, setDuration] = useState(0)
         const [currentTime, setCurrentTime] = useState(0)
         const song=localStorage.getItem('song')
@@ -31,16 +31,16 @@ const  Player=()=>{
           audio.volume = 1.0
        
 
-          if (isPlaying==false) {
-           setIsPlaying(true)
-            audio.play()
+          if (isPlaying==true) {
+           setIsPlaying(false)
+            audio.pause()
             // localStorage.removeItem('song')
           
           }
       
-          if (isPlaying==true) {
-            setIsPlaying(false)
-            audio.pause()
+          if (isPlaying==false) {
+            setIsPlaying(true)
+            audio.play()
             
           }
         }
@@ -68,7 +68,7 @@ const  Player=()=>{
        controls
        loop
        preload="auto"
-       autoplay="autoplay"
+ 
         ref={audioRef}
         onTimeUpdate={getCurrDuration}
         onLoadedData={(e) => {

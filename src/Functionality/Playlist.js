@@ -19,8 +19,8 @@ const[loading,setLoading]=useState(true)
   const fetchPlaylistsongs=async()=>{ 
     const results =await fetch(`${url}playlist/${id}`) 
      const data= await results.json()
-     console.log(data.tracks.data);
-     setDeezer(data.tracks.data);
+    //  console.log(data.tracks.data);
+    if(data!==undefined||data!==null) {setDeezer(data.tracks.data);}
      if(deezer!==undefined){console.log(deezer)}
      if(data!==undefined){setLoading(false);}
   }

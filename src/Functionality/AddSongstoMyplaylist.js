@@ -7,12 +7,13 @@ import Sidebar from './Sidebar.js';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import Bottombar from "../Functionality/Bottombar"
 import "../styles/Playlists/addsongstoplaylist.css"
-import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+
 import AddSharpIcon from '@material-ui/icons/AddSharp';
 import Player from './Player/Player';
-import {Grid,Typography,Box,Container} from '@material-ui/core'
-
-
+import {Grid,Typography,Box} from '@material-ui/core'
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 // Main function
 
 const AddingToPlaylist= () => {
@@ -43,7 +44,7 @@ const handleSubmit=async(e)=>{
 
 
 
-  if(data.data.length!=0){setShow(true)}}
+  if(data.data.length!==0){setShow(true)}}
  }
 
 
@@ -97,8 +98,7 @@ setSongLoading(true);
  
     <div>
  {songloading?(
-        null
-     
+  null
       ):
      ( <div>
       <div className="playlist-area">
@@ -107,41 +107,41 @@ setSongLoading(true);
 <Box>
 
 <button className="add-songs-playlist-button"style={{height:"40px" ,cursor:"pointer"}} onClick={()=>{showSearchSongsPopper()}}>Add songs to my playlist</button>
-<Grid container className="search-section-header">
-<Grid container item xs={1} style={{borderBottom:'0.5px white'}}></Grid>
+<Grid container >
+<Grid container item xs={1} ></Grid>
 
 {/* <div></div> */}
 <Grid container item xs={5}><Typography variant='subtitle1' color='secondary' style={{fontSize:'0.9rem'}}>TITLE</Typography></Grid>
-<Grid container item xs={3}><Typography variant='subtitle1' color='secondary' style={{fontSize:'0.9rem'}}>ALBUM</Typography></Grid>
+<Grid container item xs={4}><Typography variant='subtitle1' color='secondary' style={{fontSize:'0.9rem'}}>ALBUM</Typography></Grid>
 <Grid container item xs={2}><Typography variant='subtitle1' color='secondary'></Typography></Grid>
 
 </Grid>
 </Box>
 
       {myPlaylistSongs.map((song)=>{
-       const{id,album,time_add,title,artist}=song
-       return (<div className="display-exisiting-playlists"style={{display:"flex"}}>
+       const{id,album,title,artist}=song
+       return (<Box display='flex'>
         <span style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon className="delete-icon"/></span>
        <Grid container  key={id} className="playlistsong" onClick={()=>{window.location.href=`/this/song/${id}`}} style={{cursor:"pointer"}} >
 
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
        <button onClick={()=>{likeSong(id)}}>{liked?<AiTwotoneLike/>:<BiLike />}</button> */}
     
-       <Grid container items></Grid>
+       <Grid container items  style={{alignItems:'center'}} ></Grid>
        
-       <Grid container items style={{width:'40px'}}><img src={album.cover} alt="la"/></Grid>
+       <Grid container items style={{width:'40px',alignItems:'center'}}><img src={album.cover} alt="la"/></Grid>
        <Grid container item lg={5} xs={6} >
-       <Grid container items lg={12} xs={12}><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>
-       <Grid container items lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem'}}>{artist.name}</Typography></Grid>
+       <Grid container items lg={12} xs={12}><Typography color="primary"  style={{fontSize:'1rem',alignItems:'center'}}>{title}</Typography></Grid>
+       <Grid container items lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem',alignItems:'center'}}>{artist.name}</Typography></Grid>
        </Grid>
-       <Grid container items lg={6} xs={8}><Typography color="secondary"  style={{fontSize:'0.9rem'}}>{album.title}</Typography></Grid>
+       <Grid container items lg={6} xs={8}><Typography color="secondary"  style={{fontSize:'0.9rem',alignItems:'center'}}>{album.title}</Typography></Grid>
    
        <Grid container items></Grid>
        </Grid>
        
       
        
-       </div>)
+       </Box>)
       })
       }
       </div>
@@ -162,14 +162,14 @@ setSongLoading(true);
               value={searchvalue}
               onChange={(e)=>setSearchvalue(e.target.value)}
               />
-              <button type="submit"><SearchSharpIcon className="search-icon"/></button>
+              <button type="submit"><SearchOutlinedIcon/></button>
               </form>
          {loading?
         //  (<div className="search-area">
-         null
+        null
       // </div>)
       
-         :(<div><Grid container className="search-section-header">
+         :(<div><Grid container className="search-section-header" style={{marginTop:'2%'}}>
          <Grid container item xs={1} style={{borderBottom:'0.5px white'}}></Grid>
          
          {/* <div></div> */}
@@ -192,17 +192,18 @@ setSongLoading(true);
 
           return( 
           
-            <Box display='flex'>
-            
+            <Box display='flex'  style={{height:'8vh'}}>
+           
+
          <span style={{width:"50px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
               
-               <Grid container  lg={12} key={searcher.id} style={{alignItems:'center'}}onClick={()=>{window.location.href=`/this/song/${id}`}} style={{height:'9vh'}}> 
+               <Grid container  className="search-box" lg={12} key={searcher.id} style={{alignItems:'center'}}onClick={()=>{window.location.href=`/this/song/${id}`}} style={{height:'9vh'}}> 
                <Grid contianer item style={{width:'40px'}}><img src={artist.picture_small} alt="" style={{width:'100%'}}/> </Grid>
-               <Grid container item lg={4} >
+               <Grid container item lg={4} style={{alignItems:'center'}}>
                <Grid container item lg={12} ><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>
                <Grid container item lg={12} ><Typography color="secondary"  style={{fontSize:'0.9rem'}}> {artist.name}</Typography></Grid>
                </Grid>
-               <Grid contianer item lg={4}><Typography  style={{fontSize:'0.9rem'}} color='secondary'>{album.title}</Typography></Grid>
+               <Grid contianer item lg={4}><Typography  style={{fontSize:'0.9rem',alignItems:'center'}} color='secondary'>{album.title}</Typography></Grid>
                 {/* </a> */}
               
                 </Grid>
@@ -217,7 +218,7 @@ setSongLoading(true);
           
  }
         </div>
-      </div>  
+      </div>   
         </div>):null}
     </div>
     </div>
