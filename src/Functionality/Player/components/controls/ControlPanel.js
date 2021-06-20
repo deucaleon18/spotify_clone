@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './Button'
-import './control-panel.css'
+import '../../../../styles/controls/control-panel.css'
 
 function ControlPanel({ play, isPlaying, duration, currentTime }) {
   function secondsToHms(seconds) {

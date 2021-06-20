@@ -13,7 +13,7 @@ import Player from './Player/Player';
 import {Grid,Typography,Box} from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 // Main function
 
 const AddingToPlaylist= () => {
@@ -94,7 +94,7 @@ setSongLoading(true);
     return (
         <div className="addingSongsto">
      <div className="middle">
-        <Sidebar/>
+        <Sidebar />
  
     <div>
  {songloading?(
@@ -197,7 +197,7 @@ setSongLoading(true);
 
          <span style={{width:"50px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
               
-               <Grid container  className="search-box" lg={12} key={searcher.id} style={{alignItems:'center'}}onClick={()=>{window.location.href=`/this/song/${id}`}} style={{height:'9vh'}}> 
+               <Grid container  className="search-box" lg={12} key={searcher.id} style={{alignItems:'center',height:'9vh'}}onClick={()=>{window.location.href=`/this/song/${id}`}}> 
                <Grid contianer item style={{width:'40px'}}><img src={artist.picture_small} alt="" style={{width:'100%'}}/> </Grid>
                <Grid container item lg={4} style={{alignItems:'center'}}>
                <Grid container item lg={12} ><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>

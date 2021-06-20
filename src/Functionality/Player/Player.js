@@ -30,14 +30,14 @@ const  Player=()=>{
           const audio = audioRef.current
           audio.volume = 1.0
        
-
+          // eslint-disable-next-line
           if (isPlaying==true) {
            setIsPlaying(false)
             audio.pause()
             // localStorage.removeItem('song')
           
           }
-      
+                // eslint-disable-next-line
           if (isPlaying==false) {
             setIsPlaying(true)
             audio.play()

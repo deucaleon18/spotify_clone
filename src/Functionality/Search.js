@@ -4,7 +4,7 @@ import{ url} from '../Auth/stats.js';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';import {Grid,Typography,Box} from '@material-ui/core'
-import FormControl from '@material-ui/core/FormControl';
+// import FormControl from '@material-ui/core/FormControl';
 import img from "../styles/dog.png"
  const Search = () => {
 
@@ -19,7 +19,7 @@ import img from "../styles/dog.png"
 
 
     //not yet used this can be used to show the like button beside the songs..
-    const [liked,setLiked]=useState();
+    // const [liked,setLiked]=useState();
 
 
     const[show,setShow]=useState(false);
@@ -68,23 +68,23 @@ import img from "../styles/dog.png"
 
 
       // eslint-disable-next-line
-      const likeSong=(track_id)=>{
-        const user_id=localStorage.getItem('user_id')
-        const access_token=localStorage.getItem('token')
-       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
-       .then((res)=> res.json())
-        .then((res)=>console.log(res)) 
-        setLiked(true)
-      }
+      // const likeSong=(track_id)=>{
+      //   const user_id=localStorage.getItem('user_id')
+      //   const access_token=localStorage.getItem('token')
+      //  fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=post&track_id=${track_id}`)
+      //  .then((res)=> res.json())
+      //   .then((res)=>console.log(res)) 
+      //   setLiked(true)
+      // }
         // eslint-disable-next-line
- const unlikeSong=(track_id)=>{
-        const user_id=localStorage.getItem('user_id')
-        const access_token=localStorage.getItem('token')
-       fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=delete&track_id=${track_id}`)
-       .then((res)=> res.json())
-        .then((res)=>console.log(res)) 
-        setLiked(false)
-      }
+//  const unlikeSong=(track_id)=>{
+//         const user_id=localStorage.getItem('user_id')
+//         const access_token=localStorage.getItem('token')
+//        fetch (`${url}user/${user_id}/tracks&access_token=${access_token}&request_method=delete&track_id=${track_id}`)
+//        .then((res)=> res.json())
+//         .then((res)=>console.log(res)) 
+//         setLiked(false)
+//       }
 
       //  const unlikeSong=async(ID)=>{
       //    const user_id=localStorage.getItem('user_id')

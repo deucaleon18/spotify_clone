@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import './slider.css'
-import './thumb.css'
-
+import "../../../../styles/slider//slider.css"
+import "../../../../styles/slider/thumb.css"
 function Slider({ percentage = 0, onChange }) {
   const [position, setPosition] = useState(0)
   const [marginLeft, setMarginLeft] = useState(0)

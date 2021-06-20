@@ -1,5 +1,5 @@
 import React from 'react'
-import './button.css'
+import '../../../../styles/controls/button.css'
 
 function Button({ play, isPlaying }) {
   return (

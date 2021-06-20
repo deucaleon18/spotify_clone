@@ -3,8 +3,7 @@ import React,{ useEffect,useState } from 'react'
 
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
-import Container from "@material-ui/core/Container"
-import GridList from "@material-ui/core/GridList"
+
 import Box from '@material-ui/core/Box';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
@@ -14,7 +13,7 @@ import Loader from "react-loader-spinner";
 
 import {url} from "../Auth/stats"
 import Bottombar from "../Functionality/Bottombar"
-import RemoveSharpIcon from '@material-ui/icons/RemoveSharp';
+
 import "../styles/liked.css";
 
 
@@ -92,8 +91,8 @@ shadows:'10px 0 10px 0 black'
 <Grid 
 container  className="liked-section-header">
  
-  {/* <div></div> */}
-  // <Grid
+
+   <Grid
    container item xs={1} lg={1} md={1} sm={1} 
     ><Typography color='secondary'
     style={{fontSize:'0.8rem'}}>#</Typography>

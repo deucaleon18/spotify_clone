@@ -9,7 +9,7 @@ import "../styles/Playlists/playlistsongs.css";
 import Bottombar from "../Functionality/Bottombar"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import {Grid,Typography,Container,Button,Box} from '@material-ui/core'
+import {Grid,Typography,Box} from '@material-ui/core'
 
 const Playlist= () => {
 const{id}=useParams()
@@ -67,7 +67,7 @@ const[loading,setLoading]=useState(true)
 //     })
 //     sound.play()
 //  }
-         const{id,album,time_add,title,artist}=song
+         const{id,album,title,artist}=song
 
         return (<Box>
      <Grid container onClick={()=>{window.location.href=`/this/song/${id}`}} key={id} className="playlistsong">

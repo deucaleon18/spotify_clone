@@ -73,8 +73,8 @@ useEffect(() => {
             {!loading?(<div><h4 >MY-PLAYLISTS</h4>
            
             {myplaylists.data.map((playlist)=>{
-                  
-                  if(playlist.title!="Loved Tracks"){return ( <div className="sidebar-playlists">
+         
+                  if(               /* eslint eqeqeq: 0 */playlist.title!="Loved Tracks"){return ( <div className="sidebar-playlists">
                   <div className="my-playlist-songs-sidebar" style={{color:"white"}}><h4 onClick={()=>{window.location.href=`/user/playlist/${playlist.id}`}}>#{playlist.title}</h4></div>
                   </div>)}
                   

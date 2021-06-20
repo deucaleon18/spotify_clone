@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
 
-import Sidebar from './Sidebar.js';
+// import Sidebar from './Sidebar.js';
 import {url} from "../Auth/stats"
 
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import "../styles/Playlists/myplaylists.css"
 import Bottombar from "../Functionality/Bottombar"
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
  const playlistBoxStyles={
@@ -24,9 +24,6 @@ import Typography from '@material-ui/core/Typography'
     margin:'25% 30%',
     shadows:'10px 0 10px 0 black'
     }
-    
-
-
 
 
 const MyPlaylists = () => {

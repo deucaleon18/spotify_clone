@@ -7,15 +7,15 @@ import Login from './Auth/Login';
 import Playlist from './Functionality/Playlist';
 import Album from './Functionality/Album';
 // import User from "./Functionality/User"
-import CreatePlaylist from './Functionality/CreatePlaylist';
-import Liked from './Functionality/Liked';
-import MyLibrary from "./Functionality/MyLibrary";
+// import CreatePlaylist from './Functionality/CreatePlaylist';
+// import Liked from './Functionality/Liked';
+// import MyLibrary from "./Functionality/MyLibrary";
 import Artist from './Functionality/Artist';
 import Song from './Functionality/Song';
 
-import MyPlaylists from './Functionality/MyPlaylists';
+// import MyPlaylists from './Functionality/MyPlaylists';
 import AddingToPlaylist from './Functionality/AddSongstoMyplaylist';
-import Error from "./Functionality/Error"
+// import Error from "./Functionality/Error"
 
 const Routing=()=>{
     return(<Router>
