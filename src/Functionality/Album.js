@@ -9,7 +9,7 @@ import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../styles/album.css"
-import {Grid,Typography,Container,Button,Box} from '@material-ui/core'
+import {Grid,Typography,Box} from '@material-ui/core'
 // import {Howl} from "howler";
 
 import Bottombar from "../Functionality/Bottombar"
@@ -35,6 +35,7 @@ useEffect(() => {
    const results=await fetch(`${url}album/${id}`)
    const data=await results.json();
    console.log(data.tracks.data)
+   /* eslint eqeqeq: 0 */
    if(data!=undefined){
        setThisAlbum(data.tracks);
        setLoading(false)

@@ -7,7 +7,7 @@ import {url} from "../Auth/stats"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Bottombar from "../Functionality/Bottombar"
-import {Grid,Typography,Container,Button,Box} from '@material-ui/core'
+import {Grid,Typography} from '@material-ui/core'
 
  const Artist = () => {
     // const likeSong=async(track_id)=>{
@@ -71,7 +71,7 @@ useEffect(() => {
 //     })
 //     sound.play()
 //  }
-         const{id,album,artist,duration,title}=song
+         const{id,album,artist,title}=song
         return ( <Grid container onClick={()=>{window.location.href=`/this/song/${id}`}} key={id} className="playlistsong">
         {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>*/}
        <Grid container items style={{width:'20px'}}></Grid>

@@ -7,7 +7,7 @@ import Loader from "react-loader-spinner";
 import Typography from "@material-ui/core/Typography"
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import {Box,Grid,container,Button} from "@material-ui/core"
+import {Box} from "@material-ui/core"
 
 const styleForTitle={
 
@@ -25,6 +25,7 @@ const Mainplayer = () => {
     const[deezer_3,setDeezer_3]=useState()
     const[deezer_4,setDeezer_4]=useState()
     const[deezer_5,setDeezer_5]=useState()
+          // eslint-disable-next-line
     const[deezer_6,setDeezer_6]=useState()
     const[deezer_11,setDeezer_11]=useState()
     const[deezer_12,setDeezer_12]=useState()
@@ -47,7 +48,9 @@ const Mainplayer = () => {
     const[deezer_8,setDeezer_8]=useState()
 
     const[deezer_10,setDeezer_10]=useState()
+          // eslint-disable-next-line
     const[usercheck,setUsercheck]=useState(false)
+          // eslint-disable-next-line
     const[user,setUser]= useState()
     // const[recent,setRecent]=useState()
     // const[recommend,setRecommend]=useState()
@@ -308,7 +311,7 @@ deezer_10!==undefined&&deezer_11!==undefined&&deezer_12!==undefined&&deezer_13!=
 <{usercheck?<Typography variant='h3' >Welcome <span><Typography variant='h3'>{user.name}</Typography></span>!</Typography>:<Typography variant='h3'>welcome</Typography>}
 <div className="banner-overlay"></div>*/}
 <Carousel 
-style={{height:'45vh'}} 
+style={{height:'45vh',marginTop:'2%'}} 
 showStatus={false}
 stopOnHover
 thumbWidth={100}
@@ -316,20 +319,20 @@ showThumbs={false}
 showArrows={true}
 infiniteLoop
 autoPlay
-style={{marginTop:'2%'}}
+
 >
 <div style={{height:'54vh',margin:'auto',width:'95%',marginTop:'2%'}}>
-    <img src={deezer_8[5].picture_xl} style={{borderRadius:'20px',position:'absolute',top:'-150px',left:'30px',width:'95%',marginTop:'2%'}} />
+    <img src={deezer_8[5].picture_xl} alt='' style={{borderRadius:'20px',position:'absolute',top:'-150px',left:'30px',width:'95%',marginTop:'2%'}} />
     {/* <Button style={{height:'3rem',width:'10rem',backgroundColor:'#1DB954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
       
 </div> 
 <div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}} >
-    <img src={deezer_19[0].picture_xl}  style={{borderRadius:'20px',position:'absolute',top:'-200px',left:'30px',width:'95%',marginTop:'2%'}}/>
+    <img src={deezer_19[0].picture_xl} alt='' style={{borderRadius:'20px',position:'absolute',top:'-200px',left:'30px',width:'95%',marginTop:'2%'}}/>
     {/* <Button style={{height:'3rem',width:'10rem',backgroundColor:'#1D954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
 </div>
 
 <div style={{height:'50vh',margin:'auto',width:'95%',marginTop:'2%'}}>
-    <img src= {deezer_21[0].picture_xl} style={{borderRadius:'20px',position:'absolute',top:'-150px',left:'30px',width:'95%',marginTop:'2%'}} />
+    <img src= {deezer_21[0].picture_xl} alt='' style={{borderRadius:'20px',position:'absolute',top:'-150px',left:'30px',width:'95%',marginTop:'2%'}} />
    {/*  <Button
     
     // onClick={()=>{window.location.href=`playlist/${deezer_11.id}`}} 
@@ -359,8 +362,8 @@ style={{marginTop:'2%'}}
 
 <Typography 
 
-style={styleForTitle}
-variant='h3'
+
+variant='h2'
 color='primary'
 style={{marginTop:'4%',marginLeft:'4%'}}
 >
@@ -502,7 +505,7 @@ PLAYLISTS</Typography>
 <Typography 
 
 style={styleForTitle}
-variant='h3'
+variant='h2'
 color='primary'
 >THE GOOD OLD DAYS</Typography>
 <div className="arrange">
@@ -633,7 +636,7 @@ color='primary'
 
   
 style={styleForTitle}
-variant='h3'
+variant='h2'
 color='primary'>TOP TRACKS</Typography>
 <div className="arrange">
 {deezer_7.map((song)=>{
@@ -651,7 +654,7 @@ color='primary'>TOP TRACKS</Typography>
   
 <Typography 
 style={styleForTitle}
-variant='h3'
+variant='h2'
 color='primary'
 >TOP PLAYLISTS</Typography>
     <div className="arrange">
@@ -672,7 +675,7 @@ color='primary'
 <Typography 
 
 style={styleForTitle}
-variant='h3'
+variant='h2'
 color='primary'>TOP ARTISTS</Typography>
     <div className="arrange">
 {deezer_10.map((song)=>{

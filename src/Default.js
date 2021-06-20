@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import './styles/default.css';
 
 import Sidebar from './Functionality/Sidebar.js';
@@ -28,7 +28,9 @@ const Default=()=>{
     
     <div className="middle">
     <Sidebar />
-  {localStorage.getItem('active')=="homesection"&&<Mainplayer/>}
+
+    
+  {/* eslint eqeqeq: 0 */localStorage.getItem('active')=="homesection"&&<Mainplayer/>}
    {localStorage.getItem('active')=="searchsection"&&<Search/>}
    {localStorage.getItem('active')=="librarysection"&&<MyLibrary/>}
    {localStorage.getItem('active')=="likedsection"&&<Liked/>} 

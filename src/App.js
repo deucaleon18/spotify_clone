@@ -1,6 +1,6 @@
 import React from 'react'
 import Routing from './Routing';
-import { createMuiTheme,responsiveFontSizes,ThemeProvider } from '@material-ui/core';
+import { createMuiTheme,ThemeProvider } from '@material-ui/core';
 
 
 const theme = createMuiTheme({
@@ -32,10 +32,11 @@ height:'3rem'}
 },
 
 
-'&:hover': {
-    background: "#121212",
-    color:'white'
- },
+hover: {
+    "&:hover": {
+      fontColor: 'white'
+    },
+  },
   
 
 

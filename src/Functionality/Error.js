@@ -13,7 +13,7 @@ import {Typography} from "@material-ui/core"
   
 
     <div className="mainplayer">
-    <div style={{color:"white"}}><Typography variant='h3'>Sorry you need to <span> <a style={{color:"red"}}href="/">Login</a></span>to access this feature</Typography></div>
+    <div style={{color:"white"}}><Typography variant='h6'>Sorry you need to <span> <a style={{color:"red"}}href="/">Login</a></span>to access this feature</Typography></div>
     </div>
    
    

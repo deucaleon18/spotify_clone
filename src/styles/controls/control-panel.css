@@ -1,5 +1,5 @@
 .control-panel {
-  padding: 0px 0;
+  margin: 0.005vh 0;
   display: flex;
   
   justify-content: space-between;

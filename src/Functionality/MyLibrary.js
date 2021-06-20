@@ -1,22 +1,24 @@
 import React,{useState,useEffect} from 'react'
 
-import Sidebar from './Sidebar.js';
+// import Sidebar from './Sidebar.js';
 
 import "../styles/mylibrary.css";
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import Bottombar from "../Functionality/Bottombar"
-import Player from "./Player/Player"
+// import Player from "./Player/Player"
 import Typography from '@material-ui/core/Typography'
 
 
 
 
  const MyLibrary = () => {
+               // eslint-disable-next-line
      const [player,setPlayer]=useState(false)
      const[active,setActive]=useState()
+               // eslint-disable-next-line
     useEffect(() =>{ if(localStorage.getItem('song')!=null&&localStorage.getItem('song')!=undefined){setPlayer(true)}
  
-})
+},[])
 
    useEffect(() =>{  
     localStorage.removeItem('active')
@@ -42,9 +44,8 @@ import Typography from '@material-ui/core/Typography'
  </a>
 
 
-    
-      
-   {/* {player? <Player song={localStorage.getItem('song')}></Player>:<div className="empty-player">
+{/*     
+{player? <Player song={localStorage.getItem('song')}></Player>:<div className="empty-player">
    </div>} */}
    
     <Bottombar/>

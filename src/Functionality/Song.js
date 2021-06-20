@@ -20,7 +20,25 @@ const[liked,setLiked]=useState();
 
 
 useEffect(() => {
-       // eslint-disable-next-line
+   
+  if( /* eslint eqeqeq: 0 */localStorage.getItem('song')!=undefined||localStorage.getItem('song')!=null){localStorage.removeItem('song');
+}
+               const getThisSong=async()=>{
+                const results=await fetch(`${url}track/${id}`)
+                const data=await results.json();
+                console.log(data)
+                if(data!==undefined){
+                    setThisSong(data);
+                setLoading(false);
+                      // eslint-disable-next-line
+                
+             
+                localStorage.setItem("song",data.preview)
+                
+                }
+               
+             }
+             
        getThisSong();
 
        // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,10 +59,10 @@ useEffect(() => {
         }
   
       }
-    
+              // eslint-disable-next-line
       if(localStorage.getItem('user_id')!==undefined&&localStorage.getItem('token')!==undefined){fetchLikedsongs();}
      // eslint-disable-next-line react-hooks/exhaustive-deps
-   
+   // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
 
@@ -68,22 +86,7 @@ const likeSong=(track_id)=>{
     
   }
 
-    const getThisSong=async()=>{
-   const results=await fetch(`${url}track/${id}`)
-   const data=await results.json();
-   console.log(data)
-   if(data!==undefined){
-       setThisSong(data);
-   setLoading(false);
-   if(localStorage.getItem('song')!=undefined||localStorage.getItem('song')!=null){localStorage.removeItem('song');
-  }
-
-   localStorage.setItem("song",data.preview)
-   
-   }
-  
-}
-
+    
 
    if(localStorage.getItem('user_id')!==undefined) {return (
         <div>
