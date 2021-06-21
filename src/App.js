@@ -32,10 +32,11 @@ height:'3rem'}
 },
 
 
-'&:hover': {
-    background: "#121212",
-    color:'white'
- },
+hover: {
+    "&:hover": {
+      fontColor: 'white'
+    },
+  },
   
 
 

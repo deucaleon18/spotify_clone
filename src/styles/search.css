@@ -42,6 +42,10 @@
     margin:0 10px;
     font-size: 0.8rem;
 }
+
+.search-box:hover{
+    color:white;
+}
 .search-box img{
     width:100%;
     margin:30%;

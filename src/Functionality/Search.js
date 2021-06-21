@@ -200,9 +200,9 @@ import img from "../styles/dog.png"
                <Grid contianer item style={{width:'40px'}}><img src={artist.picture_small} alt=""/> </Grid>
                <Grid container item lg={5} xs={6} >
                <Grid container item lg={12} xs={12} ><Typography color="primary"  style={{fontSize:'1rem'}}>{title}</Typography></Grid>
-               <Grid container item lg={12} xs={12}><Typography color="secondary"  style={{fontSize:'0.9rem'}}> {artist.name}</Typography></Grid>
+               <Grid container item lg={12} xs={12} ><Typography color="secondary"  style={{fontSize:'0.9rem'}}> {artist.name}</Typography></Grid>
                </Grid>
-               <Grid contianer item lg={6} xs={8}><Typography  style={{fontSize:'0.9rem'}} color='secondary'>{album.title}</Typography></Grid>
+               <Grid contianer item lg={6} xs={8} ><Typography  style={{fontSize:'0.9rem'}} color='secondary'>{album.title}</Typography></Grid>
                 {/* </a> */}
                 </Grid>
                 </Box>

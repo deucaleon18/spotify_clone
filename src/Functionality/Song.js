@@ -20,7 +20,9 @@ const[liked,setLiked]=useState();
 
 
 useEffect(() => {
-             
+   
+  if( /* eslint eqeqeq: 0 */localStorage.getItem('song')!=undefined||localStorage.getItem('song')!=null){localStorage.removeItem('song');
+}
                const getThisSong=async()=>{
                 const results=await fetch(`${url}track/${id}`)
                 const data=await results.json();
@@ -29,8 +31,7 @@ useEffect(() => {
                     setThisSong(data);
                 setLoading(false);
                       // eslint-disable-next-line
-                if(localStorage.getItem('song')!=undefined||localStorage.getItem('song')!=null){localStorage.removeItem('song');
-               }
+                
              
                 localStorage.setItem("song",data.preview)
                 

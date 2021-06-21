@@ -121,7 +121,7 @@ setSongLoading(true);
       {myPlaylistSongs.map((song)=>{
        const{id,album,title,artist}=song
        return (<Box display='flex'>
-        <span style={{cursor:"pointer" }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon className="delete-icon"/></span>
+        <span style={{cursor:"pointer",color:'white' }} onClick={()=>{removeSongfromPlaylist(`${id}`)}}><DeleteSharpIcon className="delete-icon"/></span>
        <Grid container  key={id} className="playlistsong" onClick={()=>{window.location.href=`/this/song/${id}`}} style={{cursor:"pointer"}} >
 
        {/* <h3><button onClick={()=>{soundPlay(`${preview}`)}}>Play</button></h3>
@@ -195,7 +195,7 @@ setSongLoading(true);
             <Box display='flex'  style={{height:'8vh'}}>
            
 
-         <span style={{width:"50px"}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
+         <span style={{width:"50px",color:'white'}}onClick={()=>{addtoThisPlaylist(searcher.id)}}> <AddSharpIcon className="addicon"/></span>               
               
                <Grid container  className="search-box" lg={12} key={searcher.id} style={{alignItems:'center',height:'9vh'}}onClick={()=>{window.location.href=`/this/song/${id}`}}> 
                <Grid contianer item style={{width:'40px'}}><img src={artist.picture_small} alt="" style={{width:'100%'}}/> </Grid>
