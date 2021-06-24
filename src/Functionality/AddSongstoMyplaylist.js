@@ -60,9 +60,10 @@ const AddingToPlaylist = () => {
         setSongLoading(false);
       }
     };
-    window.onload = fetchPlaylistsongs();
+    fetchPlaylistsongs();
+    setMyplaylistSongs(myPlaylistSongs)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [myPlaylistSongs]);
 
   const removeSongfromPlaylist = async (ID) => {
     const access_token = localStorage.getItem("token");
@@ -71,7 +72,7 @@ const AddingToPlaylist = () => {
     );
     const data = await results.json();
     console.log(data);
-    window.location.reload();
+    // window.location.reload();
   };
 
   const showSearchSongsPopper = () => {
@@ -91,8 +92,8 @@ const AddingToPlaylist = () => {
       <div className="middle">
         <Sidebar />
 
-        <div>
-          {songloading ? null : (
+        <div className="playlist-area">
+          {songloading ? null  : (
             <div>
               <div className="playlist-area">
                 <div className="playlist-banner"></div>
@@ -374,7 +375,7 @@ const AddingToPlaylist = () => {
         </div>
       </div>
 
-      <Player></Player>
+      {/* <Player></Player> */}
       <Bottombar></Bottombar>
     </div>
   );

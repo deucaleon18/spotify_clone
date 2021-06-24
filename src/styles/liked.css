@@ -105,7 +105,9 @@ height:40px;
 
 @media screen and (max-width:500px){
 
-  
+   .liked-song{
+       height:15vh;
+   }
     .liked-area{
         background-color: rgb(14, 14, 14);
         display:grid;

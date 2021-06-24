@@ -176,12 +176,12 @@ const Song = () => {
               className="loader"
             />
           )}
-          {/* 
+          
         {!loading ? (
           <Player song={thisSong.preview} />
         ) : (
           <div className="empty-player"> </div>
-        )} */}
+        )}
         </div>
         <Bottombar />
       </div>

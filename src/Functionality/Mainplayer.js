@@ -319,16 +319,16 @@ const Mainplayer = () => {
               height: "54vh",
               margin: "auto",
               width: "95%",
-              marginTop: "2%",
+              marginTop: "5%",
             }}
           >
             <img
-              src={deezer_8[5].picture_xl}
+              src={deezer_3[0].picture_xl}
               alt=""
               style={{
                 borderRadius: "20px",
                 position: "absolute",
-                top: "-150px",
+                top: "-220px",
                 left: "30px",
                 width: "95%",
                 marginTop: "2%",
@@ -345,7 +345,7 @@ const Mainplayer = () => {
             }}
           >
             <img
-              src={deezer_19[0].picture_xl}
+              src={deezer_7[5].picture_xl}
               alt=""
               style={{
                 borderRadius: "20px",
@@ -368,7 +368,7 @@ const Mainplayer = () => {
             }}
           >
             <img
-              src={deezer_21[0].picture_xl}
+              src={deezer_7[2].cover_xl}
               alt=""
               style={{
                 borderRadius: "20px",

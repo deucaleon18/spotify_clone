@@ -39,8 +39,9 @@ const MyPlaylists = () => {
         setMyplaylists(data.data);
       }
     };
-    window.onload = getMyPlaylists();
-  }, []);
+     getMyPlaylists();
+     setMyplaylists(myplaylists);
+  }, [myplaylists]);
 
   if (myplaylists !== undefined) {
     return (
@@ -76,7 +77,7 @@ const MyPlaylists = () => {
                 );
                 const data = await results.json();
                 console.log(data);
-                window.location.reload();
+                // window.location.reload();
               };
 
               const { id } = song;

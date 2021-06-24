@@ -19,10 +19,8 @@ const Player = ({percent,time,duration}) => {
       audio.currentTime=currentTime;
      
     }
-    audio.currentTIme=0;
+    // audio.currentTime=0;
   },[])
-
-
 
 
 
@@ -30,6 +28,7 @@ const Player = ({percent,time,duration}) => {
   const onChange = (e) => {
     const audio = audioRef.current;
    audio.currentTime=currentTime;
+   setPercentage(percentage);
   };
 
   const play = () => {

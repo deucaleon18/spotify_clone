@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
 import Box from "@material-ui/core/Box";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-
 import { url } from "../Auth/stats";
 import Bottombar from "../Functionality/Bottombar";
-
 import "../styles/liked.css";
+
+
+
+
 
 const Liked = () => {
   const [loading, setLoading] = useState(true);
@@ -41,9 +40,10 @@ const Liked = () => {
   };
 
   useEffect(() => {
-    window.onload = fetchLikedsongs();
+   fetchLikedsongs();
+   setLiked(liked);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setLiked]);
+  }, [liked]);
 
   const unlikeSong = async (ID) => {
     const user_id = localStorage.getItem("user_id");
@@ -139,7 +139,7 @@ const Liked = () => {
                 <Grid container item style={{ width: "50px" }}>
                   <img src={album.cover_small} alt="" />
                 </Grid>
-                <Grid container item lg={6}>
+                <Grid container item lg={6} xs={6}>
                   <Grid container item lg={12} xs={12}>
                     <Typography color="primary" style={{ fontSize: "1rem" }}>
                       {title}
@@ -155,7 +155,7 @@ const Liked = () => {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Grid container item lg={2} xs={2}>
+                <Grid container item lg={2} xs={4}>
                   <Typography color="secondary" style={{ fontSize: "0.9rem" }}>
                     {album.title}
                   </Typography>
