@@ -38,7 +38,7 @@ const Default=()=>{
    {localStorage.getItem('active')=="errorsection"&&<ErrorSection/>}
    {localStorage.getItem('active')=="myplaylistssection"&&<Myplaylists/>}
     </div>
-<Player></Player>
+{/* <Player></Player> */}
     <Bottombar/>
   </div>
 );

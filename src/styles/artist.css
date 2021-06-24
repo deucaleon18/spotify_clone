@@ -30,7 +30,7 @@
 @media screen and (max-width:500px){
   .artist-banner{
       width: 54vh;
-          background-image:url('dj.jpg');
+          /* background-image:url('dj.jpg'); */
           background-position-y: 0px;
           background-position-x: -85px;
           background-repeat: no-repeat;
