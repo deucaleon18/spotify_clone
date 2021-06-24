@@ -1,7 +1,7 @@
 import React from 'react'
 import Routing from './Routing';
 import { createMuiTheme,ThemeProvider } from '@material-ui/core';
-
+import Player from "./Functionality/Player/Player"
 
 const theme = createMuiTheme({
 
@@ -48,8 +48,14 @@ hover: {
  const App = () => {
     return (
         <ThemeProvider theme={theme}>
-        <div>
+                  <Player duration={localStorage.getItem('duration')} 
+            percent={localStorage.getItem('percentage')} 
+            time={localStorage.getItem('currentTime')} 
+          
+            />
             <Routing/>
+        <div>
+       
         </div>
         </ThemeProvider>
     )
