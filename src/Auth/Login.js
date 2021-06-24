@@ -7,6 +7,7 @@ const Login = () => {
   if (localStorage.getItem("token") !== null) {
     return (
       <div className="login">
+        <div className="smooth-cover">
         <a
           href="/app"
           onClick={() => {
@@ -16,6 +17,7 @@ const Login = () => {
           {" "}
           HOME
         </a>
+      </div>
       </div>
     );
   }

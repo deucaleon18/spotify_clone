@@ -23,11 +23,25 @@
   }
 
 
-.banner{
-  
-    height:45%;
-  position:relative;
+
+
+  .carousel{
+    height:60vh;
+    margin-top:2%;
 }
+
+.carousel-images-container{
+    
+    /* height:60vh; */
+}
+ 
+.carousel-images-container img{
+
+    position:'absolute';
+    top:-15%;
+    left:2.5%;
+   
+} 
 
 
 /* .banner h1{
@@ -148,6 +162,20 @@ padding:10px;
 
    
 @media screen and (max-width:500px){
+    .carousel{
+        height:30vh;
+    }
+
+    .carousel-images-container{
+
+        height:35vh;
+    }
+
+    .carousel-images{
+        position:'absolute';
+        top:0px;
+        left:10px;
+    }
     .banner h1{
         margin:3% 0 0 7%;
        
@@ -162,7 +190,7 @@ padding:10px;
         width:33vh;
         height:36vh; 
 
-        box-shadow: 0 0 10px -2px #444444;
+   
     }
 
     .banner-overlay{
@@ -176,7 +204,7 @@ padding:10px;
     }
     .mainplayer{
      width:100%;
-    height:87vh;
+    height:90vh;
     background-color: #121212;
     display:grid;
     grid-template-rows:30vh 10vh ;

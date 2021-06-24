@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import "../../../../styles/controls/control-panel.css";
+import Typography from "@material-ui/core/Typography"
 
 function ControlPanel({ play, isPlaying, duration, currentTime }) {
   function secondsToHms(seconds) {
@@ -33,9 +34,9 @@ function ControlPanel({ play, isPlaying, duration, currentTime }) {
 
   return (
     <div className="control-panel">
-      <div className="timer">{secondsToHms(currentTime)}</div>
+      <div className="timer"><Typography variant='h6'>{secondsToHms(currentTime)}</Typography></div>
       <Button play={play} isPlaying={isPlaying} />
-      <div className="timer">{secondsToHms(duration)}</div>
+      <div className="timer"><Typography variant='h6'>{secondsToHms(duration)}</Typography></div>
     </div>
   );
 }

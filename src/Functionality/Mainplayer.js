@@ -304,8 +304,9 @@ const Mainplayer = () => {
         {/* <div className="banner-overlay"></div>
 <{usercheck?<Typography variant='h3' >Welcome <span><Typography variant='h3'>{user.name}</Typography></span>!</Typography>:<Typography variant='h3'>welcome</Typography>}
 <div className="banner-overlay"></div>*/}
-        <Carousel
-          style={{ height: "45vh", marginTop: "2%" }}
+        <Carousel 
+        className="carousel"
+          // style={{ height: "54vh"}}
           showStatus={false}
           stopOnHover
           thumbWidth={100}
@@ -315,68 +316,74 @@ const Mainplayer = () => {
           autoPlay
         >
           <div
+           className="carousel-images-container"
             style={{
-              height: "54vh",
+              height: "95%",
               margin: "auto",
               width: "95%",
-              marginTop: "2%",
+              position:'absolute',
+              top:'-15%',
+              left:'2.5%'
+              // marginTop: "2",
             }}
           >
             <img
-              src={deezer_8[5].picture_xl}
+             className="carousel-images"
+              src={deezer_3[0].picture_xl}
               alt=""
-              style={{
-                borderRadius: "20px",
-                position: "absolute",
-                top: "-150px",
-                left: "30px",
-                width: "95%",
-                marginTop: "2%",
-              }}
+             
             />
             {/* <Button style={{height:'3rem',width:'10rem',backgroundColor:'#1DB954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
           </div>
           <div
+           className="carousel-images-container"
             style={{
-              height: "50vh",
-              margin: "auto",
+             height:'95%',
               width: "95%",
-              marginTop: "2%",
+              margin: "auto",
+              position:'absolute',
+              top:'-15%',
+              left:'2.5%'
+             
             }}
           >
             <img
-              src={deezer_19[0].picture_xl}
+              
+              src={deezer_4[0].picture_xl}
               alt=""
               style={{
-                borderRadius: "20px",
-                position: "absolute",
-                top: "-200px",
-                left: "30px",
-                width: "95%",
-                marginTop: "2%",
+                // position: 'absolute',
+                // left: '2.5%',
+                // top: '-10%',
+                // width: "95%",
+                // width: "95%",
+                // marginTop: "2%",
               }}
             />
             {/* <Button style={{height:'3rem',width:'10rem',backgroundColor:'#1D954',position:'absolute',top:'50vh',right:'10vh',borderRadius:'25px',cursor:'pointer'}}><Typography variant="h6" color='primary' style={{fontWeight:'700'}}>PLAY NOW</Typography></Button>*/}
           </div>
 
           <div
+          className="carousel-images-container"
             style={{
-              height: "50vh",
+              height: "95%",
               margin: "auto",
               width: "95%",
-              marginTop: "2%",
+              left:'2.5%'
+              // marginTop: "2%",
             }}
           >
             <img
-              src={deezer_21[0].picture_xl}
+         
+              src={deezer_7[1].album.cover_xl}
               alt=""
               style={{
-                borderRadius: "20px",
-                position: "absolute",
-                top: "-150px",
-                left: "30px",
-                width: "95%",
-                marginTop: "2%",
+                // borderRadius: "20px",
+                // position: 'absolute',
+                // left: '2.5%',
+                // top: '-10%',
+                // width: "95%",
+                // marginTop: "2%",
               }}
             />
             {/*  <Button

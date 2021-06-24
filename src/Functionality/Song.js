@@ -23,14 +23,11 @@ const Song = () => {
     //   /* eslint eqeqeq: 0 */ localStorage.getItem("song") != undefined ||
     //   localStorage.getItem("song") != null
     // ) {
-    localStorage.removeItem("song");
-    // }
-    localStorage.removeItem("currentTime");
-    localStorage.setItem("currentTime", 0);
-
-    localStorage.removeItem("percentage");
-    localStorage.setItem("percentage", 0);
-
+      localStorage.removeItem("currentTime");
+      localStorage.setItem("currentTime", 0);
+  
+      localStorage.removeItem("percentage");
+      localStorage.setItem("percentage", 0);
     const getThisSong = async () => {
       const results = await fetch(`${url}track/${id}`);
       const data = await results.json();
@@ -39,7 +36,10 @@ const Song = () => {
         setThisSong(data);
         setLoading(false);
         // eslint-disable-next-line
-
+        // localStorage.removeItem("song");
+        // }
+        
+    
         localStorage.setItem("song", data.preview);
       }
     };
@@ -58,6 +58,7 @@ const Song = () => {
         console.log(data.data);
         // eslint-disable-next-line
         const checkforliked = data.data.find((song) => {
+            /* eslint eqeqeq: 0 */
           if (song.id == `${id}`) {
             return true;
           }
@@ -107,7 +108,7 @@ const Song = () => {
     return (
       <div>
         <div className="middle">
-          <Sidebar className="song-sidebar" />
+          <Sidebar  />
 
           {!loading ? (
             <div className="current-song">
@@ -136,7 +137,7 @@ const Song = () => {
               </div>
             </div>
           ) : (
-            <div className="this-song-middle">
+            <div className="current-song">
               <Loader
                 type="Puff"
                 color="#00BFFF"
@@ -157,7 +158,7 @@ const Song = () => {
     return (
       <div>
         <div className="middle">
-          <Sidebar className="song-sidebar" />
+          <Sidebar />
 
           {!loading ? (
           
@@ -176,12 +177,12 @@ const Song = () => {
               className="loader"
             />
           )}
-          {/* 
+          
         {!loading ? (
-          <Player song={thisSong.preview} />
+          <Player />
         ) : (
           <div className="empty-player"> </div>
-        )} */}
+        )}
         </div>
         <Bottombar />
       </div>

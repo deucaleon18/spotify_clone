@@ -12,6 +12,10 @@ const Bottombar = () => {
   const removeItems = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user_id");
+    localStorage.removeItem('song');
+    localStorage.removeItem('currentTime');
+    localStorage.removeItem('percentage');
+    localStorage.removeItem('duration');
   };
   const [active, setActive] = useState(localStorage.getItem("active"));
   useEffect(() => {

@@ -8,7 +8,7 @@
   border-radius: 50%;
   background-color: white;
   position: absolute;
-  margin: 0.6% 48%;
+  margin: 1.2% 48%;
   z-index: 3;
 
 }
@@ -43,6 +43,6 @@
     height: 20px; */
     /* flex-grow: 1; */
    position:absolute;
-   margin:0 45%;
+   margin:4% 45%;
   }
 }

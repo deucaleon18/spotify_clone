@@ -37,12 +37,15 @@
    
     grid-template-columns: 0.3fr 4fr 3fr 3fr ;
     grid-gap:20px;
-    color:white;
+    color:grey;
     align-items:center;
     margin:0 10px;
     font-size: 0.8rem;
+    
 }
-
+/* .sub-text{
+    color:"grey"
+} */
 .search-box:hover{
     color:white;
 }
@@ -61,7 +64,7 @@
 .search-box:hover{
     background-color: rgba(128, 128, 128, 0.301);
     cursor:pointer;
-    color:rgba(255, 0, 0, 0.678);
+    /* color:rgba(255, 0, 0, 0.678); */
     
 }
 
@@ -116,7 +119,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 0);
     }
     .search-box:hover{
         background-color:black;
-        color:rgba(255, 0, 0, 0.678);
+        /* color:rgba(255, 0, 0, 0.678); */
         cursor:pointer
     }
     .search-box{

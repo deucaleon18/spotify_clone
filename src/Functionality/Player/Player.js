@@ -1,6 +1,5 @@
 import React, { useState, useRef,useEffect} from "react";
 import "../../styles/player.css";
-
 import Slider from "./components/slider/Slider";
 import ControlPanel from "./components/controls/ControlPanel";
 
@@ -15,21 +14,26 @@ const Player = ({percent,time,duration}) => {
 
   useEffect(()=>{
     const audio = audioRef.current;
+     /* eslint eqeqeq: 0 */
+     
     if(currentTime!=undefined){
       audio.currentTime=currentTime;
-     
+
     }
-    audio.currentTIme=0;
+    // audio.currentTime=0;
+ 
+   // eslint-disable-next-line
   },[])
 
-
-
-
+// useEffect(()=>{
+//   setIsPlaying(playstate)
+// },[playstate])
 
 
   const onChange = (e) => {
     const audio = audioRef.current;
-   audio.currentTime=currentTime;
+   audio.currentTime=(audio.duration/100)*e.target.value;
+   setPercentage(e.target.value);
   };
 
   const play = () => {
@@ -41,6 +45,8 @@ const Player = ({percent,time,duration}) => {
       setIsPlaying(true);
       audio.currentTime=currentTime;
       audio.play();
+      // localStorage.removeItem('play');
+      // localStorage.setItem('play',false);
       // localStorage.removeItem('song')
     }
     // eslint-disable-next-line
@@ -48,6 +54,7 @@ const Player = ({percent,time,duration}) => {
       setIsPlaying(false);
       audio.currentTime=currentTime;
       audio.pause();
+
     }
   };
 
@@ -79,7 +86,7 @@ const Player = ({percent,time,duration}) => {
          currentTime={currentTime}
           controls
           loop
-          autoplay="true"
+          autoplay='true'
           percentage={percentage}
           preload="auto"
           ref={audioRef}
@@ -90,7 +97,7 @@ const Player = ({percent,time,duration}) => {
             localStorage.setItem('duration',e.currentTarget.duration.toFixed(2));
 
           }}
-          src={song}t={currentTime}
+          src={song}
         ></audio>
       </div>
     </div>

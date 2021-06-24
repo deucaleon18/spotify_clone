@@ -5,9 +5,26 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import { Grid, Typography, Box } from "@material-ui/core";
-// import FormControl from '@material-ui/core/FormControl';
+// import { makeStyles } from '@material-ui/core/styles';
 import img from "../styles/dog.png";
+
+// const useStyles=makeStyles({
+// subText:{
+//   '&:hover':{
+//     color:'white',
+//     cursor:'pointer'
+//   },
+//   color:"grey"
+// }
+
+// })
+
+
+// import FormControl from '@material-ui/core/FormControl';
+
 const Search = () => {
+
+// const classes=useStyles();
   //useState has been used for taking the input from the form and also taking the input after the API has been called
 const [searchvalue, setSearchvalue] = useState("");
 const [searchresult, setSearchresult] = useState("x");
@@ -135,7 +152,7 @@ const data = await results.json();
           ) : (
             <div>
               {show ? (
-                <Grid container style={{ height: "6vh", alignItems: "center" }}>
+                <Grid container style={{ height: "6vh", alignItems: "center" }} >
                   <Grid
                     container
                     item
@@ -144,10 +161,11 @@ const data = await results.json();
                   ></Grid>
 
                   {/* <div></div> */}
-                  <Grid container item xs={6}>
+                  <Grid container item xs={6} >
                     <Typography
                       style={{ fontSize: "0.8rem" }}
                       color="secondary"
+            
                     >
                       TITLE
                     </Typography>
@@ -156,6 +174,7 @@ const data = await results.json();
                     <Typography
                       style={{ fontSize: "0.8rem" }}
                       color="secondary"
+                     
                     >
                       ALBUM
                     </Typography>
@@ -233,8 +252,8 @@ const data = await results.json();
                         <Grid contianer item style={{ width: "40px" }}>
                           <img src={artist.picture_small} alt="" />{" "}
                         </Grid>
-                        <Grid container item lg={5} xs={4}>
-                          <Grid container item lg={12} xs={12}>
+                        <Grid container item lg={5} xs={4} >
+                          <Grid container item lg={12} xs={12} >
                             <Typography
                               color="primary"
                               style={{ fontSize: "1rem" }}
@@ -244,8 +263,10 @@ const data = await results.json();
                           </Grid>
                           <Grid container item lg={12} xs={12}>
                             <Typography
-                              color="secondary"
+                              // color="secondary"
                               style={{ fontSize: "0.9rem" }}
+                              
+                              // className={classes.subText}
                             >
                               {" "}
                               {artist.name}
@@ -255,7 +276,8 @@ const data = await results.json();
                         <Grid contianer item lg={6} xs={5}>
                           <Typography
                             style={{ fontSize: "0.9rem" }}
-                            color="secondary"
+                            // color="secondary"
+                          
                           >
                             {album.title}
                           </Typography>

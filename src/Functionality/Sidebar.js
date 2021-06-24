@@ -13,8 +13,21 @@ import HomeIcon from "@material-ui/icons/Home";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Box } from "@material-ui/core";
 import MeetingRoomSharpIcon from "@material-ui/icons/MeetingRoomSharp";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+const useStyles=makeStyles((theme)=>({
+
+sideHover:{"&:hover":{backgroundColor:'#2a2a2a'}}
+
+
+}))
+
 
 const Sidebar = () => {
+
+  const classes=useStyles()
+
   const [myplaylists, setMyplaylists] = useState();
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState(localStorage.getItem("active"));
@@ -88,6 +101,7 @@ const Sidebar = () => {
               maxHeight
               style={{ cursor: "pointer", marginBottom: "10px" }}
               display="flex"
+              className={classes.sideHover}
             >
               {" "}
               <HomeIcon
@@ -108,6 +122,7 @@ const Sidebar = () => {
             <Box
               style={{ cursor: "pointer", marginBottom: "10px" }}
               display="flex"
+              className={classes.sideHover}
             >
               {" "}
               <SearchSharpIcon
@@ -129,6 +144,7 @@ const Sidebar = () => {
               maxHeight
               style={{ cursor: "pointer", marginBottom: "10px" }}
               display="flex"
+              className={classes.sideHover}
             >
               {" "}
               <LibraryMusicSharpIcon
@@ -148,6 +164,7 @@ const Sidebar = () => {
             <Box
               style={{ cursor: "maxHeightpointer", marginBottom: "10px" }}
               display="flex"
+              className={classes.sideHover}
             >
               {" "}
               <MeetingRoomSharpIcon
@@ -169,6 +186,7 @@ const Sidebar = () => {
             <Box
               style={{ cursor: "pointer", marginBottom: "10px" }}
               display="flex"
+              className={classes.sideHover}
             >
               <AddSharpIcon
                 style={{ color: "white", marginTop: "2%", marginLeft: "10%" }}
@@ -219,9 +237,10 @@ const Sidebar = () => {
               setActive("likedsection");
             }}
           >
-            <Box style={{ cursor: "pointer" }} display="flex">
+            <Box style={{ cursor: "pointer" }} display="flex" className={classes.sideHover}>
               <FavoriteIcon
                 style={{ color: "white", marginTop: "2%", marginLeft: "10%" }}
+                
               />
               <Typography variant="subtitle" style={{ marginTop: "2%" }}>
                 Liked Songs

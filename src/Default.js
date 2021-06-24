@@ -3,7 +3,7 @@ import './styles/default.css';
 
 import Sidebar from './Functionality/Sidebar.js';
 import Mainplayer from "./Functionality/Mainplayer.js"
-import Player from './Functionality/Player/Player.js';
+// import Player from './Functionality/Player/Player.js';
 import MyLibrary from './Functionality/MyLibrary'
 import Search from "./Functionality/Search"
 import Liked from "./Functionality/Liked"
