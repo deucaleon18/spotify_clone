@@ -30,7 +30,7 @@ const MyLibrary = () => {
   return (
     <div className="library-middle">
       <div className="library-title">
-        <Typography variant="h1">My Library</Typography>
+        {/* <Typography variant="h1">My Library</Typography> */}
       </div>
 
       <a href="/app">

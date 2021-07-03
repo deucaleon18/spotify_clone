@@ -105,8 +105,37 @@ height:40px;
 
 @media screen and (max-width:500px){
 
-   .liked-song{
-       height:15vh;
+    .banner-box{height:55%;
+        width:40%;
+        background: hsla(268, 64%, 61%, 1);
+        
+        background: linear-gradient(110deg, hsla(268, 64%, 61%, 0.9) 41%, hsla(254, 80%, 53%, 1) 100%);
+        
+        background: -moz-linear-gradient(110deg, hsla(268, 64%, 61%, 0.9) 41%, hsla(254, 80%, 53%, 1) 100%);
+        
+        background: -webkit-linear-gradient(110deg, hsla(268, 64%, 61%, 0.9) 41%, hsla(254, 80%, 53%, 1) 100%);
+        
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#985DDC", endColorstr="#5326E7", GradientType=1 );
+        
+        margin-top:20%;
+        margin-left:5%;
+        
+        ;}
+
+
+        /* .banner-box-icon{
+
+            color:white;
+            height:40px;
+            width:60px;
+            margin-left:10%;
+            margin-top:20%;
+           
+           } */
+
+
+   .likedsong{
+       height:14vh;
    }
     .liked-area{
         background-color: rgb(14, 14, 14);

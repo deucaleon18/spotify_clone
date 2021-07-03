@@ -1,12 +1,23 @@
 import React from 'react'
 import Routing from './Routing';
-import { createMuiTheme,ThemeProvider } from '@material-ui/core';
+import { createMuiTheme,ThemeProvider,responsiveFontSizes} from '@material-ui/core';
 import Player from "./Functionality/Player/Player"
 
 
 
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
+
+
+// root:{
+
+//     [theme.breakpoints.up('md')]: {
+//         backgroundColor: 'red',
+//       },
+
+// },
+
+
 
  palette:{
      primary:{
@@ -35,19 +46,13 @@ height:'3rem'}
 },
 
 
-hover: {
-    "&:hover": {
-      fontColor: 'white'
-    },
-  },
-  
 
 
 
 
  })
 
-
+theme=responsiveFontSizes(theme);
  const App = () => {
     return (
         <ThemeProvider theme={theme}>

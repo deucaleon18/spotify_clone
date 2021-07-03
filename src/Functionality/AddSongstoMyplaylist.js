@@ -92,7 +92,7 @@ const AddingToPlaylist = () => {
       <div className="middle">
         <Sidebar />
 
-        <div className="playlist-area">
+        {/* <div className="playlist-area"> */}
           {songloading ? null  : (
             <div>
               <div className="playlist-area">
@@ -215,7 +215,7 @@ const AddingToPlaylist = () => {
           )}
 
           {searchpopup ? (
-            <div className="search">
+            // <div className="search">
               <div className="search-area">
                 <div className="bar">
                   <form onSubmit={handleSubmit} autoComplete="off">
@@ -370,10 +370,10 @@ const AddingToPlaylist = () => {
                   )}
                 </div>
               </div>
-            </div>
+            // </div>
           ) : null}
         </div>
-      </div>
+      {/* </div> */}
 
       {/* <Player></Player> */}
       <Bottombar></Bottombar>

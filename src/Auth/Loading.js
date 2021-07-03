@@ -47,7 +47,7 @@ const Loading = () => {
         color="white"
         height={100}
         width={100}
-        timeout={10000} //3 secs
+        timeout={20000} //3 secs
         className="loader"
       />
     </div>
