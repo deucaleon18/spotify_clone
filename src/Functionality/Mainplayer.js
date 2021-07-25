@@ -339,7 +339,6 @@ const Mainplayer = () => {
            className="carousel-images-container"
             style={{
              height:'95%',
-              margin: "auto",
               width: "95%",
               margin: "auto",
               position:'absolute',
@@ -350,7 +349,7 @@ const Mainplayer = () => {
           >
             <img
               
-              src={deezer_15[0].picture_xl}
+              src={deezer_4[0].picture_xl}
               alt=""
               style={{
                 // position: 'absolute',
@@ -376,7 +375,7 @@ const Mainplayer = () => {
           >
             <img
          
-              src={deezer_10[3].picture_xl}
+              src={deezer_7[1].album.cover_xl}
               alt=""
               style={{
                 // borderRadius: "20px",

@@ -10,6 +10,37 @@ import CloseIcon from "@material-ui/icons/Close";
 import { Typography, Box } from "@material-ui/core";
 import QueueIcon from "@material-ui/icons/Queue";
 import CreateIcon from "@material-ui/icons/Create";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles=makeStyles((theme)=>({
+headerText:{
+
+  [theme.breakpoints.up('lg')]:{fontSize: "6rem",
+  fontFamily: "Nunito Sans",
+  fontWeight: "900",
+  marginLeft: "-5px",
+  marginTop: "-20px",
+},
+ [theme.breakpoints.between('xs','md')]:{fontSize: "3rem",
+  fontFamily: "Nunito Sans",
+ fontWeight: "900",
+ marginBottom: "-40px",
+ marginLeft: "20px",}
+                 
+},
+
+header_1_Text:{
+  [theme.breakpoints.up('lg')]:{fontSize: "5rem",
+  fontFamily: "Nunito Sans",
+  fontWeight: "900",
+  marginLeft: "5px",
+  marginTop: "-10px",
+},
+
+}
+
+}))
+
 
 const bannerbuttonStyle = {
   width: "9rem",
@@ -20,6 +51,7 @@ const bannerbuttonStyle = {
 };
 
 const CreatePlaylist = () => {
+  const classes=useStyles()
   // const[myplaylists,setMyplaylists]=useState([])
   const [playlist, setPlaylist] = useState("");
   const [backDrop, setbackDrop] = useState("middle-create-playlist");
@@ -97,22 +129,14 @@ const CreatePlaylist = () => {
             <Typography
               variant="subtitle2"
               color="primary"
-              style={{ marginLeft: "5px" }}
+              // style={{ marginLeft: "5px" }}
             >
               CREATE PLAYLIST
             </Typography>
-            <Typography color="primary">
-              <h1
-                style={{
-                  fontSize: "6rem",
-                  fontFamily: "Nunito Sans",
-                  fontWeight: "900",
-                  marginLeft: "-5px",
-                  marginTop: "-20px",
-                }}
-              >
+            <Typography color="primary" className={classes.headerText}>
+              
                 New Playlist
-              </h1>
+           
             </Typography>
           </Box>
           <Box mt={33}>
@@ -135,14 +159,8 @@ const CreatePlaylist = () => {
               <CloseIcon className="close-icon" />
             </span>
             <Typography color="primary">
-              <h1
-                style={{
-                  fontSize: "5rem",
-                  fontFamily: "Nunito Sans",
-                  fontWeight: "900",
-                  marginBottom: "-40px",
-                  marginLeft: "20px",
-                }}
+              <h1 className={classes.header_1_Text}
+                
               >
                 Create Playlist
               </h1>

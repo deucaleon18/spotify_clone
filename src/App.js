@@ -7,30 +7,26 @@ import Player from "./Functionality/Player/Player"
 
 
 let theme = createMuiTheme({
+    // breakpoints: {
+    //     values: {
+    //      ipad:768,
+    //      ipad_pro:1024,
+    //      surface:540,
 
-
-// root:{
-
-//     [theme.breakpoints.up('md')]: {
-//         backgroundColor: 'red',
-//       },
-
-// },
-
-
+    //     },
+    //   },
 
  palette:{
      primary:{
          main:'#ffffff',
-    
      },
-
      secondary:{
          main:'rgb(170,170,170)',  
      },
  },
 
 typography:{
+    fontFamily:'Nunito Sans',
 h1:{fontFamily:'Nunito Sans',
 fontWeight:'900',
 },
@@ -45,21 +41,20 @@ fontWeight:'600',
 height:'3rem'}
 },
 
-
-
-
-
-
  })
 
 theme=responsiveFontSizes(theme);
  const App = () => {
+    //  useEffect(()=>{
+    //     localStorage.setItem('play',true);
+    //  },[])
     return (
+        
         <ThemeProvider theme={theme}>
                   <Player duration={localStorage.getItem('duration')} 
             percent={localStorage.getItem('percentage')} 
             time={localStorage.getItem('currentTime')} 
-          
+           playstate={localStorage.getItem('play')}
             />
             <Routing/>
         <div>

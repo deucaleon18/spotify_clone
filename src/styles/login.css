@@ -13,7 +13,14 @@
     z-index:999;
 } 
 
+.smooth-cover{
+    z-index:10;
+    position: relative;
+    width:100%;
+    height:100vh;
+    background-color: black;
 
+}
 .login a:hover{
 opacity:1.2;
 background-color: rgba(255, 0, 0, 0.4);

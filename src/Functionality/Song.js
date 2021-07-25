@@ -23,7 +23,11 @@ const Song = () => {
     //   /* eslint eqeqeq: 0 */ localStorage.getItem("song") != undefined ||
     //   localStorage.getItem("song") != null
     // ) {
+      localStorage.removeItem("currentTime");
+      localStorage.setItem("currentTime", 0);
   
+      localStorage.removeItem("percentage");
+      localStorage.setItem("percentage", 0);
     const getThisSong = async () => {
       const results = await fetch(`${url}track/${id}`);
       const data = await results.json();
@@ -32,13 +36,9 @@ const Song = () => {
         setThisSong(data);
         setLoading(false);
         // eslint-disable-next-line
-        localStorage.removeItem("song");
+        // localStorage.removeItem("song");
         // }
-        localStorage.removeItem("currentTime");
-        localStorage.setItem("currentTime", 0);
-    
-        localStorage.removeItem("percentage");
-        localStorage.setItem("percentage", 0);
+        
     
         localStorage.setItem("song", data.preview);
       }
@@ -58,6 +58,7 @@ const Song = () => {
         console.log(data.data);
         // eslint-disable-next-line
         const checkforliked = data.data.find((song) => {
+            /* eslint eqeqeq: 0 */
           if (song.id == `${id}`) {
             return true;
           }
@@ -178,7 +179,7 @@ const Song = () => {
           )}
           
         {!loading ? (
-          <Player song={thisSong.preview} />
+          <Player />
         ) : (
           <div className="empty-player"> </div>
         )}

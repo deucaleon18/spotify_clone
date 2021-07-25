@@ -1,12 +1,8 @@
 .liked-area{
     background: hsla(0, 8%, 5%, 1);
-
-    background: linear-gradient(90deg, #070606 40%, hsla(254, 52%, 47%, 1) 100%);
-    
+    background: linear-gradient(90deg, #070606 40%, hsla(254, 52%, 47%, 1) 100%); 
     background: -moz-linear-gradient(90deg, #070606 40%, hsla(254, 52%, 47%, 1) 100%);
-    
     background: -webkit-linear-gradient(90deg, #070606 40%, hsla(254, 52%, 47%, 1) 100%);
-    
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0E0C0C", endColorstr="#5639B5", GradientType=1 );
     display:grid;
     grid-template-rows:48vh 5vh;
@@ -14,7 +10,6 @@
     overflow-y: scroll;
     height:91vh;
     overflow-x: hidden;
-    
 }
 
 .banner-box{height:65%;
@@ -56,13 +51,14 @@ margin-left:5%;
 .likedsong{
     height:9vh;
     align-items:center;
+    color:grey
 }
 
 
 .likedsong:hover{
     background-color: rgba(128, 128, 128, 0.301);
     cursor:pointer;
-    
+    color:white
 }
 
 .likedsong img{
